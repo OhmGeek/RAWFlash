@@ -6,6 +6,7 @@ import Sidebar from 'grommet/components/Sidebar';
 import Box from 'grommet/components/Box';
 import Menu from 'grommet/components/Menu';
 import Button from 'grommet/components/Button';
+import Split from 'grommet/components/Split';
 import BrightnessIcon from 'react-icons/lib/fa/sun-o';
 import ContrastIcon from 'react-icons/lib/fa/adjust'
 import FilterIcon from 'react-icons/lib/fa/filter'
@@ -18,16 +19,20 @@ class App extends Component {
           <Header fixed={true} colorIndex='neutral-1' justify='center'>
             <Title >RAWFlash</Title>
           </Header>
-
-          <Sidebar colorIndex='neutral-3' size='xsmall'>
-            <Box flex='grow' justify='start'>
-              <Menu primary={true} fill={true} inline={true} responsive={false}>
-                <Button colorIndex='neutral-2' accent={true} icon={<BrightnessIcon/>} />
-                <Button colorIndex='neutral-2' accent={true} icon={<ContrastIcon/>} />
-                <Button colorIndex='neutral-2' accent={true} icon={<FilterIcon/>} />
-              </Menu>
+          <Split priority='right' flex='right' separator={true}>
+            <Sidebar colorIndex='neutral-3' size='xsmall'>
+              <Box flex='grow' justify='start'>
+                <Menu primary={true} fill={true} inline={true} responsive={false}>
+                  <Button colorIndex='neutral-2' accent={true} icon={<BrightnessIcon/>} />
+                  <Button colorIndex='neutral-2' accent={true} icon={<ContrastIcon/>} />
+                  <Button colorIndex='neutral-2' accent={true} icon={<FilterIcon/>} />
+                </Menu>
+              </Box>
+            </Sidebar>
+            <Box colorIndex='neutral-2' full='vertical'>
+              This is where the image goes
             </Box>
-          </Sidebar>
+          </Split>
        </GrommetApp>
     );
   }
