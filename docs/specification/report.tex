@@ -1,25 +1,21 @@
 \documentclass{article}
 
 \begin{document}
-    \paragraph{Project conducted by}
-        Ryan Collins
-    \paragraph{Project Supervisor}
-        Dr Tom Friedetzky
     \paragraph{Title}
-        Cloud-based RAW Photo Editor
+        Web-based RAW Photo Editor
     \paragraph{Project Type}
         Graphics and Visualisation
     \paragraph{Description}
-        RAW Photo Editing is typically done on one machine, which has fairly high
-        levels of performance. This project will investigate the potential of using
-        a thin-client approach of editing photos, with the complex image processing
-        tasks being done in the cloud.
+        RAW Photo Editing is typically done on fairly high level hardware, and can
+        require a large amount of configuration (for GPUs for example). The aim of
+        this project is to make RAW photo editing more accessible by bringing RAW editing
+        online, meaning lower end hardware can be used for editing, and less configuration
+        is needed.
     \paragraph{Preliminary Preparation}
         \begin{itemize}
-          \item An understanding of Image Processing techniques
+          \item Raw processing using libraw and dcraw
           \item An understanding of ReactJS and Redux
-          \item How can I represent image stage (i.e. store images in an intermediary format)
-          \item How can I convert to other files from said intermediary format
+          \item How can I store raw images and edit them appropriately?
         \end{itemize}
     \paragraph{Minimum Objectives}
         \begin{itemize}
@@ -38,12 +34,12 @@
         \end{itemize}
     \paragraph{Advanced Objectives}
         \begin{itemize}
-          \item Addressing scalability issues by using a message queue
-          \item
+          \item Addressing potential scalability issues
+          \item Implement basic previews using built in JPEG to improve QoS
         \end{itemize}
     \paragraph{References}
         \begin{itemize}
-          \item 
+          \item Pics.io blog (http://blog.pics.io)
+          \item JavaScript Image Processing Library (http://github.com/oliver-moran/jimp)
         \end{itemize}
-
 \end{document}
