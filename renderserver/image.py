@@ -2,6 +2,12 @@ import rawpy
 import imageio
 import numpy as np
 
+def get_raw_array(raw):
+    x = raw.sizes.raw_width
+    y = raw.sizes.raw_height
+
+    for i in range(0, y):
+        for j in range(0, x):
 
 class Image(object):
     def __init__(self, path):
@@ -14,7 +20,7 @@ class Image(object):
         self.camera_wb = None
         self.image_values = None
         with rawpy.imread(path) as raw:
-            self.image_values = raw.postprocess()
+            self.image_values = get_raw_array(raw)
             self.camera_wb = raw.camera_whitebalance
 
             self.raw_height = raw.sizes.raw_height
