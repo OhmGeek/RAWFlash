@@ -1,0 +1,15 @@
+/home/ryan/.local/share/umake/ide/clion/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/ryan/Documents/RAWFlash/RenderServer
+CMake Error at CMakeLists.txt:9 (find_package):
+  Could not find a package configuration file provided by "ECM" with any of
+  the following names:
+
+    ECMConfig.cmake
+    ecm-config.cmake
+
+  Add the installation prefix of "ECM" to CMAKE_PREFIX_PATH or set "ECM_DIR"
+  to a directory containing one of the above files.  If "ECM" provides a
+  separate development package or SDK, be sure it has been installed.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/ryan/Documents/RAWFlash/RenderServer/cmake-build-debug/CMakeFiles/CMakeOutput.log".
