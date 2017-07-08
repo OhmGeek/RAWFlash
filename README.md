@@ -6,20 +6,20 @@ A RAW Photo Editor, designed with UX in mind. Designed as part of my Individual 
 - All tools should be available within about 5 clicks
 - Quality isn't lost when consistently editing photos (as we use the RAW photo as a basis)
 
-## Dependencies:
-### Front-end:
-- ReactJS
-- Grommet UI
+## Notes:
+### Frontend
+This is the client side interface to the application. It's powered by ReactJS with React Router for routing.
 
-Eventually, we will use Redux to manage the stage (i.e. the current image, the current operations, etc).
-### Back-end:
-I'm not fully sure yet. I'm  thinking of using something like Java/Scala (or maybe Go) to process images, as they are pretty quick. Alternatively, Python/Flask. 
+Navigate to the folder ```frontend``` and then run:
 
-Basically, this will need to deal with basic application state changes, such as loading images, as well as processing images themselves.
+```bash
+npm install
+```
+Now, to start the webpack server, simply run:
 
-This ultimately needs to scale (as part of the project). Failing that, we can run it as an electron app (if we decide to make it easier for myself).
-
-We will need some way of storing the transformations, perhaps using a NoSQL database? Needs to persist if an application crashes for example.
+```bash
+npm start
+```
 
 ## Proposed Features:
 ### Photo Editing:
