@@ -1,6 +1,7 @@
 import React from 'react';
 import {Router, Route, Link, IndexRoute, hashHistory, browserHistory} from 'react-router';
 import {createHashHistory} from 'history'
+import Canvas from './Canvas.jsx'
 export default class App extends React.Component {
   render() {
     return (
@@ -14,5 +15,5 @@ export default class App extends React.Component {
   }
 }
 
-const Home = () => <h1>Hi 1</h1>
+const Home = () => <Canvas />
 const HomeTwo = () => <h1> Hasdfasdf </h1>
