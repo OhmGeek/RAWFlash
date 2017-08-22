@@ -2,10 +2,17 @@
   <div class="area">
     <nav class="main-menu">
       <ul>
-        <li class="section">
-          Operations
+        <li v-for="item in items">
+          <!-- If a nav icon, on click: move to the submenu -->
+          <a v-if="item.type=='nav'" href='#'>
+            <!-- Display Icon from font-awesome -->
+            <i v-bind:class="['fa', item.icon, 'fa-2x']">
+            </i>
+            <span class="nav-text">
+              {{ item.name }}
+            </span>
+          </a>
         </li>
-
 
         <li>
           <a href="#"><i class="fa fa-sun-o fa-2x"></i>
@@ -173,7 +180,8 @@ export default {
   name: 'sidebar',
   components: {
 
-  }
+  },
+  props: ['items']
 }
 
 </script>

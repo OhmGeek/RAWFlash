@@ -1,0 +1,33 @@
+[
+  {
+    'type': 'nav',
+    'name': 'Brightness',
+    'icon': 'fa-sun-o',
+    'children': [
+      {
+        'type': 'field',
+        'name': 'Brightness Level',
+        'fieldID': 'brightness-level-field',
+        'fieldType': 'number',
+        'fieldProperties': [{'min': 0}],
+        'event-id': 'set-brightness-level'
+      }
+    ]
+  },
+  {
+    'type': 'nav'
+    'name': 'Contrast',
+    'icon': 'fa-adjust',
+    'children': [
+
+    ]
+  },
+  {
+    'type': 'nav'
+    'name': 'Other Effects',
+    'icon': 'fa-magic',
+    'children': [
+      {}
+    ]
+  },
+]
