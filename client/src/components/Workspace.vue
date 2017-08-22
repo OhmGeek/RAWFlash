@@ -8,9 +8,18 @@
     margin-left: 60px;
     float: left;
 
-    background-color: black;
-    width: 100px;
-    height: 100px;
+    background-color: grey;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: calc(100% - 60px);
+    height: 98vh;
+    overflow:auto;
   }
 </style>
 <script>

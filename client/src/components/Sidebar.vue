@@ -21,7 +21,13 @@
             </span>
           </a>
         </li>
-
+        <li>
+          <a href="#"><i class="fa fa-magic fa-2x"></i>
+            <span class="nav-text">
+              Other Effects
+            </span>
+          </a>
+        </li>
       </ul>
     </nav>
 
