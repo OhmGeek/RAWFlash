@@ -1,16 +1,18 @@
 <template>
   <div id="app">
     <sidebar></sidebar>
+    <workspace></workspace>
   </div>
 </template>
 
 <script>
 import Sidebar from './components/Sidebar'
+import Workspace from './components/Workspace'
 
 export default {
   name: 'app',
   components: {
-    Sidebar
+    Sidebar, Workspace
   }
 }
 </script>

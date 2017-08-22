@@ -2,13 +2,26 @@
   <div class="area">
     <nav class="main-menu">
       <ul>
+        <li class="section">
+          Operations
+        </li>
+
+
         <li>
-          <a href="#"><i class="fa fa-home fa-2x"></i>
+          <a href="#"><i class="fa fa-sun-o fa-2x"></i>
             <span class="nav-text">
-              Home
+              Brightness
             </span>
           </a>
         </li>
+        <li>
+          <a href="#"><i class="fa fa-adjust fa-2x"></i>
+            <span class="nav-text">
+              Contrast
+            </span>
+          </a>
+        </li>
+
       </ul>
     </nav>
 
@@ -136,6 +149,9 @@
     background: #e2e2e2;
     width: 100%;
     height: 100%;
+  }
+  .section {
+    background-color: #141414;
   }
   @font-face {
     font-family: 'Titillium Web';
