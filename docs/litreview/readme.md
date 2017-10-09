@@ -5,3 +5,4 @@
 - Contrast adjustment
 - Haze removal algorithms
 - Case study of Lightroom/Darktable/RawTherapee
+- Mobile Applications and ideal designs
