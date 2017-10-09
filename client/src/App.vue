@@ -8,7 +8,7 @@
 <script>
 import Sidebar from './components/Sidebar'
 import Workspace from './components/Workspace'
-
+import SidebarButton from './components/SidebarButton'
 export default {
   name: 'app',
   components: {

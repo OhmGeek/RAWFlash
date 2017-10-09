@@ -2,61 +2,32 @@
   <div class="area">
     <nav class="main-menu">
       <ul>
-        <li v-for="item in items">
-          <!-- If a nav icon, on click: move to the submenu -->
-          <a v-if="item.type=='nav'" href='#'>
-            <!-- Display Icon from font-awesome -->
-            <i v-bind:class="['fa', item.icon, 'fa-2x']">
-            </i>
-            <span class="nav-text">
-              {{ item.name }}
-            </span>
-          </a>
-        </li>
-
-        <li>
-          <a href="#"><i class="fa fa-sun-o fa-2x"></i>
-            <span class="nav-text">
-              Brightness
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-adjust fa-2x"></i>
-            <span class="nav-text">
-              Contrast
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-magic fa-2x"></i>
-            <span class="nav-text">
-              Other Effects
-            </span>
-          </a>
-        </li>
+        <sbtitle text="example">
+        </sbtitle>
       </ul>
     </nav>
-
   </div>
 </template>
+
+<script>
+import SidebarButton from '../components/SidebarButton.vue'
+import SidebarTitle from '../components/SidebarTitle.vue'
+export default {
+  name: 'sidebar',
+  components: {
+    "sbbtn": SidebarButton,
+    "sbtitle": SidebarTitle
+  },
+  data() {
+    return {
+      example_text: "Brightness",
+    };
+  },
+  props: ['items']
+}
+
+</script>
 <style scoped>
-  @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-  @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
-  .fa-2x {
-    font-size: 2em;
-  }
-  .fa {
-    position: relative;
-    display: table-cell;
-    width: 60px;
-    height: 36px;
-    text-align: center;
-    vertical-align: middle;
-    font-size:20px;
-  }
-
-
   .main-menu:hover,nav.main-menu.expanded {
     width:250px;
     overflow:visible;
@@ -78,48 +49,7 @@
     z-index:1000;
   }
 
-  .main-menu>ul {
-    margin:7px 0;
-  }
 
-  .main-menu li {
-    position:relative;
-    display:block;
-    width:250px;
-  }
-
-  .main-menu li>a {
-    position:relative;
-    display:table;
-    border-collapse:collapse;
-    border-spacing:0;
-    color:#999;
-     font-family: arial;
-    font-size: 14px;
-    text-decoration:none;
-    -webkit-transform:translateZ(0) scale(1,1);
-    -webkit-transition:all .1s linear;
-    transition:all .1s linear;
-
-  }
-
-  .main-menu .nav-icon {
-    position:relative;
-    display:table-cell;
-    width:60px;
-    height:36px;
-    text-align:center;
-    vertical-align:middle;
-    font-size:18px;
-  }
-
-  .main-menu .nav-text {
-    position:relative;
-    display:table-cell;
-    vertical-align:middle;
-    width:190px;
-    font-family: 'Titillium Web', sans-serif;
-  }
 
   .main-menu>ul.logout {
     position:absolute;
@@ -174,14 +104,3 @@
   }
 
 </style>
-<script>
-
-export default {
-  name: 'sidebar',
-  components: {
-
-  },
-  props: ['items']
-}
-
-</script>
