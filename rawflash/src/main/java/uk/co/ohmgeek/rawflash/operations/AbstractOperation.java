@@ -1,5 +1,5 @@
 package uk.co.ohmgeek.rawflash.operations;
 
-public abstract class AbstractOperation {
-    abstract void process();
+public interface AbstractOperation {
+    void process();
 }
