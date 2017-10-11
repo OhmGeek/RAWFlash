@@ -37,6 +37,22 @@ public class DCRawProcessor implements AbstractProcessor {
             }
         });
 
+        commands.put("set-color-space", () -> {
+            String wbPreset = operations.get("set-color-space");
+            try {
+                if(wbPreset.equals("raw")) {
+                    dcraw.addOperation(new SetColorSpaceOperation(ColourSpaceEnum.RAW));
+                } else if (wbPreset.equals("adobergb")) {
+                    dcraw.addOperation(new SetColorSpaceOperation(ColourSpaceEnum.ADOBE_RGB));
+                }
+                else if (wbPreset.equals("srgb")) {
+                    dcraw.addOperation(new SetColorSpaceOperation(ColourSpaceEnum.SRGB));
+                }
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
         return commands;
     }
 
