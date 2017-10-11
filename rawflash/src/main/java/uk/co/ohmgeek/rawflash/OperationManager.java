@@ -24,6 +24,13 @@ public class OperationManager {
     }
 
     public void process() {
+
+        // eventually, load these processors at runtime, so we can automatically add modules, which in turn will
+        // add themselves to the manifest.
+
+        // for now though, we can add it fairly easily in code.
+
+
         // process the image, using the built in processors.
 
 //        if(operationMap != null) {
