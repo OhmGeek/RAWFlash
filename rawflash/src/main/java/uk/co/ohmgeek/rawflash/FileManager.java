@@ -27,20 +27,26 @@ public class FileManager {
         // create a URL representation
         URL webResource = new URL(uri);
 
+
         // extract the filename, for caching
         // todo find a way to avoid filename collisions
         String filename = webResource.getFile();
-
         filename = filename.substring(filename.lastIndexOf("/")+1); // get the file name itself and extension
 
-        System.out.println(filename);
+
         // open the web channel to start downloading the file
         ReadableByteChannel byteChannel = Channels.newChannel(webResource.openStream());
 
+        // check if the CACHE directory exists, if not, create it and all parent directories if they don't exist
+        File cachedDirectory = new File(CACHE_DIRECTORY);
+        if(!cachedDirectory.exists()) {
+            cachedDirectory.mkdirs();
+        }
+
+        // now create the cached file
         File cachedFile = new File(CACHE_DIRECTORY + filename);
 
-
-        // open a local file, in the cache directory, with the filename as before.
+        // open this cached file, as a stream, to be written to.
         FileOutputStream fileStream = new FileOutputStream(cachedFile);
 
         // write to the file.
