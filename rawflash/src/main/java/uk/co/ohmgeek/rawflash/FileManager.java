@@ -1,6 +1,13 @@
 package uk.co.ohmgeek.rawflash;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Path;
 
 public class FileManager {
 
@@ -10,26 +17,37 @@ public class FileManager {
     // Then, add a local_filename tag.
 
 
+    private final String CACHE_DIRECTORY = "/home/ryan/rawflash_cache/";
+
     public FileManager() {
 
     }
 
+    public void downloadFile(String uri) throws IOException {
+        // create a URL representation
+        URL webResource = new URL(uri);
 
-    public void addFilenameToInstructions(String jsonStr) {
-        // this adds the appropriate filename to instructions
-        String filename = getRAWFile();
+        // extract the filename, for caching
+        // todo find a way to avoid filename collisions
+        String filename = webResource.getFile();
 
-    }
+        filename = filename.substring(filename.lastIndexOf("/")+1); // get the file name itself and extension
 
-    private String getRAWFile() {
-        String f = "/path/to/file";
-        // check cache.
+        System.out.println(filename);
+        // open the web channel to start downloading the file
+        ReadableByteChannel byteChannel = Channels.newChannel(webResource.openStream());
 
-        // if not in cache
-        // download file from url, then store it in cache for use in the future.
+        File cachedFile = new File(CACHE_DIRECTORY + filename);
 
-        //return the file
-        return f;
+
+        // open a local file, in the cache directory, with the filename as before.
+        FileOutputStream fileStream = new FileOutputStream(cachedFile);
+
+        // write to the file.
+        fileStream.getChannel().transferFrom(byteChannel, 0, Long.MAX_VALUE);
+
+        // close the file
+        fileStream.close();
     }
 
 
