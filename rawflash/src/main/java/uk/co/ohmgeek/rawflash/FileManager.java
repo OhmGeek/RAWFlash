@@ -23,13 +23,15 @@ public class FileManager {
 
     }
 
-    public void downloadFile(String uri) throws IOException {
+    public File downloadFile(String uri) throws IOException {
+        //todo check cache for whether a file has already been downloaded
+        // todo find a way to prevent filename collisions by randomising the filename
+
         // create a URL representation
         URL webResource = new URL(uri);
 
-
         // extract the filename, for caching
-        // todo find a way to avoid filename collisions
+
         String filename = webResource.getFile();
         filename = filename.substring(filename.lastIndexOf("/")+1); // get the file name itself and extension
 
@@ -54,6 +56,9 @@ public class FileManager {
 
         // close the file
         fileStream.close();
+
+        // return a File object, for reference.
+        return cachedFile;
     }
 
 
