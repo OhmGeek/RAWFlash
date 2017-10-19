@@ -1,21 +1,35 @@
-# frontend
+# RAWFlash
+A cloud based RAW photo editor.
 
-> Image editor client side application
 
-## Build Setup
+## Structure:
+### docs folder
+This contains all documentation written as part of the project.
 
-``` bash
-# install dependencies
-npm install
+The project log contains regular updates regarding project updates. Supervisor meetings will also be summarised here.
 
-# serve with hot reload at localhost:8080
-npm run dev
+### client
+This contains the code for the web client, that interfaces with the server.
 
-# build for production with minification
-npm run build
+### rawflash
+This is the main body of the system, the render server.
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+## Dependencies
+- Java 8
+- Apache Maven (for dependency management within rawflash)
+- npm/nodejs (for the web client)
+- dcraw executable
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## FAQs
+### Why?
+Why not?
+
+The main reason is to introduce RAW image editing to people who don't have high-end systems.
+
+Furthermore, if we disregard the web client, we can utilize the server side within Content Management Systems to edit images in one swoop, without further preprocessing using a current off the shelf tool like Lightroom or RawTherapee.
+
+### dcraw? 
+
+dcraw is a vital dependency, because it's the only way we can physically view RAw image files without implementing our own RAW loader (and therefore condensing the project to focus on one particular format). Therefore, we can export to tiff, and then tiff can be read using Java, so we can do our advanced image processing using this.
+
+Other possible decisions included libraw, which was C++ based and had very little/no documentation, so making the project far harder than it needed to be. 
