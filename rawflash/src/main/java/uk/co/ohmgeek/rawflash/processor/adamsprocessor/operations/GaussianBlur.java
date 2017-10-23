@@ -36,23 +36,33 @@ public class GaussianBlur {
         return dest;
     }
 
-    private float[] getKernel(int kernel, float sigma) {
-        float[] kernelArray = new float[kernel*kernel];
-        for(int i=0; i < kernel; i++) {
-            for(int j=0; j<kernel; j++) {
+    private float[] getKernel(int kernel, double sigma) {
+        double sum = 0.0;
+        double[] kernelArray = new double[kernel*kernel];
+        float[] floatKernelArray = new float[kernel * kernel];
+        int counter = -1;
+        for(int i = 0; i < kernel; i++) {
+            for(int j = 0; j < kernel; j++) {
+                counter++;
                 // gaussian equation
                 // Source: Mark S. Nixon and Alberto S. Aguado. Feature Extraction and Image Processing. Academic Press, 2008, p. 88.
                 // Accessed 20th Oct 2017 at 5pm
-                float exponent = -(i*i + j*j)/(2 * (sigma*sigma));
-                float coefficient = (float) (1 / (2 * Math.PI * sigma * sigma));
+                double exponent = -(i*i + j*j)/(2 * (sigma*sigma));
+                double coefficient = (1 / (2 * Math.PI * sigma * sigma));
                 // calculate the entire equation.
-                kernelArray[i+j] = (float) (coefficient * Math.exp(exponent));
-                System.out.println("Value");
-                System.out.println(kernelArray[i+j]);
+                double value = (coefficient * Math.exp(exponent)) * 10000;
+                sum += value;
+                kernelArray[counter] = value;
             }
         }
 
+        // iterate through the kernel again, dividing by sum.
+        for(int i = 0; i < kernel * kernel; i++) {
+            floatKernelArray[i] = (float) (kernelArray[i] / sum);
+            System.out.println(floatKernelArray[i]);
+        }
 
-        return kernelArray;
+
+        return floatKernelArray;
     }
 }
