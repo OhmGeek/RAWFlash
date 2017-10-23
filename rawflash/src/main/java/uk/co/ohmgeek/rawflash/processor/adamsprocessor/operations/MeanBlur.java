@@ -11,7 +11,7 @@ import java.awt.image.Kernel;
 /**
  * Created by ryan on 18/10/17.
  */
-public class MeanBlur {
+public class MeanBlur implements IOperation {
     private int kernel;
 
     public MeanBlur(int kernel) {
