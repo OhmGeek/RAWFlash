@@ -50,16 +50,18 @@ public class ConvolutionOp implements BufferedImageOp {
                             locationY -= 1; //then subtract one, so 1 becomes 0.
                         }
 
-                        if(locationX > bufferedImage.getWidth()) {
+                        if(locationX >= bufferedImage.getWidth()) {
                             //take the overflow, and get the rightmost pixels.
                             locationX = locationX - bufferedImage.getWidth();
-                            locationX = bufferedImage.getWidth() - locationX + 1;
+                            System.out.println("over, on location X, by:");
+                            System.out.println(locationX);
+                            locationX = bufferedImage.getWidth() - locationX - 1;
                         }
 
-                        if(locationY > bufferedImage.getHeight()) {
+                        if(locationY >= bufferedImage.getHeight()) {
                             //take the overflow, and get the rightmost pixels.
                             locationY = locationY - bufferedImage.getHeight();
-                            locationY = bufferedImage.getHeight() - locationY + 1;
+                            locationY = bufferedImage.getHeight() - locationY - 1;
                         }
 
                         Color pixelColour = new Color(bufferedImage.getRGB(locationX, locationY));

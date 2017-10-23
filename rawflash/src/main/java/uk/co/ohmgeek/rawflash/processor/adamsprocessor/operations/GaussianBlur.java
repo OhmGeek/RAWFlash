@@ -1,5 +1,8 @@
 package uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations;
 
+import uk.co.ohmgeek.rawflash.processor.adamsprocessor.convolution.AccurateKernel;
+import uk.co.ohmgeek.rawflash.processor.adamsprocessor.convolution.ConvolutionOp;
+
 import java.awt.*;
 import java.awt.image.*;
 
@@ -8,9 +11,9 @@ import java.awt.image.*;
  */
 public class GaussianBlur {
     private int kernel;
-    private float sigma;
+    private double sigma;
 
-    public GaussianBlur(int kernel, float sigma) {
+    public GaussianBlur(int kernel, double sigma) {
         this.kernel = kernel;
         this.sigma = sigma;
     }
@@ -20,8 +23,8 @@ public class GaussianBlur {
         System.out.println(input);
         RenderingHints hints = new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_SPEED);
 
-        Kernel k = new Kernel(this.kernel, this.kernel, getKernel(this.kernel,1.0f));
-        ConvolveOp gaussianOperation = new ConvolveOp(
+        AccurateKernel k = new AccurateKernel(this.kernel, this.kernel, getKernel(this.kernel,this.sigma));
+        ConvolutionOp gaussianOperation = new ConvolutionOp(
                 k,
                 ConvolveOp.EDGE_ZERO_FILL,
                 hints
@@ -32,10 +35,9 @@ public class GaussianBlur {
         return dest;
     }
 
-    private float[] getKernel(int kernel, double sigma) {
+    private double[] getKernel(int kernel, double sigma) {
         double sum = 0.0;
         double[] kernelArray = new double[kernel*kernel];
-        float[] floatKernelArray = new float[kernel * kernel];
         int counter = -1;
         for(int i = 0; i < kernel; i++) {
             for(int j = 0; j < kernel; j++) {
@@ -54,11 +56,11 @@ public class GaussianBlur {
 
         // iterate through the kernel again, dividing by sum.
         for(int i = 0; i < kernel * kernel; i++) {
-            floatKernelArray[i] = (float) (kernelArray[i] / sum);
-            System.out.println(floatKernelArray[i]);
+            kernelArray[i] = (kernelArray[i] / sum);
+            System.out.println(kernelArray[i]);
         }
 
 
-        return floatKernelArray;
+        return kernelArray;
     }
 }

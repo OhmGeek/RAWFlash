@@ -29,7 +29,7 @@ public class Main {
         FileInputStream fs = new FileInputStream(file);
         BufferedImage img = ImageIO.read(fs);
         // gaussian blur
-        MeanBlur g = new MeanBlur(3);
+        GaussianBlur g = new GaussianBlur(3, 2);
 
         // output
         BufferedImage output = g.process(img);
