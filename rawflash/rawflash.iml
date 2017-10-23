@@ -14,5 +14,12 @@
     <orderEntry type="library" name="Maven: com.github.OhmGeek:JDCraw:v1.0.1" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.2" level="project" />
+    <orderEntry type="library" name="Maven: com.twelvemonkeys.imageio:imageio-jpeg:3.3.2" level="project" />
+    <orderEntry type="library" name="Maven: com.twelvemonkeys.imageio:imageio-core:3.3.2" level="project" />
+    <orderEntry type="library" name="Maven: com.twelvemonkeys.imageio:imageio-metadata:3.3.2" level="project" />
+    <orderEntry type="library" name="Maven: com.twelvemonkeys.common:common-lang:3.3.2" level="project" />
+    <orderEntry type="library" name="Maven: com.twelvemonkeys.common:common-io:3.3.2" level="project" />
+    <orderEntry type="library" name="Maven: com.twelvemonkeys.common:common-image:3.3.2" level="project" />
+    <orderEntry type="library" name="Maven: com.twelvemonkeys.imageio:imageio-tiff:3.3.2" level="project" />
   </component>
 </module>

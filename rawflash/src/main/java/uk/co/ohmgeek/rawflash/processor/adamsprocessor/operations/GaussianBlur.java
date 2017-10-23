@@ -26,7 +26,7 @@ public class GaussianBlur {
         Kernel k = new Kernel(this.kernel, this.kernel, getKernel(this.kernel,1.0f));
         ConvolveOp gaussianOperation = new ConvolveOp(
                 k,
-                ConvolveOp.EDGE_NO_OP,
+                ConvolveOp.EDGE_ZERO_FILL,
                 hints
         );
 

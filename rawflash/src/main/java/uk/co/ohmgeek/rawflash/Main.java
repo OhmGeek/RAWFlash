@@ -5,8 +5,8 @@ import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.GaussianBlur;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
 
 public class Main {
     public static void main(String args[]) throws NegativeBrightnessException, IOException {
@@ -22,12 +22,17 @@ public class Main {
 //        OperationManager opManager = new OperationManager();
 //        opManager.loadInstructions(stringToProcess);
 //        opManager.process();
+        // file io
 
+        File file = new File("/home/ryan/Pictures/RAW_NIKON_D7100.tiff");
+        FileInputStream fs = new FileInputStream(file);
+        BufferedImage img = ImageIO.read(fs);
+        // gaussian blur
+        GaussianBlur g = new GaussianBlur(3, 2);
 
-        BufferedImage img = ImageIO.read(new File("/home/ryan/Downloads/sample.tif"));
-        GaussianBlur g = new GaussianBlur(5, 2);
+        // output
         BufferedImage output = g.process(img);
         File outputfile = new File("/home/ryan/abcd.tiff");
-        ImageIO.write(output, "tiff", outputfile);
+        ImageIO.write(output, "TIFF", outputfile);
     }
 }
