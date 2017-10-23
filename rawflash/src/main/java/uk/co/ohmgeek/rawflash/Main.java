@@ -1,6 +1,7 @@
 package uk.co.ohmgeek.rawflash;
 import uk.co.ohmgeek.jdcraw.operations.NegativeBrightnessException;
 import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.GaussianBlur;
+import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.MeanBlur;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -28,7 +29,7 @@ public class Main {
         FileInputStream fs = new FileInputStream(file);
         BufferedImage img = ImageIO.read(fs);
         // gaussian blur
-        GaussianBlur g = new GaussianBlur(3, 2);
+        MeanBlur g = new MeanBlur(3);
 
         // output
         BufferedImage output = g.process(img);

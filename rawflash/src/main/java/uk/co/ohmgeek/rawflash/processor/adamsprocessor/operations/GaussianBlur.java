@@ -1,10 +1,7 @@
 package uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
-import java.awt.image.ConvolveOp;
-import java.awt.image.Kernel;
+import java.awt.image.*;
 
 /**
  * Created by ryan on 18/10/17.
@@ -29,7 +26,6 @@ public class GaussianBlur {
                 ConvolveOp.EDGE_ZERO_FILL,
                 hints
         );
-
         // return the resulting image.
         // null here will generate a destination image
         BufferedImage dest =  gaussianOperation.filter(input, null);
