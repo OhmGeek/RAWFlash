@@ -10,7 +10,6 @@
 \usepackage{comment}
 \begin{document}
 \maketitle
-
 \section{Description}
   This project is about creating a RAW image editor for the Cloud. While technologies
   exist to process normal images (e.g. ImageMagick), there aren't really many Cloud-based
@@ -141,6 +140,26 @@
 
     A more applied test would be useful to determine how well our system performs with different algorithms. This might require a written tool to
     bypass the web frontend, access the render server directly, issuing commands using web socket.
-\section{Gantt Chart}
+\section{Timings}
+  \begin{center}
+	  \begin{tabular}{| c | c |}
+		  \hline
+		  Task & Expected Duration of Task \\
+		  \hline
+		  Load DNG raw files by upload & 1 week\\
+		  Noise Reduction Methods & 2 weeks\\
+		  Web Interface & 4 weeks\\
+		  Non-destructive image adjustment & 1 day\\
+		  Modern UX & 2 weeks\\
+		  Spot healing & 4 weeks\\
+		  Haze removal & 4 weeks\\
+		  Cropping, rotating and exporting to other formats & 1 week\\
+		  Addressing scalability issues & 2 weeks\\
+		  Implement basic previews using built in JPEG & 6 weeks\\
+		  \hline
+	\end{tabular}
+  \end{center}
+
+
 % The conclusion.
 \end{document}
