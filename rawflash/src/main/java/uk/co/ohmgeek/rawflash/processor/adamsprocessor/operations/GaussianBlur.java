@@ -9,7 +9,7 @@ import java.awt.image.*;
 /**
  * Created by ryan on 18/10/17.
  */
-public class GaussianBlur {
+public class GaussianBlur implements IOperation {
     private int kernel;
     private double sigma;
 

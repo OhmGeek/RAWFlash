@@ -5,13 +5,14 @@ import uk.co.ohmgeek.rawflash.processor.adamsprocessor.convolution.ConvolutionOp
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
 import java.awt.image.ConvolveOp;
 import java.awt.image.Kernel;
 
 /**
  * Created by ryan on 18/10/17.
  */
-public class MeanBlur {
+public class MeanBlur implements IOperation {
     private int kernel;
 
     public MeanBlur(int kernel) {
