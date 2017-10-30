@@ -6,6 +6,9 @@ import java.awt.image.BufferedImage;
 public class HistogramEQ implements IOperation{
     @Override
     public BufferedImage process(BufferedImage image) {
+
+        // source https://bostjan-cigan.com/java-image-histogram-equalization/
+        // Accessed Monday 30th Oct 2017.
         int[] redHistogram = new int[256];
         int[] greenHistogram = new int[256];
         int[] blueHistogram = new int[256];
