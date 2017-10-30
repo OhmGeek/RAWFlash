@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.image.*;
 
 /**
+ *
  * Created by ryan on 18/10/17.
  */
 public class GaussianBlur implements IOperation {
