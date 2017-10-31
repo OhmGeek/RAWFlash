@@ -11,11 +11,11 @@ import java.awt.image.*;
  * Created by ryan on 18/10/17.
  */
 public class GaussianBlur implements IOperation {
-    private int kernel;
+    private int kernelSize;
     private double sigma;
 
-    public GaussianBlur(int kernel, double sigma) {
-        this.kernel = kernel;
+    public GaussianBlur(int kernelSize, double sigma) {
+        this.kernelSize = kernelSize;
         this.sigma = sigma;
     }
 
@@ -24,7 +24,7 @@ public class GaussianBlur implements IOperation {
         System.out.println(input);
         RenderingHints hints = new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_SPEED);
 
-        AccurateKernel k = new AccurateKernel(this.kernel, this.kernel, getKernel(this.kernel,this.sigma));
+        AccurateKernel k = new AccurateKernel(this.kernelSize, this.kernelSize, getKernel(this.kernelSize,this.sigma));
         ConvolutionOp gaussianOperation = new ConvolutionOp(
                 k,
                 ConvolveOp.EDGE_ZERO_FILL,
@@ -55,7 +55,7 @@ public class GaussianBlur implements IOperation {
             }
         }
 
-        // iterate through the kernel again, dividing by sum.
+        // iterate through the kernelSize again, dividing by sum.
         for(int i = 0; i < kernel * kernel; i++) {
             kernelArray[i] = (kernelArray[i] / sum);
             System.out.println(kernelArray[i]);
