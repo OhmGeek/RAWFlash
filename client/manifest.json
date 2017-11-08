@@ -1,0 +1,7 @@
+{
+  "name": "client",
+  "short_name": "client",
+  "description": "Client side to the RAW Flash application",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -1,21 +1,33 @@
-# client
+# \<client\>
 
-> Web image editor - client side
+Client side to the RAW Flash application
 
-## Build Setup
+## Install the Polymer-CLI
 
-``` bash
-# install dependencies
-npm install
+First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Viewing Your Application
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+```
+$ polymer serve
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Building Your Application
+
+```
+$ polymer build
+```
+
+This will create builds of your application in the `build/` directory, optimized to be served in production. You can then serve the built versions by giving `polymer serve` a folder to serve from:
+
+```
+$ polymer serve build/default
+```
+
+## Running Tests
+
+```
+$ polymer test
+```
+
+Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
