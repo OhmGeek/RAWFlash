@@ -4,7 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import uk.co.ohmgeek.rawflash.processor.AbstractProcessor;
 import uk.co.ohmgeek.rawflash.processor.DCRawProcessor;
+import uk.co.ohmgeek.rawflash.processor.adamsprocessor.AdamsProcessor;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class OperationManager {
@@ -23,7 +25,7 @@ public class OperationManager {
         );
     }
 
-    public void process() {
+    public String process() {
 
         // eventually, load these processors at runtime, so we can automatically add modules, which in turn will
         // add themselves to the manifest.
@@ -39,8 +41,19 @@ public class OperationManager {
 
         // first, deal with the RAW processing with DCRaw.
         AbstractProcessor rawProcessor = new DCRawProcessor();
-        rawProcessor.process(this.operationMap);
+        try {
+            rawProcessor.process(this.operationMap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        AbstractProcessor adamsProcessor = new AdamsProcessor();
+        try {
+            adamsProcessor.process(this.operationMap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        return this.operationMap.get("processed_file_path");
     }
 }

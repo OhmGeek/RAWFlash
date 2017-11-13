@@ -86,6 +86,10 @@ public class DCRawProcessor implements AbstractProcessor {
         try {
             String outputFilename = dcraw.process();
             System.out.println("Output Filename" + outputFilename);
+            // now add the output filename back to the JSON.
+
+            operations.put("processed_file_path", outputFilename);
+
         } catch (IOException e) {
             System.out.println("Error in processing RAW image");
             e.printStackTrace();
