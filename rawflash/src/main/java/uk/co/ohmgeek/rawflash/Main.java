@@ -28,31 +28,29 @@ public class Main {
         // socketio server
         Configuration config = new Configuration();
         config.setHostname("localhost");
-        config.setPort(3000);
+        config.setPort(8000);
         SocketIOServer server = new SocketIOServer(config);
 
 
-        server.addEventListener("process-image", ProcessCommandObject.class, new DataListener<ProcessCommandObject>() {
-            @Override
-            public void onData(SocketIOClient client, ProcessCommandObject command, AckRequest ackRequest) throws Exception {
-                // load json instructions into processor, and run
-                OperationManager opManager = new OperationManager();
-                opManager.loadInstructions(command.getJSONInput());
-                String output = opManager.process();
-                String dataToSend = getBase64Image(output);
-                // now we read the file again, converting it to Base64.
-                // send back
+        server.addEventListener("process-image", ProcessCommandObject.class, (client, command, ackRequest) -> {
+            // load json instructions into processor, and run
+            OperationManager opManager = new OperationManager();
+            opManager.loadInstructions(command.getJSONInput());
+            String output = opManager.process();
+            System.out.println(output);
+            String dataToSend = getBase64Image(output);
+            // now we read the file again, converting it to Base64.
+            // send back
 
-                client.sendEvent("image-processed", dataToSend);
+            client.sendEvent("image-processed", dataToSend);
 
-            }
         });
 
         server.start();
 
 
 
-//        // json string to process for testing purposes
+////        // json string to process for testing purposes
 //        String stringToProcess = "{" +
 //                    "'filename': '/home/ryan/Pictures/RAW_NIKON_D7100.NEF', " +
 //                    "'exposure': 2," +
