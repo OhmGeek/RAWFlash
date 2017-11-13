@@ -1,6 +1,6 @@
 var APP_SETTINGS = {
   server_host: "localhost",
-  server_port: 8000,
+  server_port: 8090,
   image_settings: {
     "filename": "/home/ryan/Pictures/RAW_NIKON_D7100.NEF",
     "exposure": 1000,
@@ -39,6 +39,7 @@ socket.on('image-processed', function(data) {
   image.src = data;
   image.onload = () => {
     console.log("drawing image");
+    ctx.clearRect(0,0,image.width, image.height); //clear canvas
     canvas.width = image.width;
     canvas.height = image.height;
     ctx.drawImage(image, 0, 0);
@@ -48,10 +49,19 @@ socket.on('image-processed', function(data) {
 
 function setSettingsAndUpdate() {
   APP_SETTINGS['image_settings']['exposure'] = document.getElementById('exposure').value;
+
+
   if(document.querySelector('#histogram-eq').checked) {
     APP_SETTINGS['image_settings']['histogram-equalization'] = true;
   } else {
     delete APP_SETTINGS['image_settings']['histogram-equalization'];
   }
+
+  if(document.querySelector('#mean-blur-on').checked) {
+    APP_SETTINGS['image_settings']['mean-blur'] = document.getElementById('mean-blur-kernel').value;
+  } else {
+    delete APP_SETTINGS['image_settings']['mean-blur'];
+  }
+
   updateImageSettings();
 }
