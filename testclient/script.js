@@ -1,6 +1,6 @@
 var APP_SETTINGS = {
   server_host: "localhost",
-  server_port: 3000,
+  server_port: 8000,
   image_settings: {
     "filename": "/home/ryan/Pictures/RAW_NIKON_D7100.NEF",
     "exposure": 1000,
@@ -8,8 +8,9 @@ var APP_SETTINGS = {
 };
 
 
-var socket = io("127.0.0.1:3000");
-var ctx = document.getElementById('myCanvas').getContext("2d");
+var socket = io(APP_SETTINGS['server_host'] + ":" + APP_SETTINGS['server_port']);
+var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext("2d");
 document.onload = function() {
   updateImageSettings();
 
@@ -38,7 +39,19 @@ socket.on('image-processed', function(data) {
   image.src = data;
   image.onload = () => {
     console.log("drawing image");
+    canvas.width = image.width;
+    canvas.height = image.height;
     ctx.drawImage(image, 0, 0);
   };
 
 });
+
+function setSettingsAndUpdate() {
+  APP_SETTINGS['image_settings']['exposure'] = document.getElementById('exposure').value;
+  if(document.querySelector('#histogram-eq').checked) {
+    APP_SETTINGS['image_settings']['histogram-equalization'] = true;
+  } else {
+    delete APP_SETTINGS['image_settings']['histogram-equalization'];
+  }
+  updateImageSettings();
+}
