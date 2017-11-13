@@ -1,14 +1,14 @@
 package uk.co.ohmgeek.rawflash.processor.adamsprocessor;
 
-import uk.co.ohmgeek.jdcraw.DCRawManager;
-import uk.co.ohmgeek.jdcraw.operations.*;
-import uk.co.ohmgeek.rawflash.FileManager;
+import com.google.gson.Gson;
 import uk.co.ohmgeek.rawflash.processor.AbstractProcessor;
-import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.GaussianBlur;
 import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.HistogramEQ;
+import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.MeanBlur;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class AdamsProcessor implements AbstractProcessor {
@@ -22,6 +22,13 @@ public class AdamsProcessor implements AbstractProcessor {
             image = equalizationOperation.process(image);
         });
 
+        commands.put("mean-blur", () -> {
+            System.out.printf(operations.get("mean-blur"));
+            int kernelSize = 3;
+            MeanBlur blur = new MeanBlur(kernelSize);
+            image = blur.process(image);
+        });
+
         return commands;
     }
     @Override
@@ -30,7 +37,12 @@ public class AdamsProcessor implements AbstractProcessor {
         // the image is then modified, and then processed again.
 
         //todo consider order - we might want to do things in a certain order in the future.
-        File fileToProcess = new File(operations.get("dcraw_output_filename"));
+        File fileToProcess = new File(operations.get("processed_file_path"));
+        try {
+            this.image = ImageIO.read(fileToProcess);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         HashMap<String, Runnable> commands = getListOfCommands(operations);
 
         try {
@@ -45,7 +57,11 @@ public class AdamsProcessor implements AbstractProcessor {
             // generic error
             ex.printStackTrace();
         } finally {
-            ImageIO.write(image, )
+            try {
+                ImageIO.write(image, "TIFF", fileToProcess);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 
