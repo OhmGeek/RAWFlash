@@ -28,7 +28,7 @@ public class Main {
         // socketio server
         Configuration config = new Configuration();
         config.setHostname("localhost");
-        config.setPort(8000);
+        config.setPort(8090);
         SocketIOServer server = new SocketIOServer(config);
 
 
