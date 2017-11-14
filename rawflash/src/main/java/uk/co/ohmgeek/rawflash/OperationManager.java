@@ -2,6 +2,7 @@ package uk.co.ohmgeek.rawflash;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.apache.commons.io.FileDeleteStrategy;
 import uk.co.ohmgeek.rawflash.processor.AbstractProcessor;
 import uk.co.ohmgeek.rawflash.processor.DCRawProcessor;
 import uk.co.ohmgeek.rawflash.processor.adamsprocessor.AdamsProcessor;
@@ -53,7 +54,6 @@ public class OperationManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return this.operationMap.get("processed_file_path");
     }
 }

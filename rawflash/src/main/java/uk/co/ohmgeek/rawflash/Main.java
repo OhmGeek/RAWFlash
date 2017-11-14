@@ -1,6 +1,7 @@
 package uk.co.ohmgeek.rawflash;
 import com.corundumstudio.socketio.*;
 import com.corundumstudio.socketio.listener.DataListener;
+import org.apache.commons.io.FileDeleteStrategy;
 import uk.co.ohmgeek.jdcraw.operations.NegativeBrightnessException;
 
 import javax.imageio.ImageIO;
@@ -26,9 +27,11 @@ public class Main {
     }
     public static void main(String args[]) throws NegativeBrightnessException, IOException {
         // socketio server
+        ImageIO.setUseCache(false); //first, turn off caching as this has undesired effects later on.
+
         Configuration config = new Configuration();
         config.setHostname("localhost");
-        config.setPort(8090);
+        config.setPort(3000);
         SocketIOServer server = new SocketIOServer(config);
 
 
@@ -43,14 +46,13 @@ public class Main {
             // send back
 
             client.sendEvent("image-processed", dataToSend);
-
         });
 
         server.start();
 
 
 
-////        // json string to process for testing purposes
+//        // json string to process for testing purposes
 //        String stringToProcess = "{" +
 //                    "'filename': '/home/ryan/Pictures/RAW_NIKON_D7100.NEF', " +
 //                    "'exposure': 2," +
