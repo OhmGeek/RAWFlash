@@ -70,7 +70,7 @@ public class ConvolutionOp implements BufferedImageOp {
                         red += pixelColour.getRed() * kernelData[kernelArrayIndex];
                         green += pixelColour.getGreen() * kernelData[kernelArrayIndex];
                         blue += pixelColour.getBlue() * kernelData[kernelArrayIndex];
-                        alpha += pixelColour.getAlpha() * kernelData[kernelArrayIndex];
+                        alpha += pixelColour.getAlpha();
 
                         kernelArrayIndex++;
                     }
