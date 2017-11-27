@@ -54,6 +54,6 @@ public class OperationManager {
             e.printStackTrace();
         }
 
-        return this.operationMap.get("processed_file_path");
+        return this.operationMap.get("adams_processed_path");
     }
 }

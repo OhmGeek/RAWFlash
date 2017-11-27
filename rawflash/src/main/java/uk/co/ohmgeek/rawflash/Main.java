@@ -28,7 +28,7 @@ public class Main {
         // socketio server
         Configuration config = new Configuration();
         config.setHostname("localhost");
-        config.setPort(8090);
+        config.setPort(8000);
         SocketIOServer server = new SocketIOServer(config);
 
 
@@ -43,6 +43,8 @@ public class Main {
             // send back
 
             client.sendEvent("image-processed", dataToSend);
+            System.gc();
+
 
         });
 

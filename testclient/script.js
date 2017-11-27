@@ -1,6 +1,6 @@
 var APP_SETTINGS = {
   server_host: "localhost",
-  server_port: 8090,
+  server_port: 8000,
   image_settings: {
     "filename": "/home/ryan/Pictures/RAW_NIKON_D7100.NEF",
     "exposure": 1000,

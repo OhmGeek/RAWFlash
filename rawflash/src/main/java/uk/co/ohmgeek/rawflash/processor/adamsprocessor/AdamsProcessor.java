@@ -58,7 +58,10 @@ public class AdamsProcessor implements AbstractProcessor {
             ex.printStackTrace();
         } finally {
             try {
-                ImageIO.write(image, "TIFF", fileToProcess);
+                String newFilename = operations.get("processed_file_path").replaceFirst(".tiff", "_adams.tiff");
+                File fileToSave = new File(newFilename);
+                ImageIO.write(image, "TIFF", fileToSave);
+                operations.put("adams_processed_path", newFilename);
             } catch (IOException e) {
                 e.printStackTrace();
             }
