@@ -4,7 +4,11 @@ var APP_SETTINGS = {
   image_settings: {
     "filename": "/home/ryan/Pictures/RAW_NIKON_D7100.NEF",
     "exposure": 1000,
-  }
+  },
+  magnification: {
+    "multiplication_factor": 1
+  },
+  current_image: null,
 };
 
 
@@ -37,15 +41,20 @@ function updateImageSettings() {
 socket.on('image-processed', function(data) {
   let image = new Image();
   image.src = data;
-  image.onload = () => {
-    console.log("drawing image");
-    ctx.clearRect(0,0,image.width, image.height); //clear canvas
-    canvas.width = image.width;
-    canvas.height = image.height;
-    ctx.drawImage(image, 0, 0);
-  };
-
+  APP_SETTINGS['current_image'] = image;
+  image.onload = renderImage;
 });
+
+function renderImage() {
+  console.log("drawing image")
+  let image = APP_SETTINGS['current_image'];
+  ctx.clearRect(0,0,image.width, image.height); //clear canvas
+  canvas.width = image.width;
+  canvas.height = image.height;
+  ctx.drawImage(image, 0, 0);
+  let scale_factor = APP_SETTINGS['magnification']['multiplication_factor'];
+  ctx.scale(scale_factor, scale_factor);
+}
 
 function setSettingsAndUpdate() {
   APP_SETTINGS['image_settings']['exposure'] = document.getElementById('exposure').value;
@@ -65,3 +74,10 @@ function setSettingsAndUpdate() {
 
   updateImageSettings();
 }
+
+
+// deal with the scroll wheel for zooming
+document.getElementById('myCanvas').addEventListener('wheel', function() {
+  APP_SETTINGS['magnification']['multiplication_factor'] *= 0.5;
+  renderImage();
+});
