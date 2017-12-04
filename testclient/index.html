@@ -1,42 +1,53 @@
 <html>
   <head>
-      <style>
-        .canvas-container {
-          background-color: black;
-          overflow-x: scroll;
-          overflow-y: scroll;
-          width: 100%;
-          height: 90%;
-          margin-top: 20px;
-        }
-      </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="w3.css" />
+    <style>
+    .canvas-container {
+              background-color: black;
+              overflow-x: scroll;
+              overflow-y: scroll;
+              width: 100%;
+              height: 84.5%;
+              margin-top: 20px;
+    }
+    </style>
   </head>
   <body>
-    <div class="controls">
-      <label for="#exposure">Exposure</label>
-      <input type="number" id="exposure"></input>
-
-      <label for="#histogram-eq">Histogram Equalization</label>
-      <input type="checkbox" id="histogram-eq"></input>
-
-
-      <label for="#mean-blur-on">Mean Blur on?</label>
-      <input type="checkbox" id="mean-blur-on"></input>
-
-      <label for="#mean-blur-kernel">Mean Blur Kernel</label>
-      <input type="number" id="mean-blur-kernel"></input>
-
-
-      <button onclick="setSettingsAndUpdate()">Update</button>
+    <div class="w3-container w3-deep-purple w3-center">
+      <h1>RAWFlash</h1>
     </div>
 
-      <div class="canvas-container">
-          <canvas id="myCanvas">
-          </canvas>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+
+
+    </div>
+
+    <div class="w3-main" id="main">
+      <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge" id="openNav" onclick="w3_open()">&#9776;</button>
+        <div class="w3-container">
+          <div class="canvas-container">
+              <canvas id="myCanvas">
+              </canvas>
+          </div>
+        </div>
       </div>
+    </div>
 
+    <!-- <div class="controls">
+      <label for="#exposure">Exposure</label>
+      <input type="number" id="exposure"></input>
+      <label for="#histogram-eq">Histogram Equalization</label>
+      <input type="checkbox" id="histogram-eq"></input>
+      <label for="#mean-blur-on">Mean Blur on?</label>
+      <input type="checkbox" id="mean-blur-on"></input>
+      <label for="#mean-blur-kernel">Mean Blur Kernel</label>
+      <input type="number" id="mean-blur-kernel"></input>
+      <button onclick="setSettingsAndUpdate()">Update</button>
+    </div> -->
 
-      <script src="/node_modules/socket.io-client/dist/socket.io.min.js"></script>
-      <script src="script.js"></script>
+    <script src="/node_modules/socket.io-client/dist/socket.io.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
