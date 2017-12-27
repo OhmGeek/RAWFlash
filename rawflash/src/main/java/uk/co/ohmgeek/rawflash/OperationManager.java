@@ -18,12 +18,9 @@ public class OperationManager {
 
     private HashMap<String, String> operationMap;
 
-    public void loadInstructions(String instructions) {
+    public void setInstructions(HashMap<String, String> instructions) {
         // first, convert the JSON instructions to a hashmap
-        operationMap = new Gson().fromJson(
-                instructions,
-                new TypeToken<HashMap<String, String>>(){}.getType()
-        );
+        operationMap = instructions;
     }
 
     public String process() {

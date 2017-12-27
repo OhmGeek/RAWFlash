@@ -1,6 +1,8 @@
 package uk.co.ohmgeek.rawflash;
 import com.corundumstudio.socketio.*;
 import com.corundumstudio.socketio.listener.DataListener;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.apache.commons.io.FileDeleteStrategy;
 import uk.co.ohmgeek.jdcraw.operations.NegativeBrightnessException;
 
@@ -10,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Main {
 
@@ -31,15 +34,32 @@ public class Main {
 
         Configuration config = new Configuration();
         config.setHostname("localhost");
-        config.setPort(8000);
+        config.setPort(4000);
 
         SocketIOServer server = new SocketIOServer(config);
 
 
         server.addEventListener("process-image", ProcessCommandObject.class, (client, command, ackRequest) -> {
-            // load json instructions into processor, and run
+            // Create Operation and File Managers.
             OperationManager opManager = new OperationManager();
-            opManager.loadInstructions(command.getJSONInput());
+            FileManager fileManager = new FileManager();
+
+            // Take JSON and convert to hashmap.
+            HashMap<String, String> jsonString = new Gson().fromJson(
+                    command.getJSONInput(),
+                    new TypeToken<HashMap<String, String>>(){}.getType()
+            );
+
+            // Download the file, caching it locally.
+
+            String newFilePath = fileManager.downloadFile(jsonString.get("filename")).getAbsolutePath();
+            jsonString.put("filename", newFilePath);
+            System.out.println("New File Path: ");
+            System.out.println(newFilePath);
+            // Only now, do we process the image, yielding the result.
+            opManager.setInstructions(jsonString);
+
+
             String output = opManager.process();
             System.out.println(output);
             String dataToSend = getBase64Image(output);

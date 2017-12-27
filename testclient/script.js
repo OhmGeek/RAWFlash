@@ -1,8 +1,8 @@
 var APP_SETTINGS = {
   server_host: "localhost",
-  server_port: 8000,
+  server_port: 4000,
   image_settings: {
-    "filename": "/home/ryan/Pictures/RAW_NIKON_D7100.NEF",
+    "filename": "http://www.mannyphoto.com/D700D3/_DSC4175.NEF",
     "exposure": 1000,
   },
   magnification: {
