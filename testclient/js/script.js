@@ -98,16 +98,11 @@ function w3_close() {
   document.getElementById("openNav").style.display = "inline-block";
 }
 
-function display_sidebar_preset(preset) {
-  document.getElementById('mySidebar').innerHTML = SIDEBAR_PRESETS[preset];
-}
-
 function setProperty(propertyName, value) {
   if(propertyName in APP_SETTINGS['image_settings']) {
     APP_SETTINGS['image_settings'][propertyName] = value;
   }
 }
 document.addEventListener("DOMContentLoaded", function(event) {
-  document.getElementById('mySidebar').innerHTML = SIDEBAR_PRESETS['main'];
   updateImageSettings();
 });
