@@ -21,11 +21,15 @@
 \paragraph{Context/Background}
 
 \paragraph{Aims}
-
+The main aim of this project is to test the feasibility of a Cloud-based RAW image
+editor.
 \paragraph{Method}
-
+A render server backend will first be implemented as an API, taking in an input as a
+JSON object, and then processing the image, and then a JavaScript
+client shall be created to interface with this API.
 \paragraph{Proposed Solution}
-
+A web application that uses dcraw coupled with custom Java code to read RAW images,
+and allow adjustment of various parameters, with the output being sent back to the user.
 \end{abstract}
 
 \begin{keywords}
@@ -33,10 +37,25 @@ RAW image editing, dcraw, cloud image editing
 \end{keywords}
 
 \section{Introduction}
-This section briefly introduces the project, the research question you are addressing.  Do not change the font sizes or line spacing in order to put in more text.
 
-Note that the whole report, including the references, should not be longer than 12 pages in length (there is no penalty for short papers if the required content is included). There should be at least 5 referenced papers.
+% WHAT IS RAW? Why use RAW over JPEG
 
+% Current software requires quite high specification machines to run. For simple tasks,
+%  or for multiple users, getting access to these machines might be difficult/expensive.
+%  Everyone has a web browser, so a web based RAW image editor would be ideal, allowing
+%  access from mobile, tablets, or laptops.
+
+% Furthermore, content management systems also require the processing of images. Currently,
+%  photos are typically edited in a program like Photoshop/Lightroom, then they are exported
+%  and uploaded to the CMS, where they are further processed by a CMS to reduce file sizes.
+%  Instead of this, a Cloud service could be utilized to cut out the middle man, uploading RAW files
+%  directly to the CMS, and then editing within a CMS itself.
+
+
+  \subsection{Project Aim}
+
+
+  \subsection{Deliverables}
 \section{Design}
 
 This section presents the proposed solutions of the problems in detail. The design details should all be placed in this section. You may create a number of subsections, each focusing on one issue.
