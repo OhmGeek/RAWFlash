@@ -6,9 +6,10 @@
 \citationmode{abbr}
 \bibliographystyle{agsm}
 
-\title{Formatting Template for the Final Paper}
+\title{Cloud-based RAW image editing}
 \author{Ryan Collins}
 \supervisor{Dr Tom Friedetzky}
+\student{Ryan Collins (gcdk35)}
 \degree{M.Eng Computer Science}
 
 \date{}
@@ -39,6 +40,15 @@ RAW image editing, dcraw, cloud image editing
 \section{Introduction}
 
 % WHAT IS RAW? Why use RAW over JPEG
+Many photographers use a file format (or rather, a family of very similar file formats) called RAW,
+which rather than compressing the image and conducting some image manipulation on the camera,
+store the RAW camera sensor data outputted by the camera sensor, for later processing and editing
+by a computer. These files can be much larger than the compressed image, but provide a far greater
+degree of control over the captured image, when compared with a compressed JPEG, along with an
+increase in quality. A RAW file essentially acts as a digital negative, as the image can be edited
+constantly without losing any quality between edits.  \cite{AllAboutTheFormat}
+
+
 
 % Current software requires quite high specification machines to run. For simple tasks,
 %  or for multiple users, getting access to these machines might be difficult/expensive.
@@ -52,10 +62,13 @@ RAW image editing, dcraw, cloud image editing
 %  directly to the CMS, and then editing within a CMS itself.
 
 
-  \subsection{Project Aim}
+
+\subsection{Project Aim}
 
 
-  \subsection{Deliverables}
+\subsection{Deliverables}
+
+
 \section{Design}
 
 This section presents the proposed solutions of the problems in detail. The design details should all be placed in this section. You may create a number of subsections, each focusing on one issue.
@@ -63,29 +76,42 @@ This section presents the proposed solutions of the problems in detail. The desi
 This section should be up to 8 pages in length.
 The rest of this section shows the formats of subsections as well as some general formatting information.  You should also consult the Word template.
 
-\subsection{Main Text}
 
-The font used for the main text should be Times New Roman (Times) and the font size should be 12.  The first line of all paragraphs should be indented by 0.25in, except for the first paragraph of each section, subsection, subsubsection etc. (the paragraph immediately after the header) where no indentation is needed.
+\subsection{Requirements}
 
-\subsection{Figures and Tables}
-In general, figures and tables should not appear before they are cited.  Place figure captions below the figures; place table titles above the tables.  If your figure has two parts, for example, include the labels ``(a)'' and ``(b)'' as part of the artwork.  Please verify that figures and tables you mention in the text actually exist.  make sure that all tables and figures are numbered as shown in Table \ref{units} and Figure 1.
-%sort out your own preferred means of inserting figures
 
-\begin{table}[htb]
-\centering
-\caption{UNITS FOR MAGNETIC PROPERTIES}
-\vspace*{6pt}
-\label{units}
-\begin{tabular}{ccc}\hline\hline
-Symbol & Quantity & Conversion from Gaussian \\ \hline
-\end{tabular}
-\end{table}
 
-\subsection{References}
+\subsection{Proposed Extensions}
 
-The list of cited references should appear at the end of the report, ordered alphabetically by the surnames of the first authors.  The default style for references cited in the main text is the  Harvard (author, date) format.  When citing a section in a book, please give the relevant page numbers, as in \cite[p293]{budgen}.  When citing, where there are either one or two authors, use the names, but if there are more than two, give the first one and use ``et al.'' as in  , except where this would be ambiguous, in which case use all author names.
+\subsection{Architecture}
 
-You need to give all authors' names in each reference.  Do not use ``et al.'' unless there are more than five authors.  Papers that have not been published should be cited as ``unpublished'' \cite{euther}.  Papers that have been submitted or accepted for publication should be cited as ``submitted for publication'' as in \cite{futher} .  You can also cite using just the year when the author's name appears in the text, as in ``but according to Futher \citeyear{futher}, we \dots''.  Where an authors has more than one publication in a year, add `a', `b' etc. after the year.
+
+\subsection{User Interface}
+
+\subsection{Evaluation}
+% \subsection{Main Text}
+%
+% The font used for the main text should be Times New Roman (Times) and the font size should be 12.  The first line of all paragraphs should be indented by 0.25in, except for the first paragraph of each section, subsection, subsubsection etc. (the paragraph immediately after the header) where no indentation is needed.
+%
+% \subsection{Figures and Tables}
+% In general, figures and tables should not appear before they are cited.  Place figure captions below the figures; place table titles above the tables.  If your figure has two parts, for example, include the labels ``(a)'' and ``(b)'' as part of the artwork.  Please verify that figures and tables you mention in the text actually exist.  make sure that all tables and figures are numbered as shown in Table \ref{units} and Figure 1.
+% %sort out your own preferred means of inserting figures
+%
+% \begin{table}[htb]
+% \centering
+% \caption{UNITS FOR MAGNETIC PROPERTIES}
+% \vspace*{6pt}
+% \label{units}
+% \begin{tabular}{ccc}\hline\hline
+% Symbol & Quantity & Conversion from Gaussian \\ \hline
+% \end{tabular}
+% \end{table}
+
+\section{References}
+
+% The list of cited references should appear at the end of the report, ordered alphabetically by the surnames of the first authors.  The default style for references cited in the main text is the  Harvard (author, date) format.  When citing a section in a book, please give the relevant page numbers, as in \cite[p293]{budgen}.  When citing, where there are either one or two authors, use the names, but if there are more than two, give the first one and use ``et al.'' as in  , except where this would be ambiguous, in which case use all author names.
+%
+% You need to give all authors' names in each reference.  Do not use ``et al.'' unless there are more than five authors.  Papers that have not been published should be cited as ``unpublished'' \cite{euther}.  Papers that have been submitted or accepted for publication should be cited as ``submitted for publication'' as in \cite{futher} .  You can also cite using just the year when the author's name appears in the text, as in ``but according to Futher \citeyear{futher}, we \dots''.  Where an authors has more than one publication in a year, add `a', `b' etc. after the year.
 
 
 
