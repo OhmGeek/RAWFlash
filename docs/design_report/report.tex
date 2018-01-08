@@ -48,8 +48,6 @@ degree of control over the captured image, when compared with a compressed JPEG,
 increase in quality. A RAW file essentially acts as a digital negative, as the image can be edited
 constantly without losing any quality between edits.  \cite{AllAboutTheFormat}
 
-
-
 % Current software requires quite high specification machines to run. For simple tasks,
 %  or for multiple users, getting access to these machines might be difficult/expensive.
 %  Everyone has a web browser, so a web based RAW image editor would be ideal, allowing
@@ -84,10 +82,25 @@ The rest of this section shows the formats of subsections as well as some genera
 \subsection{Proposed Extensions}
 
 \subsection{Architecture}
+As the system is fairly large, it's important to break it down into individual pieces. These are:
+
+\subsubsection{Render Server}
+The render server takes instructions given to it (with accordance to our API), and
+generates the output image based on the RAW image supplied, and the appropriate settings.
 
 
-\subsection{User Interface}
 
+\subsubsection{Client-side Interface}
+  The page design of the interface shall follow the design in \ref{UserInterface}.
+  The goal of the client side interface is to allow adjustment of the image parameters,
+  and show a preview whenever a parameter is changed.
+
+  To display the image, an HTML5 Canvas will provide a large amount of control to
+  how we can display the image, allowing for features such as zooming, and drawing. This can't be
+  achieved using a standard HTML image.
+
+\subsection{User Interface}\label{UserInterface}
+  The central focus of the interface is towards the preview of the image.
 \subsection{Evaluation}
 % \subsection{Main Text}
 %
