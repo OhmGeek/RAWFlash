@@ -1,5 +1,15 @@
 \begin{thebibliography}{xx}
 
+\harvarditem{Melnikov \harvardand\ Fette}{2011}{WebSocketProtocol}
+Melnikov, A. \harvardand\ Fette, I.  \harvardyearleft 2011\harvardyearright ,
+  `{The WebSocket Protocol}', RFC 6455.
+\newline\harvardurl{https://rfc-editor.org/rfc/rfc6455.txt}
+
+\harvarditem{Mozilla}{2017}{XMLHttpRequestMozilla}
+Mozilla  \harvardyearleft 2017\harvardyearright , `Xmlhttprequest'.
+\newblock Accessed: 2018-01-09.
+\newline\harvardurl{https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest}
+
 \harvarditem{Verhoeven}{2010}{AllAboutTheFormat}
 Verhoeven, G. J.~J.  \harvardyearleft 2010\harvardyearright , `It's all about
   the format – unleashing the power of raw aerial photography', {\em

@@ -2,7 +2,7 @@
 \usepackage{times}
 \usepackage{durhampaper}
 \usepackage{harvard}
-
+\usepackage{url}
 \citationmode{abbr}
 \bibliographystyle{agsm}
 
@@ -84,11 +84,44 @@ The rest of this section shows the formats of subsections as well as some genera
 \subsection{Architecture}
 As the system is fairly large, it's important to break it down into individual pieces. These are:
 
+  \subsubsection{Client Interface to Render Server Communication}
+There are several options for communicating between the user interface and the render server.
+
+\paragraph{Representational State Transfer (REST)}
+A Representational State Transfer system would work by sending a request to the server,
+requesting an image be rendered. This initial request will be replied to with a job number,
+which will be quoted in further communications. From here, future requests will be made
+over a regular interval, requesting the information for the specified job. If this job is finished,
+the result will be returned, but otherwise further requests will need to be made. This is the process
+of polling.
+
+The XMLHttpRequest object in JavaScript, used to make AJAX requests, was designed by Microsoft
+in 1999, and later adopted in the 2000s.
+This method is definitely the most compatible with browsers, being compatible with Edge, Chrome,
+Firefox, Internet Explorer 7+, Opera, and Safari. \cite{XMLHttpRequestMozilla}
+
+However, this method does require making many requests and connections to the server,
+coupled with code to regularly poll at an interval until done. While this will work, it's not the most
+optimal solution, and the code produced from this would be more complex (code could be needed to issue jobs, recall jobs,
+and to ensure that the person who requests the result of a job is actually allowed to see the result of the job).
+
+\paragraph{Web Socket}
+Web Socket allows for two way communication between a browser and a server. It acts in a similar
+way to traditional TCP socket communication, only it incorporates the origin based security
+model used within web browsers. By using web socket over REST, opening multiple HTTP connections
+is not needed, as a single connection is maintained at all times. \cite{WebSocketProtocol}
+
+\paragraph{Socket.io}
+Socket.io is an implementation that relies on both REST and Web Socket.
+If the browser supports web socket, then it is utilised, but in the event that the
+user's browser does not support new web socket technologies, then it defaults to
+using REST, and automatically polls regularly for information. This way, we get the
+best of both options shown above, in such a way that the code itself remains fairly
+tidy (as the polling nature of REST is abstracted away from our system).
+
 \subsubsection{Render Server}
 The render server takes instructions given to it (with accordance to our API), and
 generates the output image based on the RAW image supplied, and the appropriate settings.
-
-
 
 \subsubsection{Client-side Interface}
   The page design of the interface shall follow the design in \ref{UserInterface}.
@@ -99,8 +132,28 @@ generates the output image based on the RAW image supplied, and the appropriate 
   how we can display the image, allowing for features such as zooming, and drawing. This can't be
   achieved using a standard HTML image.
 
+
+
 \subsection{User Interface}\label{UserInterface}
-  The central focus of the interface is towards the preview of the image.
+  A sidebar should be used as the main interface for adjusting image parameters.
+  This sidebar should be able to be hidden, showing the image fully underneath.
+  When the sidebar is in the expanded state, the preview image should be displayed
+  fully on screen.
+
+  The user interface design is shown in Figure \ref{UXDesign1}
+
+  Within the sidebar, clicking on a navigation item will display a new submenu.
+  If the item is a parameter adjustment, updating the value in the menu will also
+  update the value that is sent to the render server to generate a preview.
+
+  % \begin{figure}[h]
+  %   \caption{The editor interface, with the sidebar expanded.}
+  %   \centering
+  %   \includegraphics[width=0.5\textwidth]{uxdesign1}
+  % \end{figure}
+
+
+
 \subsection{Evaluation}
 % \subsection{Main Text}
 %
@@ -125,9 +178,6 @@ generates the output image based on the RAW image supplied, and the appropriate 
 % The list of cited references should appear at the end of the report, ordered alphabetically by the surnames of the first authors.  The default style for references cited in the main text is the  Harvard (author, date) format.  When citing a section in a book, please give the relevant page numbers, as in \cite[p293]{budgen}.  When citing, where there are either one or two authors, use the names, but if there are more than two, give the first one and use ``et al.'' as in  , except where this would be ambiguous, in which case use all author names.
 %
 % You need to give all authors' names in each reference.  Do not use ``et al.'' unless there are more than five authors.  Papers that have not been published should be cited as ``unpublished'' \cite{euther}.  Papers that have been submitted or accepted for publication should be cited as ``submitted for publication'' as in \cite{futher} .  You can also cite using just the year when the author's name appears in the text, as in ``but according to Futher \citeyear{futher}, we \dots''.  Where an authors has more than one publication in a year, add `a', `b' etc. after the year.
-
-
-
 
 \bibliography{report}
 
