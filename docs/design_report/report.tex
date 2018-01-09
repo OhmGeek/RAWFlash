@@ -62,7 +62,11 @@ constantly without losing any quality between edits.  \cite{AllAboutTheFormat}
 
 
 \subsection{Project Aim}
-
+The aim of this project is to produce a Cloud-based RAW image photo editor, both as an API (allowing potential
+image rendering headlessly), along with a full RAW image editor interface via a web browser. The image photo editor
+should be able to read at least DNG and NEF files, and allow contrast, colour and exposure adjustment, along with
+noise reduction, haze removal, and auto correction options. Furthermore, this system should be multi-user, allowing more than
+one user to edit RAW photos at a time through the web interface, each with their own individual collection of images.
 
 \subsection{Deliverables}
 
@@ -84,6 +88,7 @@ The rest of this section shows the formats of subsections as well as some genera
 \subsection{Architecture}
 As the system is fairly large, it's important to break it down into individual pieces. These are:
 
+\textbf{TODO: Add diagram of the system architecture}
   \subsubsection{Client Interface to Render Server Communication}
 There are several options for communicating between the user interface and the render server.
 
@@ -120,8 +125,38 @@ best of both options shown above, in such a way that the code itself remains fai
 tidy (as the polling nature of REST is abstracted away from our system).
 
 \subsubsection{Render Server}
+\textbf{TODO: ADD DIAGRAM OF THE RENDER SERVER SUB LAYERS (ADAMS, DCRAW)}
 The render server takes instructions given to it (with accordance to our API), and
 generates the output image based on the RAW image supplied, and the appropriate settings.
+
+One of the first considerations is how to parse RAW files.
+
+\paragraph{dcraw}
+Dcraw is an executable that allows the processing of RAW image files.
+
+Dcraw itself can then be used to convert to other formats, one being the uncompressed TIFF format,
+giving us a very high quality image that can then be adjusted. Our system isn't merely a wrapper for
+dcraw in this instance, but extends the features supplied by dcraw.
+\textbf{TODO: Explain what DCRAW is, how it can be used.}
+\textbf{TODO: DCRAW features, built in. Export as }
+\paragraph{libraw}
+LibRaw is a C++ library based on dcraw, that is designed as a library rather than just
+an executable.
+
+LibRaw would be used when loading RAW images, processing them, and then from this,
+the image can be processed using custom routines (i.e. converting the libraw format
+to a matrix representation, and then using that matrix representation to carry out
+some manipulation).
+
+While LibRaw has many useful features, the documentation is somewhat limited.
+
+\paragraph{ImageMagick}
+ImageMagick is a library that can be used to process any images, not just RAW. While it can read
+RAW image files, it also has many more features, including many feature that we don't need/want to
+implement ourselves for the purpose of this project. As such, I believe while ImageMagick is a good option,
+it's a bit too heavy for our use.
+\textbf{TODO: SOURCE FOR IMAGEMAGICK READING RAW FILES}
+\textbf{TODO: SOURCE FOR FEATURES OF IMAGE MAGICK}
 
 \subsubsection{Client-side Interface}
   The page design of the interface shall follow the design in \ref{UserInterface}.
@@ -131,8 +166,6 @@ generates the output image based on the RAW image supplied, and the appropriate 
   To display the image, an HTML5 Canvas will provide a large amount of control to
   how we can display the image, allowing for features such as zooming, and drawing. This can't be
   achieved using a standard HTML image.
-
-
 
 \subsection{User Interface}\label{UserInterface}
   A sidebar should be used as the main interface for adjusting image parameters.
@@ -146,14 +179,76 @@ generates the output image based on the RAW image supplied, and the appropriate 
   If the item is a parameter adjustment, updating the value in the menu will also
   update the value that is sent to the render server to generate a preview.
 
+\textbf{TODO ADD INTERFACE DRAWINGS.}
   % \begin{figure}[h]
   %   \caption{The editor interface, with the sidebar expanded.}
   %   \centering
   %   \includegraphics[width=0.5\textwidth]{uxdesign1}
   % \end{figure}
 
+\subsection{Implementation Information}
+Each individual module of the system requires different technologies in order to
+produce an overall system.
 
+\paragraph{Client-side Interface}
+For this, HTML5, CSS3 and JavaScript (with jQuery to provide extra functionality)
+are ideal, as HTML5 can be used to create the user interface, with CSS3 providing styling
+and some basic animation to improve the UX. Using JavaScript with jQuery, it allows us
+to keep track of the state of the editor, and transmit and receive information between client and
+render server with help of some library. jQuery is useful for interfacing with the
+DOM (the webpage itself, and it's components), allowing us to specify events, and functions
+to run on particular events, along with template loading and various other functionalities.
 
+As this is mostly static content, and doesn't directly require any web service to be
+performed for the main editor, the static content can be hosted using a web server like
+Apache or NGINX, only serving static content, without any dynamic scripting needed.
+
+NGINX is what I'd recommend in this situation because... \textbf{TODO: NGINX BETTER MEMORY AND
+PERFORMANCE FOR STATIC FILES? FIND SOURCE}
+\paragraph{Render Server}
+While lower level programming languages might be useful for image processing,
+the requirement of linking this with web technologies means that a language such as C
+or C++ is not as ideal.
+
+Java is a better choice, as there are libraries available to provide web services (REST),
+along with Web Socket implementations, along with Socket IO. Furthermore, Java contains
+some libraries within the language that allow for image manipulation, most notably
+BufferedImage related features such as ConvolveOp, image resizing, and various other standard
+features build in. This is useful, as rather than starting completely from scratch, the custom
+image processing routines can build on the built in Java implementations, and create more advanced
+algorithms using them.
+
+While Java doesn't support loading TIFF into BufferedReader using ImageIO directly,
+an extension exists online, in the form of TwelveMonkeys. No RAW image loading library
+exists within Java, but an executable such as dcraw or rawspeed can be used to generate a file
+that can be read within Java, while retaining the quality (e.g. uncompressed TIFF). This can be done
+using ProcessBuilder, and ideally writing a library to do this.
+% of course, this library became jdcraw.
+
+As this system will likely use a large amount of external dependencies, a dependency management tool
+like Apache Maven should be used, to both manage dependencies from an external source (e.g. GitHub, Maven
+Repositories), and also to build the system.
+\textbf{TODO: reference libraries here.}
+
+\paragraph{Account Management Server}
+As this system needs to be used by multiple people, we need to have some record of users,
+and their associated images.
+
+Rather than rendering each page dynamically, we can instead use JavaScript to make AJAX requests,
+fetching the data needed, and this way, we don't need to render whole HTML web pages. In terms of
+backend technology, it doesn't matter too much what is used, as it won't be used too much, but
+in my case I'll be using Node.JS with an Express server, simply because it's easy to deploy and
+install dependencies ("npm install" can be run to install dependencies in one command), and it can
+also connect to a database to provide services such as login, and records of individual files.
+
+\paragraph{Distributed System Management}
+As this system consists of several smaller systems, it's important that these are
+managed. For each smaller component, a Docker container can be created, containing the
+configuration between each one. From here, Docker Compose can then be used to manage
+the entire system, bringing everything online, opening ports, and building everything
+automatically.
+
+\textbf{TODO: some source of docker}
 \subsection{Evaluation}
 % \subsection{Main Text}
 %
