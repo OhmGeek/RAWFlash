@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title>RAWFlash</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+    <header class="w3-container w3-center w3-teal">
+      <h1>Welcome to RAWFlash</h1>
+    </header>
+    <div class="w3-container w3-padding w3-mobile">
+      <div class="w3-panel  w3-half">
+        <div class="w3-container w3-green">
+          <h2>Register</h2>
+        </div>
+        <form class="w3-container w3-padding" method="post" action="register">
+          {% csrf_token %}
+          <label>First Name</label>
+          <input class="w3-input" type="text">
+
+          <label>Last Name</label>
+          <input class="w3-input" type="text">
+
+          <label>Email Address</label>
+          <input class="w3-input" type="email" name="email">
+
+          <label>Password</label>
+          <input class="w3-input" type="password" name="password1">
+
+          <label>Re-enter Password</label>
+          <input class="w3-input" type="password" name="password2">
+
+          <button class="w3-btn w3-blue">Register</button>
+        </form>
+      </div>
+      <div class="w3-panel w3-half">
+        <div class="w3-container w3-green">
+          <h2>Login</h2>
+        </div>
+        <form class="w3-container w3-padding" method="post" action="/login">
+          {% csrf_token %}
+          <label>Email Address</label>
+          <input class="w3-input" type="email">
+
+          <label>Password</label>
+          <input class="w3-input" type="password" name="password">
+
+          <button class="w3-btn w3-blue">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
