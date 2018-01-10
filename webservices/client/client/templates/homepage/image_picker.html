@@ -12,22 +12,24 @@
       $(function() {
 
         $.getJSON(window.location.origin + "/ajax/get_albums_for_user", function(data) {
-          $('#album_list').clear();
-          
-          data.forEach(function(listItem) {
+          $('#album_list').empty();
+          data.albums.forEach(function(listItem) {
             var templateString = `
                   <li class="w3-bar">
                     <span class="w3-bar-item w3-button w3-xlarge w3-right">&#8250;</span>
                     <img src="img_avatar2.png" class="w3-bar-item w3-circle" style="width:85px">
                     <div class="w3-bar-item">
-                      <span class="w3-large">{{album_name}}</span><br>
-                      <span>{{album_description}}</span>
+                      <span class="w3-large"> {{album_name}} </span><br>
+                      <span> {{album_description}} </span>
                     </div>
                   </li>
             `;
-            templateString.replace("{{ album_name }}", listItem.album_name);
-            templateString.replace("{{album_description}}", listItem.album_description);
-            var liDOMObject = $($.parseHTML(templateString));
+            templateString = templateString.replace(" {{album_name}} ", listItem.album_name);
+            templateString = templateString.replace(" {{album_description}} ", listItem.album_description);
+            var contents = $($.parseHTML(templateString));
+            var liDOMObject = $('<li>');
+            liDOMObject.addClass('w3-bar');
+            liDOMObject.append(contents);
             $('#album_list').append(liDOMObject);
           });
         })

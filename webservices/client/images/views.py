@@ -11,4 +11,6 @@ def get_albums_for_user(request):
             "album_description": album.description
         })
 
-    return JsonResponse(data)
+    return JsonResponse({
+        "albums": data
+    })
