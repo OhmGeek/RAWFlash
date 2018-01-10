@@ -1,5 +1,17 @@
 \begin{thebibliography}{xx}
 
+\harvarditem{Ellingwood}{2015}{ApacheVSNGINX}
+Ellingwood, J.  \harvardyearleft 2015\harvardyearright , `Apache vs nginx:
+  Practical considerations'.
+\newblock Accessed: 2018-01-10.
+\newline\harvardurl{https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations}
+
+\harvarditem{Kent}{2014}{DockerWhyItsUseful}
+Kent, A.  \harvardyearleft 2014\harvardyearright , `Docker, distributed
+  systems, and why it matters to magneto (part 1)'.
+\newblock Accessed: 2018-01-10.
+\newline\harvardurl{https://alankent.me/2014/08/28/docker-distributed-systems-and-why-it-matters-to-magento-part-1/}
+
 \harvarditem{Melnikov \harvardand\ Fette}{2011}{WebSocketProtocol}
 Melnikov, A. \harvardand\ Fette, I.  \harvardyearleft 2011\harvardyearright ,
   `{The WebSocket Protocol}', RFC 6455.

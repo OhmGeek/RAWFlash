@@ -203,8 +203,12 @@ As this is mostly static content, and doesn't directly require any web service t
 performed for the main editor, the static content can be hosted using a web server like
 Apache or NGINX, only serving static content, without any dynamic scripting needed.
 
-NGINX is what I'd recommend in this situation because... \textbf{TODO: NGINX BETTER MEMORY AND
-PERFORMANCE FOR STATIC FILES? FIND SOURCE}
+NGINX is what I'd recommend in this situation because unlike Apache, NGINX isn't
+configured out of the box for dynamic content (e.g. PHP/Python/other external processor).
+As we don't need any dynamic content, as we are just serving static files, NGINX is ideal
+for our workload (as less overhead is needed for features that won't be used such as
+dynamic content rendered on the server side). \cite{ApacheVSNGINX}
+
 \paragraph{Render Server}
 While lower level programming languages might be useful for image processing,
 the requirement of linking this with web technologies means that a language such as C
@@ -247,6 +251,12 @@ managed. For each smaller component, a Docker container can be created, containi
 configuration between each one. From here, Docker Compose can then be used to manage
 the entire system, bringing everything online, opening ports, and building everything
 automatically.
+
+This requires us to create a Dockerfile per system (one for the render server,
+one for the client front-end). This Dockerfile specifies the image to build from,
+along with instructions that need to be run, and files that should be shared, to make
+that container work. Rather than customising an individual image, this customisation can be done
+by building on existing images, saving time without needing to start again from scratch. \cite{DockerWhyItsUseful}
 
 \textbf{TODO: some source of docker}
 \subsection{Evaluation}

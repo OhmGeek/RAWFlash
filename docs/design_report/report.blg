@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: report.aux
 The style file: agsm.bst
 Database file #1: report.bib
-You've used 3 entries,
+You've used 5 entries,
             2909 wiz_defined-function locations,
-            667 strings with 5312 characters,
-and the built_in function-call counts, 7849 in all, are:
-= -- 1238
-> -- 95
+            681 strings with 5732 characters,
+and the built_in function-call counts, 11729 in all, are:
+= -- 1836
+> -- 143
 < -- 0
-+ -- 556
-- -- 28
-* -- 637
-:= -- 1670
-add.period$ -- 4
-call.type$ -- 3
-change.case$ -- 42
-chr.to.int$ -- 3
-cite$ -- 3
-duplicate$ -- 38
-empty$ -- 91
-format.name$ -- 38
-if$ -- 1391
++ -- 814
+- -- 42
+* -- 927
+:= -- 2534
+add.period$ -- 8
+call.type$ -- 5
+change.case$ -- 70
+chr.to.int$ -- 5
+cite$ -- 5
+duplicate$ -- 60
+empty$ -- 143
+format.name$ -- 56
+if$ -- 2071
 int.to.chr$ -- 5
 int.to.str$ -- 0
 missing$ -- 1
-newline$ -- 16
-num.names$ -- 30
-pop$ -- 20
+newline$ -- 26
+num.names$ -- 50
+pop$ -- 38
 preamble$ -- 1
-purify$ -- 45
+purify$ -- 75
 quote$ -- 0
-skip$ -- 32
+skip$ -- 50
 stack$ -- 0
-substring$ -- 1697
-swap$ -- 5
-text.length$ -- 42
+substring$ -- 2491
+swap$ -- 7
+text.length$ -- 70
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 20
 warning$ -- 0
-while$ -- 64
+while$ -- 106
 width$ -- 0
-write$ -- 42
+write$ -- 70
