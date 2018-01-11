@@ -1,10 +1,15 @@
 \begin{thebibliography}{xx}
 
-\harvarditem{Ellingwood}{2015}{ApacheVSNGINX}
-Ellingwood, J.  \harvardyearleft 2015\harvardyearright , `Apache vs nginx:
-  Practical considerations'.
+\harvarditem{Coffin}{2015}{DcrawManpage}
+Coffin, D.  \harvardyearleft 2015\harvardyearright , `Manpage of dcraw'.
 \newblock Accessed: 2018-01-10.
-\newline\harvardurl{https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations}
+\newline\harvardurl{https://www.cybercom.net/~dcoffin/dcraw/dcraw.1.html}
+
+\harvarditem{Coffin}{2017}{DcrawWebsite}
+Coffin, D.  \harvardyearleft 2017\harvardyearright , `Decoding raw photos in
+  linux - dcraw'.
+\newblock Accessed: 2018-01-10.
+\newline\harvardurl{https://www.cybercom.net/~dcoffin/dcraw/}
 
 \harvarditem{Kent}{2014}{DockerWhyItsUseful}
 Kent, A.  \harvardyearleft 2014\harvardyearright , `Docker, distributed

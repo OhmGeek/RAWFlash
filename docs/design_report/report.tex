@@ -73,14 +73,61 @@ one user to edit RAW photos at a time through the web interface, each with their
 
 \section{Design}
 
-This section presents the proposed solutions of the problems in detail. The design details should all be placed in this section. You may create a number of subsections, each focusing on one issue.
-
-This section should be up to 8 pages in length.
-The rest of this section shows the formats of subsections as well as some general formatting information.  You should also consult the Word template.
-
+This section outlines the design of the system, starting off with the specification of what such a system
+needs to have, followed by further research, options for designing different components of the system,
+along with some information on implementation detail. Furthermore, details on architecture are outlined here.
 
 \subsection{Requirements}
+Table \ref{FunctionalRequirementsTable} shows the functional requirements of the project,
+which define the functional elements of the system being produced.
 
+Table \ref{NFRTable} show the non-functional requirements of the project, which don't directly relate
+to the functionality of the system, but are performance based attributes that ensure the system
+will be more likely to succeed at the aims.
+
+\begin{table}
+  \centering
+  \begin{tabular}{| c | p{12cm} | c |}
+    \hline
+    \textbf{Number} & \textbf{Requirement} & \textbf{Priority} \\
+    \hline
+    FR-01 & Allow the user to edit the exposure of a RAW image & High \\
+    \hline
+    FR-02 & Allow the user to adjust the colour saturation and hue & Medium \\
+    \hline
+    FR-03 & Allow the user to export their edits to several popular file formats: JPEG, PNG, and TIFF & Medium \\
+    \hline
+    FR-04 & Store the render settings of a given RAW file (as specified by the user), to allow for the image to be re-rendered and re-edited without losing quality & High \\
+    \hline
+    FR-05 & Have the ability to edit user specified files (i.e. users can specify which file to edit, rather than using a hardcoded file within the system) & High \\
+    \hline
+    FR-06 & The client interface should have the ability to zoom in and out of the preview image, to help aid editing & Low \\
+    \hline
+    FR-07 & Allow the user to apply automated image enhancement algorithms to the image to find the best parameters for each image & Low \\
+    \hline
+  \end{tabular}
+  \caption{Functional Requirements}
+  \label{FunctionalRequirementsTable}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{| c | p{12cm} | c |}
+    \hline
+    \textbf{Number} & \textbf{Requirement} & \textbf{Priority} \\
+    \hline
+    NFR-01 & The system should be able to cope with at least 2 users simultaneously using the system & High \\
+    \hline
+    NFR-02 & The system should allow the editor controls to be hidden, to show the preview image on its own & Medium \\
+    \hline
+    NFR-03 & The render server should provide a preview within 15 seconds of changing a parameter & Low \\
+    \hline
+    NFR-04 & The user interface must be accessible through a web browser & High \\
+    \hline
+  \end{tabular}
+  \caption{Non-Functional Requirements}
+  \label{NFRTable}
+\end{table}
 
 
 \subsection{Proposed Extensions}
@@ -137,8 +184,15 @@ Dcraw is an executable that allows the processing of RAW image files.
 Dcraw itself can then be used to convert to other formats, one being the uncompressed TIFF format,
 giving us a very high quality image that can then be adjusted. Our system isn't merely a wrapper for
 dcraw in this instance, but extends the features supplied by dcraw.
-\textbf{TODO: Explain what DCRAW is, how it can be used.}
-\textbf{TODO: DCRAW features, built in. Export as }
+
+Despite being an executable, it's written using only standard C libraries, and therefore it's
+fairly portable, not requiring any dependencies (aside from compiling with a C compiler of course, if
+no binaries are downloaded). \cite{DcrawWebsite}
+
+According to the manpage, the executable contains commands to set RAW exposure, export as TIFF,
+set saturation level, set white balance, set colourspace, set gamma curve and flip the image. \cite{DcrawManpage}
+
+
 \paragraph{libraw}
 LibRaw is a C++ library based on dcraw, that is designed as a library rather than just
 an executable.
@@ -199,16 +253,55 @@ render server with help of some library. jQuery is useful for interfacing with t
 DOM (the webpage itself, and it's components), allowing us to specify events, and functions
 to run on particular events, along with template loading and various other functionalities.
 
-As this is mostly static content, and doesn't directly require any web service to be
-performed for the main editor, the static content can be hosted using a web server like
-Apache or NGINX, only serving static content, without any dynamic scripting needed.
+As this is mostly static content, only a few web services needed for image selection/
+maintaining user uploaded RAW files, a web server like Apache/NGINX can be used to serve
+these static files, using server side scripting only to determine whether a user is authenticated,
+and if so forwarding headers can be used to serve the static file without needing to serve static files
+through the scripting language itself, which is much slower
+\textbf{TODO: find source for static content and forwarding headers and performance.}
 
 NGINX is what I'd recommend in this situation because unlike Apache, NGINX isn't
-configured out of the box for dynamic content (e.g. PHP/Python/other external processor).
-As we don't need any dynamic content, as we are just serving static files, NGINX is ideal
-for our workload (as less overhead is needed for features that won't be used such as
-dynamic content rendered on the server side). \cite{ApacheVSNGINX}
+configured out of the box for dynamic content, but Apache is configured to use PHP
+out of the box.
 
+\paragraph{User account based RAW file management}
+In order to select and upload images, a method of specifying users, and their uploaded
+images needs to be created. This will require a database, to store the user information (username,
+password), pointers to the images (image URL, and user associated with each image), along with some
+server side scripts to manage authentication, dealing with file uploads, and maintaining collections
+of images (listing all images associated with a user).
+
+While any web framework would work with this, I've chosen to use the Python programming
+language with the Django web framework, as database queries can be made using the built-in
+Object Relational Mapper (ORM), that automatically writes SQL queries for the specified
+database backend (e.g. MySQL, PostgreSQL), based on defining models as Python classes (inheriting
+the django models.Model class).
+
+Furthermore, Django contains built-in authentication, and built in methods to create users,
+login, and managing sessions. These two features simplify the creation of the server side scripts
+for user account based RAW file management.
+
+For the interface, rather than sticking to server side generated pages, serving a JavaScript based
+interface for this means the files can all be stored on the static file server used for the editor,
+and therefore AJAX requests can be made to the server to get the information needed, and load them
+onto the page. This avoids having to generate an entire page just for a few pieces of information. This
+JavaScript code shall make a request to get a list of the images (encoded as JSON, along with their associated
+urls). When a user clicks on the URL, the image picker loads up the editor, passing the URL to the image to edit (through
+GET variables). This way, there is less reliance on the entire server side framework.
+
+In order to ensure all of this works, a database is needed. Django officially supports three databases:
+PostgreSQL, MySQL, Oracle and SQLite. SQLite is file based, and while it's ok for single user apps, for
+multiple users it won't scale well. \textbf{TODO: reference for not using SQLite in production}.
+
+MySQL is far better for applications, implementing most (but not all) of the SQL functionality. However,
+it doesn't perform as well with concurrent users on write operations (e.g. writing new images into the database),
+or writing the associated image settings to the database. Furthermore, features are missing like full text search.
+
+ PostgreSQL is the most advanced, being fully standards compliant, and it has concurrency features built in to avoid using read locks.
+ It's extensible, and allows for features like full text search. However, it can potentially be slower for primarily read based operations
+ compared to MySQL, and as setup complexity for Postgres is far higher, it might not be the best tool for our project.
+
+ Therefore, for this part of the system, Django shall be used alongside MySQL.
 \paragraph{Render Server}
 While lower level programming languages might be useful for image processing,
 the requirement of linking this with web technologies means that a language such as C
@@ -260,23 +353,64 @@ by building on existing images, saving time without needing to start again from 
 
 \textbf{TODO: some source of docker}
 \subsection{Evaluation}
-% \subsection{Main Text}
-%
-% The font used for the main text should be Times New Roman (Times) and the font size should be 12.  The first line of all paragraphs should be indented by 0.25in, except for the first paragraph of each section, subsection, subsubsection etc. (the paragraph immediately after the header) where no indentation is needed.
-%
-% \subsection{Figures and Tables}
-% In general, figures and tables should not appear before they are cited.  Place figure captions below the figures; place table titles above the tables.  If your figure has two parts, for example, include the labels ``(a)'' and ``(b)'' as part of the artwork.  Please verify that figures and tables you mention in the text actually exist.  make sure that all tables and figures are numbered as shown in Table \ref{units} and Figure 1.
-% %sort out your own preferred means of inserting figures
-%
-% \begin{table}[htb]
-% \centering
-% \caption{UNITS FOR MAGNETIC PROPERTIES}
-% \vspace*{6pt}
-% \label{units}
-% \begin{tabular}{ccc}\hline\hline
-% Symbol & Quantity & Conversion from Gaussian \\ \hline
-% \end{tabular}
-% \end{table}
+In order to measure the success of the system, a mixture of user based tests and system
+based metrics will need to be taken.
+
+As this is a software product, the underlying server will need to be constant to avoid
+biased results. Therefore, for the tests, a computer shall be used as the server with the
+following specs:
+
+\begin{itemize}
+  \item Processor: Intel i7-7700k at 4.2GHz
+  \item Memory: 16GB DDR4-3000 RAM
+  \item Storage: 1TB WD 7200RPM hard drive
+  \item Operating System: Ubuntu 17.10
+\end{itemize}
+
+The amount of file storage here isn't as important, but as we are using a hard drive,
+file caching might be slightly slower than if using an SSD.
+
+The system will be deployed using Docker Compose, with the configuration scripts shown in the GitHub
+repository.
+
+\subsubsection{System-based Metrics}
+Three different images per camera shall be used within the system to test compatibility
+with other camera manufacturers. Canon, Nikon, Pentax and Lecia camera RAW formats shall be tested.
+\textbf{SOURCE: top camera manufacturers, source of test images}.
+
+In order to measure usability (along with the human based experiment), the system shall be used by
+several different users, and for each, the time taken to submit a preview, and then get the preview displayed
+on the screen shall be tested, as this figure gives us an indicataion in the delay between modifying parameters
+and having the updated image displayed on screen.
+
+\subsubsection{User-based tests}
+While metrics can give us an indication into the usability and usefulness of the system,
+it's also important to test the system with users.
+
+The first test shall be carried out with individual users. This first test shall consist of
+the following simple steps:
+
+\begin{enumerate}
+  \item Log into a given user account
+  \item Create a new album
+  \item Upload a new image to that album
+  \item Open the image for editing in the editor
+  \item Set the exposure to a specified value
+  \item Adjust colour settings
+  \item Use the built-in automated features
+  \item Export the fixed image as PNG for download
+\end{enumerate}
+
+The users selected for this shall be mixed between experienced photographers (i.e. those
+who are familar with using current RAW editing software such as Lightroom and Darktable), and
+people who haven't used any RAW editing software before. The time taken for the users to carry
+out the instructions shall be measured, along with their comments on the ease of use of the system through a survey.
+The use of the time metric allows us to see how easy the system is to become familar with and to use, while the survey
+allow us to compare the user's experience and how they found the software to use.
+
+A sample of 10 people shall be used for the live demo, which while it isn't a very large sample size,
+any sample size larger than this would make the tests difficult to carry out due to the requirement of external
+application hosting.
 
 \section{References}
 
