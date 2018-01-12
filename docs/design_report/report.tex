@@ -338,6 +338,26 @@ in my case I'll be using Node.JS with an Express server, simply because it's eas
 install dependencies ("npm install" can be run to install dependencies in one command), and it can
 also connect to a database to provide services such as login, and records of individual files.
 
+\paragraph{File Storage Server}
+As the user is required to upload files, and the files that are exported need to be stored
+somewhere (not on the render server local disk) to be accessed, it's important we have a
+centralised store.
+
+Ideally, this file storage server should be interchangable, allowing the user to change
+where the files are stored (only requiring it to be accessable by using a URL).
+
+There are a few options on the public cloud for use with this system, namely Amazon's S3,
+and other storage services. However, as this prototype will initially be employed on a
+private cloud, I shall use a service called OpenStack Swift, which allows the storage of files.
+Furthermore, as this links in as a Django storage backend, and APIs already exist to tie Django in
+with Swift, this makes the implementation easier. As this will be separate from the web services server,
+and also seperate from the render server, any loss of either of these will cause the files to remain online,
+and also allows for more user account management servers and more render servers to be placed online,
+fetching and writing files to this file storage server.
+
+\textbf{TODO Source: Why use OpenStack Swift}
+\textbf{TODO: source: Django support for Open stack swift}
+
 \paragraph{Distributed System Management}
 As this system consists of several smaller systems, it's important that these are
 managed. For each smaller component, a Docker container can be created, containing the
