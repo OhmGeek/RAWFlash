@@ -2,6 +2,7 @@ package uk.co.ohmgeek.rawflash.processor.adamsprocessor;
 
 import com.google.gson.Gson;
 import uk.co.ohmgeek.rawflash.processor.AbstractProcessor;
+import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.CustomWhiteBalance;
 import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.HistogramEQ;
 import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.MeanBlur;
 
@@ -28,7 +29,16 @@ public class AdamsProcessor implements AbstractProcessor {
             MeanBlur blur = new MeanBlur(kernelSize);
             image = blur.process(image);
         });
+        commands.put("adams-wb", () -> {
+            // get the rgb gain values from the system
+            double redGain = Double.parseDouble(operations.get("adams-wb-red"));
+            double greenGain = Double.parseDouble(operations.get("adams-wb-green"));
+            double blueGain = Double.parseDouble(operations.get("adams-wb-blue"));
 
+            // now apply the computation
+            CustomWhiteBalance wBalanceChange = new CustomWhiteBalance(redGain, greenGain, blueGain);
+            image = wBalanceChange.process(image);
+        });
         return commands;
     }
     @Override
