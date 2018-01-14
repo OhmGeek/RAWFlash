@@ -151,7 +151,21 @@ will be more likely to succeed at the aims.
 
 
 \subsection{Proposed Extensions}
+\subsubsection{Quality of Service Improvements}
+\paragraph{Client Side Preview Rendering}
+The system itself renders the RAW images entirely on the client side,
+directly from the RAW file. However, the time taken for a render request to be sent,
+and the preview to be returned from the server can be quite a long time. Currently,
+the user will just be required to wait, but an improvement can be made where simple operations can be carried out on the client side, using the previous preview image as
+the starting image, and therefore there will be a gradual speedup due to the lack of network traffic or having to run computationally extensive tasks on the entire RAW file (simply a compressed version of the preview).
 
+\subsubsection{Additional Features}
+\paragraph{Image Haze Removal}
+In images, it's possible that haze can creep into the image from background sources.
+In order to combat this, single image haze removal can be implemented to remove haze using an automatic algorithm.
+Several different algorithms exist, some using colour attenuation, others using
+
+By using colour attenuation prior (using the colour attenuation information already known about the image), haze can be removed
 \subsection{Architecture}
 As the system is fairly large, it's important to break it down into individual pieces. These are:
 
