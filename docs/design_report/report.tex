@@ -13,7 +13,7 @@
 \student{Ryan Collins (gcdk35)}
 \degree{M.Eng Computer Science}
 
-\date{}
+\date{\today}
 
 \begin{document}
 
@@ -72,22 +72,26 @@ one user to edit RAW photos at a time through the web interface, each with their
 \subsection{Deliverables}
 The project will have the following deliverables:
 \begin{table}
-  \centering
-  \begin{tabular}{|c | c | p{12cm} |}
-    Number & Name & description
+  \begin{tabular}{| c | c | p{12cm} |}
+    \hline
+    \textbf{\#} & \textbf{Name} & \textbf{Description}\\
+    \hline
     1 & Render Server & This will be a web application server that takes a JSON string as an input,
     renders the image with settings defined in the JSON string, and sends the output back
     to the user. This shall provide an interface to the clients so that they can use this
     render server. \\
+    \hline
     2 & Client-side frontend & This will be a web based interface that allows the user to
     edit RAW photos in their web browser. It will allow the user to upload/select images that they
     want to edit, and then to edit the RAW images (providing a preview when settings are changed). Essentially,
     this will wrap the render server API, and also provide it's own functionality. This will
     be in the form of HTML, CSS and JavaScript files providing the user interface and most of the core
     functionality, along with some helper server-side methods. \\
+    \hline
     3 & Project Report & This will be a report containing information about the entire project,
     all the way through the design, build and testing phases. It's contents shall include an evaluation of
-    the prototype, how effective it is, and how it can be improved through technology changes/further improvements.
+    the prototype, how effective it is, and how it can be improved through technology changes/further improvements.\\
+    \hline
   \end{tabular}
 \end{table}
 
@@ -124,6 +128,12 @@ will be more likely to succeed at the aims.
     FR-06 & The client interface should have the ability to zoom in and out of the preview image, to help aid editing & Low \\
     \hline
     FR-07 & Allow the user to apply automated image enhancement algorithms to the image to find the best parameters for each image & Low \\
+    \hline
+    FR-08 & Allow the user to set their own white balance & Medium\\
+    \hline
+    FR-09 & Allow the user to apply gamma correction to their RAW image & Medium\\
+    \hline
+    FR-10 & Allow the user to control the highlights of the image & Low\\
     \hline
   \end{tabular}
   \caption{Functional Requirements}
@@ -310,7 +320,7 @@ GET variables). This way, there is less reliance on the entire server side frame
 
 In order to ensure all of this works, a database is needed. Django officially supports three databases:
 PostgreSQL, MySQL, Oracle and SQLite. SQLite is file based, and while it's ok for single user apps, for
-multiple users it won't scale well. \textbf{TODO: reference for not using SQLite in production}.
+multiple users it won't scale well.
 
 MySQL is far better for applications, implementing most (but not all) of the SQL functionality. However,
 it doesn't perform as well with concurrent users on write operations (e.g. writing new images into the database),
@@ -318,7 +328,7 @@ or writing the associated image settings to the database. Furthermore, features 
 
  PostgreSQL is the most advanced, being fully standards compliant, and it has concurrency features built in to avoid using read locks.
  It's extensible, and allows for features like full text search. However, it can potentially be slower for primarily read based operations
- compared to MySQL, and as setup complexity for Postgres is far higher, it might not be the best tool for our project.
+ compared to MySQL, and as setup complexity for Postgres is far higher, it might not be the best tool for our project. \cite{ComparisonOfDatabaseBackends}
 
  Therefore, for this part of the system, Django shall be used alongside MySQL.
 \paragraph{Render Server}
@@ -354,29 +364,47 @@ Repositories), and also to build the system.
 \end{figure}
 \begin{table}
   \centering
-  \begin{tabular}{| c | p{12cm} | }
+  \begin{tabular}{| c | p{13cm} | }
+    \hline
+    \textbf{\#} & \textbf{Description} \\
+    \hline
+  1 & JSON string passed from server to file manager, to download/ensure the file is in the local cache. \\
   \hline
-  Number & Description\\
-  1 & JSON string passed from server to file manager, to download/ensure the file is in the local cache.
-  2 & If the file doesn't exist in cache (test using random number generator seed) download it from the file storage server.
-  3 & Write the file to local cache if downloaded, using an aliased filename. Update the URL to this filename in the JSON string.
-  4 & Pass the updated JSON string to the operation manager.
-  5 & Pass the JSON String to the component dealing with rendering of RAW using DCRAW.
-  6 & Parse JSON string, find the properties to modify within DCRAW and use the JDCRAW library to set up the executable.
-  7 & Execute the instructions set up wtih the dcraw executable.
-  8 & File will be read from the local cache, and processed by the executable.
-  9 & The output of dcraw will be written back to the local cache, as a TIFF file (for compatibility with Java/Adams processor)
-  10 & Pass the new rendered URL (the url of the tiff file) back up to JDCRAW library
-  11 & Pass the URL up to the dcraw manager, and update the JSON string accordingly for the next processor in the pipeline.
-  12 & Ensure the changes to the JSON string are reflected in the operation manager.
-  13 & Pass the updated JSON string to the Adams Processor
+  2 & If the file doesn't exist in cache (test using random number generator seed) download it from the file storage server. \\
+  \hline
+  3 & Write the file to local cache if downloaded, using an aliased filename. Update the URL to this filename in the JSON string. \\
+  \hline
+  4 & Pass the updated JSON string to the operation manager. \\
+  \hline
+  5 & Pass the JSON String to the component dealing with rendering of RAW using DCRAW. \\
+  \hline
+  6 & Parse JSON string, find the properties to modify within DCRAW and use the JDCRAW library to set up the executable.\\
+  \hline
+  7 & Execute the instructions set up wtih the dcraw executable.\\
+  \hline
+  8 & File will be read from the local cache, and processed by the executable.\\
+  \hline
+  9 & The output of dcraw will be written back to the local cache, as a TIFF file (for compatibility with Java/Adams processor)\\
+  \hline
+  10 & Pass the new rendered URL (the url of the tiff file) back up to JDCRAW library\\
+  \hline
+  11 & Pass the URL up to the dcraw manager, and update the JSON string accordingly for the next processor in the pipeline.\\
+  \hline
+  12 & Ensure the changes to the JSON string are reflected in the operation manager.\\
+  \hline
+  13 & Pass the updated JSON string to the Adams Processor\\
+  \hline
   14 & Based on the operations defined in the JSON string, read the TIFF file (generated by DCRAW), and call the appropriate custom subroutines
-  to process the image. These routines are written in Java, and are the custom written methods to create the advanced functionality.
-  15 & Write the output of adams to a file, and pass the URL back up to the adams processor
-  16 & Pass the JSON string up to the operation manager.
-  17 & If an export grade image is needed, save the export file to the file storage server, and update the JSON string.
-  18 & Export the appropriate information, including a base64 encoded preview of the image, and export URL if needed.
-
+       to process the image. These routines are written in Java, and are the custom written methods to create the advanced functionality.\\
+  \hline
+  15 & Write the output of adams to a file, and pass the URL back up to the adams processor\\
+  \hline
+  16 & Pass the JSON string up to the operation manager.\\
+  \hline
+  17 & If an export grade image is needed, save the export file to the file storage server, and update the JSON string.\\
+  \hline
+  18 & Export the appropriate information, including a base64 encoded preview of the image, and export URL if needed.\\
+  \hline
   \end{tabular}
   \caption{Render Server Steps Description}
   \label{RenderServerDiagramTable}
