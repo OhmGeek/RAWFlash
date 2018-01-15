@@ -27,6 +27,12 @@ Mozilla  \harvardyearleft 2017\harvardyearright , `Xmlhttprequest'.
 \newblock Accessed: 2018-01-09.
 \newline\harvardurl{https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest}
 
+\harvarditem{Tezer}{2014}{ComparisonOfDatabaseBackends}
+Tezer, O.  \harvardyearleft 2014\harvardyearright , `Sqlite vs mysql vs
+  postgresql: A comparison of relational database management systems'.
+\newblock Accessed: 2018-01-11.
+\newline\harvardurl{https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems}
+
 \harvarditem{Verhoeven}{2010}{AllAboutTheFormat}
 Verhoeven, G. J.~J.  \harvardyearleft 2010\harvardyearright , `It's all about
   the format – unleashing the power of raw aerial photography', {\em

@@ -21,7 +21,13 @@
 
 \begin{abstract}
 \paragraph{Context/Background}
-
+RAW images are used by photographers to improve the quality of their images, specifically
+when editing, to avoid the compression problems associated with JPEGs. Editing these
+files is traditionally done on a high-spec machine, capable of processing images with large
+resolutions. In the field, this can be difficult. When used for websites, the workflow is typically
+to edit a RAW file and export as one file format (generally JPEG, which loses some quality), and then uploaded to a content management system where
+the output image is automatically edited and resized, reducing the quality further. Editing these RAW files without requiring the user to use a high spec
+machine is therefore ideal, by creating a web service for RAW editing.
 \paragraph{Aims}
 The main aim of this project is to test the feasibility of a Cloud-based RAW image
 editor.
@@ -30,8 +36,9 @@ A render server backend will first be implemented as an API, taking in an input 
 JSON object, and then processing the image, and then a JavaScript
 client shall be created to interface with this API.
 \paragraph{Proposed Solution}
-A web application that uses dcraw coupled with custom Java code to read RAW images,
-and allow adjustment of various parameters, with the output being sent back to the user.
+A web application, using a Java server with dcraw and custom image processing code to
+process RAW images, communicating over a socket.io interface, and a web frontend that allows
+users to interface with the render server.
 \end{abstract}
 
 \begin{keywords}
@@ -71,7 +78,9 @@ one user to edit RAW photos at a time through the web interface, each with their
 
 \subsection{Deliverables}
 The project will have the following deliverables:
-\begin{table}
+
+
+\begin{center}
   \begin{tabular}{| c | c | p{12cm} |}
     \hline
     \textbf{\#} & \textbf{Name} & \textbf{Description}\\
@@ -93,8 +102,7 @@ The project will have the following deliverables:
     the prototype, how effective it is, and how it can be improved through technology changes/further improvements.\\
     \hline
   \end{tabular}
-\end{table}
-
+\end{center}
 \section{Design}
 
 This section outlines the design of the system, starting off with the specification of what such a system
@@ -161,7 +169,27 @@ will be more likely to succeed at the aims.
 
 
 \subsection{Proposed Extensions}
+\subsubsection{Quality of Service Improvements}
+\paragraph{Client Side Preview Rendering}
+The system itself renders the RAW images entirely on the client side,
+directly from the RAW file. However, the time taken for a render request to be sent,
+and the preview to be returned from the server can be quite a long time. Currently,
+the user will just be required to wait, but an improvement can be made where simple operations can be carried out on the client side, using the previous preview image as
+the starting image, and therefore there will be a gradual speedup due to the lack of network traffic or having to run computationally extensive tasks on the entire RAW file (simply a compressed version of the preview).
 
+\subsubsection{Additional Features}
+\paragraph{Image Haze Removal}
+In images, it's possible that haze can creep into the image from background sources.
+In order to combat this, single image haze removal can be implemented to remove haze using an automatic algorithm.
+Several different algorithms exist, some using colour attenuation, others using
+
+By using colour attenuation prior (using the colour attenuation information already known about the image), we can use the difference between
+the brightness of the image and the saturation, in order to estimate the amount of haze present at a particular point. This can then be used to
+produce a map of the depth of an image, from only one image, and then by applying the atmospheric scattering model in reverse, the haze-reduced image
+can be yielded. This also has much better running time compared with other similar algorithms, which is more suited to our system (as we need to reduce the
+time taken to render images as much as possible). \cite{ColourAttenuationPriorAlg}
+
+%TODO: add dark channel prior algorithm and compare here. Compare in terms of running time and performance on the images.
 \subsection{Architecture}
 As the system is fairly large, it's important to break it down into individual pieces. These are:
 
@@ -358,7 +386,7 @@ Repositories), and also to build the system.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.25\textwidth]{renderserverdiagram}
+    \includegraphics[width=1\textwidth]{renderserverdiagram}
     \caption{A diagram showing the structure of the render server components}
     \label{RenderServerDiagram}
 \end{figure}
