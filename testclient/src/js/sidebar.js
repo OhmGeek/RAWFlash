@@ -18,7 +18,9 @@ $(function(){
   // define the function when jQuery is present.
   window.display_sidebar_preset = function(preset) {
     let fileToLoad = '/ajax/' + preset + '.html';
-    $('#mySidebar').load(fileToLoad);
+    $('#mySidebar').load(fileToLoad, function() {
+      $('#mySidebar').trigger("sidebar-updated");
+    });
   }
 
   // once loaded, display the main sidebar preset.
