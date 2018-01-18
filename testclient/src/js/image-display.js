@@ -8,10 +8,9 @@
 $(function() {
   var ctx;
   var canvas;
+  window.imageDisplay = {};
 
-  window.imageDisplay = {
-    'magnification': 1.0
-  }
+  window.imageDisplay['magnification'] = 1.0;
 
   window.imageDisplay.init = function() {
     canvas = document.getElementById('myCanvas');

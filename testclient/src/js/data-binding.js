@@ -4,19 +4,13 @@
   Uses Bind.JS
 */
 $(function() {
-  $('.input-bound-field').on('change', function() {
-    console.log("Change")
-    var property = $(this).data("linkedProperty")
+  $('#mySidebar').on('change','.input-bound-field', function(e) {
+
+    var property = $(this).data("linkedproperty")
     var value = $(this).val();
+    console.log("Set " + property + " to " + value);
     APP_SETTINGS['image_settings'][property] = value;
-
-    // todo remove this
-    window.updateImageSettings();
   });
 
-  $('.input-bound-field').on('load', function() {
-    var property = $(this).data("linkedProperty");
-    var value = APP_SETTINGS['image_settings'][property];
-    $(this).val(value);
-  });
+
 });

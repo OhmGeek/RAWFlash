@@ -8,3 +8,5 @@ services:
     build: ./testclient
     ports:
       - "80:80"
+    volumes:
+      - ./testclient/src:/usr/share/nginx/html

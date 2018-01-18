@@ -1,3 +1,15 @@
-/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/operations/AbstractOperation.java
-/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/OperationManager.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/adamsprocessor/convolution/ConvolutionOp.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/HistogramEQ.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/ProcessCommandObject.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/IOperation.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/DCRawProcessor.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/GaussianBlur.java
 /home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/Main.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/adamsprocessor/AdamsProcessor.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/adamsprocessor/convolution/AccurateKernel.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/adamsprocessor/ProcessorRunnable.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/MeanBlur.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/OperationManager.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/CustomWhiteBalance.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/processor/AbstractProcessor.java
+/home/ryan/Documents/Programming/RAWFlash/rawflash/src/main/java/uk/co/ohmgeek/rawflash/FileManager.java

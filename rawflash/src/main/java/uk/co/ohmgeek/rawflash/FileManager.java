@@ -18,7 +18,7 @@ public class FileManager {
     // Then, add a local_filename tag.
 
 
-    private final String CACHE_DIRECTORY = "/home/ryan/rawflash_cache/";
+    private final String CACHE_DIRECTORY = "/rawflash_cache/";
 
     public FileManager() {
 

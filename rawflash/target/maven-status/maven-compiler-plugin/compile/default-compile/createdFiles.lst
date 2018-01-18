@@ -1,0 +1,16 @@
+uk/co/ohmgeek/rawflash/FileManager.class
+uk/co/ohmgeek/rawflash/processor/adamsprocessor/AdamsProcessor.class
+uk/co/ohmgeek/rawflash/processor/adamsprocessor/convolution/ConvolutionOp.class
+uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/CustomWhiteBalance.class
+uk/co/ohmgeek/rawflash/Main$1.class
+uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/HistogramEQ.class
+uk/co/ohmgeek/rawflash/OperationManager.class
+uk/co/ohmgeek/rawflash/processor/adamsprocessor/ProcessorRunnable.class
+uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/IOperation.class
+uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/GaussianBlur.class
+uk/co/ohmgeek/rawflash/ProcessCommandObject.class
+uk/co/ohmgeek/rawflash/Main.class
+uk/co/ohmgeek/rawflash/processor/AbstractProcessor.class
+uk/co/ohmgeek/rawflash/processor/adamsprocessor/operations/MeanBlur.class
+uk/co/ohmgeek/rawflash/processor/adamsprocessor/convolution/AccurateKernel.class
+uk/co/ohmgeek/rawflash/processor/DCRawProcessor.class

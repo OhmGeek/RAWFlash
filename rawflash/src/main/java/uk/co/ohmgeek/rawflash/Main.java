@@ -31,7 +31,7 @@ public class Main {
     public static void main(String args[]) throws NegativeBrightnessException, IOException {
         // socketio server
         ImageIO.setUseCache(false); //first, turn off caching as this has undesired effects later on.
-
+        System.out.println("Server Started");
         Configuration config = new Configuration();
         config.setHostname("localhost");
         config.setPort(4000);
