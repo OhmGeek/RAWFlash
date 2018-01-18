@@ -39,4 +39,10 @@ Verhoeven, G. J.~J.  \harvardyearleft 2010\harvardyearright , `It's all about
   International Journal of Remote Sensing} {\bf 31}(8),~2009--2042.
 \newline\harvardurl{https://doi.org/10.1080/01431160902929271}
 
+\harvarditem[Zhu et~al.]{Zhu, Mai \harvardand\
+  Shao}{2015}{ColourAttenuationPriorAlg}
+Zhu, Q., Mai, J. \harvardand\ Shao, L.  \harvardyearleft 2015\harvardyearright
+  , `A fast single image haze removal algorithm using color attenuation prior',
+  {\em IEEE Transactions on Image Processing} {\bf 24}(11),~3522--3533.
+
 \end{thebibliography}

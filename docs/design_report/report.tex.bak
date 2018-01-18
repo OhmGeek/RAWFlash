@@ -24,7 +24,7 @@
 RAW images are used by photographers to improve the quality of their images, specifically
 when editing, to avoid the compression problems associated with JPEGs. Editing these
 files is traditionally done on a high-spec machine, capable of processing images with large
-resolutions. In the field, this can be difficult. When used for websites, the work-flow is typically
+resolutions. In the field, this can be difficult. When used for websites, the workflow is typically
 to edit a RAW file and export as one file format (generally JPEG, which loses some quality), and then uploaded to a content management system where
 the output image is automatically edited and resized, reducing the quality further. Editing these RAW files without requiring the user to use a high spec
 machine is therefore ideal, by creating a web service for RAW editing.
@@ -32,12 +32,12 @@ machine is therefore ideal, by creating a web service for RAW editing.
 The main aim of this project is to test the feasibility of a Cloud-based RAW image
 editor.
 \paragraph{Method}
-A render server back-end will first be implemented as an API, taking in an input as a
+A render server backend will first be implemented as an API, taking in an input as a
 JSON object, and then processing the image, and then a JavaScript
 client shall be created to interface with this API.
 \paragraph{Proposed Solution}
 A web application, using a Java server with dcraw and custom image processing code to
-process RAW images, communicating over a socket.io interface, and a web front-end that allows
+process RAW images, communicating over a socket.io interface, and a web frontend that allows
 users to interface with the render server.
 \end{abstract}
 
@@ -90,7 +90,7 @@ The project will have the following deliverables:
     to the user. This shall provide an interface to the clients so that they can use this
     render server. \\
     \hline
-    2 & Client-side front-end & This will be a web based interface that allows the user to
+    2 & Client-side frontend & This will be a web based interface that allows the user to
     edit RAW photos in their web browser. It will allow the user to upload/select images that they
     want to edit, and then to edit the RAW images (providing a preview when settings are changed). Essentially,
     this will wrap the render server API, and also provide it's own functionality. This will
@@ -131,7 +131,7 @@ will be more likely to succeed at the aims.
     \hline
     FR-04 & Store the render settings of a given RAW file (as specified by the user), to allow for the image to be re-rendered and re-edited without losing quality & High \\
     \hline
-    FR-05 & Have the ability to edit user specified files (i.e. users can specify which file to edit, rather than using a hard-coded file within the system) & High \\
+    FR-05 & Have the ability to edit user specified files (i.e. users can specify which file to edit, rather than using a hardcoded file within the system) & High \\
     \hline
     FR-06 & The client interface should have the ability to zoom in and out of the preview image, to help aid editing & Low \\
     \hline
@@ -213,7 +213,7 @@ As the system is fairly large, it's important to break it down into individual p
         are logs in, and then passes a header to the reverse proxy to serve the static files.\\
     \hline
     3 & The django app provides user accounts and authenticated routes, along with managing the storage of images, and their associated
-        meta-data (such as render settings). No static content is directly rendered on this server, but AJAX requests are made, which return JSON,
+        metadata (such as render settings). No static content is directly rendered on this server, but AJAX requests are made, which return JSON,
         or session cookies (in the case of authentication).\\
     \hline
     4 & In order to store user accounts, or associate image files with image objects and associated data, a database is used. This is a necessary data store,
@@ -288,7 +288,7 @@ Despite being an executable, it's written using only standard C libraries, and t
 fairly portable, not requiring any dependencies (aside from compiling with a C compiler of course, if
 no binaries are downloaded). \cite{DcrawWebsite}
 
-According to the man-page, the executable contains commands to set RAW exposure, export as TIFF,
+According to the manpage, the executable contains commands to set RAW exposure, export as TIFF,
 set saturation level, set white balance, set colourspace, set gamma curve and flip the image. \cite{DcrawManpage}
 
 
@@ -374,7 +374,7 @@ of images (listing all images associated with a user).
 While any web framework would work with this, I've chosen to use the Python programming
 language with the Django web framework, as database queries can be made using the built-in
 Object Relational Mapper (ORM), that automatically writes SQL queries for the specified
-database back-end (e.g. MySQL, PostgreSQL), based on defining models as Python classes (inheriting
+database backend (e.g. MySQL, PostgreSQL), based on defining models as Python classes (inheriting
 the django models.Model class).
 
 Furthermore, Django contains built-in authentication, and built in methods to create users,
@@ -451,13 +451,13 @@ Repositories), and also to build the system.
   \hline
   6 & Parse JSON string, find the properties to modify within DCRAW and use the JDCRAW library to set up the executable.\\
   \hline
-  7 & Execute the instructions set up with the dcraw executable.\\
+  7 & Execute the instructions set up wtih the dcraw executable.\\
   \hline
   8 & File will be read from the local cache, and processed by the executable.\\
   \hline
   9 & The output of dcraw will be written back to the local cache, as a TIFF file (for compatibility with Java/Adams processor)\\
   \hline
-  10 & Pass the new rendered URL (the URL of the tiff file) back up to JDCRAW library\\
+  10 & Pass the new rendered URL (the url of the tiff file) back up to JDCRAW library\\
   \hline
   11 & Pass the URL up to the dcraw manager, and update the JSON string accordingly for the next processor in the pipeline.\\
   \hline
@@ -468,7 +468,7 @@ Repositories), and also to build the system.
   14 & Based on the operations defined in the JSON string, read the TIFF file (generated by DCRAW), and call the appropriate custom subroutines
        to process the image. These routines are written in Java, and are the custom written methods to create the advanced functionality.\\
   \hline
-  15 & Write the output of Adams to a file, and pass the URL back up to the Adams processor\\
+  15 & Write the output of adams to a file, and pass the URL back up to the adams processor\\
   \hline
   16 & Pass the JSON string up to the operation manager.\\
   \hline
@@ -489,7 +489,7 @@ and their associated images.
 
 Rather than rendering each page dynamically, we can instead use JavaScript to make AJAX requests,
 fetching the data needed, and this way, we don't need to render whole HTML web pages. In terms of
-back-end technology, it doesn't matter too much what is used, as it won't be used too much, but
+backend technology, it doesn't matter too much what is used, as it won't be used too much, but
 in my case I'll be using Node.JS with an Express server, simply because it's easy to deploy and
 install dependencies ("npm install" can be run to install dependencies in one command), and it can
 also connect to a database to provide services such as login, and records of individual files.
@@ -499,15 +499,15 @@ As the user is required to upload files, and the files that are exported need to
 somewhere (not on the render server local disk) to be accessed, it's important we have a
 centralised store.
 
-Ideally, this file storage server should be interchangeable, allowing the user to change
-where the files are stored (only requiring it to be accessible by using a URL).
+Ideally, this file storage server should be interchangable, allowing the user to change
+where the files are stored (only requiring it to be accessable by using a URL).
 
 There are a few options on the public cloud for use with this system, namely Amazon's S3,
 and other storage services. However, as this prototype will initially be employed on a
 private cloud, I shall use a service called OpenStack Swift, which allows the storage of files.
 Furthermore, as this links in as a Django storage backend, and APIs already exist to tie Django in
 with Swift, this makes the implementation easier. As this will be separate from the web services server,
-and also separate from the render server, any loss of either of these will cause the files to remain online,
+and also seperate from the render server, any loss of either of these will cause the files to remain online,
 and also allows for more user account management servers and more render servers to be placed online,
 fetching and writing files to this file storage server.
 
@@ -556,7 +556,7 @@ with other camera manufacturers. Canon, Nikon, Pentax and Lecia camera RAW forma
 
 In order to measure usability (along with the human based experiment), the system shall be used by
 several different users, and for each, the time taken to submit a preview, and then get the preview displayed
-on the screen shall be tested, as this figure gives us an indication in the delay between modifying parameters
+on the screen shall be tested, as this figure gives us an indicataion in the delay between modifying parameters
 and having the updated image displayed on screen.
 
 \subsubsection{User-based tests}
@@ -578,10 +578,10 @@ the following simple steps:
 \end{enumerate}
 
 The users selected for this shall be mixed between experienced photographers (i.e. those
-who are familiar with using current RAW editing software such as Lightroom and Darktable), and
+who are familar with using current RAW editing software such as Lightroom and Darktable), and
 people who haven't used any RAW editing software before. The time taken for the users to carry
 out the instructions shall be measured, along with their comments on the ease of use of the system through a survey.
-The use of the time metric allows us to see how easy the system is to become familiar with and to use, while the survey
+The use of the time metric allows us to see how easy the system is to become familar with and to use, while the survey
 allow us to compare the user's experience and how they found the software to use.
 
 A sample of 10 people shall be used for the live demo, which while it isn't a very large sample size,
