@@ -12,14 +12,36 @@ var APP_SETTINGS = {
 };
 
 
+var socket = null;
 
-var socket = io(APP_SETTINGS['server_host'] + ":" + APP_SETTINGS['server_port']);
-var canvas = document.getElementById('myCanvas');
-var ctx = canvas.getContext("2d");
+var canvas = null;
+
+var ctx = null;
+
 
 $(function() {
+
+
+
   window.imageDisplay.init();
-})
+
+
+
+  socket = io(APP_SETTINGS['server_host'] + ":" + APP_SETTINGS['server_port']);
+
+
+  canvas = document.getElementById('myCanvas');
+  ctx = canvas.getContext("2d");
+
+  socket.on('image-processed', function(data) {
+    console.log("Image Processed");
+    console.log(data);
+    let image = new Image();
+    image.src = data;
+    APP_SETTINGS['current_image'] = image;
+    image.onload = window.renderImage;
+  });
+});
 // document.onload = function() {
 //
 //
@@ -41,15 +63,11 @@ $(function() {
 // }
 
 function updateImageSettings() {
+  console.log("Sent job");
   socket.emit("process-image", JSON.stringify(APP_SETTINGS.image_settings));
 }
 
-socket.on('image-processed', function(data) {
-  let image = new Image();
-  image.src = data;
-  APP_SETTINGS['current_image'] = image;
-  image.onload = window.renderImage;
-});
+
 
 // function renderImage() {
 //   console.log("drawing image")
@@ -94,6 +112,3 @@ function setProperty(propertyName, value) {
     APP_SETTINGS['image_settings'][propertyName] = value;
   }
 }
-document.addEventListener("DOMContentLoaded", function(event) {
-  updateImageSettings();
-});

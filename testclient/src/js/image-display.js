@@ -19,7 +19,7 @@ $(function() {
 
   window.imageDisplay.renderImage = function(image) {
     ctx.clearRect(0,0, image.width, image.height);
-
+    let magnification = imageDisplay['magnification'];
     // set dimensions of canvas
     canvas.width = image.width * magnification;
     canvas.height = image.height * magnification;
