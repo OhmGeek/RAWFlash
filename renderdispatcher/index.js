@@ -20,9 +20,10 @@ amqp.connect('amqp://localhost', function(err, conn) {
         });
 
         ch.consume(q.queue, function(msg) {
-          if (msg.properties.correlationId == corr) {
+          // if (msg.properties.correlationId == corr) {
             console.log("REturn");
             var response = msg.content.toString();
+            console.log(response);
             var jsonStr = JSON.parse(response);
             var clientid = jsonStr['client']; // todo get client id from JSON
             var client = io.to(clientid);
@@ -30,7 +31,7 @@ amqp.connect('amqp://localhost', function(err, conn) {
             // we need to convert to JSON.
             client.emit("image-processed", response);
             setTimeout(function() { conn.close(); process.exit(0) }, 500);
-          }
+          // }
         }, {noAck: false});
 
       });

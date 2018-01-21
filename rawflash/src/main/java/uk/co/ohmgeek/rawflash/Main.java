@@ -78,19 +78,20 @@ public class Main {
 
                         String output = opManager.process();
                         System.out.println(output);
-                        String dataToSend = getBase64Image(output);
-
+                        String dataToSend = "{'img': " + getBase64Image(output) + "}";
+                        System.out.println(dataToSend);
                         response += dataToSend;
+                        channel.basicPublish( "", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
+
+                        channel.basicAck(envelope.getDeliveryTag(), false);
                     }
                     catch (RuntimeException e){
                         System.out.println(" [.] " + e.toString());
                     }
                     finally {
-                        channel.basicPublish( "", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
+                        System.out.println("Finally output response");
+                        System.out.println(response);
 
-                        channel.basicAck(envelope.getDeliveryTag(), false);
-
-                        System.gc();
                         // RabbitMq consumer worker thread notifies the RPC server owner thread
                         synchronized(this) {
                             this.notify();
@@ -106,7 +107,7 @@ public class Main {
                 synchronized(consumer) {
                     try {
                         consumer.wait();
-                    } catch (InterruptedException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
