@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class Main {
 
-    private static String RPC_QUEUE_NAME = "rawflash";
+    private static final String RPC_QUEUE_NAME = "rawflash";
 
     private static String getBase64Image(String output) throws IOException {
         File f = new File(output);
@@ -25,12 +25,14 @@ public class Main {
         ImageIO.write(image, "png", binaryOutput);
 
         String data = DatatypeConverter.printBase64Binary(binaryOutput.toByteArray());
+        System.out.println("Finished Base64 conversion");
         return "data:image/png;base64," + data;
     }
 
 
     public static void main(String[] argv) {
         ImageIO.setUseCache(false);
+
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
 
@@ -77,21 +79,24 @@ public class Main {
 
 
                         String output = opManager.process();
-                        System.out.println(output);
-                        String dataToSend = "{'img': " + getBase64Image(output) + "}";
-                        System.out.println(dataToSend);
-                        response += dataToSend;
-                        channel.basicPublish( "", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
+                        String base64Image = getBase64Image(output);
 
-                        channel.basicAck(envelope.getDeliveryTag(), false);
+                        // output to JSON
+                        HashMap<String, String> mappedOutput = new HashMap<String, String>();
+                        mappedOutput.put("img", base64Image);
+                        mappedOutput.put("client", jsonString.get("client"));
+
+                        String dataToSend = new Gson().toJson(mappedOutput);
+                        response += dataToSend;
+
                     }
-                    catch (RuntimeException e){
+                    catch (Exception e){
                         System.out.println(" [.] " + e.toString());
                     }
                     finally {
-                        System.out.println("Finally output response");
-                        System.out.println(response);
+                        channel.basicPublish( "", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
 
+                        channel.basicAck(envelope.getDeliveryTag(), false);
                         // RabbitMq consumer worker thread notifies the RPC server owner thread
                         synchronized(this) {
                             this.notify();
@@ -107,7 +112,7 @@ public class Main {
                 synchronized(consumer) {
                     try {
                         consumer.wait();
-                    } catch (Exception e) {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
