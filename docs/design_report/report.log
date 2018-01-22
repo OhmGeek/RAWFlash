@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.8)  15 JAN 2018 11:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.8)  21 JAN 2018 19:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -156,32 +156,31 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10.95> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 44.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 46.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 86.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
+ [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 84.
+(Font)              <12> on input line 144.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 84.
+(Font)              <8> on input line 144.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 84.
-
-Overfull \hbox (22.61995pt too wide) in paragraph at lines 84--105
- [] 
- []
-
-[2] [3]
-
-LaTeX Warning: Citation 'ColourAttenuationPriorAlg' on page 4 undefined on inpu
-t line 190.
-
-<architecturediagram.png, id=15, 845.40843pt x 597.73312pt>
+(Font)              <6> on input line 144.
+ [3]
+<architecturediagram.png, id=16, 845.40843pt x 597.73312pt>
 File: architecturediagram.png Graphic file (type png)
 
 <use architecturediagram.png>
-Package pdftex.def Info: architecturediagram.png used on input line 197.
+Package pdftex.def Info: architecturediagram.png used on input line 216.
 (pdftex.def)             Requested size: 461.13188pt x 326.03627pt.
 
 
@@ -189,28 +188,19 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4] [5] [6 <./architecturediagram.png>]
 
-LaTeX Warning: Reference `UXDesign1' on page 7 undefined on input line 330.
+LaTeX Warning: Reference `UXDesign1' on page 7 undefined on input line 349.
 
-[7] [8] <renderserverdiagram.png, id=34, 845.40843pt x 597.73312pt>
+[7] [8] <renderserverdiagram.png, id=35, 845.40843pt x 597.73312pt>
 File: renderserverdiagram.png Graphic file (type png)
 
 <use renderserverdiagram.png>
-Package pdftex.def Info: renderserverdiagram.png used on input line 432.
+Package pdftex.def Info: renderserverdiagram.png used on input line 451.
 (pdftex.def)             Requested size: 461.13188pt x 326.03627pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9] [10] [11 <./renderserverdiagram.png>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 540.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 540.
- [12] (./report.bbl
+[9] [10] [11 <./renderserverdiagram.png>] [12] (./report.bbl
 Underfull \hbox (badness 7888) in paragraph at lines 14--19
 \OT1/ptm/b/n/12 URL: \OT1/ptm/m/it/12 https://alankent.me/2014/08/28/docker-dis
 tributed-systems-and-why-it-matters-to-
@@ -223,15 +213,12 @@ Missing character: There is no “ in font ptmr7t!
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 1857 strings out of 493029
- 26523 string characters out of 6136235
- 94100 words of memory out of 5000000
- 5366 multiletter control sequences out of 15000+600000
+ 1858 strings out of 493029
+ 26567 string characters out of 6136235
+ 93163 words of memory out of 5000000
+ 5367 multiletter control sequences out of 15000+600000
  18218 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,10n,23p,591b,227s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -240,7 +227,7 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
 utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (14 pages, 280054 bytes).
+Output written on report.pdf (14 pages, 280196 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  50 compressed objects within 1 object stream

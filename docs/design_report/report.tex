@@ -30,7 +30,9 @@ the output image is automatically edited and resized, reducing the quality furth
 machine is therefore ideal, by creating a web service for RAW editing.
 \paragraph{Aims}
 The main aim of this project is to test the feasibility of a Cloud-based RAW image
-editor.
+editor, allowing image adjustments such as exposure adjustment, colour adjustment,
+and overall improvements to the quality of the image, all within a cloud application
+rather than on the desktop.
 \paragraph{Method}
 A render server back-end will first be implemented as an API, taking in an input as a
 JSON object, and then processing the image, and then a JavaScript
@@ -79,30 +81,50 @@ one user to edit RAW photos at a time through the web interface, each with their
 \subsection{Deliverables}
 The project will have the following deliverables:
 
+\paragraph{Minimum Objectives}
+    \begin{itemize}
+      \item Exposure adjustment
+      \item Noise reduction methods (Gaussian, mean, median)
+      \item Web Interface interacting with an image processing server
+      \item Non-destructive image adjustment (i.e. no reduction in quality over time)
+    \end{itemize}
+\paragraph{Intermediate Objectives}
+    \begin{itemize}
+      \item Load DNG RAW files by upload
+      \item White Balance Adjustment
+      \item Gamma Correction
+      \item Modern, user friendly User Experience
+      \item Cropping, Rotating and Exporting to other formats
+    \end{itemize}
+\paragraph{Advanced Objectives}
+    \begin{itemize}
+      \item Addressing potential scalability issues
+      \item Haze removal
+    \end{itemize}
 
-\begin{center}
-  \begin{tabular}{| c | c | p{12cm} |}
-    \hline
-    \textbf{\#} & \textbf{Name} & \textbf{Description}\\
-    \hline
-    1 & Render Server & This will be a web application server that takes a JSON string as an input,
-    renders the image with settings defined in the JSON string, and sends the output back
-    to the user. This shall provide an interface to the clients so that they can use this
-    render server. \\
-    \hline
-    2 & Client-side front-end & This will be a web based interface that allows the user to
-    edit RAW photos in their web browser. It will allow the user to upload/select images that they
-    want to edit, and then to edit the RAW images (providing a preview when settings are changed). Essentially,
-    this will wrap the render server API, and also provide it's own functionality. This will
-    be in the form of HTML, CSS and JavaScript files providing the user interface and most of the core
-    functionality, along with some helper server-side methods. \\
-    \hline
-    3 & Project Report & This will be a report containing information about the entire project,
-    all the way through the design, build and testing phases. It's contents shall include an evaluation of
-    the prototype, how effective it is, and how it can be improved through technology changes/further improvements.\\
-    \hline
-  \end{tabular}
-\end{center}
+% \begin{center}
+%   \begin{tabular}{| c | c | p{12cm} |}
+%     \hline
+%     \textbf{\#} & \textbf{Name} & \textbf{Description}\\
+%     \hline
+%     1 & Render Server & This will be a web application server that takes a JSON string as an input,
+%     renders the image with settings defined in the JSON string, and sends the output back
+%     to the user. This shall provide an interface to the clients so that they can use this
+%     render server. \\
+%     \hline
+%     2 & Client-side front-end & This will be a web based interface that allows the user to
+%     edit RAW photos in their web browser. It will allow the user to upload/select images that they
+%     want to edit, and then to edit the RAW images (providing a preview when settings are changed). Essentially,
+%     this will wrap the render server API, and also provide it's own functionality. This will
+%     be in the form of HTML, CSS and JavaScript files providing the user interface and most of the core
+%     functionality, along with some helper server-side methods. \\
+%     \hline
+%     3 & Project Report & This will be a report containing information about the entire project,
+%     all the way through the design, build and testing phases. It's contents shall include an evaluation of
+%     the prototype, how effective it is, and how it can be improved through technology changes/further improvements.\\
+%     \hline
+%   \end{tabular}
+% \end{center}
 \section{Design}
 
 This section outlines the design of the system, starting off with the specification of what such a system
@@ -110,12 +132,12 @@ needs to have, followed by further research, options for designing different com
 along with some information on implementation detail. Furthermore, details on architecture are outlined here.
 
 \subsection{Requirements}
-Table \ref{FunctionalRequirementsTable} shows the functional requirements of the project,
-which define the functional elements of the system being produced.
+Table \ref{RequirementsTable} shows the functional requirements of the project,
+which define the functional elements of the system being produced with the prefix FR.
 
-Table \ref{NFRTable} show the non-functional requirements of the project, which don't directly relate
+Table \ref{RequirementsTable} shows the non-functional requirements of the project, which don't directly relate
 to the functionality of the system, but are performance based attributes that ensure the system
-will be more likely to succeed at the aims.
+will be more likely to succeed at the aims. This is indicated with the NFR prefix.
 
 \begin{table}
   \centering
@@ -143,16 +165,6 @@ will be more likely to succeed at the aims.
     \hline
     FR-10 & Allow the user to control the highlights of the image & Low\\
     \hline
-  \end{tabular}
-  \caption{Functional Requirements}
-  \label{FunctionalRequirementsTable}
-\end{table}
-
-\begin{table}
-  \centering
-  \begin{tabular}{| c | p{12cm} | c |}
-    \hline
-    \textbf{Number} & \textbf{Requirement} & \textbf{Priority} \\
     \hline
     NFR-01 & The system should be able to cope with at least 2 users simultaneously using the system & High \\
     \hline
@@ -163,12 +175,14 @@ will be more likely to succeed at the aims.
     NFR-04 & The user interface must be accessible through a web browser & High \\
     \hline
   \end{tabular}
-  \caption{Non-Functional Requirements}
-  \label{NFRTable}
+  \caption{Functional and Non-Functional Requirements}
+  \label{RequirementsTable}
 \end{table}
-
-
 \subsection{Proposed Extensions}
+Despite the main functionality shown above, there is still some room for improvement. Here are the potential
+changes/additions that can still be made to our system to improve the overall effectiveness. While we likely won't
+get time to implement all (or perhaps any) of the following, these are improvements that can be made.
+
 \subsubsection{Quality of Service Improvements}
 \paragraph{Client Side Preview Rendering}
 The system itself renders the RAW images entirely on the client side,
@@ -176,6 +190,12 @@ directly from the RAW file. However, the time taken for a render request to be s
 and the preview to be returned from the server can be quite a long time. Currently,
 the user will just be required to wait, but an improvement can be made where simple operations can be carried out on the client side, using the previous preview image as
 the starting image, and therefore there will be a gradual speedup due to the lack of network traffic or having to run computationally extensive tasks on the entire RAW file (simply a compressed version of the preview).
+
+\paragraph{Message Queue Implementation}
+Currently, jobs are served when they first appear, but this can be extended to store each job
+in a queue, and then service each of these by a set number of render servers. This will better scale for
+a larger number of users, and would allow for better scalability of the system (just by adding more render servers) without
+much modification to the system being necessary.
 
 \subsubsection{Additional Features}
 \paragraph{Image Haze Removal}
@@ -189,7 +209,6 @@ produce a map of the depth of an image, from only one image, and then by applyin
 can be yielded. This also has much better running time compared with other similar algorithms, which is more suited to our system (as we need to reduce the
 time taken to render images as much as possible). \cite{ColourAttenuationPriorAlg}
 
-%TODO: add dark channel prior algorithm and compare here. Compare in terms of running time and performance on the images.
 \subsection{Architecture}
 As the system is fairly large, it's important to break it down into individual pieces. These are:
 \begin{figure}[h]
