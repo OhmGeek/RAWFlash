@@ -4,6 +4,7 @@
 \usepackage{harvard}
 \usepackage{url}
 \usepackage{graphicx}
+\usepackage[subtle]{savetrees}
 \citationmode{abbr}
 \bibliographystyle{agsm}
 
@@ -134,10 +135,8 @@ along with some information on implementation detail. Furthermore, details on ar
 \subsection{Requirements}
 Table \ref{RequirementsTable} shows the functional requirements of the project,
 which define the functional elements of the system being produced with the prefix FR.
-
-Table \ref{RequirementsTable} shows the non-functional requirements of the project, which don't directly relate
-to the functionality of the system, but are performance based attributes that ensure the system
-will be more likely to succeed at the aims. This is indicated with the NFR prefix.
+The non-functional requirements, which don't directly relate to the functionality of the system, but are performance based attributes
+that ensure the system will be more likely to succeed at the aims, are denoted with the NFR prefix.
 
 \begin{table}
   \centering
@@ -214,47 +213,10 @@ As the system is fairly large, it's important to break it down into individual p
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{architecturediagram}
-    \caption{A diagram showing the architecture of the system. Explanation of this diagram can be found in Table \ref{ArchitectureDiagramTable}}
+    \caption{The architecture of the system. The user makes a request
+    to the web server (reverse proxy). They fetch the static web application, and this sends requests (via AJAX) to the Web Services server behind the proxy, dealing with user login, file upload, and image management. When the image editor is loaded, the image information is fetched, and loaded in. Regularly, requests are made via Socket.io to the render dispatcher to render the image, and this is passed to the message queue for later computation (when the render servers are available). One of many pool of render servers then fetches this from the message queue, processes the image and the associated settings, and returns a base64 encoded preview, along with other information. This is then passed back to the queue, to the render dispatcher, and finally via Socket.io to the user who requested the preview.}
     \label{ArchitectureDiagram}
 \end{figure}
-\begin{table}
-  \centering
-  \begin{tabular}{| c | p{13cm} | }
-    \hline
-    \textbf{\#} & \textbf{Description} \\
-    \hline
-    1 & The user makes a request to the reverse proxy. Behind this contains the
-        web application server, along with static file hosting (to avoid having to use Python to
-        deal with the transfer of files). Furthermore, a request will be made occasionally to save the current render
-        settings, which will be passed to the Django App to save the render parameters alongside the image itself in the database.\\
-    \hline
-    2 & If the user requests the raw static files, such as the web editor, or image picker, the django app checks they
-        are logs in, and then passes a header to the reverse proxy to serve the static files.\\
-    \hline
-    3 & The django app provides user accounts and authenticated routes, along with managing the storage of images, and their associated
-        meta-data (such as render settings). No static content is directly rendered on this server, but AJAX requests are made, which return JSON,
-        or session cookies (in the case of authentication).\\
-    \hline
-    4 & In order to store user accounts, or associate image files with image objects and associated data, a database is used. This is a necessary data store,
-        in order to store the appropriate data needed for auth and image management.\\
-    \hline
-    5 & When the user uploads an image, it goes through the Django web app, and immediately is uploaded to the file storage server (in our case, OpenStack Swift).
-        This is a central store to allow access from both Django and the render server, without needing to store files directly on a file system, as we can therefore
-        scale Django instances without needing to deal with where files are being stored. If one django instance goes down, the files will still exist.\\
-    \hline
-    6 & Through the HTML, CSS, and JS editor web application, the client shall interface with the render server directly via Socket.IO. Commands will be sent that
-        request a render job, along with the render parameters needed.\\
-    \hline
-    7 & If the render server doesn't have the RAW file cached, it will go off through the reverse proxy to the file storage server, and download the RAW file. Also,
-        in the event an export job is selected, then the output of the render server shall be transferred to the file storage server.\\
-    \hline
-    8 & Finally, files can be downloaded/uploaded through the reverse proxy by connecting it with the file storage server. This is done in the NGINX config. \\
-    \hline
-  \end{tabular}
-  \caption{Architecture Diagram, Explained.}
-  \label{ArchitectureDiagramTable}
-\end{table}
-
   \subsubsection{Client Interface to Render Server Communication}
 There are several options for communicating between the user interface and the render server.
 
@@ -328,8 +290,6 @@ RAW image files, it also has many more features, including many feature that we 
 implement ourselves for the purpose of this project. As such, I believe while ImageMagick is a good option,
 it's a bit too heavy for our use.
 
-% \textbf{TODO: SOURCE FOR IMAGEMAGICK READING RAW FILES}
-% \textbf{TODO: SOURCE FOR FEATURES OF IMAGE MAGICK}
 
 \subsubsection{Client-side Interface}
   The page design of the interface shall follow the design in \ref{UserInterface}.
