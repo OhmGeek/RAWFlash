@@ -69,10 +69,11 @@ public class FileManager {
             cachedDirectory.mkdirs();
         }
         String filename = getFilenameFromUUID(webResource);
-        System.out.println(filename);
+        System.out.println(CACHE_DIRECTORY + filename);
         // now create the cached file
         File cachedFile = new File(CACHE_DIRECTORY + filename);
-
+        System.out.println("Cached file from file Manager:");
+        System.out.println(cachedFile);
         // if cached file exists, it's already downloaded
         // if it isn't cached, download a copy.
         if(!cachedFile.exists()) {
