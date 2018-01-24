@@ -105,14 +105,11 @@ The project shall have the following deliverables:
 
 \section{Design}
 
-This section outlines the design of the system, starting off with the specification of what such a system
-needs to have, followed by further research, options for designing different components of the system,
-along with some information on implementation detail. Furthermore, details on architecture are outlined here.
+This section outlines the design of the system, starting off with the specification of what such a system needs to have, followed by further research, options for designing different components of the system, along with some information on implementation detail. Furthermore, details on architecture are outlined here.
 
 \subsection{Requirements}
-Table \ref{RequirementsTable} shows the functional requirements of the project,
-which define the functional elements of the system being produced with the prefix FR.
-The non-functional requirements, which don't directly relate to the functionality of the system, but are performance based attributes
+Table \ref{RequirementsTable} shows the functional requirements of the project, which define the functional elements of the system being produced with the prefix FR.
+The non-functional requirements, which don't directly relate to the functionality of the system, but are performance-based attributes
 that ensure the system will be more likely to succeed at the aims, are denoted with the NFR prefix.
 
 \begin{table}
@@ -155,35 +152,23 @@ that ensure the system will be more likely to succeed at the aims, are denoted w
   \label{RequirementsTable}
 \end{table}
 \subsection{Proposed Extensions}
-Despite the main functionality shown above, there is still some room for improvement. Here are the potential
-changes/additions that can still be made to our system to improve the overall effectiveness. While we likely won't
-get time to implement all (or perhaps any) of the following, these are improvements that can be made.
+Despite the main functionality shown above, there is still some room for improvement. Here are the potential changes/additions that can still be made to our system to improve the overall effectiveness. While we likely won't get time to implement all (or perhaps any) of the following, these are improvements that can be made.
 
 \subsubsection{Quality of Service Improvements}
 \paragraph{Client Side Preview Rendering}
 The system itself renders the RAW images entirely on the client side,
-directly from the RAW file. However, the time taken for a render request to be sent,
-and the preview to be returned from the server can be quite a long time. Currently,
-the user will just be required to wait, but an improvement can be made where simple operations can be carried out on the client side, using the previous preview image as
-the starting image, and therefore there will be a gradual speedup due to the lack of network traffic or having to run computationally extensive tasks on the entire RAW file (simply a compressed version of the preview).
+directly from the RAW file. However, the time for a render request to be sent, and the preview to be returned from the server can be quite large. Currently, the user will just be required to wait, but an improvement can be made where simple operations can be carried out on the client side, using the previous preview image as the starting image, and therefore there will be a gradual speedup due to the lack of network traffic or having to run computationally extensive tasks on the entire RAW file (simply a compressed version of the preview).
 
 \paragraph{Message Queue Implementation}
-Currently, jobs are served when they first appear, but this can be extended to store each job
-in a queue, and then service each of these by a set number of render servers. This will better scale for
+Currently, jobs are served when they first appear, but this can be extended to store each job in a queue and service each of these using a preset number of render servers. This will better scale for
 a larger number of users, and would allow for better scalability of the system (just by adding more render servers) without
 much modification to the system being necessary.
 
 \subsubsection{Additional Features}
 \paragraph{Image Haze Removal}
-In images, it's possible that haze can creep into the image from background sources.
-In order to combat this, single image haze removal can be implemented to remove haze using an automatic algorithm.
-Several different algorithms exist, some using colour attenuation, others using
+In images, it's possible that haze can creep into the image from background sources. In order to combat this, single image haze removal can be implemented to remove haze using an automatic algorithm. Several different algorithms exist, some using colour attenuation, others using dark channel prior.
 
-By using colour attenuation prior (using the colour attenuation information already known about the image), we can use the difference between
-the brightness of the image and the saturation, in order to estimate the amount of haze present at a particular point. This can then be used to
-produce a map of the depth of an image, from only one image, and then by applying the atmospheric scattering model in reverse, the haze-reduced image
-can be yielded. This also has much better running time compared with other similar algorithms, which is more suited to our system (as we need to reduce the
-time taken to render images as much as possible). \cite{ColourAttenuationPriorAlg}
+By using colour attenuation prior (using the colour attenuation information already known about the image), we can use the difference between the brightness of the image and the saturation, in order to estimate the amount of haze present at a particular point. This can then be used to produce a map of the depth of an image, from only one image, and then by applying the atmospheric scattering model in reverse, the haze-reduced image can be yielded. This also has much better running time compared with other similar algorithms, which is more suited to our system (as we need to reduce the time taken to render images as much as possible). \cite{ColourAttenuationPriorAlg}
 
 \subsection{Architecture}
 As the system is fairly large, it's important to break it down into individual pieces. These are:
@@ -191,47 +176,32 @@ As the system is fairly large, it's important to break it down into individual p
     \centering
     \includegraphics[width=1\textwidth]{architecturediagram}
     \caption{The architecture of the system. The user makes a request
-    to the web server (reverse proxy). They fetch the static web application, and this sends requests (via AJAX) to the Web Services server behind the proxy, dealing with user login, file upload, and image management. When the image editor is loaded, the image information is fetched, and loaded in. Regularly, requests are made via Socket.io to the render dispatcher to render the image, and this is passed to the message queue for later computation (when the render servers are available). One of many pool of render servers then fetches this from the message queue, processes the image and the associated settings, and returns a base64 encoded preview, along with other information. This is then passed back to the queue, to the render dispatcher, and finally via Socket.io to the user who requested the preview.}
+    to the web server (reverse proxy). They fetch the static web application, and this sends requests (via AJAX) to the Web Services server behind the proxy, dealing with user login, file upload, and image management. When the image editor is loaded, the image information is fetched, and loaded in. Regularly, requests are made via Socket.io to the render dispatcher to render the image, and this is passed to the message queue for later computation (when the render servers are available). One of many render servers from the pool fetch the JSON string from the message queue, process the image using the associated settings, and return a Base64 encoded preview, along with other information. This is then passed back to the queue, to the render dispatcher, and finally via Socket.io to the user who requested the preview.}
     \label{ArchitectureDiagram}
 \end{figure}
   \subsubsection{Client Interface to Render Server Communication}
 There are several options for communicating between the user interface and the render server.
 
 \paragraph{Representational State Transfer (REST)}
-A Representational State Transfer system would work by sending a request to the server,
-requesting an image be rendered. This initial request will be replied to with a job number,
-which will be quoted in further communications. From here, future requests will be made
-over a regular interval, requesting the information for the specified job. If this job is finished,
-the result will be returned, but otherwise further requests will need to be made. This is the process
+A Representational State Transfer system would work by sending a request to the server, requesting an image be rendered. This initial request will be replied to with a job number, which will be quoted in further communications. From here, future requests will be made
+over a regular interval, requesting the information for the specified job. If this job is finished, the result will be returned, but otherwise further requests will need to be made. This is the process
 of polling.
-
-The XMLHttpRequest object in JavaScript, used to make AJAX requests, was designed by Microsoft
+The XMLHttpRequest object in JavaScript, which is used to make AJAX requests, was designed by Microsoft
 in 1999, and later adopted in the 2000s.
-This method is definitely the most compatible with browsers, being compatible with Edge, Chrome,
-Firefox, Internet Explorer 7+, Opera, and Safari. \cite{XMLHttpRequestMozilla}
+This method is definitely the most compatible with browsers, being compatible with Edge, Chrome, Firefox, Internet Explorer 7+, Opera, and Safari. \cite{XMLHttpRequestMozilla}
 
-However, this method does require making many requests and connections to the server,
-coupled with code to regularly poll at an interval until done. While this will work, it's not the most
+However, this method does require making many requests and connections to the server, coupled with code to regularly poll at an interval until done. While this will work, it's not the most
 optimal solution, and the code produced from this would be more complex (code could be needed to issue jobs, recall jobs,
 and to ensure that the person who requests the result of a job is actually allowed to see the result of the job).
 
 \paragraph{Web Socket}
-Web Socket allows for two way communication between a browser and a server. It acts in a similar
-way to traditional TCP socket communication, only it incorporates the origin based security
-model used within web browsers. By using web socket over REST, opening multiple HTTP connections
-is not needed, as a single connection is maintained at all times. \cite{WebSocketProtocol}
+Web Socket allows for two way communication between a browser and a server. It acts in a similar way to traditional TCP socket communication, only it incorporates the origin-based security model used within web browsers. By using web socket over REST, opening multiple HTTP connections is not needed, as a single connection is maintained at all times. \cite{WebSocketProtocol}
 
 \paragraph{Socket.io}
-Socket.io is an implementation that relies on both REST and Web Socket.
-If the browser supports web socket, then it is utilised, but in the event that the
-user's browser does not support new web socket technologies, then it defaults to
-using REST, and automatically polls regularly for information. This way, we get the
-best of both options shown above, in such a way that the code itself remains fairly
-tidy (as the polling nature of REST is abstracted away from our system).
+Socket.io is an implementation that relies on both REST and Web Socket. If the browser supports web socket, then it is utilised, otherwise, it defaults to using REST and polls regularly for information. This way, we get the best of both options shown above, in such a way that the code itself remains fairly tidy (as the polling nature of REST is abstracted away from our system).
 
 \subsubsection{Render Server}
-The render server takes instructions given to it (with accordance to our API), and
-generates the output image based on the RAW image supplied, and the appropriate settings.
+The rendering server takes instructions given to it (in accordance with our API) and generates the output image based on the RAW image supplied, and the appropriate settings.
 
 One of the first considerations is how to parse RAW files.
 
@@ -239,11 +209,10 @@ One of the first considerations is how to parse RAW files.
 Dcraw is an executable that allows the processing of RAW image files.
 
 Dcraw itself can then be used to convert to other formats, one being the uncompressed TIFF format,
-giving us a very high quality image that can then be adjusted. Our system isn't merely a wrapper for
-dcraw in this instance, but extends the features supplied by dcraw.
+giving us a very high-quality image that can then be adjusted. Our system isn't merely a wrapper for
+dcraw in this instance but extends the features supplied by dcraw.
 
-Despite being an executable, it's written using only standard C libraries, and therefore it's
-fairly portable, not requiring any dependencies (aside from compiling with a C compiler of course, if
+Despite being an executable, it's written using only standard C libraries, and therefore it's fairly portable, not requiring any dependencies (aside from compiling with a C compiler, if
 no binaries are downloaded). \cite{DcrawWebsite}
 
 According to the man-page, the executable contains commands to set RAW exposure, export as TIFF,
@@ -251,32 +220,24 @@ set saturation level, set white balance, set colourspace, set gamma curve and fl
 
 
 \paragraph{libraw}
-LibRaw is a C++ library based on dcraw, that is designed as a library rather than just
-an executable.
-At the top of each section briefly discuss what we’re going to see.  In (B), “Proposed Extensions” it’s unclear to the reader what we’re going to extend, and why.
+LibRaw is a C++ library based on dcraw, that is designed as a library rather than just an executable.
 
-LibRaw would be used when loading RAW images, processing them, and then from this,
-the image can be processed using custom routines (i.e. converting the libraw format
-to a matrix representation, and then using that matrix representation to carry out
+LibRaw would be used when loading RAW images, processing them, and then from this, the image can be processed using custom routines (i.e. converting the libraw format to a matrix representation, and then using that matrix representation to carry out
 some manipulation).
 
 While LibRaw has many useful features, the documentation is somewhat limited.
 
 \paragraph{ImageMagick}
-ImageMagick is a library that can be used to process any images, not just RAW. While it can read
-RAW image files, it also has many more features, including many feature that we don't need/want to
+ImageMagick is a library that can be used to process any images, not just RAW. While it can read RAW image files, it also has many more features, including many features that we don't need/want to
 implement ourselves for the purpose of this project. As such, I believe while ImageMagick is a good option,
 it's a bit too heavy for our use.
 
 
 \subsubsection{Client-side Interface}
   The page design of the interface shall follow the design in \ref{UserInterface}.
-  The goal of the client side interface is to allow adjustment of the image parameters,
-  and show a preview whenever a parameter is changed.
+  The goal of the client side interface is to allow adjustment of the image parameters, and show a preview whenever a parameter is changed.
 
-  To display the image, an HTML5 Canvas will provide a large amount of control to
-  how we can display the image, allowing for features such as zooming, and drawing. This can't be
-  achieved using a standard HTML image.
+  To display the image, an HTML5 Canvas is an ideal display vector for the previewed image, allowing us to implement features such as zooming, and drawing. This can't be achieved easily using a standard HTML image.
 
 \subsection{User Interface}\label{UserInterface}
   A sidebar should be used as the main interface for adjusting image parameters.
@@ -287,8 +248,7 @@ it's a bit too heavy for our use.
   The user interface design is shown in Figure \ref{UXDesign1}
 
   Within the sidebar, clicking on a navigation item will display a new submenu.
-  If the item is a parameter adjustment, updating the value in the menu will also
-  update the value that is sent to the render server to generate a preview.
+  If the item is a parameter adjustment, updating the value in the menu will also update the value that is sent to the render server to generate a preview.
 %
 % \textbf{TODO ADD INTERFACE DRAWINGS.}
   % \begin{figure}[h]
@@ -304,17 +264,12 @@ produce an overall system.
 \paragraph{Client-side Interface}
 For this, HTML5, CSS3 and JavaScript (with jQuery to provide extra functionality)
 are ideal, as HTML5 can be used to create the user interface, with CSS3 providing styling
-and some basic animation to improve the UX. Using JavaScript with jQuery, it allows us
-to keep track of the state of the editor, and transmit and receive information between client and
-render server with help of some library. jQuery is useful for interfacing with the
-DOM (the webpage itself, and it's components), allowing us to specify events, and functions
-to run on particular events, along with template loading and various other functionalities.
+and some basic animation to improve the UX. Using JavaScript with jQuery, it allows us to keep track of the state of the editor, and transmit and receive information between the client and render dispatcher with help of a library. jQuery is an ideal library, providing many functions such as dynamic HTML loading an AJAX support, in a much more concise manner to using standard JavaScript.
 
-As this is mostly static content, only a few web services needed for image selection/
-maintaining user uploaded RAW files, a web server like Apache/NGINX can be used to serve
-these static files, using server side scripting only to determine whether a user is authenticated,
+As we are using mostly static content, only a few web services are needed for image selection and maintaining user uploaded RAW files, A web server like Apache/NGINX can be used to serve
+these static files, using server-side scripting only to determine whether a user is authenticated,
 and if so forwarding headers can be used to serve the static file without needing to serve static files
-through the scripting language itself, which is much slower
+through the scripting language itself, which creates an unnecessary workload and increases load times.
 % \textbf{TODO: find source for static content and forwarding headers and performance.}
 
 NGINX is what I'd recommend in this situation because unlike Apache, NGINX isn't
