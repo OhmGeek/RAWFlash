@@ -22,26 +22,13 @@
 
 \begin{abstract}
 \paragraph{Context/Background}
-RAW images are used by photographers to improve the quality of their images, specifically
-when editing, to avoid the compression problems associated with JPEGs. Editing these
-files is traditionally done on a high-spec machine, capable of processing images with large
-resolutions. In the field, this can be difficult. When used for websites, the work-flow is typically
-to edit a RAW file and export as one file format (generally JPEG, which loses some quality), and then uploaded to a content management system where
-the output image is automatically edited and resized, reducing the quality further. Editing these RAW files without requiring the user to use a high spec
-machine is therefore ideal, by creating a web service for RAW editing.
+RAW images are used by photographers to improve the quality of their images, specifically when editing. With JPEG files, the loss of data from compression leads to poorer quality edits, while using RAW results in a higher dynamic range. The editing of these files is traditionally done on a high-spec machine, capable of processing images with large resolutions. In the field, this can be difficult. When used for websites, the standard process involves editing a RAW file locally and exporting it, uploading the exported image to a Content Management System (CMS). Here, the CMS will then edit the file again, resizing the image to ensure it displays properly on the browser.
 \paragraph{Aims}
-The main aim of this project is to test the feasibility of a Cloud-based RAW image
-editor, allowing image adjustments such as exposure adjustment, colour adjustment,
-and overall improvements to the quality of the image, all within a cloud application
-rather than on the desktop.
+The main aim of this project is to test the feasibility of a Cloud-based RAW image editor, allowing image adjustments such as exposure adjustment, colour adjustment, and overall improvements to the quality of the image, all within a cloud application rather than on the desktop.
 \paragraph{Method}
-A render server back-end will first be implemented as an API, taking in an input as a
-JSON object, and then processing the image, and then a JavaScript
-client shall be created to interface with this API.
+A render server back-end will first be implemented as an API, taking in an input as a JSON object, and then processing the image, and then a JavaScript client shall be created to interface with this API.
 \paragraph{Proposed Solution}
-A web application, using a Java server with dcraw and custom image processing code to
-process RAW images, communicating over a socket.io interface, and a web front-end that allows
-users to interface with the render server.
+A web application, using a Java server with dcraw and custom image processing code to process RAW images, communicating over a socket.io interface, and a web front-end that allows users to interface with the render server.
 \end{abstract}
 
 \begin{keywords}
@@ -51,13 +38,7 @@ RAW image editing, dcraw, cloud image editing
 \section{Introduction}
 
 % WHAT IS RAW? Why use RAW over JPEG
-Many photographers use a file format (or rather, a family of very similar file formats) called RAW,
-which rather than compressing the image and conducting some image manipulation on the camera,
-store the RAW camera sensor data outputted by the camera sensor, for later processing and editing
-by a computer. These files can be much larger than the compressed image, but provide a far greater
-degree of control over the captured image, when compared with a compressed JPEG, along with an
-increase in quality. A RAW file essentially acts as a digital negative, as the image can be edited
-constantly without losing any quality between edits.  \cite{AllAboutTheFormat}
+Many photographers use a file format (or rather, a family of very similar file formats) called RAW, which rather than compressing the image and conducting some image manipulation on the camera, store the RAW camera sensor data outputted by the camera sensor, for later processing and editing on a computer. These files can be much larger than the compressed image, but provide a far greater degree of control over the captured image, when compared with a compressed JPEG, along with an increase in quality. A RAW file essentially acts as a digital negative, as the image can be edited constantly without losing any quality between edits.  \cite{AllAboutTheFormat}
 
 % Current software requires quite high specification machines to run. For simple tasks,
 %  or for multiple users, getting access to these machines might be difficult/expensive.
@@ -72,14 +53,10 @@ constantly without losing any quality between edits.  \cite{AllAboutTheFormat}
 
 
 \subsection{Project Aim}
-The aim of this project is to produce a Cloud-based RAW image photo editor, both as an API (allowing potential
-image rendering headlessly), along with a full RAW image editor interface via a web browser. The image photo editor
-should be able to read at least DNG and NEF files, and allow contrast, colour and exposure adjustment, along with
-noise reduction, haze removal, and auto correction options. Furthermore, this system should be multi-user, allowing more than
-one user to edit RAW photos at a time through the web interface, each with their own individual collection of images.
+The aim of this project is to produce a Cloud-based RAW image photo editor, both as an API (to allow interfacing with any web system we can choose), along with a full RAW image editor interface via a web browser. The image photo editor should be able to read at least DNG and NEF (Nikon's format) files, and allow contrast, colour and exposure adjustment, along with noise reduction, haze removal, and auto-correction options. Furthermore, this system should be multi-user, allowing more than one user to edit RAW photos at a time through the web interface, each with their own individual collection of images.
 
 \subsection{Deliverables}
-The project will have the following deliverables:
+The project shall have the following deliverables:
 
 \paragraph{Minimum Objectives}
     \begin{itemize}
