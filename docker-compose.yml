@@ -3,10 +3,22 @@ services:
   renderserver:
     build: ./rawflash
     ports:
-     - "4000:4000"
+     - "5672:5672"
+     - "15672:15672"
   client:
     build: ./testclient
     ports:
       - "80:80"
     volumes:
       - ./testclient/src:/usr/share/nginx/html
+  renderdispatcher:
+    build: ./renderdispatcher
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./renderdispatcher:/home/node/app
+  rabbitmq:
+    image: "rabbitmq"
+    expose:
+      - "5672"
+      - "15672"

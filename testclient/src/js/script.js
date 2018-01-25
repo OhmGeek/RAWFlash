@@ -37,7 +37,7 @@ $(function() {
     console.log("Image Processed");
     console.log(data);
     let image = new Image();
-    image.src = data;
+    image.src = data.img;
     APP_SETTINGS['current_image'] = image;
     image.onload = window.renderImage;
   });
