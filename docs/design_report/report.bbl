@@ -1,0 +1,48 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Coffin}{2015}{DcrawManpage}
+Coffin, D.  \harvardyearleft 2015\harvardyearright , `Manpage of dcraw'.
+\newblock Accessed: 2018-01-10.
+\newline\harvardurl{https://www.cybercom.net/~dcoffin/dcraw/dcraw.1.html}
+
+\harvarditem{Coffin}{2017}{DcrawWebsite}
+Coffin, D.  \harvardyearleft 2017\harvardyearright , `Decoding raw photos in
+  linux - dcraw'.
+\newblock Accessed: 2018-01-10.
+\newline\harvardurl{https://www.cybercom.net/~dcoffin/dcraw/}
+
+\harvarditem{Kent}{2014}{DockerWhyItsUseful}
+Kent, A.  \harvardyearleft 2014\harvardyearright , `Docker, distributed
+  systems, and why it matters to magneto (part 1)'.
+\newblock Accessed: 2018-01-10.
+\newline\harvardurl{https://alankent.me/2014/08/28/docker-distributed-systems-and-why-it-matters-to-magento-part-1/}
+
+\harvarditem{Melnikov \harvardand\ Fette}{2011}{WebSocketProtocol}
+Melnikov, A. \harvardand\ Fette, I.  \harvardyearleft 2011\harvardyearright ,
+  `{The WebSocket Protocol}', RFC 6455.
+\newline\harvardurl{https://rfc-editor.org/rfc/rfc6455.txt}
+
+\harvarditem{Mozilla}{2017}{XMLHttpRequestMozilla}
+Mozilla  \harvardyearleft 2017\harvardyearright , `Xmlhttprequest'.
+\newblock Accessed: 2018-01-09.
+\newline\harvardurl{https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest}
+
+\harvarditem{Tezer}{2014}{ComparisonOfDatabaseBackends}
+Tezer, O.  \harvardyearleft 2014\harvardyearright , `Sqlite vs mysql vs
+  postgresql: A comparison of relational database management systems'.
+\newblock Accessed: 2018-01-11.
+\newline\harvardurl{https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems}
+
+\harvarditem{Verhoeven}{2010}{AllAboutTheFormat}
+Verhoeven, G. J.~J.  \harvardyearleft 2010\harvardyearright , `It's all about
+  the format – unleashing the power of raw aerial photography', {\em
+  International Journal of Remote Sensing} {\bf 31}(8),~2009--2042.
+\newline\harvardurl{https://doi.org/10.1080/01431160902929271}
+
+\harvarditem[Zhu et~al.]{Zhu, Mai \harvardand\
+  Shao}{2015}{ColourAttenuationPriorAlg}
+Zhu, Q., Mai, J. \harvardand\ Shao, L.  \harvardyearleft 2015\harvardyearright
+  , `A fast single image haze removal algorithm using color attenuation prior',
+  {\em IEEE Transactions on Image Processing} {\bf 24}(11),~3522--3533.
+
+\end{thebibliography}
