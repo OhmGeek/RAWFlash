@@ -245,17 +245,18 @@ it's a bit too heavy for our use.
   When the sidebar is in the expanded state, the preview image should be displayed
   fully on screen.
 
-  The user interface design is shown in Figure \ref{UXDesign1}
+  The user interface design is shown in Figure \ref{UXDesign1}.
 
   Within the sidebar, clicking on a navigation item will display a new submenu.
   If the item is a parameter adjustment, updating the value in the menu will also update the value that is sent to the render server to generate a preview.
 %
 % \textbf{TODO ADD INTERFACE DRAWINGS.}
-  % \begin{figure}[h]
-  %   \caption{The editor interface, with the sidebar expanded.}
-  %   \centering
-  %   \includegraphics[width=0.5\textwidth]{uxdesign1}
-  % \end{figure}
+  \begin{figure}[h]\label{UXDesign1}
+    \centering
+    \includegraphics[width=0.5\textwidth]{uxdesign1}
+    \caption{The editor interface, with the sidebar expanded.}
+
+  \end{figure}
 
 \subsection{Implementation Information}
 Each individual module of the system requires different technologies in order to
@@ -277,64 +278,49 @@ configured out of the box for dynamic content, but Apache is configured to use P
 out of the box.
 
 \paragraph{User account based RAW file management}
-In order to select and upload images, a method of specifying users, and their uploaded
-images needs to be created. This will require a database, to store the user information (username,
-password), pointers to the images (image URL, and user associated with each image), along with some
-server side scripts to manage authentication, dealing with file uploads, and maintaining collections
+In order to select and upload images, a method of specifying users, and their uploaded images needs to be created. This will require a database, to store the user information (username, password), pointers to the images (image URL, and user associated with each image), along with some server side scripts to manage authentication, dealing with file uploads, and maintaining collections
 of images (listing all images associated with a user).
 
-While any web framework would work with this, I've chosen to use the Python programming
-language with the Django web framework, as database queries can be made using the built-in
-Object Relational Mapper (ORM), that automatically writes SQL queries for the specified
-database back-end (e.g. MySQL, PostgreSQL), based on defining models as Python classes (inheriting
-the django models.Model class).
+While any web framework would work with this, I've chosen to use the Python programming language with the Django web framework, as database queries can be made using the built-in
+Object Relational Mapper (ORM), that automatically writes SQL queries for the specified database back-end (e.g. MySQL, PostgreSQL), based on defining models as Python classes (inheriting
+the Django models.Model class).
 
-Furthermore, Django contains built-in authentication, and built in methods to create users,
+Furthermore, Django contains built-in authentication and built-in methods to create users,
 login, and managing sessions. These two features simplify the creation of the server side scripts
-for user account based RAW file management.
+for the user account based RAW file management.
 
-For the interface, rather than sticking to server side generated pages, serving a JavaScript based
+For the interface, rather than sticking to server-side generated pages, serving a JavaScript-based
 interface for this means the files can all be stored on the static file server used for the editor,
-and therefore AJAX requests can be made to the server to get the information needed, and load them
+and therefore AJAX requests can be made to the server to get the information needed and load them
 onto the page. This avoids having to generate an entire page just for a few pieces of information. This
 JavaScript code shall make a request to get a list of the images (encoded as JSON, along with their associated
-urls). When a user clicks on the URL, the image picker loads up the editor, passing the URL to the image to edit (through
-GET variables). This way, there is less reliance on the entire server side framework.
+URLs). When a user clicks on the URL, the image picker loads up the editor, passing the URL to the image to edit (through
+GET variables). This way, there is less reliance on the entire server-side framework.
 
 In order to ensure all of this works, a database is needed. Django officially supports three databases:
-PostgreSQL, MySQL, Oracle and SQLite. SQLite is file based, and while it's OK for single user apps, for
-multiple users it won't scale well.
+PostgreSQL, MySQL, Oracle, and SQLite. SQLite is file-based, and while it's OK for single user apps, for multiple users it won't scale well.
 
 MySQL is far better for applications, implementing most (but not all) of the SQL functionality. However,
-it doesn't perform as well with concurrent users on write operations (e.g. writing new images into the database),
-or writing the associated image settings to the database. Furthermore, features are missing like full text search.
+it doesn't perform as well with concurrent users on write operations (e.g. writing new images into the database) or writing the associated image settings to the database. Furthermore, features are missing such as full-text search.
 
  PostgreSQL is the most advanced, being fully standards compliant, and it has concurrency features built in to avoid using read locks.
- It's extensible, and allows for features like full text search. However, it can potentially be slower for primarily read based operations
- compared to MySQL, and as setup complexity for Postgres is far higher, it might not be the best tool for our project. \cite{ComparisonOfDatabaseBackends}
+ It's extensible and allows for features like full-text search. However, it can potentially be slower for primarily read based operations
+ compared to MySQL, and as setup complexity for PostgreSQL is far higher, it might not be the best tool for our project. \cite{ComparisonOfDatabaseBackends}
 
- Therefore, for this part of the system, Django shall be used alongside MySQL.
+ Therefore, for this part of the system, Django shall be used alongside a MySQL database.
 \paragraph{Render Server}
 While lower level programming languages might be useful for image processing,
-the requirement of linking this with web technologies means that a language such as C
-or C++ is not as ideal.
+the requirement of linking this with web technologies means that a language such as C or C++ is not as ideal.
 
-Java is a better choice, as there are libraries available to provide web services (REST),
-along with Web Socket implementations, along with Socket IO. Furthermore, Java contains
-some libraries within the language that allow for image manipulation, most notably
-BufferedImage related features such as ConvolveOp, image resizing, and various other standard
-features build in. This is useful, as rather than starting completely from scratch, the custom
-image processing routines can build on the built in Java implementations, and create more advanced
-algorithms using them.
+Java is a better choice, as there are libraries available to provide web services (REST), along with Web Socket implementations, along with Socket IO. Furthermore, Java contains some libraries within the language that allow for image manipulation, most notably
+BufferedImage related features such as ConvolveOp, image resizing, and various other standard features built in. This is useful, as rather than starting completely from scratch, the custom image processing routines can build on the built-in Java implementations, and create more advanced algorithms using them.
 
-While Java doesn't support loading TIFF into BufferedReader using ImageIO directly,
-an extension exists online, in the form of TwelveMonkeys. No RAW image loading library
-exists within Java, but an executable such as dcraw or rawspeed can be used to generate a file
-that can be read within Java, while retaining the quality (e.g. uncompressed TIFF). This can be done
+While Java doesn't support loading TIFF into BufferedReader using ImageIO directly, an extension exists online, in the form of TwelveMonkeys. \footnote{The Twelve Monkeys plugins can be found at \url{https://github.com/haraldk/TwelveMonkeys}} No RAW image loading library
+exists within Java, but an executable such as dcraw or rawspeed can be used to generate a file that can be read within Java while retaining the quality (e.g. uncompressed TIFF). This can be done
 using ProcessBuilder, and ideally writing a library to do this.
 % of course, this library became jdcraw.
 
-As this system will likely use a large amount of external dependencies, a dependency management tool
+As this system will likely use a large number of external dependencies, a dependency management tool
 like Apache Maven should be used, to both manage dependencies from an external source (e.g. GitHub, Maven
 Repositories), and also to build the system.
 % \textbf{TODO: reference libraries here.}
@@ -342,62 +328,32 @@ Repositories), and also to build the system.
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{renderserverdiagram}
-    \caption{A diagram showing the structure of the render server components. The server will fetch from the message queue as JSON object containing the URL to the RAW file, and the settings to render it with. This will be passed to the file manager, which first checks to see whether the file is stored within the local cache, and if not downloads the file from the file storage server, and stores it in the local cache. From here, the Operation Manager takes over, by using the JSON string to execute the appropriate managers. First, the Dcraw Manager takes the RAW file, via the JDCRAW library, and converts the RAW file to an uncompressed TIFF. The location of this TIFF is added to the JSON string, and this is passed back up to the Operation Manager. Then, the Adams Processor (which contains all the custom written Java code for image processing) does the rest of the image processing, and finally writes a TIFF file to the local cache, which then has the URL stored within JSON data structure. Finally, the TIFF image is loaded, converted to base64, and passed back to the message queue along with other image information. }
+    \caption{A diagram showing the structure of the render server components. The server will fetch from the message queue as JSON object containing the URL to the RAW file, and the settings to render it with. This will be passed to the file manager, which first checks to see whether the file is stored within the local cache, and if not downloads the file from the file storage server, and stores it in the local cache. From here, the Operation Manager takes over, by using the JSON string to execute the appropriate managers. First, the Dcraw Manager takes the RAW file, via the JDCRAW library, and converts the RAW file to an uncompressed TIFF. The location of this TIFF is added to the JSON string, and this is passed back up to the Operation Manager. Then, the Adams Processor (which contains all the custom written Java code for image processing) does the rest of the image processing and finally writes the output to the local cache as a TIFF file. The URL is then stored within the JSON data structure. Finally, the TIFF image is loaded, converted to base64, and passed back to the message queue along with other image information. }
     \label{RenderServerDiagram}
 \end{figure}
 
-\paragraph{Account Management Server}
-As this system needs to be used by multiple people, we need to have some record of users,
-and their associated images.
-
-Rather than rendering each page dynamically, we can instead use JavaScript to make AJAX requests,
-fetching the data needed, and this way, we don't need to render whole HTML web pages. In terms of
-back-end technology, it doesn't matter too much what is used, as it won't be used too much, but
-in my case I'll be using Node.JS with an Express server, simply because it's easy to deploy and
-install dependencies ("npm install" can be run to install dependencies in one command), and it can
-also connect to a database to provide services such as login, and records of individual files.
-
 \paragraph{File Storage Server}
-As the user is required to upload files, and the files that are exported need to be stored
-somewhere (not on the render server local disk) to be accessed, it's important we have a
-centralised store.
+When the user uploads files, rather than being stored on the web services server hard disk, a better solution is needed. If this server goes down, files would be lost or be unable to access by the pool of render servers, so therefore the need for a centralised storage server is necessary.
 
-Ideally, this file storage server should be interchangeable, allowing the user to change
-where the files are stored (only requiring it to be accessible by using a URL).
+Ideally, this file storage server should be interchangeable, allowing the user to change where the files are stored (only requiring it to be accessible by using a URL).
 
-There are a few options on the public cloud for use with this system, namely Amazon's S3,
-and other storage services. However, as this prototype will initially be employed on a
-private cloud, I shall use a service called OpenStack Swift, which allows the storage of files.
-Furthermore, as this links in as a Django storage backend, and APIs already exist to tie Django in
-with Swift, this makes the implementation easier. As this will be separate from the web services server,
-and also separate from the render server, any loss of either of these will cause the files to remain online,
-and also allows for more user account management servers and more render servers to be placed online,
-fetching and writing files to this file storage server.
+There are a few options on the public cloud for use with this system, such as Amazon's S3. However, as this prototype will initially be deployed on a private cloud, I shall use a service called OpenStack Swift, which allows the storage of files locally, and can easily be deployed as a Docker image. As this can link up to Django as a storage backend, this makes the implementation easier for file uploading.
+
 
 % \textbf{TODO Source: Why use OpenStack Swift}
 % \textbf{TODO: source: Django support for Open stack swift}
 
 \paragraph{Distributed System Management}
-As this system consists of several smaller systems, it's important that these are
-managed. For each smaller component, a Docker container can be created, containing the
-configuration between each one. From here, Docker Compose can then be used to manage
-the entire system, bringing everything online, opening ports, and building everything
-automatically.
+As this system consists of several smaller systems, it's important that these are managed. For each smaller component, a Docker container can be created, containing the configuration between each one. From here, Docker Compose can then be used to manage
+the entire system, bringing everything online, opening ports, and building everything automatically.
 
-This requires us to create a Dockerfile per system (one for the render server,
-one for the client front-end). This Dockerfile specifies the image to build from,
-along with instructions that need to be run, and files that should be shared, to make
-that container work. Rather than customising an individual image, this customisation can be done
-by building on existing images, saving time without needing to start again from scratch. \cite{DockerWhyItsUseful}
+This requires us to create a Dockerfile per system (one for the render server, one for the client front-end. one for the render-dispatcher, and one for the web services server). This Dockerfile specifies the image to build from, along with instructions that need to be run, and files that should be shared, to make that container work. Rather than customising an individual image, this customisation can be done by building on existing images, saving time without needing to start again from scratch. Pre-built images already exist for MySQL and RabbitMQ, so deploying these alongside the custom images is simple. \cite{DockerWhyItsUseful}
 
 % \textbf{TODO: some source of docker}
 \subsection{Evaluation}
-In order to measure the success of the system, a mixture of user based tests and system
-based metrics will need to be taken.
+In order to measure the success of the system, a mixture of user-based tests and system-based metrics will need to be taken.
 
-As this is a software product, the underlying server will need to be constant to avoid
-biased results. Therefore, for the tests, a computer shall be used as the server with the
-following specs:
+As this is a software product, the underlying server will need to be constant to avoid biased results. Therefore, for the tests, a computer shall be used as the server with the following specification:
 
 \begin{itemize}
   \item Processor: Intel i7-7700k at 4.2GHz
@@ -406,28 +362,24 @@ following specs:
   \item Operating System: Ubuntu 17.10
 \end{itemize}
 
-The amount of file storage here isn't as important, but as we are using a hard drive,
-file caching might be slightly slower than if using an SSD.
+The amount of file storage here isn't as important, but as we are using a hard drive, and therefore file caching might be slightly slower than if using an SSD or ramdisk.
 
 The system will be deployed using Docker Compose, with the configuration scripts shown in the GitHub
 repository.
 
 \subsubsection{System-based Metrics}
-Three different images per camera shall be used within the system to test compatibility
-with other camera manufacturers. Canon, Nikon, Pentax and Lecia camera RAW formats shall be tested.
+Three different images per camera shall be used within the system to test compatibility with other camera manufacturers. Canon, Nikon, Pentax and Lecia camera RAW formats shall be tested.
 % \textbf{SOURCE: top camera manufacturers, source of test images}.
 
-In order to measure usability (along with the human based experiment), the system shall be used by
+In order to measure usability (along with the human-based experiment), the system shall be used by
 several different users, and for each, the time taken to submit a preview, and then get the preview displayed
-on the screen shall be tested, as this figure gives us an indication in the delay between modifying parameters
-and having the updated image displayed on screen.
+on the screen shall be tested, as this figure gives us an indication of the delay between modifying parameters
+and having the updated image displayed on the screen.
 
 \subsubsection{User-based tests}
-While metrics can give us an indication into the usability and usefulness of the system,
-it's also important to test the system with users.
+While metrics can give us an indication of the usability and usefulness of the system, it's also important to test the system with users.
 
-The first test shall be carried out with individual users. This first test shall consist of
-the following simple steps:
+The first test shall be carried out with individual users. This first test shall consist of the following simple steps:
 
 \begin{enumerate}
   \item Log into a given user account
@@ -440,10 +392,8 @@ the following simple steps:
   \item Export the fixed image as PNG for download
 \end{enumerate}
 
-The users selected for this shall be mixed between experienced photographers (i.e. those
-who are familiar with using current RAW editing software such as Lightroom and Darktable), and
-people who haven't used any RAW editing software before. The time taken for the users to carry
-out the instructions shall be measured, along with their comments on the ease of use of the system through a survey.
+The users selected for this shall be mixed between experienced photographers (i.e. those who are familiar with using current RAW editing software such as Lightroom and Darktable), and
+people who haven't used any RAW editing software before. The time taken for the users to carry out the instructions shall be measured, along with their comments on the ease of use of the system through a survey.
 The use of the time metric allows us to see how easy the system is to become familiar with and to use, while the survey
 allow us to compare the user's experience and how they found the software to use.
 

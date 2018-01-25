@@ -42,16 +42,17 @@
 \newlabel{UserInterface}{{D}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {E}Implementation Information}{6}}
 \@writefile{toc}{\contentsline {paragraph}{Client-side Interface}{6}}
-\citation{ComparisonOfDatabaseBackends}
+\newlabel{UXDesign1}{{D}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The editor interface, with the sidebar expanded.}}{7}}
 \@writefile{toc}{\contentsline {paragraph}{User account based RAW file management}{7}}
-\citation{DockerWhyItsUseful}
+\citation{ComparisonOfDatabaseBackends}
 \@writefile{toc}{\contentsline {paragraph}{Render Server}{8}}
-\@writefile{toc}{\contentsline {paragraph}{Account Management Server}{8}}
 \@writefile{toc}{\contentsline {paragraph}{File Storage Server}{8}}
 \@writefile{toc}{\contentsline {paragraph}{Distributed System Management}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces A diagram showing the structure of the render server components. The server will fetch from the message queue as JSON object containing the URL to the RAW file, and the settings to render it with. This will be passed to the file manager, which first checks to see whether the file is stored within the local cache, and if not downloads the file from the file storage server, and stores it in the local cache. From here, the Operation Manager takes over, by using the JSON string to execute the appropriate managers. First, the Dcraw Manager takes the RAW file, via the JDCRAW library, and converts the RAW file to an uncompressed TIFF. The location of this TIFF is added to the JSON string, and this is passed back up to the Operation Manager. Then, the Adams Processor (which contains all the custom written Java code for image processing) does the rest of the image processing, and finally writes a TIFF file to the local cache, which then has the URL stored within JSON data structure. Finally, the TIFF image is loaded, converted to base64, and passed back to the message queue along with other image information. }}{9}}
-\newlabel{RenderServerDiagram}{{2}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {F}Evaluation}{9}}
+\citation{DockerWhyItsUseful}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A diagram showing the structure of the render server components. The server will fetch from the message queue as JSON object containing the URL to the RAW file, and the settings to render it with. This will be passed to the file manager, which first checks to see whether the file is stored within the local cache, and if not downloads the file from the file storage server, and stores it in the local cache. From here, the Operation Manager takes over, by using the JSON string to execute the appropriate managers. First, the Dcraw Manager takes the RAW file, via the JDCRAW library, and converts the RAW file to an uncompressed TIFF. The location of this TIFF is added to the JSON string, and this is passed back up to the Operation Manager. Then, the Adams Processor (which contains all the custom written Java code for image processing) does the rest of the image processing and finally writes the output to the local cache as a TIFF file. The URL is then stored within the JSON data structure. Finally, the TIFF image is loaded, converted to base64, and passed back to the message queue along with other image information. }}{9}}
+\newlabel{RenderServerDiagram}{{3}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {F}Evaluation}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {F.1}System-based Metrics}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {F.2}User-based tests}{10}}
 \bibdata{report}
