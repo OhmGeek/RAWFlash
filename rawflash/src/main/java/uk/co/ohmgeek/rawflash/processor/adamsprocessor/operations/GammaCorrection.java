@@ -1,5 +1,7 @@
 package uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations;
 
+import uk.co.ohmgeek.rawflash.processor.adamsprocessor.GammaLookup;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
@@ -16,17 +18,9 @@ public class GammaCorrection implements IOperation {
         // goes through lookup table,
         // looks up all values based on gamma
         // then adds that to the image.
-        LookupTable table = new LookupTable(image.getWidth(), image.getHeight()) {
+        LookupTable table = new GammaLookup(image.getWidth(), image.getHeight(), gamma);
 
-
-            @Override
-            public int[] lookupPixel(int[] ints, int[] ints1) {
-                return new int[0];
-            }
-        };
-
-        BufferedImageOp op = new LookupOp(table, null);
-
-        return null;
+        LookupOp gammaCorrectionOp = new LookupOp(table, null);
+        return gammaCorrectionOp.filter(image, null);
     }
 }
