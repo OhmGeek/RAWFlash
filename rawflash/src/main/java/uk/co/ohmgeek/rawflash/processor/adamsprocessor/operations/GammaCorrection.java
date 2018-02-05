@@ -19,7 +19,6 @@ public class GammaCorrection implements IOperation {
         // looks up all values based on gamma
         // then adds that to the image.
         LookupTable table = new GammaLookup(image.getWidth(), image.getHeight(), gamma);
-
         LookupOp gammaCorrectionOp = new LookupOp(table, null);
         return gammaCorrectionOp.filter(image, null);
     }
