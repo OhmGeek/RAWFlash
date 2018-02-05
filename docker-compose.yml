@@ -1,20 +1,9 @@
 version: '3'
 services:
-  renderserver:
-    build: ./rawflash
+  rabbitmq:
+    image: "rabbitmq"
     ports:
-     - "5672:5672"
-     - "15672:15672"
-    depends_on:
-      - renderdispatcher
-  client:
-    build: ./testclient
-    ports:
-      - "80:80"
-    volumes:
-      - ./testclient/src:/usr/share/nginx/html
-    depends_on:
-      - renderdispatcher
+      - "5672:5672"
   renderdispatcher:
     build: ./renderdispatcher
     ports:
@@ -23,8 +12,19 @@ services:
       - ./renderdispatcher:/home/node/app
     depends_on:
       - rabbitmq
-  rabbitmq:
-    image: "rabbitmq"
-    expose:
-      - "5672"
-      - "15672"
+    links:
+      - rabbitmq
+    restart: on-failure
+  renderserver:
+    build: ./rawflash
+    links:
+      - rabbitmq
+    restart: on-failure
+  client:
+    build: ./testclient
+    ports:
+      - "80:80"
+    volumes:
+      - ./testclient/src:/usr/share/nginx/html
+    depends_on:
+      - renderdispatcher

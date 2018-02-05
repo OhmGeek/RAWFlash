@@ -31,10 +31,18 @@ public class Main {
 
 
     public static void main(String[] argv) {
+      try
+        {
+          Thread.sleep(15000);
+        }
+        catch(InterruptedException ex)
+        {
+          Thread.currentThread().interrupt();
+        }
         ImageIO.setUseCache(false);
 
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+        factory.setHost("rabbitmq"); // using Docker.
 
         Connection connection = null;
         try {
