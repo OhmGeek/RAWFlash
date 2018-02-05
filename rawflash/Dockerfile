@@ -2,6 +2,7 @@ FROM maven
 RUN apt-get update -y && apt-get install dcraw -y
 COPY ./ server/
 RUN mkdir rawflash_cache/
+RUN chmod -R 777 /rawflash_cache
 WORKDIR server/
 RUN mvn clean install
 EXPOSE 4000
