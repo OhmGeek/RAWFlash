@@ -53,7 +53,7 @@ public class DCRawProcessor implements AbstractProcessor {
     }
 
     @Override
-    public void process(HashMap<String, String> operations) throws IOException {
+    public void process(HashMap<String, String> operations) throws IOException, InterruptedException {
         // now we have all the operations, let's actually run them.
         // get the file to use:
         File fileToProcess = new File(operations.get("filename"));
@@ -75,6 +75,7 @@ public class DCRawProcessor implements AbstractProcessor {
 
         // now try to process the image itself.
         String outputFilename = dcraw.process();
+        Thread.sleep(500);
         System.out.println("Output Filename " + outputFilename);
         // now add the output filename back to the JSON.
         operations.put("processed_file_path", outputFilename);

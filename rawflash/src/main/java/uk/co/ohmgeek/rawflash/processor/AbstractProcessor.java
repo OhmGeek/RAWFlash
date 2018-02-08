@@ -4,5 +4,5 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public interface AbstractProcessor {
-    void process(HashMap<String, String> operations) throws IOException;
+    void process(HashMap<String, String> operations) throws IOException, InterruptedException;
 }

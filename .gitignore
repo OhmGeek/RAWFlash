@@ -14,3 +14,7 @@ yarn-error.log*
 
 # Java Class files
 *.class
+
+# RAWFlash CAche
+*.tiff
+

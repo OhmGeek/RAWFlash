@@ -81,16 +81,20 @@ public class AdamsProcessor implements AbstractProcessor {
     }
 
     @Override
-    public void process(HashMap<String, String> operations) throws IOException {
+    public void process(HashMap<String, String> operations) throws IOException, InterruptedException {
         // first, we create an instance of the image. We can then pass the image down
         // the image is then modified, and then processed again.
 
         //todo consider order - we might want to do things in a certain order in the future.
         System.out.println("Now we are in the Adams Processor");
         File fileToProcess = new File(operations.get("processed_file_path"));
-        System.out.println(fileToProcess.canRead());
-        System.out.println(fileToProcess.exists());
+        // wait for file to exist, and not been modified in 10 seconds. TODO: change time to wait.
+        while(!(fileToProcess.exists() && fileToProcess.lastModified() - System.currentTimeMillis() > 10000)) {
+            System.out.println("WAiting for file to exist");
+            Thread.sleep(100); // wait until it exists
+        }
         this.image = ImageIO.read(fileToProcess.getAbsoluteFile());
+        System.out.println(this.image);
         HashMap<String, Runnable> commands = getListOfCommands(operations);
         for (String key : operations.keySet()) {
             // for each key, go through the hashmap executing the function.

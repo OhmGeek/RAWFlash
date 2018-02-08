@@ -83,7 +83,7 @@ public class Main {
                         String newFilePath = fileManager.downloadFile(jsonString.get("filename")).getAbsolutePath();
                         jsonString.put("filename", newFilePath);
                         System.out.println("New File Path: ");
-                        System.out.println(newFilePath);
+                        System.out.println(jsonString.get("filename"));
                         // Only now, do we process the image, yielding the result.
                         opManager.setInstructions(jsonString);
 

@@ -17,6 +17,8 @@ services:
     restart: on-failure
   renderserver:
     build: ./rawflash
+    volumes:
+      - ./rawflash/rawflash_cache:/rawflash_cache
     links:
       - rabbitmq
     restart: on-failure
