@@ -32,7 +32,7 @@ public class AdamsProcessor implements AbstractProcessor {
             int kernelSize = Integer.parseInt(kernelStr);
 
             // Only carry out the process if kernel size is odd AND 3 or more.
-            if(kernelSize > 2 && kernelSize % 2 != 0) {
+            if (kernelSize > 2 && kernelSize % 2 != 0) {
                 MeanBlur blur = new MeanBlur(kernelSize);
                 image = blur.process(image);
             }
@@ -40,7 +40,7 @@ public class AdamsProcessor implements AbstractProcessor {
         commands.put("gaussian-blur", () -> {
             String isGaussianOn = operations.get("gaussian-blur");
 
-            if(strToBoolean(isGaussianOn)) {
+            if (strToBoolean(isGaussianOn)) {
                 String kernelSizeStr = operations.get("gaussian-kernel");
                 String sigmaStr = operations.get("gaussian-sigma");
 
@@ -54,7 +54,7 @@ public class AdamsProcessor implements AbstractProcessor {
 
         commands.put("gamma-correction", () -> {
             String isGammaCorrectionOn = operations.get("gamma-correction");
-            if(strToBoolean(isGammaCorrectionOn)) {
+            if (strToBoolean(isGammaCorrectionOn)) {
                 String gammaStr = operations.get("gamma-correction-val");
                 double gamma = Double.parseDouble(gammaStr);
 
@@ -67,7 +67,7 @@ public class AdamsProcessor implements AbstractProcessor {
             // get the rgb gain values from the system
             String isWbOn = operations.get("adams-wb");
 
-            if(strToBoolean(isWbOn)) {
+            if (strToBoolean(isWbOn)) {
                 double redGain = Double.parseDouble(operations.get("adams-wb-red"));
                 double greenGain = Double.parseDouble(operations.get("adams-wb-green"));
                 double blueGain = Double.parseDouble(operations.get("adams-wb-blue"));
@@ -79,44 +79,34 @@ public class AdamsProcessor implements AbstractProcessor {
         });
         return commands;
     }
+
     @Override
-    public void process(HashMap<String, String> operations) {
+    public void process(HashMap<String, String> operations) throws IOException {
         // first, we create an instance of the image. We can then pass the image down
         // the image is then modified, and then processed again.
 
         //todo consider order - we might want to do things in a certain order in the future.
+        System.out.println("Now we are in the Adams Processor");
         File fileToProcess = new File(operations.get("processed_file_path"));
-        try {
-            this.image = ImageIO.read(fileToProcess);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println(fileToProcess.canRead());
+        System.out.println(fileToProcess.exists());
+        this.image = ImageIO.read(fileToProcess.getAbsoluteFile());
         HashMap<String, Runnable> commands = getListOfCommands(operations);
+        for (String key : operations.keySet()) {
+            // for each key, go through the hashmap executing the function.
 
-        try {
-            for(String key : operations.keySet()) {
-                // for each key, go through the hashmap executing the function.
-
-                if(commands.containsKey(key)) {
-                    Runnable functionToRun = commands.get(key);
-                    functionToRun.run();
-                }
-            }
-        } catch (Exception ex) {
-            // generic error
-            ex.printStackTrace();
-        } finally {
-            try {
-                String newFilename = operations.get("processed_file_path").replaceFirst(".tiff", "_adams.tiff");
-                File fileToSave = new File(newFilename);
-                ImageIO.write(image, "TIFF", fileToSave);
-                operations.put("adams_processed_path", newFilename);
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (commands.containsKey(key)) {
+                Runnable functionToRun = commands.get(key);
+                functionToRun.run();
             }
         }
 
-
-
+        String newFilename = operations.get("processed_file_path").replaceFirst(".tiff", "_adams.tiff");
+        File fileToSave = new File(newFilename);
+        System.out.println("Try to write adams:");
+        System.out.println(fileToSave);
+        ImageIO.write(image, "TIFF", fileToSave);
+        operations.put("adams_processed_path", newFilename);
     }
+
 }

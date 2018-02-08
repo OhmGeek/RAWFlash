@@ -41,14 +41,16 @@ public class OperationManager {
         AbstractProcessor rawProcessor = new DCRawProcessor();
         try {
             rawProcessor.process(this.operationMap);
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println("DCRAW PROCESSOR ERROR!");
             e.printStackTrace();
         }
 
         AbstractProcessor adamsProcessor = new AdamsProcessor();
         try {
             adamsProcessor.process(this.operationMap);
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println("ADAMS PROCESSOR ERROR");
             e.printStackTrace();
         }
         return this.operationMap.get("adams_processed_path");

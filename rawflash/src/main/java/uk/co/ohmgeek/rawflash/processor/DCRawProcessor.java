@@ -1,4 +1,5 @@
 package uk.co.ohmgeek.rawflash.processor;
+
 import uk.co.ohmgeek.jdcraw.DCRawManager;
 import uk.co.ohmgeek.jdcraw.RAWOperation;
 import uk.co.ohmgeek.jdcraw.operations.*;
@@ -28,28 +29,23 @@ public class DCRawProcessor implements AbstractProcessor {
 
         commands.put("white-balance-preset", () -> {
             String wbPreset = operations.get("white-balance-preset");
-            try {
-                if(wbPreset.equals("camera")) {
+                if (wbPreset.equals("camera")) {
                     dcraw.addOperation(new SetWBPresetOperation(WBPreset.CAMERA));
                 }
-            } catch(Exception ex) {
-                ex.printStackTrace();
-            }
         });
 
         commands.put("set-color-space", () -> {
             String wbPreset = operations.get("set-color-space");
-            try {
-                if(wbPreset.equals("raw")) {
+            switch (wbPreset) {
+                case "raw":
                     dcraw.addOperation(new SetColorSpaceOperation(ColourSpaceEnum.RAW));
-                } else if (wbPreset.equals("adobergb")) {
+                    break;
+                case "adobergb":
                     dcraw.addOperation(new SetColorSpaceOperation(ColourSpaceEnum.ADOBE_RGB));
-                }
-                else if (wbPreset.equals("srgb")) {
+                    break;
+                case "srgb":
                     dcraw.addOperation(new SetColorSpaceOperation(ColourSpaceEnum.SRGB));
-                }
-            } catch(Exception ex) {
-                ex.printStackTrace();
+                    break;
             }
         });
 
@@ -57,25 +53,20 @@ public class DCRawProcessor implements AbstractProcessor {
     }
 
     @Override
-    public void process(HashMap<String, String> operations) {
+    public void process(HashMap<String, String> operations) throws IOException {
         // now we have all the operations, let's actually run them.
         // get the file to use:
         File fileToProcess = new File(operations.get("filename"));
         DCRawManager dcraw = new DCRawManager(fileToProcess);
         HashMap<String, Runnable> commands = getListOfCommands(operations, dcraw);
 
-        try {
-            for(String key : operations.keySet()) {
-                // for each key, go through the hashmap executing the function.
+        for (String key : operations.keySet()) {
+            // for each key, go through the hashmap executing the function.
 
-                if(commands.containsKey(key)) {
-                    Runnable functionToRun = commands.get(key);
-                    functionToRun.run();
-                }
+            if (commands.containsKey(key)) {
+                Runnable functionToRun = commands.get(key);
+                functionToRun.run();
             }
-        } catch (Exception ex) {
-            // generic error
-            ex.printStackTrace();
         }
 
         // force it to always use Tiff, so we can read it.
@@ -83,16 +74,9 @@ public class DCRawProcessor implements AbstractProcessor {
 
 
         // now try to process the image itself.
-        try {
-            String outputFilename = dcraw.process();
-            System.out.println("Output Filename" + outputFilename);
-            // now add the output filename back to the JSON.
-
-            operations.put("processed_file_path", outputFilename);
-
-        } catch (IOException e) {
-            System.out.println("Error in processing RAW image");
-            e.printStackTrace();
-        }
+        String outputFilename = dcraw.process();
+        System.out.println("Output Filename " + outputFilename);
+        // now add the output filename back to the JSON.
+        operations.put("processed_file_path", outputFilename);
     }
 }

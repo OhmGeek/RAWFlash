@@ -8,6 +8,7 @@ import javax.xml.bind.DatatypeConverter;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -66,14 +67,15 @@ public class Main {
                     String response = "";
 
                     try {
-                        String json = new String(body,"UTF-8");
+                        String json = new String(body, "UTF-8");
                         OperationManager opManager = new OperationManager();
                         FileManager fileManager = new FileManager();
 
                         // Take JSON and convert to hashmap.
                         HashMap<String, String> jsonString = new Gson().fromJson(
                                 json,
-                                new TypeToken<HashMap<String, String>>(){}.getType()
+                                new TypeToken<HashMap<String, String>>() {
+                                }.getType()
                         );
 
                         // Download the file, caching it locally.
@@ -96,7 +98,15 @@ public class Main {
 
                         String dataToSend = new Gson().toJson(mappedOutput);
                         response += dataToSend;
+                        System.gc();
 
+                        File dir = new File("/rawflash_cache");
+                        File[] toBeDeleted = dir.listFiles(pathname -> (pathname.getName().endsWith(".tiff")));
+                        if(toBeDeleted != null) {
+                            for (File file : toBeDeleted) {
+                                file.delete(); // try to delete. Not a major issue
+                            }
+                        }
                     }
                     catch (Exception e){
                         System.out.println(" [.] " + e.toString());
