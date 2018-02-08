@@ -1,15 +1,13 @@
 package uk.co.ohmgeek.rawflash.processor;
 
 import uk.co.ohmgeek.jdcraw.DCRawManager;
-import uk.co.ohmgeek.jdcraw.RAWOperation;
 import uk.co.ohmgeek.jdcraw.operations.*;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class DCRawProcessor implements AbstractProcessor {
 
@@ -52,8 +50,10 @@ public class DCRawProcessor implements AbstractProcessor {
         return commands;
     }
 
-    @Override
-    public void process(HashMap<String, String> operations) throws IOException, InterruptedException {
+    public BufferedImage process(HashMap<String, String> operations, BufferedImage input) throws IOException, InterruptedException {
+        // input is actually ignored in this case, as it's the first stage.
+        // No way of fixing this really.
+
         // now we have all the operations, let's actually run them.
         // get the file to use:
         File fileToProcess = new File(operations.get("filename"));
@@ -78,6 +78,10 @@ public class DCRawProcessor implements AbstractProcessor {
         Thread.sleep(500);
         System.out.println("Output Filename " + outputFilename);
         // now add the output filename back to the JSON.
-        operations.put("processed_file_path", outputFilename);
+        File dcrawOutputFile = new File(outputFilename);
+
+        return ImageIO.read(dcrawOutputFile);
     }
+
+
 }

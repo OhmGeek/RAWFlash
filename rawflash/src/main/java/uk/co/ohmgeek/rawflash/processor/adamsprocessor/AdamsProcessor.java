@@ -81,20 +81,12 @@ public class AdamsProcessor implements AbstractProcessor {
     }
 
     @Override
-    public void process(HashMap<String, String> operations) throws IOException, InterruptedException {
-        // first, we create an instance of the image. We can then pass the image down
-        // the image is then modified, and then processed again.
+    public BufferedImage process(HashMap<String, String> operations, BufferedImage inputImage) throws IOException, InterruptedException {
 
-        //todo consider order - we might want to do things in a certain order in the future.
+        this.image = inputImage; // Use image from previous step as input.
         System.out.println("Now we are in the Adams Processor");
-        File fileToProcess = new File(operations.get("processed_file_path"));
-        // wait for file to exist, and not been modified in 10 seconds. TODO: change time to wait.
-        while(!(fileToProcess.exists() && fileToProcess.lastModified() - System.currentTimeMillis() > 10000)) {
-            System.out.println("WAiting for file to exist");
-            Thread.sleep(100); // wait until it exists
-        }
-        this.image = ImageIO.read(fileToProcess.getAbsoluteFile());
-        System.out.println(this.image);
+
+
         HashMap<String, Runnable> commands = getListOfCommands(operations);
         for (String key : operations.keySet()) {
             // for each key, go through the hashmap executing the function.
@@ -105,12 +97,7 @@ public class AdamsProcessor implements AbstractProcessor {
             }
         }
 
-        String newFilename = operations.get("processed_file_path").replaceFirst(".tiff", "_adams.tiff");
-        File fileToSave = new File(newFilename);
-        System.out.println("Try to write adams:");
-        System.out.println(fileToSave);
-        ImageIO.write(image, "TIFF", fileToSave);
-        operations.put("adams_processed_path", newFilename);
+        return image;
     }
 
 }

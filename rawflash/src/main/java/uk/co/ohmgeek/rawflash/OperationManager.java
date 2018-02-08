@@ -7,6 +7,7 @@ import uk.co.ohmgeek.rawflash.processor.AbstractProcessor;
 import uk.co.ohmgeek.rawflash.processor.DCRawProcessor;
 import uk.co.ohmgeek.rawflash.processor.adamsprocessor.AdamsProcessor;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -23,7 +24,7 @@ public class OperationManager {
         operationMap = instructions;
     }
 
-    public String process() {
+    public BufferedImage process() {
 
         // eventually, load these processors at runtime, so we can automatically add modules, which in turn will
         // add themselves to the manifest.
@@ -39,8 +40,9 @@ public class OperationManager {
 
         // first, deal with the RAW processing with DCRaw.
         AbstractProcessor rawProcessor = new DCRawProcessor();
+        BufferedImage img = null;
         try {
-            rawProcessor.process(this.operationMap);
+            img = rawProcessor.process(this.operationMap, img);
         } catch (Exception e) {
             System.out.println("DCRAW PROCESSOR ERROR!");
             e.printStackTrace();
@@ -48,12 +50,12 @@ public class OperationManager {
 
         AbstractProcessor adamsProcessor = new AdamsProcessor();
         try {
-            adamsProcessor.process(this.operationMap);
+            adamsProcessor.process(this.operationMap, img);
         } catch (Exception e) {
             System.out.println("ADAMS PROCESSOR ERROR");
             e.printStackTrace();
         }
-        return this.operationMap.get("adams_processed_path");
+        return img;
 
     }
 }
