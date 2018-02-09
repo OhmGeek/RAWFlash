@@ -11,7 +11,6 @@ var APP_SETTINGS = {
   current_image: null,
 };
 
-
 var socket = null;
 
 

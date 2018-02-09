@@ -3,19 +3,32 @@
   parameters, and the physical DOM components.
   Uses Bind.JS
 */
+var undoManager = new UndoManager();
 $(function() {
   $('#mySidebar').on('change','.input-bound-field', function() {
 
     var property = $(this).data("linkedproperty")
+    var oldValue = APP_SETTINGS['image_settings'][property];
     var value = $(this).val();
+
+    // first, update within the undo manager.
+    undoManager.addEdit(property, oldValue, value);
+
+    // then make changes.
     APP_SETTINGS['image_settings'][property] = value;
+
   });
 
   $('#mySidebar').on('change','.input-bound-checkbox', function() {
 
     var property = $(this).data("linkedproperty")
-
     var value = $(this).prop("checked");
+    var oldValue = APP_SETTINGS['image_settings'][property];
+
+    // first, update within the undo manager.
+    undoManager.addEdit(property, oldValue, value);
+
+    // then actually make changes.
     APP_SETTINGS['image_settings'][property] = value;
   });
 
