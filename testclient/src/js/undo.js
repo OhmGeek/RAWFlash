@@ -1,9 +1,11 @@
 // Undo.js - Functionality for Undo.
 // Provides an object that manages the undo functionality for the application.
 
+// ---------------- Stack Helpers ----------------
 function Stack() {
   this.stackList = []
 }
+
 
 Stack.prototype.push = function(data) {
   this.stackList.append(data);
@@ -23,6 +25,8 @@ Stack.prototype.empty = function() {
 Stack.prototype.isEmpty = function() {
   return this.stackList.length == 0;
 }
+
+// ------------ UNDO Manager -----------------
 function UndoManager() {
   this.undoStack = new Stack();
   this.redoStack = new Stack();  
@@ -49,7 +53,7 @@ UndoManager.prototype.canRedo = () => {
   return this.redoStack.length > 0; // can redo if at least one redoable modification.
 };
 
-UndoManager.prototype.undo = (imageSettings) => {
+UndoManager.prototype.undo = (data) => {
   let modification = this.undoStack.pop();
   if(modification != null) {
     //indicates we can undo.
@@ -57,9 +61,19 @@ UndoManager.prototype.undo = (imageSettings) => {
     let val = modification.oldValue;
 
    // now update the imageSettings
-   imageSettings[field] = [val];
+   data[field] = val;
 
    // Deal with the redo functionality.
    this.redoStack.push(modification); 
   }
 }
+
+UndoManager.prototype.redo = (data) => {
+  let modification = this.redoStack.pop();
+  if(modification != null) {
+    let field = modification.fieldModified;
+    let val = modification.newValue;
+
+    data[field] = val;
+  }
+};
