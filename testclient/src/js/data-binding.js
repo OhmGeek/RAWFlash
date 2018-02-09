@@ -11,7 +11,27 @@ $(function() {
     APP_SETTINGS['image_settings'][property] = value;
   });
 
+  $('#mySidebar').on('change','.input-bound-checkbox', function() {
+
+    var property = $(this).data("linkedproperty")
+
+    var value = $(this).prop("checked");
+    APP_SETTINGS['image_settings'][property] = value;
+  });
+
+
+
   $('#mySidebar').on('sidebar-updated', function() {
+    $('#mySidebar .input-bound-checkbox').each(function(index, elem) {
+      var property = $(elem).data("linkedproperty");
+
+      var value = APP_SETTINGS['image_settings'][property];
+
+      // set the value
+      $(elem).prop('checked', value);
+    });
+
+
     $('#mySidebar .input-bound-field').each(function(index, elem) {
       // for each value, we will update the UI
       var property = $(elem).data("linkedproperty");
