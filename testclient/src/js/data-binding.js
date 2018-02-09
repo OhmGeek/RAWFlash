@@ -22,4 +22,12 @@ $(function() {
     })
   });
 
+  // Set all checkboxes to have the value true when checked, and false when not.
+  // This allows the binding to work properly
+  $('#mySidebar').on('change', ':checkbox', function() {
+    console.log("Checkbox changed");
+    this.value = this.checked; // sets to true, or false, depending on whether checked.
+    console.log(this.value);
+  });
+
 });
