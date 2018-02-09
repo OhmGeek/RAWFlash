@@ -88,7 +88,6 @@ public class Main {
 
                         BufferedImage output = opManager.process();
                         String base64Image = getBase64Image(output);
-
                         // output to JSON
                         HashMap<String, String> mappedOutput = new HashMap<String, String>();
                         mappedOutput.put("img", base64Image);
@@ -98,13 +97,6 @@ public class Main {
                         response += dataToSend;
                         System.gc();
 
-//                        File dir = new File("/rawflash_cache");
-//                        File[] toBeDeleted = dir.listFiles(pathname -> (pathname.getName().endsWith(".tiff")));
-//                        if(toBeDeleted != null) {
-//                            for (File file : toBeDeleted) {
-//                                file.delete(); // try to delete. Not a major issue
-//                            }
-//                        }
                     }
                     catch (Exception e){
                         System.out.println(" [.] " + e.toString());

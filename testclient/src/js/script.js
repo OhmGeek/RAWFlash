@@ -14,9 +14,7 @@ var APP_SETTINGS = {
 
 var socket = null;
 
-var canvas = null;
 
-var ctx = null;
 
 
 $(function() {
@@ -25,21 +23,16 @@ $(function() {
 
   window.imageDisplay.init();
 
-
-
   socket = io(APP_SETTINGS['server_host'] + ":" + APP_SETTINGS['server_port']);
 
-
-  canvas = document.getElementById('myCanvas');
-  ctx = canvas.getContext("2d");
-
   socket.on('image-processed', function(data) {
-    console.log("Image Processed");
-    console.log(data);
     let image = new Image();
     image.src = data.img;
     APP_SETTINGS['current_image'] = image;
-    image.onload = window.renderImage;
+    image.onload = () => {
+      window.imageDisplay.renderImage(APP_SETTINGS['current_image']);
+    };
+
   });
 });
 // document.onload = function() {
@@ -103,7 +96,7 @@ function setSettingsAndUpdate() {
 // deal with the scroll wheel for zooming
 document.getElementById('myCanvas').addEventListener('wheel', function() {
   APP_SETTINGS['magnification']['multiplication_factor'] *= 0.5;
-  renderImage();
+  window.imageDisplay.renderImage(APP_SETTINGS['current_image']);
 });
 
 

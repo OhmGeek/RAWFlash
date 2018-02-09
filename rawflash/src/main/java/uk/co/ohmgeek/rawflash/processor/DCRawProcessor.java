@@ -79,7 +79,6 @@ public class DCRawProcessor implements AbstractProcessor {
         System.out.println("Output Filename " + outputFilename);
         // now add the output filename back to the JSON.
         File dcrawOutputFile = new File(outputFilename);
-
         return ImageIO.read(dcrawOutputFile);
     }
 
