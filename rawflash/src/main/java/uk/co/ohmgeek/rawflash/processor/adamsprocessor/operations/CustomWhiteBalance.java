@@ -29,11 +29,12 @@ public class CustomWhiteBalance implements IOperation {
         for(int x = 0; x < input.getWidth(); x++) {
             for(int y = 0; y < input.getHeight(); y++) {
                 int pixel = input.getRGB(x, y);
-
-                int alpha_mask = pixel & 0xff000000;
-                int red = (pixel >> 16) & 0xff;
-                int green = (pixel >> 8) & 0xff;
-                int blue = (pixel) & 0xff;
+                Color c = new Color(pixel);
+                
+                int alpha_mask = c.getAlpha();
+                int red = c.getRed();
+                int green = c.getGreen();
+                int blue = c.getBlue();
 
                 // now apply the gains:
                 red = (int) (red * redGain);
