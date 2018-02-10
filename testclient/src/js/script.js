@@ -3,7 +3,13 @@ var APP_SETTINGS = {
   server_port: 4000,
   image_settings: {
     "filename": "http://www.mannyphoto.com/D700D3/_DSC4175.NEF",
-    "exposure": 1000,
+    "exposure": 1,
+    "adams-wb": false,
+    "adams-wb-red": 1.0,
+    "adams-wb-green": 1.0,
+    "adams-wb-blue": 1.0,
+    "histogram-equalization": false,
+    
   },
   magnification: {
     "multiplication_factor": 1
@@ -31,6 +37,8 @@ $(function() {
     };
 
   });
+
+  $('#renderButton').on('click', updateImageSettings);
 });
 
 
@@ -44,6 +52,6 @@ function setProperty(propertyName, value) {
     APP_SETTINGS['image_settings'][propertyName] = value;
   }
 
-  $('#renderButton').on('click', updateImageSettings);
+
 
 }
