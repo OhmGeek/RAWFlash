@@ -63,4 +63,14 @@ $(function() {
     console.log(this.value);
   });
 
+
+
+  // Undo/Redo Functionality
+  $('#undoButton').on('click', function() {
+    undoManager.undo(APP_SETTINGS['image_settings']);
+  });
+  $('#redoButton').on('click', function() {
+    undoManager.redo(APP_SETTINGS['image_settings']);
+  });
+
 });
