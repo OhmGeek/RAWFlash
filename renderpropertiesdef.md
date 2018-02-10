@@ -11,7 +11,8 @@
   "adams-wb-blue": "Blue Gain, as double",
   "mean-blur": "kernel size as integer here: Odd number, 3 or more.",
   "gaussian-blur": "Gaussian blur kernel size: odd number, 3 or more.",
-  "gamma-correction": "gamma as a double"
+  "adams-gamma": "true/false",
+  "adams-gamma-gamma": "gamma as a double"
 }
 ```
 

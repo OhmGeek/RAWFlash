@@ -9,7 +9,12 @@ var APP_SETTINGS = {
     "adams-wb-green": 1.0,
     "adams-wb-blue": 1.0,
     "histogram-equalization": false,
-    
+    "adams-gamma": false,
+    "adams-gamma-gamma": 1.0,
+    "adams-meanblur": false,
+    "adams-meanblur-kernel": 3,
+    "adams-gaussianblur": false,
+    "adams-gaussianblur-kernel": 3
   },
   magnification: {
     "multiplication_factor": 1
