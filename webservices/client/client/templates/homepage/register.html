@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="w3-panel">
+    <div class="w3-container w3-green">
+        <h2>Register</h2>
+    </div>
+    <form class="w3-container w3-padding" method="post" action="register/">
+        {% csrf_token %}
+        <label>First Name</label>
+        <input class="w3-input" type="text">
+
+        <label>Last Name</label>
+        <input class="w3-input" type="text">
+
+        <label>Email Address</label>
+        <input class="w3-input" type="email" name="email">
+
+        <label>Password</label>
+        <input class="w3-input" type="password" name="password1">
+
+        <label>Re-enter Password</label>
+        <input class="w3-input" type="password" name="password2">
+
+        <button class="w3-btn w3-blue">Register</button>
+    </form>
+</div>
+
+{% endblock %}

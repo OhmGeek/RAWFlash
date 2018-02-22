@@ -8,10 +8,6 @@ from .forms import SignUpForm
 def index(request):
     return render(request, 'homepage/index.html')
 
-def login(request):
-    # AJAX login
-    pass
-
 def display_image_picker(request):
     return render(request, 'homepage/image_picker.html')
 
