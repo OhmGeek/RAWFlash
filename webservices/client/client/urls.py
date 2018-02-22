@@ -23,6 +23,6 @@ urlpatterns = [
     path('register/', register),
     path('ajax/',  include('images.urls')),
     path('dashboard/', display_image_picker),
-    path('login', auth_views.LoginView.as_view()),
+    path('login/', auth_views.LoginView.as_view()),
     path('', index)
 ]

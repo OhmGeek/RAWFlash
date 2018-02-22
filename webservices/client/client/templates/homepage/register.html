@@ -4,7 +4,7 @@
     <div class="w3-container w3-green">
         <h2>Register</h2>
     </div>
-    <form class="w3-container w3-padding" method="post" action="register/">
+    <form class="w3-container w3-padding" method="post">
         {% csrf_token %}
         <label>First Name</label>
         <input class="w3-input" type="text">
@@ -13,7 +13,7 @@
         <input class="w3-input" type="text">
 
         <label>Email Address</label>
-        <input class="w3-input" type="email" name="email">
+        <input class="w3-input" type="email" name="username">
 
         <label>Password</label>
         <input class="w3-input" type="password" name="password1">
@@ -21,7 +21,7 @@
         <label>Re-enter Password</label>
         <input class="w3-input" type="password" name="password2">
 
-        <button class="w3-btn w3-blue">Register</button>
+        <button class="w3-btn w3-blue" type="submit">Register</button>
     </form>
 </div>
 
