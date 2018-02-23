@@ -25,7 +25,6 @@ $(function() {
 
         buttons.forEach(function(button) {
             let btnElement = $('<button>');
-            console.log(button.text)
             btnElement.addClass('w3-button w3-teal w3-xlarge w3-right');
             btnElement.on('click', button.event);
             btnElement.text(button.text)
@@ -91,8 +90,6 @@ $(function() {
                 var listItemDOM = $('<li>');
                 listItemDOM.addClass('w3-bar')
 
-                listItemDOM.data('album_id', data.id);
-                
                 // Add SPAN
                 var child = $('<span>');
                 child.addClass('w3-bar-item w3-button w3-xlarge w3-right');
@@ -120,7 +117,7 @@ $(function() {
                 child.append(subChild);
 
                 listItemDOM.append(child);
-
+                listItemDOM.data('albumid', listItem.id);
                 $('#album_list').append(listItemDOM);
             });
         })
