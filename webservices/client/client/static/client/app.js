@@ -91,6 +91,8 @@ $(function() {
                 var listItemDOM = $('<li>');
                 listItemDOM.addClass('w3-bar')
 
+                listItemDOM.data('album_id', data.id);
+                
                 // Add SPAN
                 var child = $('<span>');
                 child.addClass('w3-bar-item w3-button w3-xlarge w3-right');

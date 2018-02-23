@@ -10,6 +10,7 @@ def get_albums_for_user(request):
         data.append({
             "album_name": album.name,
             "album_description": album.description
+            "id": album.pk
         })
 
     return JsonResponse({
