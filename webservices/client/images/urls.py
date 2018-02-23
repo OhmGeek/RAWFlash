@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
-from .views import get_albums_for_user
+from .views import get_albums_for_user, add_album
 urlpatterns = [
-    url('get_albums_for_user', get_albums_for_user)
+    url('get_albums_for_user', get_albums_for_user),
+    url('add_album_for_user', add_album),
 ]

@@ -1,5 +1,51 @@
-$(function() {
+var ImagePicker = {}
 
+
+$(function() {
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+    window.ImagePicker.addAlbum = function() {
+        // First, ask user to input album name
+        swal({
+                title: 'New Album Name',
+                html: '<input id="swal-input-1" class="swal2-input">' +
+                    '<input id="swal-input-2" class="swal2-input">',
+                preConfirm: function() {
+                    return new Promise(function(resolve) {
+                        resolve([$('#swal-input-1').val(), $('#swal-input-2').val()]);
+                    });
+                },
+                button: {
+                    text: "Add!",
+                    closeModal: true,
+                },
+                onOpen: function() {
+                    $('#swal-input-1').focus()
+                },
+            }).then(function(values) {
+                let name = values.value[0]
+                let desc = values.value[1]
+                console.log(name);
+                return $.post(window.location.origin + "/ajax/add_album_for_user", { 'name': name, 'description': desc });
+            }).then(function(resp) {
+                return
+            }).catch(function(err) {
+                swal("Error Adding Album", ":(", "error");
+            })
+            // then, make AJAX request creating album.
+
+        // then display the page by refreshing.
+    }
     $.getJSON(window.location.origin + "/ajax/get_albums_for_user", function(data) {
         $('#album_list').empty();
         data.albums.forEach(function(listItem) {
