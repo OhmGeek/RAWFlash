@@ -15,6 +15,39 @@ $(function() {
         }
     });
 
+    window.ImagePicker.UI = {}
+    window.ImagePicker.UI.createTitleDOM = function(titleText, descriptionText, buttons) {
+        // <div class="w3-container w3-green">
+        //     <button class="w3-button w3-teal w3-xlarge w3-right" onclick="window.ImagePicker.addAlbum()">Add</button>
+        //     <h2>Albums</h2>
+        //     <p>Here are your albums. Click on one to view and edit images.</p>
+        // </div>
+        let titleSection = $('<div>');
+        titleSection.addClass('w3-container w3-green');
+
+        buttons.forEach(function(index, button) {
+            let btnElement = $('<button>');
+
+            btnElement.addClass('w3-button w3-teal w3-xlarge w3-right');
+            btnElement.text(buton.text);
+            btnElement.on('click', button.event);
+
+            titleSection.append(btnElement);
+        });
+
+        // Now add the title
+        let title = $('<h2>');
+        title.text(titleText);
+        titleSection.append(title);
+        
+        let description = $('<p>');
+        description.text(descriptionText);
+        titleSection.append(description);
+
+        return titleSection;        
+    }
+
+
     window.ImagePicker.addAlbum = function() {
         // First, ask user to input album name
         swal({
