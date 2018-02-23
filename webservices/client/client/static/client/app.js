@@ -53,8 +53,8 @@ $(function() {
         // First, ask user to input album name
         swal({
                 title: 'New Album Name',
-                html: '<input id="swal-input-1" class="swal2-input">' +
-                    '<input id="swal-input-2" class="swal2-input">',
+                html: '<input id="swal-input-1" class="swal2-input" placeholder="Album Name">' +
+                    '<input id="swal-input-2" class="swal2-input" placeholder="Album Description">',
                 preConfirm: function() {
                     return new Promise(function(resolve) {
                         resolve([$('#swal-input-1').val(), $('#swal-input-2').val()]);
@@ -75,6 +75,7 @@ $(function() {
             }).then(function(resp) {
                 window.ImagePicker.Album.displayAlbums(); // update album window
             }).catch(function(err) {
+                console.log(err.code);
                 swal("Error Adding Album", ":(", "error");
             })
             // then, make AJAX request creating album.
@@ -93,7 +94,7 @@ $(function() {
                 // Add SPAN
                 var child = $('<span>');
                 child.addClass('w3-bar-item w3-button w3-xlarge w3-right');
-                child.text("&#8250;")
+                child.text(">")
                 listItemDOM.append(child);
 
                 child = $('<img>');
