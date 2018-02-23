@@ -10,6 +10,7 @@ from .forms import SignUpForm
 def index(request):
     return render(request, 'homepage/index.html')
 
+@login_required
 def display_image_picker(request):
     return render(request, 'homepage/image_picker.html')
 
