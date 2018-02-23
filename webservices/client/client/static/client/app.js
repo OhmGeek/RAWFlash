@@ -39,7 +39,7 @@ $(function() {
                 console.log(name);
                 return $.post(window.location.origin + "/ajax/add_album_for_user", { 'name': name, 'description': desc });
             }).then(function(resp) {
-                return
+                window.ImagePicker.displayAlbums(); // update album window
             }).catch(function(err) {
                 swal("Error Adding Album", ":(", "error");
             })
