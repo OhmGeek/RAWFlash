@@ -9,7 +9,8 @@ def get_albums_for_user(request):
     for album in our_albums:
         data.append({
             "album_name": album.name,
-            "album_description": album.description
+            "album_description": album.description,
+            "id": album.pk
         })
 
     return JsonResponse({
@@ -30,4 +31,23 @@ def add_album(request):
     return JsonResponse({
         "err": "Use POST rather than GET"
     })
-        
+
+
+def get_images_for_album(request):
+    album_id = request.GET.get('id')
+    album = Album.objects.filter(linked_user=request.user, pk=album_id).first()
+    print(album)
+
+    images = Image.objects.filter(linked_album=album)
+
+    data = []
+    for image in images:
+        print(image)
+        data.append({
+            'id': image.pk,
+            'url': image.upload.url
+        })
+
+    return JsonResponse({
+        "images": data,
+    })

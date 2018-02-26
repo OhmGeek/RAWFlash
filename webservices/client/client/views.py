@@ -8,8 +8,13 @@ from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm
 
 def index(request):
+
+    if request.user.is_authenticated:
+        return redirect('display_image_picker')
+        
     return render(request, 'homepage/index.html')
 
+@login_required
 def display_image_picker(request):
     return render(request, 'homepage/image_picker.html')
 
