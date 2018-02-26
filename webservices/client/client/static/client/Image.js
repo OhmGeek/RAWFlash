@@ -53,7 +53,7 @@ $(function() {
         listPage.attr('id', 'image_list');
 
 
-        let title = window.ImagePicker.UI.createTitleDOM(album.name, album.description, buttons)
+        let title = window.ImagePicker.UI.createTitleDOM("Images for Album", album.name, buttons)
         window.ImagePicker.UI.displayPage(title, listPage)
     }
     window.ImagePicker.Album.render()

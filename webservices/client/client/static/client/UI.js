@@ -24,7 +24,6 @@ $(function() {
         let description = $('<p>');
         description.text(descriptionText);
         titleSection.append(description);
-
         return titleSection;
     }
 
