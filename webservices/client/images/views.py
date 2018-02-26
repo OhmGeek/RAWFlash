@@ -45,7 +45,7 @@ def get_images_for_album(request):
         print(image)
         data.append({
             'id': image.pk,
-            'url': image.upload.url
+            'url': image.upload.absolute_url
         })
 
     return JsonResponse({
