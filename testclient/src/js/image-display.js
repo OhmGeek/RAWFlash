@@ -6,29 +6,35 @@
 */
 
 $(function() {
-  var ctx;
-  var canvas;
+
+  var viewer;
+
   window.imageDisplay = {};
 
   window.imageDisplay['magnification'] = 1.0;
 
   window.imageDisplay.init = function() {
-    canvas = document.getElementById('myCanvas');
-    ctx = canvas.getContext("2d");
+    viewer = OpenSeadragon({
+      element: "canvas-container",
+      prefixUrl: "https://openseadragon.github.io/openseadragon/images/",
+      tileSources: {
+        type: "image",
+        url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+      }
+    });
   }
 
   window.imageDisplay.renderImage = function(image) {
-    if(!canvas) {
-      window.imageDisplay.init();
-    }
-    ctx.clearRect(0,0, image.width, image.height);
-    let magnification = imageDisplay['magnification'];
-    // set dimensions of canvas
-    canvas.width = image.width * magnification;
-    canvas.height = image.height * magnification;
-
-    // draw, with magnification.
-    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    console.log(image)
+    $('#canvas-container').empty();
+    viewer = OpenSeadragon({
+      element: "canvas-container",
+      tileSources: {
+        type: "image",
+        url: image,
+      }
+    });
   }
 
 });
+   

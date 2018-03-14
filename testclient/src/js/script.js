@@ -34,13 +34,9 @@ $(function() {
   socket = io(APP_SETTINGS['server_host'] + ":" + APP_SETTINGS['server_port']);
 
   socket.on('image-processed', function(data) {
-    let image = new Image();
-    image.src = data.img;
-    APP_SETTINGS['current_image'] = image;
-    image.onload = () => {
-      window.imageDisplay.renderImage(APP_SETTINGS['current_image']);
-    };
-
+    APP_SETTINGS['current_image'] = data.img;
+    window.imageDisplay.renderImage(data.img);
+    console.log(data.img);
   });
 
   $('#renderButton').on('click', updateImageSettings);

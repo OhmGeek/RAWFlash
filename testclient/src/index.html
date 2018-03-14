@@ -39,9 +39,8 @@
         <button id="undoButton" class="w3-button w3-right">Undo</button>
         <button id="renderButton" class="w3-button w3-right">Render</button>
         <div class="w3-container">
-          <div class="canvas-container">
-              <canvas id="myCanvas">
-              </canvas>
+          <div id="canvas-container">
+              <!-- JavaSCript automatically fills image in here. -->
           </div>
         </div>
       </div>
@@ -50,7 +49,8 @@
     <!-- Include JavaScript -->
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/node_modules/socket.io-client/dist/socket.io.min.js"></script>
-      <script src="js/image-display.js"></script>
+    <script src="/node_modules/openseadragon/build/openseadragon/openseadragon.min.js"></script>
+    <script src="js/image-display.js"></script>
     <script src="js/script.js"></script>
     <script src="js/sidebar.js"></script>
     <script src="js/undo.js"></script>
