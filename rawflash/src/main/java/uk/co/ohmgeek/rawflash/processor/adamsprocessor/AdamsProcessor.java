@@ -52,13 +52,15 @@ public class AdamsProcessor implements AbstractProcessor {
             }
         });
 
-        commands.put("gamma-correction", () -> {
-            String isGammaCorrectionOn = operations.get("gamma-correction");
+        commands.put("adams-gamma", () -> {
+            System.out.println("In Gamma Correction");
+            String isGammaCorrectionOn = operations.get("adams-gamma");
             if (strToBoolean(isGammaCorrectionOn)) {
-                String gammaStr = operations.get("gamma-correction-val");
+                String gammaStr = operations.get("adams-gamma-gamma");
                 double gamma = Double.parseDouble(gammaStr);
 
                 GammaCorrection corrector = new GammaCorrection(gamma);
+                image = corrector.process(image);
             }
 
         });
