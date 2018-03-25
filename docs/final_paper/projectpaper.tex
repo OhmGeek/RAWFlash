@@ -18,9 +18,19 @@
 \maketitle
 
 \begin{abstract}
-These instructions give you guidelines for preparing the final paper.  DO NOT change any settings, such as margins and font sizes.  Just use this as a template and modify the contents into your final paper.  Do not cite references in the abstract.
+% These instructions give you guidelines for preparing the final paper.  DO NOT change any settings, such as margins and font sizes.  Just use this as a template and modify the contents into your final paper.  Do not cite references in the abstract.
 
-The abstract must be a Structured Abstract with the headings {\bf Context/Background}, {\bf Aims}, {\bf Method}, {\bf Results}, and {\bf Conclusions}.  This section should not be longer than half of a page, and having no more than one or two sentences under each heading is advised.
+% The abstract must be a Structured Abstract with the headings {\bf Context/Background}, {\bf Aims}, {\bf Method}, {\bf Results}, and {\bf Conclusions}.  This section should not be longer than half of a page, and having no more than one or two sentences under each heading is advised.
+\paragraph{Context/Background}
+
+\paragraph{Aims}
+
+\paragraph{Method}
+
+\paragraph{Results}
+
+\paragraph{Conclusions}
+
 \end{abstract}
 
 \begin{keywords}
@@ -28,27 +38,115 @@ Put a few keywords here.
 \end{keywords}
 
 \section{Introduction}
-What is the project about?
+% What is the project about?
 
-Context of the Project
+% Context of the Project
+
+\subsection{Applications of RAW Image Editing}
+
+
+\subsection{Problems with Current Implementations}
+% Native: specific software
+% : can't be employed easily in whatever environment needed.
+
+
+\subsection{Project Objectives}
+
+% Develop a Cloud-based RAW Image Photo Editor. 
 \section{Related Work}
-This section presents a survey of existing work on the problems that this project addresses.  it should be between 2 to 4 pages in length.  The rest of this section shows the formats of subsections as well as some general formatting information for tables, figures, references and equations.
+% This section presents a survey of existing work on the problems that this project addresses.  it should be between 2 to 4 pages in length.  The rest of this section shows the formats of subsections as well as some general formatting information for tables, figures, references and equations.
+
+
+\subsection{RAW files, and parsing}
+% DNG standard
+% 
+\subsection{Existing Solutions}
+% Lightroom, proprietary
+% Darktable, RAW Therapee
+% DCRAW, LibRAW
+% ImageMagick => not as useful for RAW though.
+
+\subsection{}
+
 
 \section{Solution}
 
-This section presents the solutions to the problems in detail.  The design and implementation details should all be placed in this section.  You may create a number of subsections, each focussing on one issue.  
+% This section presents the solutions to the problems in detail.  The design and implementation details should all be placed in this section.  You may create a number of subsections, each focussing on one issue.  
 
-This section should be between 4 to 7 pages in length.
+% This section should be between 4 to 7 pages in length.
 
+\subsection{Client-Server Communication Protocol}
+% SocketIO
+% REST
+% benefits
+% transferring images: TIFF, PNG, base64 vs file based.
+% compatibility.
+
+
+\subsection{Rendering Server Structure}
+% Layers
+% Adams processor vs DCRAW
+% Message Queue vs full Socket IO (drawbacks of using SocketIO on its own)
+% Implementing gamma correction (algorithms used)
+% Implementing Colour adjustments (algorithms used)
+
+\subsection{Web Editor Functionality}
+% While render server does all the rendering, basic functionality of an editor should be present in the example
+% cloud editor, for  testing.
+
+% Implementing an Undo system: algorithms, data storage.
+% User interface: sidebar with less cluttered nature.
+
+% 
+\subsection{Storing User Images}
+% While editing individual images is ok, editing a selection of
+% images would be more functional, allowing us to select server uploaded
+% images, edit them, and export them.
+
+\subsection{Managing a big system}
+% Docker/DockerCOmpose for managing a massive distributed system.
+% Docker automatic restart on error 
+\subsection{Unit Testing Issues with Image Processing}
+% Can't just expect a given output, because each algorithm may change the image in a different way,
+% and in some cases we are using floating point to do image adjustments. This causes some error, and therefore
+% we won't necessarily get exactly the same image out.
 \section{Results}
 
-this section presents the results of the solutions.  It should include information on experimental settings.  The results should demonstrate the claimed benefits/disadvantages of the proposed solutions.
+% this section presents the results of the solutions.  It should include information on experimental settings.  The results should demonstrate the claimed benefits/disadvantages of the proposed solutions.
 
-This section should be between 2 to 3 pages in length.
+% This section should be between 2 to 3 pages in length.
+
+\subsection{Comparison With Other Editors}
+Testing the system against Lightroom, Darktable and RawTherapee,
+testing the image output compared to these, and also performance
+based tests compared with traditional native software.
+
+TODO: Mention specs of the machine.
+
+
+\subsection{User Testing}
+Get User Comments on system
+
+\subsection{}
 
 \section{Evaluation}
 
-This section should between 1 to 2 pages in length.
+% This section should between 1 to 2 pages in length.
+
+\subsection{Application to Web Content Management Systems}
+% Process of editing and uploading images
+% RAW -> JPEG -> Upload -> Further compression/adjustments in CMS for web -> Output
+% better to skip intermediate steps, meaning less computational effort on one end, less cost for
+% expensive software.
+
+\subsection{Benefits of Portable Image Editing}
+% Allows one to edit images whatever the location,
+
+\subsection{Performance Issues and Improvements}
+% Improvement by use of multithreading for image processing
+% Java's build in Image Manipulation has a number of undocumented bugs.
+% Using GPU might improve performance furhter.
+
 
 \section{Conclusions}
 
