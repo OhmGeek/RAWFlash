@@ -17,7 +17,7 @@ public class DCRawProcessor implements AbstractProcessor {
 
         commands.put("exposure", () -> {
             String exposureValueStr = operations.get("exposure");
-            int exposureValue = Integer.valueOf(exposureValueStr);
+            double exposureValue = Double.valueOf(exposureValueStr);
             try {
                 dcraw.addOperation(new SetBrightnessOperation(exposureValue));
             } catch (NegativeBrightnessException e) {
