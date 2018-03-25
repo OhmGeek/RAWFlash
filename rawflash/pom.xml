@@ -38,7 +38,7 @@
         <dependency>
             <groupId>com.github.OhmGeek</groupId>
             <artifactId>JDCraw</artifactId>
-            <version>v1.0.1</version>
+            <version>v1.1</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
