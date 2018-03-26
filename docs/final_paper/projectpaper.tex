@@ -22,10 +22,21 @@
 
 % The abstract must be a Structured Abstract with the headings {\bf Context/Background}, {\bf Aims}, {\bf Method}, {\bf Results}, and {\bf Conclusions}.  This section should not be longer than half of a page, and having no more than one or two sentences under each heading is advised.
 \paragraph{Context/Background}
+RAW images are used by photographers to improve the quality of their images, specifically when editing. With JPEG files, the loss of 
+data from compression leads to poorer quality edits, while using RAW results in a higher dynamic range. The editing of these files is 
+traditionally done on a high-spec machine, capable of processing images with large resolutions. In the field, this can be difficult. 
+When used for websites, the standard process involves editing a RAW file locally and exporting it, uploading the exported image to a 
+Content Management System (CMS). Here, the CMS will then edit the file again, resizing the image to ensure it displays properly on the
+browser.
 
 \paragraph{Aims}
+The main aim of this project is to test the feasibility of a Cloud-based RAW image editor, allowing image adjustments such as exposure 
+adjustment, colour adjustment, and overall improvements to the quality of the image, all within a cloud application rather than on the 
+desktop.
 
 \paragraph{Method}
+A render server back-end will first be implemented as an API, taking in an input as a JSON object, and then processing the image, and 
+then a JavaScript client shall be created to interface with this API.
 
 \paragraph{Results}
 
@@ -34,7 +45,7 @@
 \end{abstract}
 
 \begin{keywords}
-Put a few keywords here.
+RAW image editing, dcraw, cloud image editing, docker, image processing
 \end{keywords}
 
 \section{Introduction}
@@ -46,8 +57,24 @@ Put a few keywords here.
 
 
 \subsection{Problems with Current Implementations}
-% Native: specific software
-% : can't be employed easily in whatever environment needed.
+
+Current Implementations 
+
+
+
+
+
+Most current implementations exist as native applications, designed specifically for one or several different platforms.
+With this, a specific machine shall have the program installed, and shall contain all the features from managing files, to
+rendering images, to displaying the output to the user as required. 
+
+However, larger images can require a larger amount of resources to render properly, and furthermore if one intends on editing RAW images
+on the go, transporting a larger machine isn't convenient. Furthermore, the RAW editing software might not necessarily be available on the platform
+that is nearest to the user. 
+
+Instead of this approach, this project is taking an approach of having a Cloud system that can render images, which can scale if necessary by adding more
+servers, so whatever client device is used, raw images can be edited providing the user has an internet connection (which with the recent presence of 3G and 4G,
+they are likely to have).
 
 
 \subsection{Project Objectives}
@@ -97,11 +124,19 @@ Put a few keywords here.
 % Implementing an Undo system: algorithms, data storage.
 % User interface: sidebar with less cluttered nature.
 
-% 
 \subsection{Storing User Images}
 % While editing individual images is ok, editing a selection of
 % images would be more functional, allowing us to select server uploaded
 % images, edit them, and export them.
+While one can edit individual images by simply supplying them to the editor, they need to be accessed somehow,
+preferably through supplying some URL, where the RAW image can be downloaded, and then used to edit an image.
+The system shall be built to be as customizable as possible, by downloading images from a supplied URL in the request,
+and this RAW image is downloaded (or cached to the render server), wherever the file itself is hosted. This way, we can
+either supply a system for uploading/storing images, or the user can choose to use an image store elsewhere such as Amazon
+S3, OpenStack Swift, or other storage backend. Our system simply uses the Django file system, which stores the file in an
+uploads folder on disk.
+
+
 
 \subsection{Managing a big system}
 % Docker/DockerCOmpose for managing a massive distributed system.
@@ -110,6 +145,23 @@ Put a few keywords here.
 % Can't just expect a given output, because each algorithm may change the image in a different way,
 % and in some cases we are using floating point to do image adjustments. This causes some error, and therefore
 % we won't necessarily get exactly the same image out.
+
+For one to compare the output of the system with other RAW editors is not necessarily as easy as bitwise ANDing the files, and finding the percentage
+differences. While this might work if all systems use the same algorithms to do the same tasks, due to the proprietary nature of RAW image editing,
+different implementations of demosaicing exist, yielding slightly different images, along with potential different ways of adopting equalization,
+gamma correction and various other colour adjustments (for example, we use RGB gain to adjust the colours, while LightRoom instead uses Chromacity).
+It'll be difficult to use the same settings for every single system. Instead, it might be better to edit a variety of different images, and compare them
+by eye, to determine whether the algorithm itself is working correctly, and using base cases to test the output of a system by eye.
+
+Base cases include:
+
+Using a gamma of zero will yield a completely white image. Uisng a gamma of 1 will yield the input image, for gamma correction.
+Setting red gain to 1, and all others to zero will yield an image with only the red channel. Doing the same for green and blue should reveal the same.
+This will ensure the algoritm is working correctly.
+
+Exposure zero should yield a completely black image. Using a very high exposure should yield a completely, or nearly white image.
+
+We can test undo and redo trivially.
 \section{Results}
 
 % this section presents the results of the solutions.  It should include information on experimental settings.  The results should demonstrate the claimed benefits/disadvantages of the proposed solutions.
