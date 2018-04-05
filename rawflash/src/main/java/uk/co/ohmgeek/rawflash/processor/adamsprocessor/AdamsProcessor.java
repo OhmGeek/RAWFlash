@@ -79,6 +79,21 @@ public class AdamsProcessor implements AbstractProcessor {
                 image = wBalanceChange.process(image);
             }
         });
+
+        commands.put("adams-unsharp", () -> {
+            // get the rgb gain values from the system
+            String isUnsharpOn = operations.get("adams-unsharp");
+
+            if (strToBoolean(isUnsharpOn)) {
+                double amount = Double.parseDouble(operations.get("adams-unsharp-amount"));
+                int radius = Integer.parseInt((operations.get("adams-unsharp-radius"));
+                double blueGain = Double.parseDouble(operations.get("adams-wb-blue"));
+
+                // now apply the computation
+                UnsharpFilter unsharp = new UnsharpFilter(radius, amount, true);
+                image = unsharp.process(image);
+            }
+        });
         return commands;
     }
 
