@@ -16,14 +16,14 @@ public class SubtractImageOp implements IOperation {
         this.imageToSubtract = imageToSubtract;
     }
 
-    public BufferedImage process(BufferedImage input) {
+    public BufferedImage process(BufferedImage image) {
         // go through the image pixel by pixel
         // and subtract each channel.
         // TODO: ensure dimensions match up.
         for(int i = 0; i < image.getWidth(); i++) {
             for(int j = 0; j < image.getHeight(); j++) {
-                int a = image.getRGB(i, j);
-                int b = imageToSubtract.getRGB(i,j);
+                Color a = new Color(image.getRGB(i, j));
+                Color b = new Color(imageToSubtract.getRGB(i,j));
 
 
                 // TODO: ensure >= 0

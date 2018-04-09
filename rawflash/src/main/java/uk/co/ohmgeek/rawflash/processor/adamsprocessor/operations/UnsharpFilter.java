@@ -1,12 +1,8 @@
 package uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations;
 
-import uk.co.ohmgeek.rawflash.processor.adamsprocessor.GammaLookup;
+import uk.co.ohmgeek.rawflash.processor.adamsprocessor.operations.*;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
-import java.awt.image.LookupOp;
-import java.awt.image.LookupTable;
 
 public class UnsharpFilter implements IOperation {
     private int radius;
@@ -24,14 +20,15 @@ public class UnsharpFilter implements IOperation {
         double SIGMA = 1.0;
         IOperation smoothedImageOp;
         if(this.useGaussian) {
-            smoothedImageOp = GaussianBlur(radius, SIGMA);
+            smoothedImageOp = new GaussianBlur(radius, SIGMA);
         } else {
-            smoothedImageOp = MeanBlur(radius);
+            smoothedImageOp = new MeanBlur(radius);
         }
         BufferedImage smoothedImage = smoothedImageOp.process(image);
 
-        BufferedImage edgeImage = SubtractImageOp(smoothedImage).process(image);
+        BufferedImage edgeImage = new SubtractImageOp(smoothedImage).process(image);
 
-        return AddImageOp(edgeImage, amount).process(image);
+
+        return new AddImageOp(edgeImage, amount).process(image);
     }
 }

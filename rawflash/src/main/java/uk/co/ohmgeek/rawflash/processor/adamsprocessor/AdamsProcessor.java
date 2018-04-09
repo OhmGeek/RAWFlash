@@ -86,7 +86,7 @@ public class AdamsProcessor implements AbstractProcessor {
 
             if (strToBoolean(isUnsharpOn)) {
                 double amount = Double.parseDouble(operations.get("adams-unsharp-amount"));
-                int radius = Integer.parseInt((operations.get("adams-unsharp-radius"));
+                int radius = Integer.parseInt((operations.get("adams-unsharp-radius")));
 
                 // now apply the computation
                 UnsharpFilter unsharp = new UnsharpFilter(radius, amount, true);
@@ -97,7 +97,7 @@ public class AdamsProcessor implements AbstractProcessor {
     }
 
     @Override
-    public BufferedImage process(HashMap<String, String> operations, BufferedImage inputImage) throws IOException, InterruptedException {
+    public BufferedImage process(HashMap<String, String> operations, BufferedImage inputImage) {
 
         this.image = inputImage; // Use image from previous step as input.
         System.out.println("Now we are in the Adams Processor");

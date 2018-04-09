@@ -1,3 +1,4 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "python.pythonPath": "/home/ryan/.local/share/virtualenvs/FakeNewsIdentification-5fa7gZdC/bin/python"
 }

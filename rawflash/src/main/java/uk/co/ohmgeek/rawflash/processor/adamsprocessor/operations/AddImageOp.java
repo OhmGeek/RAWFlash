@@ -18,18 +18,18 @@ public class AddImageOp implements IOperation {
         this.multiplier = multiplier;
     }
 
-    public BufferedImage process(BufferedImage input) {
+    public BufferedImage process(BufferedImage image) {
         // TODO: check dimensions to ensure we can add
         for(int i = 0; i < image.getWidth(); i++) {
             for(int j = 0; j < image.getHeight(); j++) {
-                int a = image.getRGB(i, j);
-                int b = imageToAdd.getRGB(i,j);
+                Color a = new Color(image.getRGB(i, j));
+                Color b = new Color(imageToAdd.getRGB(i,j));
 
 
                 //TODO: if > 255, then clip rather than throwing error.
-                int newRed = (int) a.getRed() + multiplier * b.getRed();
-                int newGreen = (int) a.getGreen() + multiplier * b.getGreen();
-                int newBlue = (int) a.getBlue() + multiplier * b.getBlue();
+                int newRed = (int) (a.getRed() + multiplier * b.getRed());
+                int newGreen = (int) (a.getGreen() + multiplier * b.getGreen());
+                int newBlue = (int) (a.getBlue() + multiplier * b.getBlue());
                 image.setRGB(i, j, new Color(newRed, newGreen, newBlue).getRGB());
             }
         }
