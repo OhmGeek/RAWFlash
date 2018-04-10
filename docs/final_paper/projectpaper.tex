@@ -50,8 +50,51 @@ RAW image editing, dcraw, cloud image editing, docker, image processing
 
 \section{Introduction}
 % What is the project about?
+The project itself concerns itself with editing RAW files through a system deployable to the cloud
+so that it can both be used by people editing photos, as well as by extension by other systems. While RAW
+editing isn't new, the creation of a system to edit RAW files would give users more control in content management,
+and produce better quality images.
 
-% Context of the Project
+
+\subsection{RAW Files Explained}
+RAW isn't a file format in itself, but rather an umbrella term for a set of many different formats that store the
+raw camera sensor data. There are a set of different proprietary file formats, that all store similar information,
+but in different ways. 
+
+When an image is captured, the camera sensor uses charge buildup to represent the amount of light that is incident on the sensor
+(using a phenomenon known as the photoelectric effect). Colour data itself isn't stored at all in the RAW image. Colour is achieved
+by putting a filter over the sensor, such that each individual part of the sensor captures only red, green or blue light, which then
+allows one to build up a full colour image. The process of creating a full colour image from the camera sensor is called demosaicing. 
+
+
+There are several different steps to decoding RAW images, in addition to demosaicing which was explained above. These are:
+
+\paragraph{White Balance}
+In order 
+
+\paragraph{Gamma Correction}
+Cameras typically represent colour changes linearly, with a gamma of 1.0. \textbf{TODO FIND SOURCE OTHER THAN CURRENt}.
+However, this isn't necessarily pleasing to the eye, so this can be changed to change how tones are reflected. For example, this can 
+
+\paragraph{Sharpening/Noise Reduction}
+Sometimes, noise can creep into the image, particularly if the image itself is shot with large ISO levels (ISO is a sensitivity setting that can be
+set when taking a photo, to allow the camera sensor to be more sensitive to light \textbf{TODO FIND SOURCE FOR ISO DEFINITION}). This can be corrected
+during the editing process.
+
+Also, sometimes edges might need to be enhanced to bring out the detail in the image. This can again be used for stylistic purposes, but this is ultimately the
+decision of the image editor.
+
+\subsubsection{Comparison to JPEG}
+JPEG, a common format in the consumer photography market, often has smaller files due to JPEG compression.
+While this can be good to minimize the amount of memory used, the lossy compression is problematic as adjusting tone
+and colour information as JPEG heavily compresses colours (so minor adjustments in colour will appear as the same colour in JPEG).
+When shooting an image with JPEG, the camera uses a built-in RAW processor to automatically process the RAW data, perhaps using some settings
+that can be adjusted in the camera, and compresses the image down into a JPEG format.
+
+On the other hand, RAW allows one to have far more control over the final image, by adjusting various settings with a far greater freedom and by using the camera's
+built in processing.
+
+\cite{UnderstandingRAWCapture}
 
 \subsection{Applications of RAW Image Editing}
 
@@ -59,10 +102,6 @@ RAW image editing, dcraw, cloud image editing, docker, image processing
 \subsection{Problems with Current Implementations}
 
 Current Implementations 
-
-
-
-
 
 Most current implementations exist as native applications, designed specifically for one or several different platforms.
 With this, a specific machine shall have the program installed, and shall contain all the features from managing files, to
@@ -92,6 +131,10 @@ they are likely to have).
 % Darktable, RAW Therapee
 % DCRAW, LibRAW
 % ImageMagick => not as useful for RAW though.
+
+    \paragraph{Adobe Lightroom}
+    Adobe Lightroom is a native and proprietary tool, developed by Adobe, for editing images, both RAW images, and otherwise.
+    RAW processing in Lightroom is done by Adobe Camera RAW (as Lightroom builds on this useful tool), 
 
 \subsection{}
 
