@@ -70,7 +70,7 @@ allows one to build up a full colour image. The process of creating a full colou
 There are several different steps to decoding RAW images, in addition to demosaicing which was explained above. These are:
 
 \paragraph{White Balance}
-In order 
+
 
 \paragraph{Gamma Correction}
 Cameras typically represent colour changes linearly, with a gamma of 1.0. \textbf{TODO FIND SOURCE OTHER THAN CURRENt}.
@@ -126,6 +126,16 @@ they are likely to have).
 \subsection{RAW files, and parsing}
 % DNG standard
 % 
+
+As explained in the introduction, there are many different types of proprietary RAW file formats, such as Canon's CRW and CR2, and Nikon's NEF among others.
+Each of these formats stores similar information, but in a different way.
+
+Adobe created and made public their standard RAW file format called DNG. It is defined as "a non-proprietary file format for storing camera raw files that
+can be used by a wide range of hardware and software vendors" by Adobe in the specification. \cite{DNGSpec}
+
+The DNG format 
+
+\textbf{TODO: ADD DNG SPEC TO BIBTEX FILE}
 \subsection{Existing Solutions}
 % Lightroom, proprietary
 % Darktable, RAW Therapee
@@ -160,6 +170,29 @@ they are likely to have).
 % Implementing gamma correction (algorithms used)
 % Implementing Colour adjustments (algorithms used)
 
+\subsection{Adams Processor}
+\subsubsection{Gamma Correction}
+% Impmenetation
+% formula
+% lookup table
+\subsubsection{Noise Reduction}
+% Gaussian vs Mean
+% Kernel Size
+% Details
+\subsubsection{Unsharp Image Adjustment}
+    % Mean vs Gaussian
+    % algorithm for doing this
+    % implementation
+
+\subsubsection{White Balance Adjustment}
+
+\subsubsection{Colour Adjustment}
+    % Based on gains
+    % control RGB components.
+    % each one has multipliers
+
+
+
 \subsection{Web Editor Functionality}
 % While render server does all the rendering, basic functionality of an editor should be present in the example
 % cloud editor, for  testing.
@@ -184,6 +217,20 @@ uploads folder on disk.
 \subsection{Managing a big system}
 % Docker/DockerCOmpose for managing a massive distributed system.
 % Docker automatic restart on error 
+As our system design calls for a large number of individual components, managing all of these together can be quite complex.
+
+One option is to write a script that deals with the setup of each individual component: web server, web services, render dispatcher, render servers (however many we need),
+and message queue. However, if a component of the system stops working, that'll bring down the system entirely, and writing a script won't necessarily allow us to deploy the system
+across several different machines.
+
+Our solution to this problem is to use Docker. Each component in the system shall be given its own individual container (essentially a virtual machine), where
+it is sandboxed to ensure that systems don't interfere with one another, and each container is networked together. Rather than manually setting up the networking,
+one can use Docker Compose to automatically deal with the links between different containers, to ensure that private links between containers are set up, but these links
+can't be accessed from outside the system. This method is preferable, as then one cannot access the message queue/other sensitive components directly. That way, only by sending
+the proper request, will the system respond with an output.
+
+\textbf{TODO: INSERT IMAGE OF ARCHITECTURE HERE}
+\textbf{TODO: DOCKER SOURCE }
 \subsection{Unit Testing Issues with Image Processing}
 % Can't just expect a given output, because each algorithm may change the image in a different way,
 % and in some cases we are using floating point to do image adjustments. This causes some error, and therefore

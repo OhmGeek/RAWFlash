@@ -3,9 +3,10 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: projectpaper.aux
 The style file: agsm.bst
 Database file #1: projectpaper.bib
+Warning--I didn't find a database entry for "DNGSpec"
 You've used 1 entry,
             2909 wiz_defined-function locations,
-            645 strings with 4942 characters,
+            647 strings with 4956 characters,
 and the built_in function-call counts, 1815 in all, are:
 = -- 274
 > -- 24
@@ -44,3 +45,4 @@ warning$ -- 0
 while$ -- 21
 width$ -- 0
 write$ -- 18
+(There was 1 warning)
