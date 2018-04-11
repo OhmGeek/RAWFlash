@@ -110,9 +110,6 @@ templates/webpages) to produce individual images for each page on the website. T
 allowing the user to focus on creating excellent content, rather than spending time producing outstanding images with potentially complex software.
 
 \subsection{Problems with Current Implementations}
-
-Current Implementations 
-
 Most current implementations exist as native applications, designed specifically for one or several different platforms.
 With this, a specific machine shall have the program installed, and shall contain all the features from managing files, to
 rendering images, to displaying the output to the user as required. 
@@ -125,10 +122,35 @@ Instead of this approach, this project is taking an approach of having a Cloud s
 servers, so whatever client device is used, raw images can be edited providing the user has an internet connection (which with the recent presence of 3G and 4G,
 they are likely to have).
 
+Furthermore, due to the proprietary nature of most RAW processing applications, using them as a component in another system becomes very difficult,
+and by creating a system that can be controlled by other external systems can provide RAW image editing as a service.
 
 \subsection{Project Objectives}
-
+The project objectives can be expressed as Minimum, Intermediate and Advanced Objectives
 % Develop a Cloud-based RAW Image Photo Editor. 
+
+
+\paragraph{Minimum Objectives}
+    \begin{itemize}
+      \item Exposure adjustment
+      \item Noise reduction methods (Gaussian, mean)
+      \item Web Interface interacting with an image processing server
+      \item Non-destructive image adjustment (i.e. no reduction in quality over time)
+    \end{itemize}
+\paragraph{Intermediate Objectives}
+    \begin{itemize}
+      \item Load DNG RAW files by upload
+      \item White Balance Adjustment
+      \item Gamma Correction
+      \item Modern, user friendly User Experience
+      \item Cropping, Rotating and Exporting to other formats
+    \end{itemize}
+\paragraph{Advanced Objectives}
+    \begin{itemize}
+      \item Addressing potential scalability issues
+      \item Haze removal
+      \item Sharpening
+    \end{itemize}
 \section{Related Work}
 % This section presents a survey of existing work on the problems that this project addresses.  it should be between 2 to 4 pages in length.  The rest of this section shows the formats of subsections as well as some general formatting information for tables, figures, references and equations.
 
@@ -185,6 +207,21 @@ The DNG format
 % Impmenetation
 % formula
 % lookup table
+The process of gamma correction involves taking the RAW image, which by default has a linear tone curve (gamma of 1.0), and
+mapping the colours to a different tone curve.
+
+The function $f$ is used as a transformation from the image, to the gamma correction image. $f$ is defined as:
+
+$$f(\gamma, v) = 255 \cdot (\frac{v}{255})^{\gamma}$$
+
+In the above definition, v is the brightness value of one cell of the image, where $0 <= v <= 255$.
+
+On the implementation level, the best approach is to use a Lookup Table, with an input of the RAW image components (in our case, Red, Green and Blue),
+and an output of the adjusted component values in accordance with the gamma correction function. The benefit of using a lookup table, rather than calculating
+the gamma value for every single possible value, is that one doesn't need to calculate the same piece of data more than once (as bright regions, or dark regions might
+potentially have the same input values). 
+
+\textbf{TODO: DIAGRAM SHOWING WORKFLOW OF THE LUT VS CALCUATING FUNCTION}
 \subsubsection{Noise Reduction}
 % Gaussian vs Mean
 % Kernel Size

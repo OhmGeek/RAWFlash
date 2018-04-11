@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex projectpaper"] 1523445047 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1523445047
+["bibtex projectpaper"] 1523447415 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1523447415
   "/usr/share/texlive/texmf-dist/bibtex/bst/harvard/agsm.bst" 1136766823 25549 e3d0f1ab4ae55e777f7352db30e2c6f7 ""
-  "projectpaper.aux" 1523445047 3640 f86c7097b8f291b3a3f3b99fce4ee610 ""
+  "projectpaper.aux" 1523447415 3847 76a5effeb413ba423c0a30a3cce087f8 ""
   "projectpaper.bcf" 0 -1 0 ""
   "projectpaper.bib" 1523363164 431 bafcc358e365576748b05b3450001221 ""
   (generated)
   "projectpaper.bbl"
   "projectpaper.blg"
-["pdflatex"] 1523445047 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1523445047
+["pdflatex"] 1523447415 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1523447415
   "/etc/texmf/web2c/texmf.cnf" 1518442574 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1523445046 16873 e9ead36be124a7a1d5b3d3ba4b636726 ""
+  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1523447414 19008 2bd17a28fdfc29a7a8a638974b2575e1 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -27,6 +27,10 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
@@ -37,6 +41,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty" 1480098821 5159 a08c9bbd48fc492f15b22e458bef961f ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo" 1480098821 8303 1d67e16498f00f63da792fab169302fc ""
   "/usr/share/texlive/texmf-dist/tex/latex/harvard/harvard.sty" 1233413381 9934 5402359ed461e36800846601afbc2374 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd" 1137110629 576 95c2c0baea9c719a4be29a3d4122498b ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty" 1156702453 857 6c716f26c5eadfb81029fcd6ce2d45e6 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1488610416 31340 0f53f8665296bf8fe6c697f9505e31d8 ""
@@ -44,10 +49,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1518442703 2044936 0edf5ca64352b50b145b46ea2ee03d92 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1518442714 3885306 374fd4007e2843fbebef8cd1fb50759b ""
   "durhampaper.sty" 1521980316 2085 caaf607c8d907699ff88d6892b669ae5 ""
-  "projectpaper.aux" 1523445047 3640 f86c7097b8f291b3a3f3b99fce4ee610 ""
-  "projectpaper.bbl" 1523445047 337 acca025f0d2be369ab96681631e0e21b "bibtex projectpaper"
-  "projectpaper.tex" 1523445046 16873 e9ead36be124a7a1d5b3d3ba4b636726 ""
+  "projectpaper.aux" 1523447415 3847 76a5effeb413ba423c0a30a3cce087f8 ""
+  "projectpaper.bbl" 1523447415 337 acca025f0d2be369ab96681631e0e21b "bibtex projectpaper"
+  "projectpaper.tex" 1523447414 19008 2bd17a28fdfc29a7a8a638974b2575e1 ""
   (generated)
-  "projectpaper.pdf"
-  "projectpaper.log"
   "projectpaper.aux"
+  "projectpaper.log"
+  "projectpaper.pdf"

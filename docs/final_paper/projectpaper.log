@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.2.12)  11 APR 2018 12:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.2.12)  11 APR 2018 12:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -63,33 +63,51 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 135.
 
-LaTeX Warning: Citation 'DNGSpec' on page 3 undefined on input line 144.
 
-[3] [4] [5]
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 135.
+ [3]
+
+LaTeX Warning: Citation 'DNGSpec' on page 4 undefined on input line 166.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 314.
+(Font)              <12> on input line 213.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 314.
+(Font)              <8> on input line 213.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 314.
- (./projectpaper.bbl) [6] (./projectpaper.aux) ) 
+(Font)              <6> on input line 213.
+[4]
+Overfull \hbox (9.62793pt too wide) in paragraph at lines 224--225
+[]\OT1/ptm/b/n/12 TODO: DI-A-GRAM SHOW-ING WORK-FLOW OF THE LUT VS CAL-CU-AT-IN
+G FUNC-
+ []
+
+[5] [6] (./projectpaper.bbl) [7] (./projectpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 470 strings out of 493013
- 5849 string characters out of 6135682
- 61406 words of memory out of 5000000
- 4061 multiletter control sequences out of 15000+600000
+ 487 strings out of 493013
+ 6141 string characters out of 6135682
+ 60406 words of memory out of 5000000
+ 4075 multiletter control sequences out of 15000+600000
  16534 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  22i,8n,22p,371b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/
-fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/urw/time
-s/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on projectpaper.pdf (6 pages, 59424 bytes).
+{/usr/share/texlive/texm
+f-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on projectpaper.pdf (7 pages, 92403 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
