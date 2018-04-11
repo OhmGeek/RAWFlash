@@ -193,7 +193,40 @@ The DNG format
 % benefits
 % transferring images: TIFF, PNG, base64 vs file based.
 % compatibility.
+In order to communicate between the client side interface (where the user provides inputs and instructions
+for rendering images) to the server side (the entrance of the rendering system, which manages jobs), we need
+a method for transmitting the correct information in an appropriate manner.
 
+\subsubsection{Communication Methods}
+\paragraph{Representational State Transfer (REST)}
+The REST method uses URL routes to send/retrieve information, using HTTP methods such as
+GET, POST, PUT, DELETE.
+
+\paragraph{Web Socket}
+Web Socket is a new technology that allows easy two-way communication between client and server, rather like how
+sockets work within normal network programming. The client would send a message to the server with the required
+render instructions, and when the job is complete, the server would return the result to the user. Listeners on both
+sides wait for messages to be received, and process the messages in the appropriate manner.
+
+This lends itself quite well to our method, as with the user constantly changing settings and requesting a render (to
+view the preview), and repreating the process as settings are adjusted, two way communication seems far more approriate
+for this application.
+
+However, Web Socket does have downsides. As a fairly new technology, it's not universally supported, and only modern browsers
+support the protocol, and potentially some firewalls might block ports required, and some hosting providers might not support 
+it either. Therefore, while websocket is ideal, compatibility might be a problem.
+
+\paragraph{Socket.IO}
+Socket.io itself isn't really a protocol, but an implementation of both REST and Websocket, designed for event driven
+applications. Where websocket is supported, it is used, but where websocket isn't supported, the system falls back to
+REST to transmit and receive data through polling. Implementation wise, the system is built in an event driven way,
+with message handlers being written, and the framework deals with the edge cases with compatibility.
+
+However, a problem arises with this, as this is only fully supported in a limited number of languages, namely JavaScript (both client
+and server side), and unofficial support is available for Java. Therefore, JavaScript shall be used for the client side (which is really the only
+option anyway), and Java for the server side, due to the Image library provided.
+
+This is the solution I've decided to use.
 
 \subsection{Rendering Server Structure}
 % Layers

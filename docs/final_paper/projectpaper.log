@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.2.12)  11 APR 2018 12:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.2.12)  11 APR 2018 13:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -75,19 +75,20 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 
 LaTeX Warning: Citation 'DNGSpec' on page 4 undefined on input line 166.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 213.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 213.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 213.
 [4]
-Overfull \hbox (9.62793pt too wide) in paragraph at lines 224--225
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 246.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 246.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 246.
+
+Overfull \hbox (9.62793pt too wide) in paragraph at lines 257--258
 []\OT1/ptm/b/n/12 TODO: DI-A-GRAM SHOW-ING WORK-FLOW OF THE LUT VS CAL-CU-AT-IN
 G FUNC-
  []
 
-[5] [6] (./projectpaper.bbl) [7] (./projectpaper.aux) ) 
+[5] [6] (./projectpaper.bbl) [7] [8] (./projectpaper.aux) ) 
 Here is how much of TeX's memory you used:
  487 strings out of 493013
  6141 string characters out of 6135682
@@ -96,18 +97,18 @@ Here is how much of TeX's memory you used:
  16534 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  22i,8n,22p,371b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texm
-f-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on projectpaper.pdf (7 pages, 92403 bytes).
+{/usr/share/texlive/
+texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on projectpaper.pdf (8 pages, 94707 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
