@@ -70,13 +70,13 @@ public class ConvolutionOp implements BufferedImageOp {
                         red += pixelColour.getRed() * kernelData[kernelArrayIndex];
                         green += pixelColour.getGreen() * kernelData[kernelArrayIndex];
                         blue += pixelColour.getBlue() * kernelData[kernelArrayIndex];
-                        alpha += pixelColour.getAlpha();
+                        alpha = pixelColour.getAlpha();
 
                         kernelArrayIndex++;
                     }
                 }
                 // set color of the pixel in destination image.
-                Color newColor = new Color(red, green, blue, alpha);
+                Color newColor = new Color((int) red, (int) green, (int) blue, (int) alpha);
                 dest.setRGB(i, j, newColor.getRGB());
             }
         }

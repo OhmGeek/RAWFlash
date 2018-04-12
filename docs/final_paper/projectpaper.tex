@@ -2,6 +2,7 @@
 \usepackage{times}
 \usepackage{durhampaper}
 \usepackage{harvard}
+\usepackage[subtle]{savetrees}
 \citationmode{abbr}
 \bibliographystyle{agsm}
 
@@ -165,7 +166,6 @@ Each of these formats stores similar information, but in a different way.
 Adobe created and made public their standard RAW file format called DNG. It is defined as "a non-proprietary file format for storing camera raw files that
 can be used by a wide range of hardware and software vendors" by Adobe in the specification. \cite{DNGSpec}
 
-The DNG format 
 
 \textbf{TODO: ADD DNG SPEC TO BIBTEX FILE}
 \subsection{Existing Solutions}
@@ -178,6 +178,11 @@ The DNG format
     Adobe Lightroom is a native and proprietary tool, developed by Adobe, for editing images, both RAW images, and otherwise.
     RAW processing in Lightroom is done by Adobe Camera RAW (as Lightroom builds on this useful tool), 
 
+    \paragraph{RawTherapee}
+    \textbf{TODO: Complete this section}
+
+    \paragraph{Darktable}
+    \textbf{TODO: Complete this section}
 \subsection{}
 
 
@@ -259,19 +264,22 @@ potentially have the same input values).
 % Gaussian vs Mean
 % Kernel Size
 % Details
+% Java Implementation Problems
+
 \subsubsection{Unsharp Image Adjustment}
     % Mean vs Gaussian
     % algorithm for doing this
     % implementation
 
-\subsubsection{White Balance Adjustment}
-
 \subsubsection{Colour Adjustment}
     % Based on gains
     % control RGB components.
     % each one has multipliers
+    Each colour image is made up of a variety of individual images, which are placed together
+    to produce the colour images. These are the Red, Green and Blue masks.
 
-
+    When one adjusts colours, our aim is to mix these three images together with a variety of different
+    amounts, so that 
 
 \subsection{Web Editor Functionality}
 % While render server does all the rendering, basic functionality of an editor should be present in the example
@@ -279,6 +287,34 @@ potentially have the same input values).
 
 % Implementing an Undo system: algorithms, data storage.
 % User interface: sidebar with less cluttered nature.
+The web editor itself provides an interface to the RAW Editing Service. Rather than
+manually adjusting the settings and sending requests to the service, the parameters shall
+be controllable through a Graphical User Interface, with the image result also being displayed
+on the screen.
+
+Furthermore, one must be able to undo and redo particular tasks. This is because the RAW editing
+process typically requires refining parameter values, testing, and then opting to use the previously
+set value. Having an undo/redo system would make this easier.
+
+\subsubsection{Undo/Redo Functionality}
+Due to our implementation, coupling that with the nature of our system, no current undo/redo queue library
+seemed to be quite an ideal fit for our system. Therefore, it's necessary to build our own.
+
+The system should, on modification of any parameters, store the change in some data structure,
+so that it can be reverted.
+
+This entire system relies on using a stack. When a change is made (one change shall be made at a time),
+both the name of the parameter edited shall be stored, along with the old and new values. This shall be
+stored together in an object, and pushed to the stack. To undo, one simply needs to pop the stack, and
+set the specified parameter (given by the parameter name) value to the old value specified. 
+
+In order to enable redo functionality, we create an empty stack, called the redo stack. When the undo function is called,
+the object popped from the stack is also pushed to the redo stack. If the redo queue is not empty, and a normal change in parameter
+has occurred, then the redo queue is emptied (one can no longer redo).
+
+There are also a few edge cases. If someone presses the undo button when there are no actions to undo, then nothing can happen,
+as there is nothing to undo. The same is true for the redo button.
+
 
 \subsection{Storing User Images}
 % While editing individual images is ok, editing a selection of
@@ -344,6 +380,9 @@ testing the image output compared to these, and also performance
 based tests compared with traditional native software.
 
 TODO: Mention specs of the machine.
+
+\subsection{Functionality Testing}
+As explained previously, the functionality of the system can be tested by carrying out a set of boundary tests.
 
 
 \subsection{User Testing}
