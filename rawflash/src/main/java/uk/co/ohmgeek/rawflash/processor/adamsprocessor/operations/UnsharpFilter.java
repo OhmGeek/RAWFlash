@@ -48,6 +48,7 @@ public class UnsharpFilter implements IOperation {
                 newGreen = newGreen > 255 ? 255 : newGreen;
                 newBlue = newBlue > 255 ? 255 : newBlue;
 
+                // Clip at 0 if smaller than needed.
                 newRed = newRed < 0 ? 0 : newRed;
                 newGreen = newGreen < 0 ? 0 : newGreen;
                 newBlue = newBlue < 0 ? 0 : newBlue;
