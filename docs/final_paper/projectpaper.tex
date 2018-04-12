@@ -270,7 +270,16 @@ potentially have the same input values).
     % Mean vs Gaussian
     % algorithm for doing this
     % implementation
+    Unsharp Image Adjustment (masking), is one way of sharpening images
 
+
+    However, doing this alone yields images that are sharp, but also lose information (due to clipping).
+    Furthermore, the colours and brightness are just too high.
+
+    The solution is to normalize the image, by reducing the luminance down to values that can be represented in the image).
+
+    Using standard Contrast Stretching does work, but seems to make the entire image washed out, which isn't what we are directly trying to achieve
+    (as we just want the image as we had before, only improved).
 \subsubsection{Colour Adjustment}
     % Based on gains
     % control RGB components.
