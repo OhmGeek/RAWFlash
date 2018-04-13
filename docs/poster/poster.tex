@@ -48,66 +48,87 @@
 
         \end{block}
 
+        \begin{block}{RAW Images Explained}
+          RAW isn't a file format in itself, but rather an umbrella term for a set of many different formats that store the
+          raw camera sensor data. There are a set of different proprietary file formats, that all store similar information,
+          but in different ways.
+          
+          When an image is captured, the camera sensor uses charge buildup to represent the amount of light that is incident on the sensor
+          (using a phenomenon known as the photoelectric effect). Colour data itself isn't stored at all in the RAW image. Colour is achieved
+          by putting a filter over the sensor, such that each individual part of the sensor captures only red, green or blue light, which then
+          allows one to build up a full colour image. The process of creating a full colour image from the camera sensor is called demosaicing.
+          
+          
+          There are several different steps to decoding RAW images, in addition to demosaicing which was explained above. These are:
+          \begin{itemize}
+
+          \item \textbf{White Balance}
+          
+          
+          \item \textbf{Gamma Correction}
+          Cameras typically represent colour changes linearly, with a gamma of 1.0.
+          However, this isn't necessarily pleasing to the eye, so this can be changed to change how tones are reflected. This can be used to simulate
+          the tonal output of film cameras, for example.
+          
+          \item \textbf{Sharpening/Noise Reduction}
+          Sometimes, noise can creep into the image, particularly if the image itself is shot with large ISO levels (ISO is a sensitivity setting that can be
+          set when taking a photo, to allow the camera sensor to be more sensitive to light). This can be corrected
+          during the editing process.
+          
+          Also, sometimes edges might need to be enhanced to bring out the detail in the image. This can again be used for stylistic purposes, but this is ultimately the
+          decision of the image editor.
+          \end{itemize}
+        \end{block}
        
 
-        \begin{block}{Design System and GA}
-          \includegraphics[width=\columnwidth]{DesignSystemandGA}  
-        \end{block}
+
+
       \end{column}
 
 
       \begin{column}{.48\linewidth}
-        \begin{block}{Some Example Equations}
-          \begin{itemize}
-          \item A fourier series $f\left(t\right)=a_{0} +
-            \sum^{\infty}_{n=1} \left(a_{n} \cos \frac{n \pi t}{L} +
-              b_{n} \sin \frac{n \pi t}{L}\right)$
-        \item Secondary energy coefficient $C_{SKE} = \frac{U^2_{sec}
-            + U^2_r}{U^2_{ups}}$
-        \item A cost function $f_{cost} = f_{C_{SKE}}+f_{yaw} +
-          f_{mass}$
-          \end{itemize}
+
+
+        \begin{block}{Overall System Workflow}
+          \includegraphics[width=\columnwidth]{DesignSystemandGA}
         \end{block}
+        \begin{block}{System Workflow Explained}
 
-        \begin{block}{A Sample Figure}
-          \includegraphics[width=\columnwidth]{pa_loss}  
-        \end{block}
+          The system shall receive a set of instructions, encoded using the JavaScript
+          Object Notation (JSON). These instructions outline what RAW image to use, along with
+          the settings to use for rendering.
 
- \begin{block}{Some Sample Text}
-
-          Tip leakage flow is caused by fluid flow through the tip gap
-          of an un-shrouded blade driven by a pressure gradient
-          between pressure side and suction side of a blade. The flow
-          is quite complex but the main feature is the flow over the
-          tip forming a streamwise vortex. The cross passage flow also
-          separates from the endwall and rolls up into a passage
-          vortex. From the blade mid-span toward the tip gap endwall
-          the tip leakage vortex is usually the dominant structure and
-          has an opposite rotation sense compared to passage
-          vortex. The relations between the circulation and size of
-          the two structures depend among others mainly on tip gap
-          size and flow turning angle.
+          Due to the proprietary nature of RAW files, rolling our own RAW processing engine is not
+          advisable, as each camera manufacturer has a different file format, and there isn't really
+          an agreed on standard. While one could use Adobe's standard DNG, converters to DNG only exist
+          for Windows and Mac, not Linux (which various Cloud systems might rely on). Therefore, an
+          executable called Dcraw (which is a self-contained C file containing no dependencies) is used
+          to preprocess the RAW image into an uncompressed TIFF image, which is readable by many programming
+          languages as an image file. While Dcraw isn't directly portable, as the executable doesn't require
+          any external dependencies, it massively simplifies the build process, and providing a C compiler exists
+          for some platform, building of this executable can be done automatically (or the external executable can be
+          alternatively obtained from a package manager). 
 
         \end{block}
 
       \end{column}
     \end{columns}
 
-  \vfill
-    \begin{block}{\large This shows different font sizes you can use}
-      \centering
-      {\tiny tiny}\par
-      {\scriptsize scriptsize}\par
-      {\footnotesize footnotesize}\par
-      {\normalsize normalsize}\par
-      {\large large}\par
-      {\Large Large}\par
-      {\LARGE LARGE}\par
-      {\veryHuge VeryHuge}\par
-      {\VeryHuge VeryHuge}\par
-      {\VERYHuge VERYHuge}\par
-    \end{block}
-    \vfill
+  % \vfill
+  %   \begin{block}{\large This shows different font sizes you can use}
+  %     \centering
+  %     {\tiny tiny}\par
+  %     {\scriptsize scriptsize}\par
+  %     {\footnotesize footnotesize}\par
+  %     {\normalsize normalsize}\par
+  %     {\large large}\par
+  %     {\Large Large}\par
+  %     {\LARGE LARGE}\par
+  %     {\veryHuge VeryHuge}\par
+  %     {\VeryHuge VeryHuge}\par
+  %     {\VERYHuge VERYHuge}\par
+  %   \end{block}
+  %   \vfill
 
   \end{frame}
 \end{document}
