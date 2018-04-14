@@ -89,7 +89,7 @@ public class AdamsProcessor implements AbstractProcessor {
                 int radius = Integer.parseInt((operations.get("adams-unsharp-radius")));
 
                 // now apply the computation
-                UnsharpFilter unsharp = new UnsharpFilter(radius, amount, false);
+                UnsharpFilter unsharp = new UnsharpFilter(radius, amount, true);
                 image = unsharp.process(image);
             }
         });

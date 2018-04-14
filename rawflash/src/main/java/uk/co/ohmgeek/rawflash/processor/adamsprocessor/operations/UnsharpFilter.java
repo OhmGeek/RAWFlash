@@ -9,16 +9,17 @@ public class UnsharpFilter implements IOperation {
     private int radius;
     private float amount;
     private boolean useGaussian;
-
-    public UnsharpFilter(int radius, float amount, boolean useGaussian) {
+    private int lowerThreshold;
+    public UnsharpFilter(int radius, float amount, int thresholdLower, boolean useGaussian) {
         this.radius = radius;
         this.amount = amount;
         this.useGaussian = useGaussian;
+        this.lowerThreshold = thresholdLower;
     }
     @Override
     public BufferedImage process(BufferedImage image) {
         // First, find the smoothed image.
-        double SIGMA = 1.0;
+        double SIGMA = 2.0;
         IOperation smoothedImageOp;
         if(this.useGaussian) {
             smoothedImageOp = new GaussianBlur(radius, SIGMA);
@@ -54,6 +55,7 @@ public class UnsharpFilter implements IOperation {
                 float newGreen = ((pixel.getGreen() - smoothedPixel.getGreen())*amount + pixel.getGreen());
                 float newBlue =  ((pixel.getBlue() - smoothedPixel.getBlue())*amount + pixel.getBlue());
 
+              
                 minRed = newRed < minRed ? newRed : minRed; 
                 minGreen = newGreen < minGreen ? newGreen : minGreen; 
                 minBlue = newBlue < minBlue ? newBlue : minBlue; 
@@ -79,6 +81,8 @@ public class UnsharpFilter implements IOperation {
                 image.setRGB(i, j, (new Color(red, green, blue).getRGB()));
             }
         }
+        System.out.println("Min out" + String.valueOf(minRed) + " " + String.valueOf(minGreen) + " " + String.valueOf(minBlue));
+        System.out.println("Max out" + String.valueOf(maxRed) + " " + String.valueOf(maxGreen) + " " + String.valueOf(maxBlue));
         return image;
     }
 }

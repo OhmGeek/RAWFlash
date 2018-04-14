@@ -290,6 +290,41 @@ potentially have the same input values).
     When one adjusts colours, our aim is to mix these three images together with a variety of different
     amounts, so that 
 
+\subsection{Improving performance of fetching RAW files}
+One of the biggest sources of delay in our system is the necessity to obtain RAW files. The user
+provides a URL pointing to the RAW file in their render request, and then the system downloads the file
+from that URL to use as the RAW file. Doing this for the same image constantly is very time consuming, and
+as the user will likely be making many edits on the same RAW file, many downloads will be needed.
+
+Therefore, implementing some form of caching is needed, to ensure that this download step only occurs once,
+and then afterwards the cached RAW file will be used. Caching works in this situation, as when rendering,
+the RAW file will not change at all (it's read only from our point of view), meaning that we obtain the
+maximum quality through edits.
+
+In order to do this, we need to save the image to the render server local disk, without any filename collisions
+(where two different RAW URLs are cached to the same filename on disk).
+
+The solution to this is to use a Universally Unique Identifier (UUID).
+% Source https://docs.oracle.com/javase/7/docs/api/java/util/UUID.html
+
+Our method uses the RAW file URL as the basis for the UUID generation, generating a Type 3 UUID based on the full path specified.
+When downloading a file, the system first generates this UUID filename, and checks the local filesystem. If the file is present, then it
+is already cached, and therefore the cached version is used. If the file isn't present, then it isn't cached, and a file is downloaded, and 
+written to a filename based on the UUID (in this case, the format will be UUID followed by the extention). Type 3 UUID generation is based on
+the MD5 hashing algorithm, by generating a 128 bit UUID. The hexadecimal representation (ignoring the dashes), is used as the replacement filename.
+
+% For which type we used, reference the Java documentation
+% TODO find reference for how Type 3 works
+
+For a large number of RAW files being processed, using Type 5 UUIDs might be more suitable (as the algorithm used is SHA1 with a larger entropy), but
+for a prototype use with few image URLs, this is more suitable.
+% TODO find source for UUID probability of collision with MD5 Type 3 UUID vs Type 5. NEED SOURCE!!!
+
+One other concern is the possibility of deleting files. While this is a grave concern typically, the current system doesn't have a time decay of caching,
+simply because RAW files might be worked on over a period of days, and furhtermore as the system is stateless, all files stored on the local system shall be
+deleted regularly (configured inside Docker). Restarting render servers regularly is ideal, as this way we prevent memory leaks from the Java BufferedImage implementation
+which have been minimized in our implementation but not completely eradicated.
+
 \subsection{Web Editor Functionality}
 % While render server does all the rendering, basic functionality of an editor should be present in the example
 % cloud editor, for  testing.
