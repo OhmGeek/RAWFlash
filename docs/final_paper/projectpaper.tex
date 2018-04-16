@@ -484,6 +484,48 @@ We can test undo and redo trivially.
 % this section presents the results of the solutions.  It should include information on experimental settings.  The results should demonstrate the claimed benefits/disadvantages of the proposed solutions.
 
 % This section should be between 2 to 3 pages in length.
+\subsection{Functionality Testing}
+The functionality of the system can be tested by carrying out boundary checks. Certain parameters for different features should yield 
+expected outcomes. For example, removing all blue and green channels should yield an image that's only red (with varying brightness in the red channel).
+
+\subsubsection{Exposure Checks}
+The boundary conditions here to check is with a zero exposure (yielding a black picture), a normal exposure (1.0), and a very high exposure.
+The normal exposure should yield a normal image, while a very high exposure should yield a white image (or an image that's mostly white, with a few
+bright spots).
+
+\textbf{TODO test exposure}
+
+\subsubsection{Colour Balance Checks}
+Colour balance is controlled with red, green and blue gains. If we set only one of these gains to 1.0, and the other two to zero, we should
+have a version of the image, but only with the specified colour, present: rather like a grayscale image but in one specific colour rather than black to white.
+
+\textbf{TEST COLOR BALANCE, RED, GREEN and BLUE}.
+
+\subsubsection{Unsharp}
+Enter a fairly high Unsharp radius (the sigma of the gaussian), and amount. This should then yield an image with very pronounced edges (if not, just the edges).
+
+Reducing this to zero should remove the pronounced edges entirely (as with an amount 0, the unsharp process shouldn't affect the image at all).
+
+Then test with a fairly small radius and amount (with the amount being in the range of $0 < amount < 0.7$), which should yield a fairly normal image only with sharper
+edges.
+
+\textbf{TODO test Unsharp}
+\subsubsection{Gamma Correction}
+Enter various gamma values in the range $0 < \gamma \leq 2$, and compare them. This should yield a noticable difference in tone. With a gamma less than 1,
+the tone will have more white colours, while with a gamma greater than 1, the one difference will be darker (with more darker colours than white).
+
+\textbf{TEST GAMMA CORRECTION}
+\subsubsection{Gaussian Blur}
+Test this by setting a high sigma value, with kernel size of 3. The expected outcome is an image that appears noticably blurred.
+\textbf{TEST Gaussian Blur}
+\subsubsection{Mean Blur}
+
+\subsubsection{Histogram Equalization}
+While the exposure is set, the exposure can also be automatically adjusted using Histogram Equalization. As this happens after the exposure (and all other processing)
+we can test this by setting a fairly low exposure (not 0, but probably in the range of 0.5), and then applying Histogram Equalization. The expected outcome is a brightness
+that's comparable to the image with normal (1) exposure.
+
+\textbf{TEST HISTOGRAM EQ}
 
 \subsection{Comparison With Other Editors}
 In order to evaluate the performance of the system, both in the output image, along with the overall system performance,
@@ -527,12 +569,7 @@ While these are defined by different terms between software programs, we can sti
 \textbf{TODO: get comparison}
 
 \subsubsection{Test 4: Colour Adjustment}
-\subsection{Functionality Testing}
-As explained previously, the functionality of the system can be tested by carrying out a set of boundary tests.
 
-
-\subsection{User Testing}
-Get User Comments on system
 
 \subsection{}
 
