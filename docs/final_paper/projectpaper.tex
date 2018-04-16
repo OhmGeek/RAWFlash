@@ -486,12 +486,47 @@ We can test undo and redo trivially.
 % This section should be between 2 to 3 pages in length.
 
 \subsection{Comparison With Other Editors}
-Testing the system against Lightroom, Darktable and RawTherapee,
-testing the image output compared to these, and also performance
-based tests compared with traditional native software.
+In order to evaluate the performance of the system, both in the output image, along with the overall system performance,
+responsiveness (measured in delay in rendering an image), a set of different image manipulations were carried out on various
+different RAW editors and our system. These were all run on exactly the same hardware, with the same Operating System.
 
-TODO: Mention specs of the machine.
+The system specification can be seen in Figure \ref{SystemSpecs}.
 
+\begin{figure}\label{SystemSpecs}
+    \centering
+    \begin{tabular}{| c | c |}
+        \hline
+        Processor & Intel i7-7700k, 4.2GHz\\
+        RAM & 16GB at 3000\\
+        HDD & 1TB Seagate Barracuda, spinning at 7200RPM\\
+        Operating System & Microsoft Windows 10 with Ubuntu subsystem\\
+        \hline
+    \end{tabular}
+    \caption{The specification of the test system.}
+\end{figure}
+
+Adobe Lightroom, RawTherapee, and Darktable were used to compare the performance of our system. For the comparison results,
+a RAW sample was obtained from the D7100 camera, through the RawSamples.ch website.
+\textbf{TODO reference RAW Samples Website}
+
+\subsubsection{Test 1: Exposure Adjustment}
+In order to compare exposure, various different exposures were used. Some by decreasing the exposure level, others by
+increasing the exposure level, and leaving the exposure level at 1.0
+
+\textbf{TODO test exposure}
+\subsubsection{Test 2: Gamma Correction}
+In order to test the Gamma Correction, several different gamma values were used on various different editors.
+The outcome was then stored, and these images were compared for each gamma value used.
+
+\textbf{TODO get gamma outcomes, and compare.}
+
+\subsubsection{Test 3: Edge Sharpening}
+While these are defined by different terms between software programs, we can still test the overall outcome.
+
+\textbf{TODO: get names used by software packages}
+\textbf{TODO: get comparison}
+
+\subsubsection{Test 4: Colour Adjustment}
 \subsection{Functionality Testing}
 As explained previously, the functionality of the system can be tested by carrying out a set of boundary tests.
 
