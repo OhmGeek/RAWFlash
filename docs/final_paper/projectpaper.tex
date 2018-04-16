@@ -1,5 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{times}
+\usepackage{graphics}
+\usepackage{graphicx}
 \usepackage{durhampaper}
 \usepackage{harvard}
 \usepackage[subtle]{savetrees}
@@ -231,7 +233,16 @@ However, a problem arises with this, as this is only fully supported in a limite
 and server side), and unofficial support is available for Java. Therefore, JavaScript shall be used for the client side (which is really the only
 option anyway), and Java for the server side, due to the Image library provided.
 
-This is the solution I've decided to use.
+Futhermore, the added benefit is one of state: in the event the server goes down temporarily, providing the session is still open (i.e. the user hasn't
+closed their browser window), the system will reconnect when the server comes back online. Providing we implement some stateless system (where all the data
+needed is provided within the request), then this will help improve the reliability of our system, not requiring users to repeatedly restart their session
+if some error occurs in the dispatcher. 
+
+Unlike REST, and much like websocket, we have the added complexity of identifying users, so that data is sent back to the correct user. This can easily be done
+by finding a client unique ID, and sending a message to the connection with that ID. This is an additional piece of information that needs to be included in the request
+between the dispatcher and the render server (to ensure that when the response is received, the response itself is forwarded to the correct person).
+
+Therefore, this is the solution I've decided to use.
 
 \subsection{Rendering Server Structure}
 % Layers
@@ -239,8 +250,31 @@ This is the solution I've decided to use.
 % Message Queue vs full Socket IO (drawbacks of using SocketIO on its own)
 % Implementing gamma correction (algorithms used)
 % Implementing Colour adjustments (algorithms used)
+The final structure of the render server can be seen in Figure \ref{renderserverdiagram}.
 
-\subsection{Adams Processor}
+When designing this section, several different structural methods were considered. Initially, a local
+cache wasn't implemented, but this was added to improve performance (as discussed in Part \ref{LocalImageCaching}).
+
+Initially, the aim was just to have one single monolithic structure to the image processing, with the same structure
+dealing with the entire process, from reading in RAW to returning the result. However, the decision was taken to
+implement these seperately, as it would allow for the ability to swap the RAW processor used. This could be useful
+if for example support is dropped for dcraw, or if a better RAW processing library is created (perhaps one that doesn't 
+require file writes). The DCRAW Manager therefore deals with the Dcraw processing, by interfacing with the custom JDCRAW
+library that was created (but open sourced as a separate module). The creation of this module further abstracts DCRAW from
+our system.
+
+The entire image editing process however is managed by one class, the Operation Manager. This is responsible for taking the user
+specified instructions and passing them to all the possible processors (currently only DCRAW and Adams are implemented, but potentially
+many more processors could easily be added, perhaps using class loading in the future).
+
+More detail about the Adams Processor, whcih is the name for all the custom image processing implementation can be found in Part \ref{AdamsProcessor}.
+\begin{figure}\label{renderserverdiagram}
+    \includegraphics[width=\linewidth]{renderserverdiagram}
+    \caption{The structure of the render server. The local cache is simply stored on the server local filesystem,
+    while the RabbitMQ Consumer takes requests from the message queue and processes them, returning the result.}
+\end{figure}
+
+\subsection{Adams Processor}\label{AdamsProcessor}
 \subsubsection{Gamma Correction}
 % Impmenetation
 % formula
@@ -265,6 +299,30 @@ potentially have the same input values).
 % Kernel Size
 % Details
 % Java Implementation Problems
+Within an image, noise can be introduced by various means, including excessive ISO settings. Therefore are several different
+types of noise, including Amplifier Noise, Salt-and-pepper noise, Shot noise, Quantization noise, on-isotropic noise, speckle noise
+and periodic noise. 
+\cite{NRandFiltering}
+
+
+% Mean filter suited for random noise like Gaussian or Uniform noise. page 233
+% Median Filter: less blurring, more detail. Good for bipolar and unipolar impulse noise. page 234
+
+
+
+\paragraph{Amplifier Noise}
+    This noise typically occurs with different sensitivities for different channels (e.g. red, green and blue detectors have
+    different sensitivities). \cite{NRandFiltering}
+    This can be removed by applying a Gaussian Blur. \cite{DigitalImageProcessingTextbook}
+
+\paragraph{Salt-and-Pepper Noise}
+    This noise is random noise, where random pixels might differ greatly from their neighbours. This noise can be caused
+    by dead pixels on the camera sensor. \cite{NRandFiltering}
+    
+\paragraph{Additive Noise}
+Spatial Filtering \cite[p.~231]{DigitalImageProcessingTextbook}
+
+
 
 \subsubsection{Unsharp Image Adjustment}
     % Mean vs Gaussian
@@ -278,9 +336,17 @@ potentially have the same input values).
 
     The solution is to normalize the image, by reducing the luminance down to values that can be represented in the image).
 
-    Using standard Contrast Stretching does work, but seems to make the entire image washed out, which isn't what we are directly trying to achieve
-    (as we just want the image as we had before, only improved).
-\subsubsection{Colour Adjustment}
+    Using standard Contrast Stretching does work, but at times tonal curves can look weird. By manually applying gamma though, this problem can be
+    solved.
+
+    One major problem regarding the Gaussian filter is that the user can potentially choose a large Kernel size, which results in increasingly lengthy
+    periods to process. The alternative is to associate the SIGMA value of the Gaussian with the radius, detailing the standard deviation (spread) of the
+    Gaussian over a fixed kernel. The Mean blur filter remains as before (though this feature is disabled through the web interface, as Gaussian is
+    primarily used).
+
+    One major problem by using RGB images only for the Unsharp Mask is that colours can be warped, as well as the requirement to carry out the entire
+    process on each individual channel. The alternative is to convert the entire image to HSV and carry out Gaussian on the Lightness channel. 
+\subsubsection{White Balance Adjustment}
     % Based on gains
     % control RGB components.
     % each one has multipliers
@@ -288,9 +354,10 @@ potentially have the same input values).
     to produce the colour images. These are the Red, Green and Blue masks.
 
     When one adjusts colours, our aim is to mix these three images together with a variety of different
-    amounts, so that 
+    amounts, so that the overall image produced blends them together to create white (rather than an orange).
+    The white balance control here can be adjusted further to tint the entire image.
 
-\subsection{Improving performance of fetching RAW files}
+\subsection{Improving performance of fetching RAW files}\label{LocalImageCaching}
 One of the biggest sources of delay in our system is the necessity to obtain RAW files. The user
 provides a URL pointing to the RAW file in their render request, and then the system downloads the file
 from that URL to use as the RAW file. Doing this for the same image constantly is very time consuming, and
@@ -451,8 +518,39 @@ Get User Comments on system
 % Improvement by use of multithreading for image processing
 % Java's build in Image Manipulation has a number of undocumented bugs.
 % Using GPU might improve performance furhter.
+\subsubsection{Problems with Java Image library}
+As a basis for the Adams Processor image processing, the Java built-in Image library was utilised,
+by using ImageIO to load an image into a BufferedImage object, and then applying various BufferedImage operations on
+the image.
 
+Java has a built in library which automatically implements Convolution, resizing, and various other routines. While
+this is useful, several problems were encounted when using this routines. 
 
+\paragraph{High Memory Usage/Memory Leaks}
+When processing images, high memory usage was often encounted, at once point using 6GB of RAM for processing 
+one RAW image taken from a Nikon D7100. After the image had finished being processed, this memory appeared not to
+have been deallocated, which led to high memory usage for our entire system. In Java, Garbage Collection should automatically
+deallocate this, but for some reason it didn't function. As a fix, garbage collection was called manually after the response had been sent,
+which improved performance.
+
+\paragraph{Non-functioning Operations}
+While implementing Gamma Correction, the plan was to utilize Java's LUTOp, to create a lookup table (based on the gamma value),
+and apply it to the image. When implementing this however, the image itself would not output any applied lookup, as the original image would be output.
+The LUT generated the correct LUT, and this was passed to the correct routine, but for some reason it was never applied to the image. Looking through
+documentation and examples didn't assist with this, as examples that were supposed to work didn't.
+
+Eventually, this implementation approach was abandoned, and replaced with a custom approach of iterating through the image and applying the LUT
+manually. While slower (not relying on Java's faster implementation of yielding RGB values), it solved the problem and only appeared marginally slower.
+
+\paragraph{Lack of support for Multithreading}
+Initially, the plan was to apply multithreading to Convolution operations, but this didn't end up getting implemented due to the overhead of BufferedImage.
+As BufferedImage allows for multiple representations of images, it does not allow access directly to a primitive datastructure storing the image, or some way of
+yielding one directly. The naive way by passing Bufferedimage as a pointer didn't work either, as the overhead caused the system to run much slower than without parallellization.
+
+While multithreading itself isn't always wanted on image processing (with web servers, each request is assigned a process, and therefore if each process generated several threads it could
+cause problems), for our architecture, multithreaded processing is suitable and encouraged, as there would be a performance increase.
+
+In the future, building a custom Image datastructure would be ideal, as this would allow for multithreaded processing of images.
 \section{Conclusions}
 
 This section summarises the main points of this paper.  Do not replicate the abstract as the conclusion.  A conclusion might elaborate on the importance of the work or suggest applications and extensions.  This section should be no more than 1 page in length.

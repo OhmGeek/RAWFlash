@@ -3,46 +3,49 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: projectpaper.aux
 The style file: agsm.bst
 Database file #1: projectpaper.bib
-Warning--I didn't find a database entry for "DNGSpec"
-You've used 1 entry,
+Warning--string name "march" is undefined
+--line 20 of file projectpaper.bib
+Warning--string name "june" is undefined
+--line 30 of file projectpaper.bib
+You've used 4 entries,
             2909 wiz_defined-function locations,
-            647 strings with 4956 characters,
-and the built_in function-call counts, 1815 in all, are:
-= -- 274
-> -- 24
+            664 strings with 5341 characters,
+and the built_in function-call counts, 11244 in all, are:
+= -- 1814
+> -- 141
 < -- 0
-+ -- 115
-- -- 7
-* -- 130
-:= -- 428
-add.period$ -- 2
-call.type$ -- 1
-change.case$ -- 15
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 11
-empty$ -- 23
-format.name$ -- 9
-if$ -- 311
++ -- 812
+- -- 42
+* -- 926
+:= -- 2355
+add.period$ -- 6
+call.type$ -- 4
+change.case$ -- 56
+chr.to.int$ -- 4
+cite$ -- 4
+duplicate$ -- 54
+empty$ -- 107
+format.name$ -- 53
+if$ -- 2020
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 7
-num.names$ -- 10
-pop$ -- 2
+missing$ -- 3
+newline$ -- 17
+num.names$ -- 31
+pop$ -- 15
 preamble$ -- 1
-purify$ -- 15
+purify$ -- 60
 quote$ -- 0
-skip$ -- 11
+skip$ -- 44
 stack$ -- 0
-substring$ -- 355
-swap$ -- 0
-text.length$ -- 14
-text.prefix$ -- 0
+substring$ -- 2450
+swap$ -- 5
+text.length$ -- 56
+text.prefix$ -- 9
 top$ -- 0
-type$ -- 4
+type$ -- 14
 warning$ -- 0
-while$ -- 21
+while$ -- 78
 width$ -- 0
-write$ -- 18
-(There was 1 warning)
+write$ -- 58
+(There were 2 warnings)

@@ -1,9 +1,24 @@
 \begin{thebibliography}{xx}
 
+\harvarditem{Ado}{2012}{DNGSpec}
+Ado  \harvardyearleft 2012\harvardyearright , {\em Digital Negative (DNG)
+  Specification}.
+\newblock Version 1.4.0.0.
+
 \harvarditem{Fraser}{2004}{UnderstandingRAWCapture}
 Fraser, B.  \harvardyearleft 2004\harvardyearright , White paper: Understanding
   digital raw capture, Technical report, Adobe Systems Incorporated, 345 Park
   Avenue, San Jose, CA, United States.
 \newblock Accessed 10th April 2018.
+
+\harvarditem{Gonzalez \harvardand\ Woods}{2009}{DigitalImageProcessingTextbook}
+Gonzalez, R.~C. \harvardand\ Woods, R.~E.  \harvardyearleft
+  2009\harvardyearright , {\em Digital Image Processing}, 2 edn, Prentice Hall.
+
+\harvarditem[Hambal et~al.]{Hambal, Pei \harvardand\
+  Ishabailu}{2017}{NRandFiltering}
+Hambal, A., Pei, Z. \harvardand\ Ishabailu, F.~L.  \harvardyearleft
+  2017\harvardyearright , `Image noise reduction and filtering techniques',
+  {\em International Journal of Science and Research} {\bf 6}(2),~201--213.
 
 \end{thebibliography}
