@@ -87,9 +87,10 @@ public class AdamsProcessor implements AbstractProcessor {
             if (strToBoolean(isUnsharpOn)) {
                 float amount = Float.parseFloat(operations.get("adams-unsharp-amount"));
                 float radius = Float.parseFloat((operations.get("adams-unsharp-radius")));
+                int threshold = Integer.parseInt((operations.get("adams-unsharp-threshold")));
 
                 // now apply the computation
-                UnsharpFilter unsharp = new UnsharpFilter(radius, amount, 5);
+                UnsharpFilter unsharp = new UnsharpFilter(radius, amount, threshold);
                 image = unsharp.process(image);
             }
         });

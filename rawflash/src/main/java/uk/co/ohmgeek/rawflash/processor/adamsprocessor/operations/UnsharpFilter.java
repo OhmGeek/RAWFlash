@@ -30,10 +30,13 @@ public class UnsharpFilter implements IOperation {
                 Color pixel = new Color(image.getRGB(i, j));
                 float[] originalHSL = new HSLColor(pixel.getRed(), pixel.getGreen(), pixel.getBlue()).getHSL();
 
+//                    smoothedImage[i][j][0] = 1;
+//                    smoothedImage[i][j][1] = 1;
+
+
                 smoothedImage[i][j][0] = originalHSL[0];
                 smoothedImage[i][j][1] = originalHSL[1];
-
-                if(Math.abs(smoothedImage[i][j][2] - originalHSL[2]) >= threshold) {
+                if(Math.abs(-smoothedImage[i][j][2] + originalHSL[2]) >= threshold) {
                     smoothedImage[i][j][2] = (originalHSL[2] - smoothedImage[i][j][2] * amount);
                 }
                 else {
