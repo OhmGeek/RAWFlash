@@ -68,7 +68,7 @@ When an image is captured, the camera sensor uses charge buildup to represent th
 (using a phenomenon known as the photoelectric effect). Colour data itself isn't stored at all in the RAW image. Colour is achieved
 by putting a filter over the sensor, such that each individual part of the sensor captures only red, green or blue light, which then
 allows one to build up a full colour image. The process of creating a full colour image from the camera sensor is called demosaicing. 
-
+\cite{UnderstandingRAWCapture}
 
 There are several different steps to decoding RAW images, in addition to demosaicing which was explained above. These are:
 
@@ -146,13 +146,13 @@ The project objectives can be expressed as Minimum, Intermediate and Advanced Ob
       \item White Balance Adjustment
       \item Gamma Correction
       \item Modern, user friendly User Experience
-      \item Cropping, Rotating and Exporting to other formats
+      \item Exporting to other formats
     \end{itemize}
 \paragraph{Advanced Objectives}
     \begin{itemize}
       \item Addressing potential scalability issues
       \item Haze removal
-      \item Sharpening
+      \item Image Sharpening
     \end{itemize}
 \section{Related Work}
 % This section presents a survey of existing work on the problems that this project addresses.  it should be between 2 to 4 pages in length.  The rest of this section shows the formats of subsections as well as some general formatting information for tables, figures, references and equations.
@@ -161,6 +161,7 @@ The project objectives can be expressed as Minimum, Intermediate and Advanced Ob
 \subsection{RAW files, and parsing}
 % DNG standard
 % 
+
 
 As explained in the introduction, there are many different types of proprietary RAW file formats, such as Canon's CRW and CR2, and Nikon's NEF among others.
 Each of these formats stores similar information, but in a different way.

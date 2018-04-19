@@ -1,31 +1,33 @@
 <html>
-  <head>
+
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="w3.css" />
     <meta charset="utf-8">
     <style>
-    .canvas-container {
-              background-color: black;
-              overflow-x: scroll;
-              overflow-y: scroll;
-              width: 100%;
-              height: 84.5%;
-              margin-top: 20px;
-    }
-    h1 {
-      font-size: 14pt;
-    }
-
-    body {
-      -moz-user-select: none;
-      user-select: none;
-    }
-
+        .canvas-container {
+            background-color: black;
+            overflow-x: scroll;
+            overflow-y: scroll;
+            width: 100%;
+            height: 84.5%;
+            margin-top: 20px;
+        }
+        
+        h1 {
+            font-size: 14pt;
+        }
+        
+        body {
+            -moz-user-select: none;
+            user-select: none;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="w3-container w3-deep-purple w3-center">
-      <h1>RAWFlash</h1>
+        <h1>RAWFlash</h1>
     </div>
 
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
@@ -33,17 +35,27 @@
     </div>
 
     <div class="w3-main" id="main">
-      <div class="w3-teal">
-        <button class="w3-button w3-teal w3-xlarge" id="openNav" onclick="w3_open()">&#9776;</button>
-        <button id="redoButton" class="w3-button w3-right">Redo</button>
-        <button id="undoButton" class="w3-button w3-right">Undo</button>
-        <button id="renderButton" class="w3-button w3-right">Render</button>
-        <div class="w3-container">
-          <div id="canvas-container">
-              <!-- JavaSCript automatically fills image in here. -->
-          </div>
+        <div class="w3-teal">
+            <button class="w3-button w3-teal w3-xlarge" id="openNav" onclick="w3_open()">&#9776;</button>
+            <button id="redoButton" class="w3-button w3-right">Redo</button>
+            <button id="undoButton" class="w3-button w3-right">Undo</button>
+            <button id="renderButton" class="w3-button w3-right">Render</button>
+            <div class="w3-container">
+                <div id="canvas-container">
+                    <!-- JavaSCript automatically fills image in here. -->
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+
+                    <a id="export-button" target="_blank">Click here to download your export</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Include JavaScript -->
@@ -55,5 +67,6 @@
     <script src="js/sidebar.js"></script>
     <script src="js/undo.js"></script>
     <script src="js/data-binding.js"></script>
-  </body>
+</body>
+
 </html>

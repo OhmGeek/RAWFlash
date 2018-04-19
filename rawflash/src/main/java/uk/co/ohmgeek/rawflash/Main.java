@@ -92,6 +92,8 @@ public class Main {
                         HashMap<String, String> mappedOutput = new HashMap<String, String>();
                         mappedOutput.put("img", base64Image);
                         mappedOutput.put("client", jsonString.get("client"));
+                        ExportManager export = new ExportManager();
+                        mappedOutput = export.process(output,jsonString, mappedOutput);
 
                         String dataToSend = new Gson().toJson(mappedOutput);
                         response += dataToSend;
