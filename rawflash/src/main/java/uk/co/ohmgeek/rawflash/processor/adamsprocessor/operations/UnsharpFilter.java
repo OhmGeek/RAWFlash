@@ -37,7 +37,7 @@ public class UnsharpFilter implements IOperation {
                 smoothedImage[i][j][0] = originalHSL[0];
                 smoothedImage[i][j][1] = originalHSL[1];
                 if(Math.abs(-smoothedImage[i][j][2] + originalHSL[2]) >= threshold) {
-                    smoothedImage[i][j][2] = (originalHSL[2] - smoothedImage[i][j][2] * amount);
+                    smoothedImage[i][j][2] = (originalHSL[2] - smoothedImage[i][j][2] * amount) + originalHSL[2];
                 }
                 else {
                     smoothedImage[i][j][2] = originalHSL[2];
