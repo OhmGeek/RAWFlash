@@ -1,89 +1,129 @@
-\begin{thebibliography}{xx}
+\begin{thebibliography}{10}
 
-\harvarditem{Ado}{2012}{DNGSpec}
-Ado  \harvardyearleft 2012\harvardyearright , {\em Digital Negative (DNG)
-  Specification}.
+\bibitem{AdobeDNGConverter}
+Adobe digital negative converter.
+\newblock URL:
+  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html}, 2017.
+\newblock Accessed: 19-04-2018.
+
+\bibitem{AdobeCameraRAW}
+Camera raw.
+\newblock URL:
+  \url{https://helpx.adobe.com/camera-raw/using/supported-cameras.html}, May
+  2017.
+\newblock Accessed: 19-04-2018.
+
+\bibitem{DarkTableAbout}
+About darktable.
+\newblock URL: \url{https://www.darktable.org/about/}, 2018.
+\newblock Accessed: 20-04-2018.
+
+\bibitem{RawTherapeeReadme}
+Raw therapee readme.
+\newblock URL:
+  \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}, Feb. 2018.
+\newblock Accessed: 20-04-2018.
+
+\bibitem{WebSocketDeveloper}
+Web sockets.
+\newblock URL:
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API}, 2018.
+\newblock Accessed: 20-04-2018.
+
+\bibitem{DNGSpec}
+{\sc Adobe Systems}.
+\newblock {\em Digital Negative (DNG) Specification}, 2012.
 \newblock Version 1.4.0.0.
 
-\harvarditem{Coffin}{2017}{DCRAWSource}
-Coffin, D.  \harvardyearleft 2017\harvardyearright , `Decoding raw digital
-  photos in linux', URL: \url{https://www.cybercom.net/~dcoffin/dcraw/}.
+\bibitem{DCRAWSource}
+{\sc Coffin, D.}
+\newblock Decoding raw digital photos in linux.
+\newblock URL: \url{https://www.cybercom.net/~dcoffin/dcraw/}, May 2017.
 \newblock Accessed: 20-04-2018.
 
-\harvarditem{Collins}{2017}{JDCRAW}
-Collins, R.  \harvardyearleft 2017\harvardyearright , `Jdcraw: A dcraw wrapper
-  for java', URL: \url{https://github.com/OhmGeek/JDCraw}.
+\bibitem{JDCRAW}
+{\sc Collins, R.}
+\newblock Jdcraw: A dcraw wrapper for java.
+\newblock URL: \url{https://github.com/OhmGeek/JDCraw}, 2017.
 \newblock Accessed: 19-03-2018.
 
-\harvarditem{Darktable}{2018}{DarkTableAbout}
-Darktable  \harvardyearleft 2018\harvardyearright , `About darktable', URL:
-  \url{https://www.darktable.org/about/}.
-\newblock Accessed: 20-04-2018.
-
-\harvarditem{Farazdagi}{2014}{RESTandLongRunningJobs}
-Farazdagi, V.  \harvardyearleft 2014\harvardyearright , `Rest and long-running
-  jobs', URL: \url{https://farazdagi.com/2014/rest-and-long-running-jobs/}.
+\bibitem{RESTandLongRunningJobs}
+{\sc Farazdagi, V.}
+\newblock Rest and long-running jobs.
+\newblock URL: \url{https://farazdagi.com/2014/rest-and-long-running-jobs/},
+  Oct 2014.
 \newblock Accessed: 19-04-2018.
 
-\harvarditem{Fraser}{2004}{UnderstandingRAWCapture}
-Fraser, B.  \harvardyearleft 2004\harvardyearright , White paper: Understanding
-  digital raw capture, Technical report, Adobe Systems Incorporated, 345 Park
-  Avenue, San Jose, CA, United States.
+\bibitem{Unsharp}
+{\sc Fisher, R.~B., Perkins, S., Walker, A., and Wolfart, E.}
+\newblock {\em Hypermedia Image Processing Reference}.
+\newblock John Wiley and Sons LTD, 2000.
+
+\bibitem{UnderstandingRAWCapture}
+{\sc Fraser, B.}
+\newblock White paper: Understanding digital raw capture.
+\newblock Tech. rep., Adobe Systems Incorporated, 345 Park Avenue, San Jose,
+  CA, United States, September 2004.
 \newblock Accessed 10th April 2018.
 
-\harvarditem{Gonzalez \harvardand\ Woods}{2009}{DigitalImageProcessingTextbook}
-Gonzalez, R.~C. \harvardand\ Woods, R.~E.  \harvardyearleft
-  2009\harvardyearright , {\em Digital Image Processing}, 2 edn, Prentice Hall.
+\bibitem{DigitalImageProcessingTextbook}
+{\sc Gonzalez, R.~C., and Woods, R.~E.}
+\newblock {\em Digital Image Processing}, 2~ed.
+\newblock Prentice Hall, 2009.
 
-\harvarditem[Hambal et~al.]{Hambal, Pei \harvardand\
-  Ishabailu}{2017}{NRandFiltering}
-Hambal, A., Pei, Z. \harvardand\ Ishabailu, F.~L.  \harvardyearleft
-  2017\harvardyearright , `Image noise reduction and filtering techniques',
-  {\em International Journal of Science and Research} {\bf 6}(2),~201--213.
+\bibitem{NRandFiltering}
+{\sc Hambal, A., Pei, Z., and Ishabailu, F.~L.}
+\newblock Image noise reduction and filtering techniques.
+\newblock {\em International Journal of Science and Research 6}, 2 (2017),
+  201--213.
 
-\harvarditem{Incorporated}{2017}{AdobeDNGConverter}
-Incorporated, A.~S.  \harvardyearleft 2017\harvardyearright , `Adobe digital
-  negative converter', URL:
-  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html}.
+\bibitem{WebsocketSpec}
+{\sc Internet Engineering Task Force}.
+\newblock {\em The WebSocket Protocol}, 2011.
+
+\bibitem{HSLImplementation}
+{\sc Jianzhao, J.}
+\newblock Hslcolor.java.
+\newblock URL:
+  \url{https://github.com/jeffjianzhao/DAViewer/blob/master/src/daviewer/HSLColor.java},
+  2015.
+
+\bibitem{TwelveMonkeys}
+{\sc Kuhr, H.}
+\newblock Twelvemonkeys imageio: Additional plug-ins and extensions for java's
+  imageio.
+\newblock URL: \url{https://github.com/haraldk/TwelveMonkeys}, 2018.
 \newblock Accessed: 19-04-2018.
 
-\harvarditem{Kuhr}{2018}{TwelveMonkeys}
-Kuhr, H.  \harvardyearleft 2018\harvardyearright , `Twelvemonkeys imageio:
-  Additional plug-ins and extensions for java's imageio', URL:
-  \url{https://github.com/haraldk/TwelveMonkeys}.
-\newblock Accessed: 19-04-2018.
+\bibitem{WebServiceImageProcessing}
+{\sc Liang, Y., Xiao, Y., and Huang, J.}
+\newblock An efficient image processing method based on web services for mobile
+  devices.
+\newblock In {\em 2009 2nd International Congress on Image and Signal
+  Processing\/} (Oct 2009), pp.~1--5.
 
-\harvarditem[Liang et~al.]{Liang, Xiao \harvardand\
-  Huang}{2009}{WebServiceImageProcessing}
-Liang, Y., Xiao, Y. \harvardand\ Huang, J.  \harvardyearleft
-  2009\harvardyearright , An efficient image processing method based on web
-  services for mobile devices, {\em in} `2009 2nd International Congress on
-  Image and Signal Processing', pp.~1--5.
+\bibitem{SocketIOBook}
+{\sc MacCaw, A.}
+\newblock {\em JavaScript Web Applications: JQuery Developers' Guide to Moving
+  State to the Client}, 1~ed.
+\newblock O'Reilly, 2011.
 
-\harvarditem{Nagel}{2012}{LinuxServerGrowth}
-Nagel, D.  \harvardyearleft 2012\harvardyearright , `Linux leads server
-  growth'.
+\bibitem{LinuxServerGrowth}
+{\sc Nagel, D.}
+\newblock Linux leads server growth.
 \newblock Accessed: 20-04-2018.
 
-\harvarditem{RawTherapee}{2018}{RawTherapeeReadme}
-RawTherapee  \harvardyearleft 2018\harvardyearright , `Raw therapee readme',
-  URL: \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}.
+\bibitem{LibrawSource}
+{\sc Tutubalin, A.}
+\newblock Libraw project goals and objectives.
+\newblock URL: \url{https://www.libraw.org/about}, 2008.
 \newblock Accessed: 20-04-2018.
 
-\harvarditem{Systems}{2017}{AdobeCameraRAW}
-Systems, A.  \harvardyearleft 2017\harvardyearright , `Camera raw', URL:
-  \url{https://helpx.adobe.com/camera-raw/using/supported-cameras.html}.
-\newblock Accessed: 19-04-2018.
-
-\harvarditem{Tutubalin}{2008}{LibrawSource}
-Tutubalin, A.  \harvardyearleft 2008\harvardyearright , `Libraw project goals
-  and objectives', URL: \url{https://www.libraw.org/about}.
-\newblock Accessed: 20-04-2018.
-
-\harvarditem{Viggiano}{2004}{WhiteBalance}
-Viggiano, J. A.~S.  \harvardyearleft 2004\harvardyearright , `Comparison of the
-  accuracy of different white balancing options as quantified by their color
-  constancy', {\em SPIE: The International Society for Optical Engineering}
-  {\bf 6}(2),~201--213.
+\bibitem{WhiteBalance}
+{\sc Viggiano, J. A.~S.}
+\newblock Comparison of the accuracy of different white balancing options as
+  quantified by their color constancy.
+\newblock {\em SPIE: The International Society for Optical Engineering 6}, 2
+  (2004), 201--213.
 
 \end{thebibliography}

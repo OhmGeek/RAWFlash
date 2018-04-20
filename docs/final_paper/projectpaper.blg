@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: projectpaper.aux
-The style file: agsm.bst
+The style file: acm.bst
 Database file #1: projectpaper.bib
 Warning--string name "march" is undefined
 --line 20 of file projectpaper.bib
@@ -19,45 +19,57 @@ Warning--string name "june" is undefined
 --line 153 of file projectpaper.bib
 Warning--string name "april" is undefined
 --line 163 of file projectpaper.bib
-You've used 16 entries,
-            2909 wiz_defined-function locations,
-            732 strings with 7156 characters,
-and the built_in function-call counts, 38266 in all, are:
-= -- 6040
-> -- 475
+Warning--string name "december" is undefined
+--line 173 of file projectpaper.bib
+Warning--string name "march" is undefined
+--line 180 of file projectpaper.bib
+Warning--string name "january" is undefined
+--line 206 of file projectpaper.bib
+Warning--to sort, need author or key in AdobeCameraRAW
+Warning--to sort, need author or key in AdobeDNGConverter
+Warning--to sort, need author or key in RawTherapeeReadme
+Warning--to sort, need author or key in DarkTableAbout
+Warning--to sort, need author or key in WebSocketDeveloper
+Warning--empty journal in LinuxServerGrowth
+You've used 21 entries,
+            2253 wiz_defined-function locations,
+            649 strings with 6950 characters,
+and the built_in function-call counts, 4771 in all, are:
+= -- 464
+> -- 145
 < -- 0
-+ -- 2679
-- -- 140
-* -- 3012
-:= -- 8220
-add.period$ -- 28
-call.type$ -- 16
-change.case$ -- 224
-chr.to.int$ -- 16
-cite$ -- 16
-duplicate$ -- 205
-empty$ -- 443
-format.name$ -- 176
-if$ -- 6804
-int.to.chr$ -- 5
-int.to.str$ -- 0
-missing$ -- 6
-newline$ -- 63
-num.names$ -- 152
-pop$ -- 103
++ -- 67
+- -- 44
+* -- 260
+:= -- 754
+add.period$ -- 68
+call.type$ -- 21
+change.case$ -- 85
+chr.to.int$ -- 0
+cite$ -- 27
+duplicate$ -- 197
+empty$ -- 478
+format.name$ -- 44
+if$ -- 1046
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 10
+newline$ -- 113
+num.names$ -- 28
+pop$ -- 139
 preamble$ -- 1
-purify$ -- 240
+purify$ -- 66
 quote$ -- 0
-skip$ -- 178
+skip$ -- 127
 stack$ -- 0
-substring$ -- 8149
-swap$ -- 23
-text.length$ -- 224
-text.prefix$ -- 9
+substring$ -- 163
+swap$ -- 39
+text.length$ -- 0
+text.prefix$ -- 0
 top$ -- 0
-type$ -- 62
-warning$ -- 0
-while$ -- 333
-width$ -- 0
-write$ -- 224
-(There were 8 warnings)
+type$ -- 78
+warning$ -- 6
+while$ -- 32
+width$ -- 23
+write$ -- 225
+(There were 17 warnings)

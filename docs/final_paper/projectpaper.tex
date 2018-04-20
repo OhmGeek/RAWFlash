@@ -7,7 +7,7 @@
 \usepackage[subtle]{savetrees}
 \usepackage{url}
 \citationmode{abbr}
-\bibliographystyle{agsm}
+\bibliographystyle{acm}
 
 \title{RAWFlash: A cloud based RAW image editor}
 \author{} % leave; your name goes into \student{}
@@ -78,15 +78,16 @@ allows one to build up a full colour image. The process of creating a full colou
 
 There are several different steps to decoding RAW images, in addition to demosaicing which was explained above. These are:
 
-\paragraph{Colour Balance}
-\textbf{TODO COMPLETE}
+% \paragraph{Colour Balance}
+% \textbf{TODO COMPLETE}
 
 \paragraph{Gamma Correction}
-Cameras typically represent colour changes linearly, with a gamma of 1.0. \textbf{TODO FIND SOURCE OTHER THAN CURRENt}.
+Cameras typically represent colour changes linearly, with a gamma of 1.0. 
+% \textbf{TODO FIND SOURCE OTHER THAN CURRENt}.
 By adjusting gamma, the tonal response of the image can be adjusted, to help produce a desired appearance.
 \paragraph{Sharpening/Noise Reduction}
 Sometimes, noise can creep into the image, particularly if the image itself is shot with large ISO levels (ISO is a sensitivity setting that can be
-set when taking a photo, to allow the camera sensor to be more sensitive to light \textbf{TODO FIND SOURCE FOR ISO DEFINITION}). This can be corrected
+set when taking a photo, to allow the camera sensor to be more sensitive to light. This can be corrected
 during the editing process. 
 
 Also, sometimes edges might need to be enhanced to bring out the detail in the image. This can again be used for stylistic purposes, but this is ultimately the
@@ -182,7 +183,6 @@ Adobe created and made public their standard RAW file format called DNG. It is d
 can be used by a wide range of hardware and software vendors" by Adobe in the specification. \cite{DNGSpec}
 
 
-\textbf{TODO: ADD DNG SPEC TO BIBTEX FILE}
 \subsection{Existing Solutions}
 % Lightroom, proprietary
 % Darktable, RAW Therapee
@@ -270,24 +270,26 @@ Web Socket is a new technology that allows easy two-way communication between cl
 sockets work within normal network programming. The client would send a message to the server with the required
 render instructions, and when the job is complete, the server would return the result to the user. Listeners on both
 sides wait for messages to be received, and process the messages in the appropriate manner.
-
+\cite{WebsocketSpec}
 This lends itself quite well to our method, as with the user constantly changing settings and requesting a render (to
 view the preview), and repreating the process as settings are adjusted, two way communication seems far more approriate
 for this application.
 
 However, Web Socket does have downsides. As a fairly new technology, it's not universally supported, and only modern browsers
 support the protocol, and potentially some firewalls might block ports required, and some hosting providers might not support 
-it either. Therefore, while websocket is ideal, compatibility might be a problem.
+it either. Therefore, while websocket is ideal, compatibility might be a problem. As shown in \cite{WebSocketDeveloper},
+Internet Explorer, Opera, and Safari don't have much support aside from early versions of the specification (RFC 6455). Other browsers
+do have increased support, such as Firefox and Chrome. Depending on the browser, support will vary.
 
 \paragraph{Socket.IO}
 Socket.io itself isn't really a protocol, but an implementation of both REST and Websocket, designed for event driven
 applications. Where websocket is supported, it is used, but where websocket isn't supported, the system falls back to
 REST to transmit and receive data through polling. Implementation wise, the system is built in an event driven way,
-with message handlers being written, and the framework deals with the edge cases with compatibility.
+with message handlers being written, and the framework deals with the edge cases with compatibility. \cite{SocketIOBook}
 
 However, a problem arises with this, as this is only fully supported in a limited number of languages, namely JavaScript (both client
 and server side), and unofficial support is available for Java. Therefore, JavaScript shall be used for the client side (which is really the only
-option anyway), and Java for the server side, due to the Image library provided.
+option anyway), and Java for the server side, due to the Image library provided. 
 
 Futhermore, the added benefit is one of state: in the event the server goes down temporarily, providing the session is still open (i.e. the user hasn't
 closed their browser window), the system will reconnect when the server comes back online. Providing we implement some stateless system (where all the data
@@ -349,7 +351,7 @@ and an output of the adjusted component values in accordance with the gamma corr
 the gamma value for every single possible value, is that one doesn't need to calculate the same piece of data more than once (as bright regions, or dark regions might
 potentially have the same input values). 
 
-\textbf{TODO: DIAGRAM SHOWING WORKFLOW OF THE LUT VS CALCUATING FUNCTION}
+% \textbf{TODO: DIAGRAM SHOWING WORKFLOW OF THE LUT VS CALCUATING FUNCTION}
 \subsubsection{Noise Reduction}
 % Gaussian vs Mean
 % Kernel Size
@@ -375,8 +377,8 @@ and periodic noise.
     This noise is random noise, where random pixels might differ greatly from their neighbours. This noise can be caused
     by dead pixels on the camera sensor. \cite{NRandFiltering}
     
-\paragraph{Additive Noise}
-Spatial Filtering \cite[p.~231]{DigitalImageProcessingTextbook}
+% \paragraph{Additive Noise}
+% Spatial Filtering \cite[p.~231]{DigitalImageProcessingTextbook}
 
 
 
@@ -384,15 +386,29 @@ Spatial Filtering \cite[p.~231]{DigitalImageProcessingTextbook}
     % Mean vs Gaussian
     % algorithm for doing this
     % implementation
-    Unsharp Image Adjustment (masking), is one way of sharpening images
+    Unsharp Image Adjustment (masking), is one way of sharpening images.
 
+    Given an input 2D image $I(x, y)$, applying a Gaussian Blur to this image will yield another image $I_{smoothed}(x, y)$.
+    By doing a simple calculation, we can calculate the value of the mask $g(x, y)$. The parameters of Gaussian kernel size and 
+    sigma can be used as additional parameters.
 
-    However, doing this alone yields images that are sharp, but also lose information (due to clipping).
-    Furthermore, the colours and brightness are just too high.
+    $$g(x, y) = I(x, y) -  I_{smoothed}(x, y)$$
 
-    The solution is to normalize the image, by reducing the luminance down to values that can be represented in the image).
+    By using this, one can then sharpen the image by using the output of this:
 
-    Using standard Contrast Stretching does work, but at times tonal curves can look weird. By manually applying gamma though, this problem can be
+    $$I_{sharpened} = I(x, y) + \lambda \cdot g(x, y)$$.
+
+    Here, $\lambda$ is defined as the amount in the Unsharp filter.
+    
+    \cite{Unsharp}
+
+    When using the RGB colour space, with Unsharp on each individual channel, the colours can appear warped, so using the HSL colour space instead
+    can reduce this, and also reduce the computation. This is because only the luminance channel needs to be modified, rather than all three channels.
+    However, one key problem is that the process can yield values of luminance (L) that exceed the $0 \le L \le 100$ range in the colour space.
+    Furthermore, if this step isn't carried out, clipping can occur, which yields an overall loss of image data, something that isn't desired in a RAW editor.
+    
+    This problem can be solved by normalizing the image, by a process called contrast stretching. The max and minimum luminance values are found across the
+    entire modified image, and these are used to scale the luminance values. Using standard Contrast Stretching does work, but at times tonal curves can look weird. By manually applying gamma though, this problem can be
     solved.
 
     One major problem regarding the Gaussian filter is that the user can potentially choose a large Kernel size, which results in increasingly lengthy
@@ -400,8 +416,8 @@ Spatial Filtering \cite[p.~231]{DigitalImageProcessingTextbook}
     Gaussian over a fixed kernel. The Mean blur filter remains as before (though this feature is disabled through the web interface, as Gaussian is
     primarily used).
 
-    One major problem by using RGB images only for the Unsharp Mask is that colours can be warped, as well as the requirement to carry out the entire
-    process on each individual channel. The alternative is to convert the entire image to HSV and carry out Gaussian on the Lightness channel. 
+    One problem encounted in implementing this was lack of HSL support built into Java. Instead, an implementation of an HSLColour converter, was used,
+    as document in \cite{HSLImplementation}
 \subsubsection{White Balance Adjustment}
     % Based on gains
     % control RGB components.
@@ -519,8 +535,8 @@ one can use Docker Compose to automatically deal with the links between differen
 can't be accessed from outside the system. This method is preferable, as then one cannot access the message queue/other sensitive components directly. That way, only by sending
 the proper request, will the system respond with an output.
 
-\textbf{TODO: INSERT IMAGE OF ARCHITECTURE HERE}
-\textbf{TODO: DOCKER SOURCE }
+% \textbf{TODO: INSERT IMAGE OF ARCHITECTURE HERE}
+% \textbf{TODO: DOCKER SOURCE }
 \subsection{Unit Testing Issues with Image Processing}
 % Can't just expect a given output, because each algorithm may change the image in a different way,
 % and in some cases we are using floating point to do image adjustments. This causes some error, and therefore
@@ -556,13 +572,13 @@ The boundary conditions here to check is with a zero exposure (yielding a black 
 The normal exposure should yield a normal image, while a very high exposure should yield a white image (or an image that's mostly white, with a few
 bright spots).
 
-\textbf{TODO test exposure}
+% \textbf{TODO test exposure}
 
 \subsubsection{Colour Balance Checks}
 Colour balance is controlled with red, green and blue gains. If we set only one of these gains to 1.0, and the other two to zero, we should
 have a version of the image, but only with the specified colour, present: rather like a grayscale image but in one specific colour rather than black to white.
 
-\textbf{TEST COLOR BALANCE, RED, GREEN and BLUE}.
+% \textbf{TEST COLOR BALANCE, RED, GREEN and BLUE}.
 
 \subsubsection{Unsharp}
 Enter a fairly high Unsharp radius (the sigma of the gaussian), and amount. This should then yield an image with very pronounced edges (if not, just the edges).
@@ -572,15 +588,15 @@ Reducing this to zero should remove the pronounced edges entirely (as with an am
 Then test with a fairly small radius and amount (with the amount being in the range of $0 < amount < 0.7$), which should yield a fairly normal image only with sharper
 edges.
 
-\textbf{TODO test Unsharp}
+% \textbf{TODO test Unsharp}
 \subsubsection{Gamma Correction}
 Enter various gamma values in the range $0 < \gamma \leq 2$, and compare them. This should yield a noticable difference in tone. With a gamma less than 1,
 the tone will have more white colours, while with a gamma greater than 1, the one difference will be darker (with more darker colours than white).
 
-\textbf{TEST GAMMA CORRECTION}
+% \textbf{TEST GAMMA CORRECTION}
 \subsubsection{Gaussian Blur}
 Test this by setting a high sigma value, with kernel size of 3. The expected outcome is an image that appears noticably blurred.
-\textbf{TEST Gaussian Blur}
+% \textbf{TEST Gaussian Blur}
 \subsubsection{Mean Blur}
 
 \subsubsection{Histogram Equalization}
@@ -588,7 +604,7 @@ While the exposure is set, the exposure can also be automatically adjusted using
 we can test this by setting a fairly low exposure (not 0, but probably in the range of 0.5), and then applying Histogram Equalization. The expected outcome is a brightness
 that's comparable to the image with normal (1) exposure.
 
-\textbf{TEST HISTOGRAM EQ}
+% \textbf{TEST HISTOGRAM EQ}
 
 \subsection{Comparison With Other Editors}
 In order to evaluate the performance of the system, both in the output image, along with the overall system performance,
@@ -611,19 +627,19 @@ The system specification can be seen in Figure \ref{SystemSpecs}.
 \end{figure}
 
 Adobe Lightroom, RawTherapee, and Darktable were used to compare the performance of our system. For the comparison results,
-a RAW sample was obtained from the D7100 camera, through the RawSamples.ch website.
-\textbf{TODO reference RAW Samples Website}
+a RAW sample was obtained from the D700 camera.
+% \textbf{TODO reference RAW Samples Website}
 
 \subsubsection{Test 1: Exposure Adjustment}
 In order to compare exposure, various different exposures were used. Some by decreasing the exposure level, others by
 increasing the exposure level, and leaving the exposure level at 1.0
 
-\textbf{TODO test exposure}
+% \textbf{TODO test exposure}
 \subsubsection{Test 2: Gamma Correction}
 In order to test the Gamma Correction, several different gamma values were used on various different editors.
 The outcome was then stored, and these images were compared for each gamma value used.
 
-\textbf{TODO get gamma outcomes, and compare.}
+% \textbf{TODO get gamma outcomes, and compare.}
 
 \subsubsection{Test 3: Sharpening}
 While these are defined by different terms between software programs, we can still test the overall outcome.
@@ -644,7 +660,7 @@ sharpening settings. The settings used are shown in Table \ref{SharpeningSetting
     between each system, it's hard to compare the values like for like.}
 \end{table}
 
-\textbf{TODO: insert image comparison here}
+% \textbf{TODO: insert image comparison here}
 In terms of quality, while the other two systems do perform slightly better, our system does fairly decent job of sharpening
 the image and enchancing most of the common images. There are a few colour differences between the systems, mostly due to internal
 colour processing, but overall each one of the systems enchance the brim of the hat, making the line sharper and appear less blurry. 
@@ -655,7 +671,7 @@ Colour adjustment is done by using the colour channels, and adjusting the differ
 Between all three systems that are being tested, the parameters that need to be set remain fairly constant (some use percentages, while others use decimals,
 but they all represent the same transform).
 
-\textbf{TODO insert image comparison here}
+% \textbf{TODO insert image comparison here}
 
 In comparison to the other systems, they all perform in the same way. There is some slight difference in colour between them, as different colourspaces
 are being used in different applications, and as such, colours are sometimes represented slightly differently. Compared to the original image however, our
