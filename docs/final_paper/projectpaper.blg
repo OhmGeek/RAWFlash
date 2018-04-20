@@ -7,45 +7,57 @@ Warning--string name "march" is undefined
 --line 20 of file projectpaper.bib
 Warning--string name "june" is undefined
 --line 30 of file projectpaper.bib
-You've used 4 entries,
+Warning--string name "march" is undefined
+--line 59 of file projectpaper.bib
+Warning--string name "october" is undefined
+--line 92 of file projectpaper.bib
+Warning--string name "april" is undefined
+--line 123 of file projectpaper.bib
+Warning--string name "april" is undefined
+--line 143 of file projectpaper.bib
+Warning--string name "june" is undefined
+--line 153 of file projectpaper.bib
+Warning--string name "april" is undefined
+--line 163 of file projectpaper.bib
+You've used 16 entries,
             2909 wiz_defined-function locations,
-            664 strings with 5341 characters,
-and the built_in function-call counts, 11244 in all, are:
-= -- 1814
-> -- 141
+            732 strings with 7156 characters,
+and the built_in function-call counts, 38266 in all, are:
+= -- 6040
+> -- 475
 < -- 0
-+ -- 812
-- -- 42
-* -- 926
-:= -- 2355
-add.period$ -- 6
-call.type$ -- 4
-change.case$ -- 56
-chr.to.int$ -- 4
-cite$ -- 4
-duplicate$ -- 54
-empty$ -- 107
-format.name$ -- 53
-if$ -- 2020
++ -- 2679
+- -- 140
+* -- 3012
+:= -- 8220
+add.period$ -- 28
+call.type$ -- 16
+change.case$ -- 224
+chr.to.int$ -- 16
+cite$ -- 16
+duplicate$ -- 205
+empty$ -- 443
+format.name$ -- 176
+if$ -- 6804
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 3
-newline$ -- 17
-num.names$ -- 31
-pop$ -- 15
+missing$ -- 6
+newline$ -- 63
+num.names$ -- 152
+pop$ -- 103
 preamble$ -- 1
-purify$ -- 60
+purify$ -- 240
 quote$ -- 0
-skip$ -- 44
+skip$ -- 178
 stack$ -- 0
-substring$ -- 2450
-swap$ -- 5
-text.length$ -- 56
+substring$ -- 8149
+swap$ -- 23
+text.length$ -- 224
 text.prefix$ -- 9
 top$ -- 0
-type$ -- 14
+type$ -- 62
 warning$ -- 0
-while$ -- 78
+while$ -- 333
 width$ -- 0
-write$ -- 58
-(There were 2 warnings)
+write$ -- 224
+(There were 8 warnings)

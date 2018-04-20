@@ -1,10 +1,11 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage{times}
 \usepackage{graphics}
 \usepackage{graphicx}
 \usepackage{durhampaper}
 \usepackage{harvard}
 \usepackage[subtle]{savetrees}
+\usepackage{url}
 \citationmode{abbr}
 \bibliographystyle{agsm}
 
@@ -30,7 +31,8 @@ data from compression leads to poorer quality edits, while using RAW results in 
 traditionally done on a high-spec machine, capable of processing images with large resolutions. In the field, this can be difficult. 
 When used for websites, the standard process involves editing a RAW file locally and exporting it, uploading the exported image to a 
 Content Management System (CMS). Here, the CMS will then edit the file again, resizing the image to ensure it displays properly on the
-browser.
+browser. 
+
 
 \paragraph{Aims}
 The main aim of this project is to test the feasibility of a Cloud-based RAW image editor, allowing image adjustments such as exposure 
@@ -42,9 +44,13 @@ A render server back-end will first be implemented as an API, taking in an input
 then a JavaScript client shall be created to interface with this API.
 
 \paragraph{Results}
-
+By using exactly the same RAW image, for a different set of RAW operations, the output from several different RAW editors was taken,
+and compared, to determine the quality and functionality of our system. The functionality of our system was also tested using various 
+boundary conditions, comparing the output to what was expected.
 \paragraph{Conclusions}
-
+Cloud-based RAW image editing is very appropriate for service based RAW image rendering, where time is not a major constraint. For live
+RAW image editing (as an online alternative to a native application), our system is not as suitable due to the time delay in rendering, when compared with
+native editors.
 \end{abstract}
 
 \begin{keywords}
@@ -72,21 +78,20 @@ allows one to build up a full colour image. The process of creating a full colou
 
 There are several different steps to decoding RAW images, in addition to demosaicing which was explained above. These are:
 
-\paragraph{White Balance}
-
+\paragraph{Colour Balance}
+\textbf{TODO COMPLETE}
 
 \paragraph{Gamma Correction}
 Cameras typically represent colour changes linearly, with a gamma of 1.0. \textbf{TODO FIND SOURCE OTHER THAN CURRENt}.
-However, this isn't necessarily pleasing to the eye, so this can be changed to change how tones are reflected. For example, this can 
-
+By adjusting gamma, the tonal response of the image can be adjusted, to help produce a desired appearance.
 \paragraph{Sharpening/Noise Reduction}
 Sometimes, noise can creep into the image, particularly if the image itself is shot with large ISO levels (ISO is a sensitivity setting that can be
 set when taking a photo, to allow the camera sensor to be more sensitive to light \textbf{TODO FIND SOURCE FOR ISO DEFINITION}). This can be corrected
-during the editing process.
+during the editing process. 
 
 Also, sometimes edges might need to be enhanced to bring out the detail in the image. This can again be used for stylistic purposes, but this is ultimately the
-decision of the image editor.
-
+decision of the image editor. 
+ 
 \subsubsection{Comparison to JPEG}
 JPEG, a common format in the consumer photography market, often has smaller files due to JPEG compression.
 While this can be good to minimize the amount of memory used, the lossy compression is problematic as adjusting tone
@@ -156,7 +161,14 @@ The project objectives can be expressed as Minimum, Intermediate and Advanced Ob
     \end{itemize}
 \section{Related Work}
 % This section presents a survey of existing work on the problems that this project addresses.  it should be between 2 to 4 pages in length.  The rest of this section shows the formats of subsections as well as some general formatting information for tables, figures, references and equations.
+Research into a Cloud-based solution for image processing isn't new. \cite{WebServiceImageProcessing} outlined a prototype
+system for editing standard images through web services. However, for greater image quality, RAW files are typically used
+over standard images, and with these files come larger file sizes, no compression, and various extra steps in the image processing
+pipeline, such as demosaicing. In order to do this, while the basic architecture in \citename{WebServiceImageProcessing}'s work is sound,
+it isn't designed to be used through a web browser, so the User interface layer will need to be modified, and our services implementation layer
+will also need to be heavily changed to deal with RAW images, their editing, and the output image.
 
+This section outlines the various changes needed, from the changes needed to parse RAW files, to existing RAW image editors.
 
 \subsection{RAW files, and parsing}
 % DNG standard
@@ -179,14 +191,37 @@ can be used by a wide range of hardware and software vendors" by Adobe in the sp
 
     \paragraph{Adobe Lightroom}
     Adobe Lightroom is a native and proprietary tool, developed by Adobe, for editing images, both RAW images, and otherwise.
-    RAW processing in Lightroom is done by Adobe Camera RAW (as Lightroom builds on this useful tool), 
+    RAW processing in Lightroom is done by Adobe Camera RAW (as Lightroom builds on this useful tool). \cite{AdobeCameraRAW}
+    Adobe also provide a DNG converter, that converts RAW files from supported cameras, to their DNG standard,
+    for editing. As DNG is an published specification, files in this format are more likely to be supported
+    when compared to the camera proprietary formats. However, the software itself is only available for Windows
+    and MacOS.\cite{AdobeDNGConverter} While this isn't necessarily always a problem, for the creation of a portable system this could be problematic,
+    as other operating systems such as Linux are growing in the Enterprise market, representing 20.7 percent of all server revenue, with Windows
+    accounting for 50.2 percent \cite{LinuxServerGrowth}. Furthermore, Windows deployments on Cloud systems such as Amazon Web Services require
+    payment of licenses to Microsoft, which provide extra costs. The construction of a multi-platform system is more suitable, not relying on
+    single OS applications, that are proprietary to some degree.
 
     \paragraph{RawTherapee}
-    \textbf{TODO: Complete this section}
-
+    RawTherapee is an open source native RAW image editor, which relies on a patched version of dcraw to parse RAW file formats.
+    Their implementation is cross platform, and released under the GNU GPLv3 license. As a native editor, the user interface is provided
+    locally through the QT framework. The use of dcraw is quite interesting, as it follows the open source license of RawTherapee. \cite{RawTherapeeReadme}
+    It also provides non-destructive image editing, which is what we would like to achieve.
     \paragraph{Darktable}
-    \textbf{TODO: Complete this section}
-\subsection{}
+    Darktable is another open source RAW editor. It is also cross platform, running on Linux, Mac, Windows, BSD and Solaris. While some components
+    of dcraw are present in the application (namely the denoising performed for RAW being ported), the application is based on the rawspeed library.
+    Darktable switched from using dcraw and libraw to using their own RAW library called Rawspeed. Their library loads RAW images for later
+    processing on floating point values, to improve quality.  \cite{DarkTableAbout}
+
+    \paragraph{dcraw}
+    DCRAW is the tool used by RawTherapee to process RAW images, and also previously used by Darktable. Unlike the above options, it is a single portable
+    executable that's controllable through the command line. It is portable, using on C standard libraries, and therefore doesn't require any extra build steps
+    to use dependencies. The creator doesn't release dcraw as a library directly, as command line applications cannot use global variables, so an executable is
+    more ideal. The recommendation by the creator is to run it as a separate process, to make it modular. Other users have also used the C file
+    as the basis for their own custom RAW processing engines, such as RawTherapee, among others. \cite{DCRAWSource}
+
+    \paragraph{libraw}
+    Libraw is based on dcraw, but rather than supplying the interface as an executable, it provides the interface as a C++ and C library.
+    It also extends dcraw by fixing bugs and removing some drawbacks such as dealing with EXIF data. \cite{LibrawSource}.
 
 
 \section{Solution}
@@ -194,7 +229,20 @@ can be used by a wide range of hardware and software vendors" by Adobe in the sp
 % This section presents the solutions to the problems in detail.  The design and implementation details should all be placed in this section.  You may create a number of subsections, each focussing on one issue.  
 
 % This section should be between 4 to 7 pages in length.
+\subsection{RAW Processor}
+One key problem is the processing of RAW images. While there are several options out there, LibRaw and Dcraw seem the most popular ones, 
+as they have both been heavily used in production. Libraw is just a library based version of dcraw, for C++. While this might seem like the most optimum
+solution, the documentation available for libraw is minimal, and integrating it into various C++ build systems is tricky. Furthermore, for our application,
+using a low level language such as C/C++ directly, for interfacing with the web is not ideal, as potential security issues can arise from interfacing with the
+metal. Furthermore, linking C++ directly to the web systems might become tricky, and the lack of a dependency management system that works for every dependency
+means that ensuring the system is portable, and can be built automatically on multiple different systems is not as easy to implement.
 
+As dcraw is just an executable, a wrapper around the command line executable can be written, to deal with the first stage of RAW rendering.
+Therefore, a simple library for interfacing with dcraw was created for Java, and open sourced. \cite{JDCRAW}. This way, rather than manually
+specifying the arguments for hte executable, the images can simply be edited by supplying instruction operations (in the form of Java Objects).
+The output of the library will be a TIFF file, rather than the default PPM file. This is done as TIFF is a file that can be directly read by
+Java (with the use of external tools). To read TIFF, the TwelveMonkeys extension \cite{TwelveMonkeys} was utilised, to read and write TIFF, meaning
+the uncompress TIFF can be read from dcraw, and then processed further using custom image processing commands. 
 \subsection{Client-Server Communication Protocol}
 % SocketIO
 % REST
@@ -209,6 +257,13 @@ a method for transmitting the correct information in an appropriate manner.
 \paragraph{Representational State Transfer (REST)}
 The REST method uses URL routes to send/retrieve information, using HTTP methods such as
 GET, POST, PUT, DELETE.
+
+The solution would be to send a job, and keep sending requests to determine the status of the job, through a
+method known as polling. When the user sends a request, a \emph{202 Accepted} response should be sent,
+incicating that the job has been accepted, along with a web resource URL to be used to fetch the outcome of
+the job. This resource URL would return an estimated time until completion, when queried, while the job was being, or waiting to be processed,
+or would send the result of the job, if the job was completed. This conforms to the HTTP/1.1 protocol. \cite{RESTandLongRunningJobs}
+
 
 \paragraph{Web Socket}
 Web Socket is a new technology that allows easy two-way communication between client and server, rather like how
@@ -357,6 +412,13 @@ Spatial Filtering \cite[p.~231]{DigitalImageProcessingTextbook}
     When one adjusts colours, our aim is to mix these three images together with a variety of different
     amounts, so that the overall image produced blends them together to create white (rather than an orange).
     The white balance control here can be adjusted further to tint the entire image.
+
+    In order to do this, we can simply scale the components of the internal camera RGB model, which can be done
+    by adjusting the coefficients of these channels, which create a final colour image. In \cite{WhiteBalance}, \citename{WhiteBalance}
+    found that less distortion of colours was produced when using the camera RGB representation rather than monitor based
+    RGB, as we are using the RAW format, we can store the camera representation, therefore producing less distorted colours
+    as a result.
+
 
 \subsection{Improving performance of fetching RAW files}\label{LocalImageCaching}
 One of the biggest sources of delay in our system is the necessity to obtain RAW files. The user
@@ -563,35 +625,87 @@ The outcome was then stored, and these images were compared for each gamma value
 
 \textbf{TODO get gamma outcomes, and compare.}
 
-\subsubsection{Test 3: Edge Sharpening}
+\subsubsection{Test 3: Sharpening}
 While these are defined by different terms between software programs, we can still test the overall outcome.
+In order to do this, settings were adjusted to provide a close as possible representation, just for the
+sharpening settings. The settings used are shown in Table \ref{SharpeningSettings}. 
 
-\textbf{TODO: get names used by software packages}
-\textbf{TODO: get comparison}
+\begin{table}\label{SharpeningSettings}
+    \centering
+    \begin{tabular}{| c | c | c | c |}
+        \hline
+        Application & Radius & Threshold & Amount\\
+        RawTherapee & 0 & 0 & 0\\
+        DarkTable & 0 & 0 & 0\\
+        RAWFlash & 0 & 0 & 0\\
+        \hline
+    \end{tabular}
+    \caption{The settings used to compare between different software programs. As different values mean different things
+    between each system, it's hard to compare the values like for like.}
+\end{table}
+
+\textbf{TODO: insert image comparison here}
+In terms of quality, while the other two systems do perform slightly better, our system does fairly decent job of sharpening
+the image and enchancing most of the common images. There are a few colour differences between the systems, mostly due to internal
+colour processing, but overall each one of the systems enchance the brim of the hat, making the line sharper and appear less blurry. 
+
 
 \subsubsection{Test 4: Colour Adjustment}
+Colour adjustment is done by using the colour channels, and adjusting the different levels of red, green and blue that exist within the image.
+Between all three systems that are being tested, the parameters that need to be set remain fairly constant (some use percentages, while others use decimals,
+but they all represent the same transform).
 
+\textbf{TODO insert image comparison here}
 
-\subsection{}
+In comparison to the other systems, they all perform in the same way. There is some slight difference in colour between them, as different colourspaces
+are being used in different applications, and as such, colours are sometimes represented slightly differently. Compared to the original image however, our
+system is certainly functioning.
+
+\subsubsection{Test 5: Render Time}
+One crucial test is to compare the time it takes to render an image. For the portable image editing workflow, this is key as editing typically involves
+refining settings constantly throughout the editing process. For the use as a standalone image editor, this time should be fairly low, but for a RAW
+image rendering service, this can be higher, as often RAW images can be edited in batch. The results can be seen in Table \ref{RenderTimeTable}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{| c | c |}
+        \hline
+        Application & Time Taken To Render (seconds)\\
+        \hline
+        RawTherapee & 0.3\\
+        DarkTable & 0.3 \\
+        RAWFlash & 7.3 \\
+        \hline
+    \end{tabular}
+    \caption{The time taken between triggering a render and the image displaying on the screen measured in seconds.}
+    \label{RenderTimeTable}
+\end{table}
 
 \section{Evaluation}
-
+While in comparisons it's hard to compare the quality of the images, as different RAW software performs differently, as they all have different amounts
+of 
 % This section should between 1 to 2 pages in length.
+
+\subsection{Application as a RAW Image Editor}
+The system works well at producing images, taking the RAW images and adjusting exposure, colour, and adding sharpening, and exporting the final image.
+The overall images produced are as expected, and the processing that is carried out on them is what is expected from the algorithms implemented.
+
 
 \subsection{Application to Web Content Management Systems}
 % Process of editing and uploading images
 % RAW -> JPEG -> Upload -> Further compression/adjustments in CMS for web -> Output
 % better to skip intermediate steps, meaning less computational effort on one end, less cost for
 % expensive software.
-
-\subsection{Benefits of Portable Image Editing}
-% Allows one to edit images whatever the location,
+When applying our system to web content management systems, or for other applications that require a headless method
+of rendering RAW images, it functions well. With the CMS workflow, of uploading a set of RAW images, and having the system
+process them in batch our system would work better, as this batch processing will often be done in the background, producing
+the output that can then be stored, ready for use.
 
 \subsection{Performance Issues and Improvements}
 % Improvement by use of multithreading for image processing
 % Java's build in Image Manipulation has a number of undocumented bugs.
 % Using GPU might improve performance furhter.
-\subsubsection{Problems with Java Image library}
+\subsubsection{Problems with the Java Image library}
 As a basis for the Adams Processor image processing, the Java built-in Image library was utilised,
 by using ImageIO to load an image into a BufferedImage object, and then applying various BufferedImage operations on
 the image.
@@ -604,7 +718,8 @@ When processing images, high memory usage was often encounted, at once point usi
 one RAW image taken from a Nikon D7100. After the image had finished being processed, this memory appeared not to
 have been deallocated, which led to high memory usage for our entire system. In Java, Garbage Collection should automatically
 deallocate this, but for some reason it didn't function. As a fix, garbage collection was called manually after the response had been sent,
-which improved performance.
+which improved performance. Furthermore, smaller RAW images (from the D700, rather than the D7100) were used, as the test system was unable to cope
+with both acting as the render server, and also the client side (via a web browser).
 
 \paragraph{Non-functioning Operations}
 While implementing Gamma Correction, the plan was to utilize Java's LUTOp, to create a lookup table (based on the gamma value),
@@ -624,29 +739,15 @@ While multithreading itself isn't always wanted on image processing (with web se
 cause problems), for our architecture, multithreaded processing is suitable and encouraged, as there would be a performance increase.
 
 In the future, building a custom Image datastructure would be ideal, as this would allow for multithreaded processing of images.
+
+\subsection{Comparisons to Objectives}
+Overall, all but the Haze Removal objectives were met, all to different degrees. Haze Removal involved many blur operations, which are very slow in our current framework, and therefore the
+time taken to render an image with haze removal would be far too expensive. 
 \section{Conclusions}
-
-This section summarises the main points of this paper.  Do not replicate the abstract as the conclusion.  A conclusion might elaborate on the importance of the work or suggest applications and extensions.  This section should be no more than 1 page in length.
-
-The page lengths given for each section are indicative and will vary from project to project but should not exceed the upper limit.  A summary is shown in Table \ref{summary}.
-
-\begin{table}[htb]
-\centering
-\caption{SUMMARY OF PAGE LENGTHS FOR SECTIONS}
-\vspace*{6pt}
-\label{summary}
-\begin{tabular}{|ll|c|} \hline
-& \multicolumn{1}{c|}{\bf Section} & {\bf Number of Pages} \\ \hline
-I. & Introduction & 2--3 \\ \hline
-II. & Related Work & 2--3 \\ \hline
-III. & Solution & 4--7 \\ \hline
-IV. & Results & 2--3 \\ \hline
-V. & Evaluation & 1-2 \\ \hline
-VI. & Conclusions & 1 \\ \hline
-\end{tabular}
-\end{table}
-
-
+Overall, the project showed that a Cloud-based approach of editing RAW images does work, and can work well for rendering RAW images in the current architecture.
+While the current implementation has some performance issues, these can be easily rectified, and the approach of editing RAW images as a service is very much possible.
+Using this approach directly in a browser would also work, although the delays in rendering the image on the server side make RAW editing slightly more work when compared with
+using native editors, using the standard RAW workflow.
 \bibliography{projectpaper}
 
 
