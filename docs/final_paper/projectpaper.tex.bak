@@ -259,10 +259,10 @@ means that ensuring the system is portable, and can be built automatically on mu
 
 As dcraw is just an executable, a wrapper around the command line executable can be written, to deal with the first stage of RAW rendering.
 Therefore, a simple library for interfacing with dcraw was created for Java, and open sourced. \cite{JDCRAW}. This way, rather than manually
-specifying the arguments for the executable, the images can simply be edited by supplying instruction operations (in the form of Java Objects).
+specifying the arguments for hte executable, the images can simply be edited by supplying instruction operations (in the form of Java Objects).
 The output of the library will be a TIFF file, rather than the default PPM file. This is done as TIFF is a file that can be directly read by
 Java (with the use of external tools). To read TIFF, the TwelveMonkeys extension \cite{TwelveMonkeys} was utilised, to read and write TIFF, meaning
-the uncompressed TIFF can be read from dcraw, and then processed further using custom image processing commands. 
+the uncompress TIFF can be read from dcraw, and then processed further using custom image processing commands. 
 \subsection{Client-Server Communication Protocol}
 % SocketIO
 % REST
@@ -280,7 +280,7 @@ GET, POST, PUT, DELETE.
 
 The solution would be to send a job, and keep sending requests to determine the status of the job, through a
 method known as polling. When the user sends a request, a \emph{202 Accepted} response should be sent,
-indicating that the job has been accepted, along with a web resource URL to be used to fetch the outcome of
+incicating that the job has been accepted, along with a web resource URL to be used to fetch the outcome of
 the job. This resource URL would return an estimated time until completion, when queried, while the job was being, or waiting to be processed,
 or would send the result of the job, if the job was completed. This conforms to the HTTP/1.1 protocol. \cite{RESTandLongRunningJobs}
 
@@ -292,7 +292,7 @@ render instructions, and when the job is complete, the server would return the r
 sides wait for messages to be received, and process the messages in the appropriate manner.
 \cite{WebsocketSpec}
 This lends itself quite well to our method, as with the user constantly changing settings and requesting a render (to
-view the preview), and repeating the process as settings are adjusted, two way communication seems far more appropriate
+view the preview), and repreating the process as settings are adjusted, two way communication seems far more approriate
 for this application.
 
 However, Web Socket does have downsides. As a fairly new technology, it's not universally supported, and only modern browsers
@@ -311,7 +311,7 @@ However, a problem arises with this, as this is only fully supported in a limite
 and server side), and unofficial support is available for Java. Therefore, JavaScript shall be used for the client side (which is really the only
 option anyway), and Java for the server side, due to the Image library provided. 
 
-Furthermore, the added benefit is one of state: in the event the server goes down temporarily, providing the session is still open (i.e. the user hasn't
+Futhermore, the added benefit is one of state: in the event the server goes down temporarily, providing the session is still open (i.e. the user hasn't
 closed their browser window), the system will reconnect when the server comes back online. Providing we implement some stateless system (where all the data
 needed is provided within the request), then this will help improve the reliability of our system, not requiring users to repeatedly restart their session
 if some error occurs in the dispatcher. 
@@ -335,7 +335,7 @@ cache wasn't implemented, but this was added to improve performance (as discusse
 
 Initially, the aim was just to have one single monolithic structure to the image processing, with the same structure
 dealing with the entire process, from reading in RAW to returning the result. However, the decision was taken to
-implement these separately, as it would allow for the ability to swap the RAW processor used. This could be useful
+implement these seperately, as it would allow for the ability to swap the RAW processor used. This could be useful
 if for example support is dropped for dcraw, or if a better RAW processing library is created (perhaps one that doesn't 
 require file writes). The DCRAW Manager therefore deals with the Dcraw processing, by interfacing with the custom JDCRAW
 library that was created (but open sourced as a separate module). The creation of this module further abstracts DCRAW from
@@ -345,7 +345,7 @@ The entire image editing process however is managed by one class, the Operation 
 specified instructions and passing them to all the possible processors (currently only DCRAW and Adams are implemented, but potentially
 many more processors could easily be added, perhaps using class loading in the future).
 
-More detail about the Adams Processor, which is the name for all the custom image processing implementation can be found in Part \ref{AdamsProcessor}.
+More detail about the Adams Processor, whcih is the name for all the custom image processing implementation can be found in Part \ref{AdamsProcessor}.
 \begin{figure}\label{renderserverdiagram}
     \includegraphics[width=\linewidth]{renderserverdiagram}
     \caption{The structure of the render server. The local cache is simply stored on the server local filesystem,
@@ -476,7 +476,7 @@ The solution to this is to use a Universally Unique Identifier (UUID).
 Our method uses the RAW file URL as the basis for the UUID generation, generating a Type 3 UUID based on the full path specified.
 When downloading a file, the system first generates this UUID filename, and checks the local filesystem. If the file is present, then it
 is already cached, and therefore the cached version is used. If the file isn't present, then it isn't cached, and a file is downloaded, and 
-written to a filename based on the UUID (in this case, the format will be UUID followed by the extension). Type 3 UUID generation is based on
+written to a filename based on the UUID (in this case, the format will be UUID followed by the extention). Type 3 UUID generation is based on
 the MD5 hashing algorithm, by generating a 128 bit UUID. The hexadecimal representation (ignoring the dashes), is used as the replacement filename.
 
 % For which type we used, reference the Java documentation
@@ -487,7 +487,7 @@ for a prototype use with few image URLs, this is more suitable.
 % TODO find source for UUID probability of collision with MD5 Type 3 UUID vs Type 5. NEED SOURCE!!!
 
 One other concern is the possibility of deleting files. While this is a grave concern typically, the current system doesn't have a time decay of caching,
-simply because RAW files might be worked on over a period of days, and furthermore as the system is stateless, all files stored on the local system shall be
+simply because RAW files might be worked on over a period of days, and furhtermore as the system is stateless, all files stored on the local system shall be
 deleted regularly (configured inside Docker). Restarting render servers regularly is ideal, as this way we prevent memory leaks from the Java BufferedImage implementation
 which have been minimized in our implementation but not completely eradicated.
 
@@ -571,9 +571,9 @@ by eye, to determine whether the algorithm itself is working correctly, and usin
 
 Base cases include:
 
-Using a gamma of zero will yield a completely white image. Using a gamma of 1 will yield the input image, for gamma correction.
+Using a gamma of zero will yield a completely white image. Uisng a gamma of 1 will yield the input image, for gamma correction.
 Setting red gain to 1, and all others to zero will yield an image with only the red channel. Doing the same for green and blue should reveal the same.
-This will ensure the algorithm is working correctly.
+This will ensure the algoritm is working correctly.
 
 Exposure zero should yield a completely black image. Using a very high exposure should yield a completely, or nearly white image.
 
@@ -601,7 +601,7 @@ have a version of the image, but only with the specified colour, present: rather
 % \textbf{TEST COLOR BALANCE, RED, GREEN and BLUE}.
 
 \subsubsection{Unsharp}
-Enter a fairly high Unsharp radius (the sigma of the Gaussian), and amount. This should then yield an image with very pronounced edges (if not, just the edges).
+Enter a fairly high Unsharp radius (the sigma of the gaussian), and amount. This should then yield an image with very pronounced edges (if not, just the edges).
 
 Reducing this to zero should remove the pronounced edges entirely (as with an amount 0, the unsharp process shouldn't affect the image at all).
 
@@ -610,12 +610,12 @@ edges.
 
 % \textbf{TODO test Unsharp}
 \subsubsection{Gamma Correction}
-Enter various gamma values in the range $0 < \gamma \leq 2$, and compare them. This should yield a noticeable difference in tone. With a gamma less than 1,
+Enter various gamma values in the range $0 < \gamma \leq 2$, and compare them. This should yield a noticable difference in tone. With a gamma less than 1,
 the tone will have more white colours, while with a gamma greater than 1, the one difference will be darker (with more darker colours than white).
 
 % \textbf{TEST GAMMA CORRECTION}
 \subsubsection{Gaussian Blur}
-Test this by setting a high sigma value, with kernel size of 3. The expected outcome is an image that appears noticeably blurred.
+Test this by setting a high sigma value, with kernel size of 3. The expected outcome is an image that appears noticably blurred.
 % \textbf{TEST Gaussian Blur}
 \subsubsection{Mean Blur}
 
@@ -682,8 +682,8 @@ sharpening settings. The settings used are shown in Table \ref{SharpeningSetting
 
 % \textbf{TODO: insert image comparison here}
 In terms of quality, while the other two systems do perform slightly better, our system does fairly decent job of sharpening
-the image and enhancing most of the common images. There are a few colour differences between the systems, mostly due to internal
-colour processing, but overall each one of the systems enhance the brim of the hat, making the line sharper and appear less blurry. 
+the image and enchancing most of the common images. There are a few colour differences between the systems, mostly due to internal
+colour processing, but overall each one of the systems enchance the brim of the hat, making the line sharper and appear less blurry. 
 
 
 \subsubsection{Test 4: Colour Adjustment}
@@ -750,7 +750,7 @@ Java has a built in library which automatically implements Convolution, resizing
 this is useful, several problems were encounted when using this routines. 
 
 \paragraph{High Memory Usage/Memory Leaks}
-When processing images, high memory usage was often encountered, at once point using 6GB of RAM for processing 
+When processing images, high memory usage was often encounted, at once point using 6GB of RAM for processing 
 one RAW image taken from a Nikon D7100. After the image had finished being processed, this memory appeared not to
 have been deallocated, which led to high memory usage for our entire system. In Java, Garbage Collection should automatically
 deallocate this, but for some reason it didn't function. As a fix, garbage collection was called manually after the response had been sent,

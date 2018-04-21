@@ -3,73 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: projectpaper.aux
 The style file: acm.bst
 Database file #1: projectpaper.bib
-Warning--string name "march" is undefined
---line 20 of file projectpaper.bib
-Warning--string name "june" is undefined
---line 30 of file projectpaper.bib
-Warning--string name "march" is undefined
---line 59 of file projectpaper.bib
-Warning--string name "october" is undefined
---line 92 of file projectpaper.bib
-Warning--string name "april" is undefined
---line 123 of file projectpaper.bib
-Warning--string name "april" is undefined
---line 143 of file projectpaper.bib
-Warning--string name "june" is undefined
---line 153 of file projectpaper.bib
-Warning--string name "april" is undefined
---line 163 of file projectpaper.bib
-Warning--string name "december" is undefined
---line 173 of file projectpaper.bib
-Warning--string name "march" is undefined
---line 180 of file projectpaper.bib
-Warning--string name "january" is undefined
---line 206 of file projectpaper.bib
-Warning--to sort, need author or key in AdobeCameraRAW
-Warning--to sort, need author or key in AdobeDNGConverter
-Warning--to sort, need author or key in RawTherapeeReadme
-Warning--to sort, need author or key in DarkTableAbout
-Warning--to sort, need author or key in WebSocketDeveloper
-Warning--empty journal in LinuxServerGrowth
 You've used 21 entries,
             2253 wiz_defined-function locations,
-            649 strings with 6950 characters,
-and the built_in function-call counts, 4771 in all, are:
-= -- 464
+            654 strings with 7046 characters,
+and the built_in function-call counts, 4816 in all, are:
+= -- 466
 > -- 145
 < -- 0
 + -- 67
 - -- 44
-* -- 260
-:= -- 754
-add.period$ -- 68
+* -- 283
+:= -- 756
+add.period$ -- 69
 call.type$ -- 21
-change.case$ -- 85
+change.case$ -- 90
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 197
-empty$ -- 478
+cite$ -- 21
+duplicate$ -- 198
+empty$ -- 484
 format.name$ -- 44
-if$ -- 1046
+if$ -- 1054
 int.to.chr$ -- 0
 int.to.str$ -- 21
 missing$ -- 10
-newline$ -- 113
+newline$ -- 114
 num.names$ -- 28
-pop$ -- 139
+pop$ -- 133
 preamble$ -- 1
-purify$ -- 66
+purify$ -- 71
 quote$ -- 0
-skip$ -- 127
+skip$ -- 133
 stack$ -- 0
 substring$ -- 163
-swap$ -- 39
+swap$ -- 40
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 78
-warning$ -- 6
+warning$ -- 0
 while$ -- 32
 width$ -- 23
-write$ -- 225
-(There were 17 warnings)
+write$ -- 227

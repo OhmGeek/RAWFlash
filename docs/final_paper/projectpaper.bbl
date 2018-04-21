@@ -1,10 +1,9 @@
 \begin{thebibliography}{10}
 
-\bibitem{AdobeDNGConverter}
-Adobe digital negative converter.
-\newblock URL:
-  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html}, 2017.
-\newblock Accessed: 19-04-2018.
+\bibitem{DarkTableAbout}
+About darktable.
+\newblock URL: \url{https://www.darktable.org/about/}, Apr. 2018.
+\newblock Accessed: 20-04-2018.
 
 \bibitem{AdobeCameraRAW}
 Camera raw.
@@ -13,26 +12,16 @@ Camera raw.
   2017.
 \newblock Accessed: 19-04-2018.
 
-\bibitem{DarkTableAbout}
-About darktable.
-\newblock URL: \url{https://www.darktable.org/about/}, 2018.
-\newblock Accessed: 20-04-2018.
-
-\bibitem{RawTherapeeReadme}
-Raw therapee readme.
+\bibitem{AdobeDNGConverter}
+Adobe digital negative converter.
 \newblock URL:
-  \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}, Feb. 2018.
-\newblock Accessed: 20-04-2018.
-
-\bibitem{WebSocketDeveloper}
-Web sockets.
-\newblock URL:
-  \url{https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API}, 2018.
-\newblock Accessed: 20-04-2018.
+  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html}, Oct.
+  2017.
+\newblock Accessed: 19-04-2018.
 
 \bibitem{DNGSpec}
 {\sc Adobe Systems}.
-\newblock {\em Digital Negative (DNG) Specification}, 2012.
+\newblock {\em Digital Negative (DNG) Specification}, June 2012.
 \newblock Version 1.4.0.0.
 
 \bibitem{DCRAWSource}
@@ -44,7 +33,7 @@ Web sockets.
 \bibitem{JDCRAW}
 {\sc Collins, R.}
 \newblock Jdcraw: A dcraw wrapper for java.
-\newblock URL: \url{https://github.com/OhmGeek/JDCraw}, 2017.
+\newblock URL: \url{https://github.com/OhmGeek/JDCraw}, June 2017.
 \newblock Accessed: 19-03-2018.
 
 \bibitem{RESTandLongRunningJobs}
@@ -74,25 +63,25 @@ Web sockets.
 \bibitem{NRandFiltering}
 {\sc Hambal, A., Pei, Z., and Ishabailu, F.~L.}
 \newblock Image noise reduction and filtering techniques.
-\newblock {\em International Journal of Science and Research 6}, 2 (2017),
+\newblock {\em International Journal of Science and Research 6}, 2 (Mar. 2017),
   201--213.
 
 \bibitem{WebsocketSpec}
 {\sc Internet Engineering Task Force}.
-\newblock {\em The WebSocket Protocol}, 2011.
+\newblock {\em The WebSocket Protocol}, Dec. 2011.
 
 \bibitem{HSLImplementation}
 {\sc Jianzhao, J.}
 \newblock Hslcolor.java.
 \newblock URL:
   \url{https://github.com/jeffjianzhao/DAViewer/blob/master/src/daviewer/HSLColor.java},
-  2015.
+  Jan. 2015.
 
 \bibitem{TwelveMonkeys}
 {\sc Kuhr, H.}
 \newblock Twelvemonkeys imageio: Additional plug-ins and extensions for java's
   imageio.
-\newblock URL: \url{https://github.com/haraldk/TwelveMonkeys}, 2018.
+\newblock URL: \url{https://github.com/haraldk/TwelveMonkeys}, Apr. 2018.
 \newblock Accessed: 19-04-2018.
 
 \bibitem{WebServiceImageProcessing}
@@ -108,15 +97,29 @@ Web sockets.
   State to the Client}, 1~ed.
 \newblock O'Reilly, 2011.
 
+\bibitem{WebSocketDeveloper}
+Web sockets.
+\newblock URL:
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API}, Mar.
+  2018.
+\newblock Accessed: 20-04-2018.
+
 \bibitem{LinuxServerGrowth}
 {\sc Nagel, D.}
 \newblock Linux leads server growth.
+\newblock {\em The Journal\/} (May 2012).
+\newblock Accessed: 20-04-2018.
+
+\bibitem{RawTherapeeReadme}
+Raw therapee readme.
+\newblock URL:
+  \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}, Feb. 2018.
 \newblock Accessed: 20-04-2018.
 
 \bibitem{LibrawSource}
 {\sc Tutubalin, A.}
 \newblock Libraw project goals and objectives.
-\newblock URL: \url{https://www.libraw.org/about}, 2008.
+\newblock URL: \url{https://www.libraw.org/about}, Apr. 2008.
 \newblock Accessed: 20-04-2018.
 
 \bibitem{WhiteBalance}
@@ -124,6 +127,6 @@ Web sockets.
 \newblock Comparison of the accuracy of different white balancing options as
   quantified by their color constancy.
 \newblock {\em SPIE: The International Society for Optical Engineering 6}, 2
-  (2004), 201--213.
+  (Mar. 2004), 201--213.
 
 \end{thebibliography}
