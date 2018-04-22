@@ -1,11 +1,11 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
 \usepackage{times}
 \usepackage{graphics}
 \usepackage{graphicx}
 \usepackage{durhampaper}
 \usepackage{subfigure}
 \usepackage{harvard}
-\usepackage[subtle]{savetrees}
+\usepackage[moderate]{savetrees}
 \usepackage{url}
 \citationmode{abbr}
 \bibliographystyle{acm}
@@ -598,8 +598,33 @@ bright spots).
 \subsubsection{Colour Balance Checks}
 Colour balance is controlled with red, green and blue gains. If we set only one of these gains to 1.0, and the other two to zero, we should
 have a version of the image, but only with the specified colour, present: rather like a grayscale image but in one specific colour rather than black to white.
-
-% \textbf{TEST COLOR BALANCE, RED, GREEN and BLUE}.
+The results of this check can be found in Figure \ref{colourbalancetest}. These results show that the colour balance algorithms are working correctly.
+\begin{figure}\label{colourbalancetest}
+    \centering
+    \subfigure
+    {
+        \includegraphics[width=75px]{colourtest_no_adjustment}
+    }
+    \subfigure
+    {
+        \includegraphics[width=75px]{colourtest_redonly}
+    }
+    \subfigure
+    {
+        \includegraphics[width=75px]{colourtest_greenonly}
+    }
+    \subfigure
+    {
+        \includegraphics[width=75px]{blueonly}
+    }
+    \caption{
+        Test of Colour Balance 
+        (a) No Adjustment
+        (b) Red only (green and blue zero)
+        (c) Green only (red and blue zero)
+        (d) Blue only (red and green zero)
+    }
+ \end{figure}
 
 \subsubsection{Unsharp}
 Enter a fairly high Unsharp radius (the sigma of the Gaussian), and amount. This should then yield an image with very pronounced edges (if not, just the edges).
@@ -612,9 +637,10 @@ edges.
 % \textbf{TODO test Unsharp}
 \subsubsection{Gamma Correction}
 Enter various gamma values in the range $0 < \gamma \leq 2$, and compare them. This should yield a noticeable difference in tone. With a gamma less than 1,
-the tone will have more white colours, while with a gamma greater than 1, the one difference will be darker (with more darker colours than white).
+the tone will have more white colours, while with a gamma greater than 1, the one difference will be darker (with more darker colours than white). The
+outcome of this test can be seen in Figure \ref{gammatest}. The implementation yields this expected outcome.
 
-\begin{figure}
+\begin{figure}\label{gammatest}
    \centering
    \subfigure
    {
@@ -634,9 +660,7 @@ the tone will have more white colours, while with a gamma greater than 1, the on
        (b) $\gamma = 1.0$
        (c) $\gamma = 1.7$
    }
-   
 \end{figure}
-% \textbf{TEST GAMMA CORRECTION}
 \subsubsection{Gaussian Blur}
 Test this by setting a high sigma value, with kernel size of 3. The expected outcome is an image that appears noticeably blurred.
 % \textbf{TEST Gaussian Blur}

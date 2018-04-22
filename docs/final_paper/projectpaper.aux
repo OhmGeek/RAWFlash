@@ -15,101 +15,106 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {B}Applications of RAW Image Editing}{2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {B.1}Content Management}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {C}Problems with Current Implementations}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D}Project Objectives}{2}}
 \citation{WebServiceImageProcessing}
 \citation{WebServiceImageProcessing}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D}Project Objectives}{3}}
-\@writefile{toc}{\contentsline {paragraph}{Minimum Objectives}{3}}
-\@writefile{toc}{\contentsline {paragraph}{Intermediate Objectives}{3}}
-\@writefile{toc}{\contentsline {paragraph}{Advanced Objectives}{3}}
 \citation{DNGSpec}
 \citation{AdobeCameraRAW}
 \citation{AdobeDNGConverter}
 \citation{LinuxServerGrowth}
 \citation{RawTherapeeReadme}
 \citation{DarkTableAbout}
+\@writefile{toc}{\contentsline {paragraph}{Minimum Objectives}{3}}
+\@writefile{toc}{\contentsline {paragraph}{Intermediate Objectives}{3}}
+\@writefile{toc}{\contentsline {paragraph}{Advanced Objectives}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}RAW files, and parsing}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Existing Solutions}{3}}
+\@writefile{toc}{\contentsline {paragraph}{Adobe Lightroom}{3}}
+\@writefile{toc}{\contentsline {paragraph}{RawTherapee}{3}}
 \citation{DCRAWSource}
-\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A}RAW files, and parsing}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B}Existing Solutions}{4}}
-\@writefile{toc}{\contentsline {paragraph}{Adobe Lightroom}{4}}
-\@writefile{toc}{\contentsline {paragraph}{RawTherapee}{4}}
-\@writefile{toc}{\contentsline {paragraph}{Darktable}{4}}
 \citation{LibrawSource}
 \citation{JDCRAW}
 \citation{TwelveMonkeys}
 \citation{RESTandLongRunningJobs}
 \citation{WebsocketSpec}
-\@writefile{toc}{\contentsline {paragraph}{dcraw}{5}}
-\@writefile{toc}{\contentsline {paragraph}{libraw}{5}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Solution}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A}RAW Processor}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B}Client-Server Communication Protocol}{5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.1}Communication Methods}{5}}
-\@writefile{toc}{\contentsline {paragraph}{Representational State Transfer (REST)}{5}}
+\@writefile{toc}{\contentsline {paragraph}{Darktable}{4}}
+\@writefile{toc}{\contentsline {paragraph}{dcraw}{4}}
+\@writefile{toc}{\contentsline {paragraph}{libraw}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Solution}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}RAW Processor}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Client-Server Communication Protocol}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.1}Communication Methods}{4}}
+\@writefile{toc}{\contentsline {paragraph}{Representational State Transfer (REST)}{4}}
+\@writefile{toc}{\contentsline {paragraph}{Web Socket}{4}}
 \citation{WebSocketDeveloper}
 \citation{SocketIOBook}
-\@writefile{toc}{\contentsline {paragraph}{Web Socket}{6}}
-\@writefile{toc}{\contentsline {paragraph}{Socket.IO}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {C}Rendering Server Structure}{6}}
+\@writefile{toc}{\contentsline {paragraph}{Socket.IO}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C}Rendering Server Structure}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D}Adams Processor}{5}}
+\newlabel{AdamsProcessor}{{D}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {D.1}Gamma Correction}{5}}
 \citation{NRandFiltering}
-\newlabel{renderserverdiagram}{{C}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The structure of the render server. The local cache is simply stored on the server local filesystem, while the RabbitMQ Consumer takes requests from the message queue and processes them, returning the result.}}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D}Adams Processor}{7}}
-\newlabel{AdamsProcessor}{{D}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {D.1}Gamma Correction}{7}}
 \citation{NRandFiltering}
 \citation{DigitalImageProcessingTextbook}
 \citation{NRandFiltering}
+\newlabel{renderserverdiagram}{{C}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The structure of the render server. The local cache is simply stored on the server local filesystem, while the RabbitMQ Consumer takes requests from the message queue and processes them, returning the result.}}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {D.2}Noise Reduction}{6}}
+\@writefile{toc}{\contentsline {paragraph}{Amplifier Noise}{6}}
+\@writefile{toc}{\contentsline {paragraph}{Salt-and-Pepper Noise}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {D.3}Unsharp Image Adjustment}{6}}
 \citation{Unsharp}
 \citation{HSLImplementation}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {D.2}Noise Reduction}{8}}
-\@writefile{toc}{\contentsline {paragraph}{Amplifier Noise}{8}}
-\@writefile{toc}{\contentsline {paragraph}{Salt-and-Pepper Noise}{8}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {D.3}Unsharp Image Adjustment}{8}}
 \citation{WhiteBalance}
 \citation{WhiteBalance}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {D.4}White Balance Adjustment}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {E}Improving performance of fetching RAW files}{9}}
-\newlabel{LocalImageCaching}{{E}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {F}Web Editor Functionality}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {F.1}Undo/Redo Functionality}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {G}Storing User Images}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {H}Managing a big system}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {I}Unit Testing Issues with Image Processing}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Results}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A}Functionality Testing}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.1}Exposure Checks}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.2}Colour Balance Checks}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3}Unsharp}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.4}Gamma Correction}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Test of Gamma Correction output. (a) $\gamma = 0.3$ (b) $\gamma = 1.0$ (c) $\gamma = 1.7$ }}{12}}
-\newlabel{SystemSpecs}{{B}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The specification of the test system.}}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.5}Gaussian Blur}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.6}Mean Blur}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.7}Histogram Equalization}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B}Comparison With Other Editors}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.1}Test 1: Exposure Adjustment}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2}Test 2: Gamma Correction}{12}}
-\newlabel{SharpeningSettings}{{B.3}{13}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The settings used to compare between different software programs. As different values mean different things between each system, it's hard to compare the values like for like.}}{13}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces The time taken between triggering a render and the image displaying on the screen measured in seconds.}}{13}}
-\newlabel{RenderTimeTable}{{2}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.3}Test 3: Sharpening}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.4}Test 4: Colour Adjustment}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.5}Test 5: Render Time}{13}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Evaluation}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A}Application as a RAW Image Editor}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B}Application to Web Content Management Systems}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {C}Performance Issues and Improvements}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {C.1}Problems with the Java Image library}{14}}
-\@writefile{toc}{\contentsline {paragraph}{High Memory Usage/Memory Leaks}{14}}
-\@writefile{toc}{\contentsline {paragraph}{Non-functioning Operations}{14}}
-\@writefile{toc}{\contentsline {paragraph}{Lack of support for Multithreading}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {D.4}White Balance Adjustment}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {E}Improving performance of fetching RAW files}{7}}
+\newlabel{LocalImageCaching}{{E}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {F}Web Editor Functionality}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {F.1}Undo/Redo Functionality}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {G}Storing User Images}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {H}Managing a big system}{8}}
+\newlabel{colourbalancetest}{{A.2}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Test of Colour Balance (a) No Adjustment (b) Red only (green and blue zero) (c) Green only (red and blue zero) (d) Blue only (red and green zero) }}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {I}Unit Testing Issues with Image Processing}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Results}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Functionality Testing}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.1}Exposure Checks}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.2}Colour Balance Checks}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3}Unsharp}{9}}
+\newlabel{gammatest}{{A.4}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Test of Gamma Correction output. (a) $\gamma = 0.3$ (b) $\gamma = 1.0$ (c) $\gamma = 1.7$ }}{10}}
+\newlabel{SystemSpecs}{{B}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The specification of the test system.}}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.4}Gamma Correction}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.5}Gaussian Blur}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.6}Mean Blur}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.7}Histogram Equalization}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Comparison With Other Editors}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.1}Test 1: Exposure Adjustment}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2}Test 2: Gamma Correction}{10}}
+\newlabel{SharpeningSettings}{{B.3}{11}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The settings used to compare between different software programs. As different values mean different things between each system, it's hard to compare the values like for like.}}{11}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces The time taken between triggering a render and the image displaying on the screen measured in seconds.}}{11}}
+\newlabel{RenderTimeTable}{{2}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.3}Test 3: Sharpening}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.4}Test 4: Colour Adjustment}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.5}Test 5: Render Time}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Evaluation}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Application as a RAW Image Editor}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Application to Web Content Management Systems}{11}}
 \bibdata{projectpaper}
 \bibcite{DarkTableAbout}{1}
 \bibcite{AdobeCameraRAW}{2}
 \bibcite{AdobeDNGConverter}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C}Performance Issues and Improvements}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {C.1}Problems with the Java Image library}{12}}
+\@writefile{toc}{\contentsline {paragraph}{High Memory Usage/Memory Leaks}{12}}
+\@writefile{toc}{\contentsline {paragraph}{Non-functioning Operations}{12}}
+\@writefile{toc}{\contentsline {paragraph}{Lack of support for Multithreading}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D}Comparisons to Objectives}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusions}{12}}
 \bibcite{DNGSpec}{4}
 \bibcite{DCRAWSource}{5}
 \bibcite{JDCRAW}{6}
@@ -119,8 +124,6 @@
 \bibcite{DigitalImageProcessingTextbook}{10}
 \bibcite{NRandFiltering}{11}
 \bibcite{WebsocketSpec}{12}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D}Comparisons to Objectives}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusions}{15}}
 \bibcite{HSLImplementation}{13}
 \bibcite{TwelveMonkeys}{14}
 \bibcite{WebServiceImageProcessing}{15}
