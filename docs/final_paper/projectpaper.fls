@@ -31,6 +31,10 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT durhampaper.sty
 INPUT durhampaper.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/harvard/harvard.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/harvard/harvard.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
@@ -139,6 +143,15 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT gammacorrectionlow.png
+INPUT ./gammacorrectionlow.png
+INPUT ./gammacorrectionlow.png
+INPUT gammacorrection_normal.png
+INPUT ./gammacorrection_normal.png
+INPUT ./gammacorrection_normal.png
+INPUT gammacorrectionhigh.png
+INPUT ./gammacorrectionhigh.png
+INPUT ./gammacorrectionhigh.png
 INPUT projectpaper.bbl
 INPUT projectpaper.bbl
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd

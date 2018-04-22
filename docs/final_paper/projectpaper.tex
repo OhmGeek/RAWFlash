@@ -3,6 +3,7 @@
 \usepackage{graphics}
 \usepackage{graphicx}
 \usepackage{durhampaper}
+\usepackage{subfigure}
 \usepackage{harvard}
 \usepackage[subtle]{savetrees}
 \usepackage{url}
@@ -233,7 +234,7 @@ can be used by a wide range of hardware and software vendors" by Adobe in the sp
     processing on floating point values, to improve quality.  \cite{DarkTableAbout}
 
     \paragraph{dcraw}
-    DCRAW is the tool used by RawTherapee to process RAW images, and also previously used by Darktable. Unlike the above options, it is a single portable
+    DCRAW is the tool used by RawTherapee to process RAW images, and alsos previously used by Darktable. Unlike the above options, it is a single portable
     executable that's controllable through the command line. It is portable, using on C standard libraries, and therefore doesn't require any extra build steps
     to use dependencies. The creator doesn't release dcraw as a library directly, as command line applications cannot use global variables, so an executable is
     more ideal. The recommendation by the creator is to run it as a separate process, to make it modular. Other users have also used the C file
@@ -613,6 +614,28 @@ edges.
 Enter various gamma values in the range $0 < \gamma \leq 2$, and compare them. This should yield a noticeable difference in tone. With a gamma less than 1,
 the tone will have more white colours, while with a gamma greater than 1, the one difference will be darker (with more darker colours than white).
 
+\begin{figure}
+   \centering
+   \subfigure
+   {
+       \includegraphics[width=100px]{gammacorrectionlow}
+   }
+   \subfigure
+   {
+       \includegraphics[width=100px]{gammacorrection_normal}
+   }
+   \subfigure
+   {
+       \includegraphics[width=100px]{gammacorrectionhigh}
+   }
+   \caption{
+       Test of Gamma Correction output. 
+       (a) $\gamma = 0.3$
+       (b) $\gamma = 1.0$
+       (c) $\gamma = 1.7$
+   }
+   
+\end{figure}
 % \textbf{TEST GAMMA CORRECTION}
 \subsubsection{Gaussian Blur}
 Test this by setting a high sigma value, with kernel size of 3. The expected outcome is an image that appears noticeably blurred.

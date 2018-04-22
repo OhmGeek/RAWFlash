@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex projectpaper"] 1524326793 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1524327866
+["bibtex projectpaper"] 1524427567 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1524427570
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/acm.bst" 1292289607 21064 c61a48664f3c347ce7f73c1a6a530506 ""
-  "projectpaper.aux" 1524327865 8233 c7f32feb821689992661f7d8abdf4827 ""
+  "projectpaper.aux" 1524427569 8402 89535a0ae74fb35ed33f6844038b5f21 ""
   "projectpaper.bcf" 0 -1 0 ""
-  "projectpaper.bib" 1524320322 7064 b96ecc9500e753e9b8aa7da7fc6055b8 ""
+  "projectpaper.bib" 1524328266 7218 dde58eee67fdf08549ff071ad60b841a ""
   (generated)
-  "projectpaper.bbl"
   "projectpaper.blg"
-["pdflatex"] 1524327865 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1524327866
+  "projectpaper.bbl"
+["pdflatex"] 1524427568 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1524427570
   "/etc/texmf/web2c/texmf.cnf" 1511989721 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1524327865 52887 673f250c0e8a87fe9af615d6745ecd91 ""
+  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1524427565 53348 64d21fbcbbf4e3a7fd6a7c1289b9af5f ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -83,6 +83,8 @@
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty" 1156702453 857 6c716f26c5eadfb81029fcd6ce2d45e6 ""
   "/usr/share/texlive/texmf-dist/tex/latex/savetrees/savetrees.sty" 1460670451 11210 08eebe33a39d59413f3dd958b727bf69 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg" 1167176009 2062 a0e7d66e09e508f51289a656aec06ed2 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty" 1167176009 15188 91281c7ddbccfa54a8e0c3b56ab5aa72 ""
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1417732693 4962 9c1069474ff71dbc47d5006555e352d3 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1488610416 31340 0f53f8665296bf8fe6c697f9505e31d8 ""
@@ -90,11 +92,14 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1511989839 2044936 0edf5ca64352b50b145b46ea2ee03d92 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1511989919 3871397 38459f329ebb72905e84ad19e3a69582 ""
   "durhampaper.sty" 1519721450 2085 caaf607c8d907699ff88d6892b669ae5 ""
-  "projectpaper.aux" 1524327865 8233 c7f32feb821689992661f7d8abdf4827 ""
-  "projectpaper.bbl" 1524326793 3951 661cb09e8a9d532bf421457f98b70bcc "bibtex projectpaper"
-  "projectpaper.tex" 1524327865 52887 673f250c0e8a87fe9af615d6745ecd91 ""
+  "gammacorrection_normal.png" 1524407622 2421987 1cef545361ac63f5bf6f3a0d411c6d1d ""
+  "gammacorrectionhigh.png" 1524427255 2059776 a1d9fa6d761982b65f42256cbeb67b52 ""
+  "gammacorrectionlow.png" 1524427240 2605224 85871924011115afc53b681ec125b637 ""
+  "projectpaper.aux" 1524427569 8402 89535a0ae74fb35ed33f6844038b5f21 ""
+  "projectpaper.bbl" 1524427567 4052 3141b5eabf2e46c4797ae63d80595720 "bibtex projectpaper"
+  "projectpaper.tex" 1524427565 53348 64d21fbcbbf4e3a7fd6a7c1289b9af5f ""
   "renderserverdiagram.png" 1524149671 119889 1ce86f77edad80358c6dce0abfe84874 ""
   (generated)
+  "projectpaper.aux"
   "projectpaper.pdf"
   "projectpaper.log"
-  "projectpaper.aux"
