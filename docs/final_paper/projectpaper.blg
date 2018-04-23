@@ -1,46 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: projectpaper.aux
-The style file: plain.bst
+The style file: unsrtnat.bst
 Database file #1: projectpaper.bib
 You've used 21 entries,
-            2118 wiz_defined-function locations,
-            623 strings with 7151 characters,
-and the built_in function-call counts, 4766 in all, are:
-= -- 465
-> -- 149
-< -- 1
-+ -- 67
+            2481 wiz_defined-function locations,
+            680 strings with 7629 characters,
+and the built_in function-call counts, 5854 in all, are:
+= -- 528
+> -- 154
+< -- 12
++ -- 86
 - -- 44
-* -- 247
-:= -- 758
-add.period$ -- 68
+* -- 339
+:= -- 859
+add.period$ -- 76
 call.type$ -- 21
-change.case$ -- 89
-chr.to.int$ -- 0
+change.case$ -- 39
+chr.to.int$ -- 21
 cite$ -- 21
-duplicate$ -- 187
-empty$ -- 476
-format.name$ -- 44
-if$ -- 1051
-int.to.chr$ -- 0
-int.to.str$ -- 21
+duplicate$ -- 340
+empty$ -- 662
+format.name$ -- 60
+if$ -- 1316
+int.to.chr$ -- 1
+int.to.str$ -- 22
 missing$ -- 10
-newline$ -- 113
-num.names$ -- 28
-pop$ -- 141
+newline$ -- 126
+num.names$ -- 42
+pop$ -- 222
 preamble$ -- 1
-purify$ -- 71
+purify$ -- 21
 quote$ -- 0
-skip$ -- 142
+skip$ -- 202
 stack$ -- 0
-substring$ -- 163
-swap$ -- 27
+substring$ -- 98
+swap$ -- 68
 text.length$ -- 1
-text.prefix$ -- 0
+text.prefix$ -- 2
 top$ -- 0
-type$ -- 78
+type$ -- 138
 warning$ -- 0
 while$ -- 32
-width$ -- 23
-write$ -- 227
+width$ -- 0
+write$ -- 290
