@@ -200,7 +200,8 @@ As explained in the introduction, there are many different types of proprietary 
 Each of these formats stores similar information, but in a different way.
 
 Adobe created and made public their standard RAW file format called DNG. It is defined as "a non-proprietary file format for storing camera raw files that
-can be used by a wide range of hardware and software vendors" by Adobe in the specification. \cite{DNGSpec}
+can be used by a wide range of hardware and software vendors" by Adobe in the specification. \cite{DNGSpec} Some cameras use DNG as default, for example
+Pentax.
 
 
 \subsection{Existing Solutions}
@@ -245,7 +246,8 @@ can be used by a wide range of hardware and software vendors" by Adobe in the sp
 
 
 \section{Solution}
-
+This section presents the solution to the problem, explaining the implementation detail of how the system was constructed. There are many ways 
+of solving the problem, so some other options were also outlined, along with a comparison between them.
 % This section presents the solutions to the problems in detail.  The design and implementation details should all be placed in this section.  You may create a number of subsections, each focussing on one issue.  
 
 % This section should be between 4 to 7 pages in length.
@@ -353,6 +355,8 @@ More detail about the Adams Processor, which is the name for all the custom imag
 \end{figure}
 
 \subsection{Adams Processor}\label{AdamsProcessor}
+The Adams Processor, named after the famous photographer Ansel Adams (known for his black and white film landscape photographs), 
+is the name given to the main routines powering our application. This deals with processing the image after generating the RAW image.
 \subsubsection{Gamma Correction}
 % Impmenetation
 % formula
@@ -423,10 +427,12 @@ and periodic noise.
     \cite{Unsharp}
 
     When using the RGB colour space, with Unsharp on each individual channel, the colours can appear warped, so using the HSL colour space instead
-    can reduce this, and also reduce the computation. This is because only the luminance channel needs to be modified, rather than all three channels.
+    can reduce this, and also reduce the computation. The HSL Colour Space is a way of storing images, storing the Hue, Saturation, and Luminance
+    for each pixel. The hue represents the colour, the saturation represents how prominant the colour is (the purity), and the luminance controls 
+    the perceived lightness of the colour. This conversion is beneficial because only the luminance channel needs to be modified, rather than all three channels.
     However, one key problem is that the process can yield values of luminance (L) that exceed the $0 \le L \le 100$ range in the colour space.
     Furthermore, if this step isn't carried out, clipping can occur, which yields an overall loss of image data, something that isn't desired in a RAW editor.
-    
+
     This problem can be solved by normalizing the image, by a process called contrast stretching. The max and minimum luminance values are found across the
     entire modified image, and these are used to scale the luminance values. Using standard Contrast Stretching does work, but at times tonal curves can look weird. By manually applying gamma though, this problem can be
     solved.
@@ -449,6 +455,11 @@ and periodic noise.
     amounts, so that the overall image produced blends them together to create white (rather than an orange).
     The white balance control here can be adjusted further to tint the entire image.
 
+    This is important in photography, as light sources don't always emit a uniform white light, but rather have some
+    colour tint to it. As a result, the image that is captured will have colours appearing incorrectly (whites will appear 
+    orange in some cases, or other shades). This effect can be removed in editing, but carrying out White Balance adjustment, also
+    known as colour adjustment.
+    
     In order to do this, we can simply scale the components of the internal camera RGB model, which can be done
     by adjusting the coefficients of these channels, which create a final colour image. In \cite{WhiteBalance}, \citeauthor{WhiteBalance}
     found that less distortion of colours was produced when using the camera RGB representation rather than monitor based
@@ -595,7 +606,8 @@ This will ensure the algorithm is working correctly.
 Exposure zero should yield a completely black image. Using a very high exposure should yield a completely, or nearly white image.
 
 \section{Results}
-
+This section outlines the results, to test the system against the deliverables and to compare it to other systems that are already in production.
+The section aims to show that our solution works, and provides results to determine how well it works.
 % this section presents the results of the solutions.  It should include information on experimental settings.  The results should demonstrate the claimed benefits/disadvantages of the proposed solutions.
 
 % This section should be between 2 to 3 pages in length.
@@ -808,8 +820,8 @@ image rendering service, this can be higher, as often RAW images can be edited i
 \end{table}
 
 \section{Evaluation}
-While in comparisons it's hard to compare the quality of the images, as different RAW software performs differently, as they all have different amounts
-of 
+This section evaluates how well our system works, how well it solves the problem of RAW image processing as a service,
+and how it can be applied.
 % This section should between 1 to 2 pages in length.
 
 \subsection{Application as a RAW Image Editor}
@@ -856,7 +868,7 @@ documentation and examples didn't assist with this, as examples that were suppos
 Eventually, this implementation approach was abandoned, and replaced with a custom approach of iterating through the image and applying the LUT
 manually. While slower (not relying on Java's faster implementation of yielding RGB values), it solved the problem and only appeared marginally slower.
 
-\paragraph{Lack of support for Multithreading}
+\paragraph{Lack of support for multithreading}
 Initially, the plan was to apply multithreading to Convolution operations, but this didn't end up getting implemented due to the overhead of BufferedImage.
 As BufferedImage allows for multiple representations of images, it does not allow access directly to a primitive datastructure storing the image, or some way of
 yielding one directly. The naive way by passing Bufferedimage as a pointer didn't work either, as the overhead caused the system to run much slower than without parallellization.
