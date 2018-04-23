@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  23 APR 2018 10:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  23 APR 2018 11:34
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex
-(/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex
+**projectpaper.tex
+(./projectpaper.tex
 LaTeX2e <2017/01/01> patch level 3
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -59,130 +58,80 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-(./durhampaper.sty
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip43
+\bibsep=\skip44
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count88
+) (./durhampaper.sty
 Durham CS undergraduate paper style 'durhampaper.sty'.
 ) (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip43
-\subfigcapskip=\skip44
+\subfigtopskip=\skip45
+\subfigcapskip=\skip46
 \subfigcaptopadj=\dimen105
-\subfigbottomskip=\skip45
+\subfigbottomskip=\skip47
 \subfigcapmargin=\dimen106
-\subfiglabelskip=\skip46
-\c@subfigure=\count88
-\c@lofdepth=\count89
-\c@subtable=\count90
-\c@lotdepth=\count91
+\subfiglabelskip=\skip48
+\c@subfigure=\count89
+\c@lofdepth=\count90
+\c@subtable=\count91
+\c@lotdepth=\count92
 
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
 (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip47
-\subfig@bottom=\skip48
+\subfig@top=\skip49
+\subfig@bottom=\skip50
 )
-(/usr/share/texlive/texmf-dist/tex/latex/harvard/harvard.sty
-Package: harvard 
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-))
-(/usr/share/texlive/texmf-dist/tex/latex/savetrees/savetrees.sty
-Package: savetrees 2016/04/13 v2.4 Pack as much text as possible onto each page
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
-
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks15
-\XKV@tempa@toks=\toks16
-)
-\XKV@depth=\count92
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-\everypar=\toks17
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count93
-\calc@Bcount=\count94
-\calc@Adimen=\dimen107
-\calc@Bdimen=\dimen108
-\calc@Askip=\skip49
-\calc@Bskip=\skip50
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count95
-\calc@Cskip=\skip51
-)
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2016/05/14 v2.6a Micro-typographical refinements (RS)
-\MT@toks=\toks18
-\MT@count=\count96
-LaTeX Info: Redefining \textls on input line 774.
-\MT@outer@kern=\dimen109
-LaTeX Info: Redefining \textmicrotypecontext on input line 1310.
-\MT@listname@count=\count97
-
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2016/05/14 v2.6a Definitions specific to pdftex (RS)
-
-LaTeX Info: Redefining \lsstyle on input line 916.
-LaTeX Info: Redefining \lslig on input line 916.
-\MT@outer@space=\skip52
-)
-Package microtype Info: Loading configuration file microtype.cfg.
-
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2016/05/14 v2.6a microtype main configuration file (RS)
-))
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (./projectpaper.aux)
 \openout1 = `projectpaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count98
-\scratchdimen=\dimen110
+\scratchcounter=\count93
+\scratchdimen=\dimen107
 \scratchbox=\box26
-\nofMPsegments=\count99
-\nofMParguments=\count100
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count101
-\MPscratchDim=\dimen111
-\MPnumerator=\count102
-\makeMPintoPDFobject=\count103
-\everyMPtoPDFconversion=\toks20
+\nofMPsegments=\count94
+\nofMParguments=\count95
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count96
+\MPscratchDim=\dimen108
+\MPnumerator=\count97
+\makeMPintoPDFobject=\count98
+\everyMPtoPDFconversion=\toks16
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -222,309 +171,190 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 21.
-Package microtype Info: Generating PDF output.
-Package microtype Info: Character protrusion enabled (level 2).
-Package microtype Info: Using default protrusion set `alltext'.
-Package microtype Info: Automatic font expansion enabled (level 2),
-(microtype)             stretch: 0, shrink: 50, step: 1, non-selected.
-Package microtype Info: Using default expansion set `basictext'.
-Package microtype Info: Tracking enabled.
-Package microtype Info: Using tracking set `all'.
-Package microtype Info: No adjustment of interword spacing.
-Package microtype Info: No adjustment of character kerning.
-
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg
-File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
-)
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 25.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 24.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 77.
-
-
-LaTeX Warning: Citation 'UnderstandingRAWCapture' on page 1 undefined on input 
-line 98.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 76.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation 'UnderstandingRAWCapture' on page 2 undefined on input 
-line 127.
-
-[2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 164.
 
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
 
 
-LaTeX Warning: Citation 'WebServiceImageProcessing' on page 3 undefined on inpu
-t line 186.
+Package natbib Warning: Author undefined for citation`WebServiceImageProcessing
+' 
+(natbib)                on page 3 on input line 188.
 
-
-LaTeX Warning: Citation 'WebServiceImageProcessing' on page 3 undefined on inpu
-t line 189.
-
-
-LaTeX Warning: Citation 'DNGSpec' on page 3 undefined on input line 204.
-
-
-LaTeX Warning: Citation 'AdobeCameraRAW' on page 3 undefined on input line 215.
-
-
-
-LaTeX Warning: Citation 'AdobeDNGConverter' on page 3 undefined on input line 2
-19.
-
-
-LaTeX Warning: Citation 'LinuxServerGrowth' on page 3 undefined on input line 2
-21.
-
-
-LaTeX Warning: Citation 'RawTherapeeReadme' on page 3 undefined on input line 2
-28.
-
-[3]
-
-LaTeX Warning: Citation 'DarkTableAbout' on page 4 undefined on input line 234.
-
-
-
-LaTeX Warning: Citation 'DCRAWSource' on page 4 undefined on input line 241.
-
-
-LaTeX Warning: Citation 'LibrawSource' on page 4 undefined on input line 245.
-
-
-LaTeX Warning: Citation 'JDCRAW' on page 4 undefined on input line 262.
-
-
-LaTeX Warning: Citation 'TwelveMonkeys' on page 4 undefined on input line 265.
-
-
-LaTeX Warning: Citation 'RESTandLongRunningJobs' on page 4 undefined on input l
-ine 286.
-
-[4]
-
-LaTeX Warning: Citation 'WebsocketSpec' on page 5 undefined on input line 294.
-
-
-LaTeX Warning: Citation 'WebSocketDeveloper' on page 5 undefined on input line 
-301.
-
-
-LaTeX Warning: Citation 'SocketIOBook' on page 5 undefined on input line 309.
-
-<renderserverdiagram.png, id=20, 845.40843pt x 597.73312pt>
+[3] [4] [5] <renderserverdiagram.png, id=23, 845.40843pt x 597.73312pt>
 File: renderserverdiagram.png Graphic file (type png)
 
 <use renderserverdiagram.png>
-Package pdftex.def Info: renderserverdiagram.png used on input line 351.
+Package pdftex.def Info: renderserverdiagram.png used on input line 350.
 (pdftex.def)             Requested size: 416.13188pt x 294.21428pt.
- [5]
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
-(RS)
-)
+ [6 <./renderserverdiagram.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 364.
+(Font)              <7> on input line 363.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 364.
+(Font)              <5> on input line 363.
+ [7]
 
+Package natbib Warning: Author undefined for citation`WhiteBalance' 
+(natbib)                on page 8 on input line 453.
 
-LaTeX Warning: Citation 'NRandFiltering' on page 6 undefined on input line 384.
-
-
-
-LaTeX Warning: Citation 'NRandFiltering' on page 6 undefined on input line 394.
-
-
-
-LaTeX Warning: Citation 'DigitalImageProcessingTextbook' on page 6 undefined on
- input line 395.
-
-
-LaTeX Warning: Citation 'NRandFiltering' on page 6 undefined on input line 399.
-
-
-[6 <./renderserverdiagram.png>]
-
-LaTeX Warning: Citation 'Unsharp' on page 7 undefined on input line 424.
-
-
-LaTeX Warning: Citation 'HSLImplementation' on page 7 undefined on input line 4
-41.
-
-
-LaTeX Warning: Citation 'WhiteBalance' on page 7 undefined on input line 454.
-
-
-LaTeX Warning: Citation 'WhiteBalance' on page 7 undefined on input line 454.
-
-[7] [8] <colourtest_no_adjustment.png, id=39, 1402.23875pt x 912.40875pt>
+[8] [9] <colourtest_no_adjustment.png, id=42, 1402.23875pt x 912.40875pt>
 File: colourtest_no_adjustment.png Graphic file (type png)
 
 <use colourtest_no_adjustment.png>
-Package pdftex.def Info: colourtest_no_adjustment.png used on input line 607.
+Package pdftex.def Info: colourtest_no_adjustment.png used on input line 606.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
-<colourtest_redonly.png, id=40, 1402.23875pt x 912.40875pt>
+<colourtest_redonly.png, id=43, 1402.23875pt x 912.40875pt>
 File: colourtest_redonly.png Graphic file (type png)
 
 <use colourtest_redonly.png>
-Package pdftex.def Info: colourtest_redonly.png used on input line 611.
+Package pdftex.def Info: colourtest_redonly.png used on input line 610.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
-<colourtest_greenonly.png, id=41, 1402.23875pt x 912.40875pt>
+<colourtest_greenonly.png, id=44, 1402.23875pt x 912.40875pt>
 File: colourtest_greenonly.png Graphic file (type png)
 
 <use colourtest_greenonly.png>
-Package pdftex.def Info: colourtest_greenonly.png used on input line 615.
+Package pdftex.def Info: colourtest_greenonly.png used on input line 614.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
-<blueonly.png, id=42, 1402.23875pt x 912.40875pt>
+<blueonly.png, id=45, 1402.23875pt x 912.40875pt>
 File: blueonly.png Graphic file (type png)
  <use blueonly.png>
-Package pdftex.def Info: blueonly.png used on input line 619.
+Package pdftex.def Info: blueonly.png used on input line 618.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
- [9 <./colourtest_no_adjustment.png> <./colourtest_redonly.png> <./colourtest_g
-reenonly.png> <./blueonly.png>]
-<gammacorrectionlow.png, id=50, 1402.23875pt x 912.40875pt>
+ [10 <./colourtest_no_adjustment.png> <./colourtest_redonly.png> <./colourtest_
+greenonly.png> <./blueonly.png>]
+<gammacorrectionlow.png, id=53, 1402.23875pt x 912.40875pt>
 File: gammacorrectionlow.png Graphic file (type png)
 
 <use gammacorrectionlow.png>
-Package pdftex.def Info: gammacorrectionlow.png used on input line 648.
+Package pdftex.def Info: gammacorrectionlow.png used on input line 647.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
 
-<gammacorrection_normal.png, id=51, 1402.23875pt x 912.40875pt>
+<gammacorrection_normal.png, id=54, 1402.23875pt x 912.40875pt>
 File: gammacorrection_normal.png Graphic file (type png)
 
 <use gammacorrection_normal.png>
-Package pdftex.def Info: gammacorrection_normal.png used on input line 652.
+Package pdftex.def Info: gammacorrection_normal.png used on input line 651.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
 
-<gammacorrectionhigh.png, id=52, 1402.23875pt x 912.40875pt>
+<gammacorrectionhigh.png, id=55, 1402.23875pt x 912.40875pt>
 File: gammacorrectionhigh.png Graphic file (type png)
 
 <use gammacorrectionhigh.png>
-Package pdftex.def Info: gammacorrectionhigh.png used on input line 656.
+Package pdftex.def Info: gammacorrectionhigh.png used on input line 655.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
- [10 <./gammacorrectionlow.png> <./gammacorrection_normal.png> <./gammacorrecti
+ [11 <./gammacorrectionlow.png> <./gammacorrection_normal.png> <./gammacorrecti
 onhigh.png>]
-<rawflash_hat_sharp.png, id=59, 1402.23875pt x 963.6pt>
+<rawflash_hat_sharp.png, id=62, 1402.23875pt x 963.6pt>
 File: rawflash_hat_sharp.png Graphic file (type png)
 
 <use rawflash_hat_sharp.png>
-Package pdftex.def Info: rawflash_hat_sharp.png used on input line 721.
+Package pdftex.def Info: rawflash_hat_sharp.png used on input line 720.
 (pdftex.def)             Requested size: 100.37537pt x 68.97333pt.
 
-<rawtherapee_unsharp_max.jpg, id=60, 253.4268pt x 222.5916pt>
+<rawtherapee_unsharp_max.jpg, id=63, 253.4268pt x 222.5916pt>
 File: rawtherapee_unsharp_max.jpg Graphic file (type jpg)
 
 <use rawtherapee_unsharp_max.jpg>
-Package pdftex.def Info: rawtherapee_unsharp_max.jpg used on input line 725.
+Package pdftex.def Info: rawtherapee_unsharp_max.jpg used on input line 724.
 (pdftex.def)             Requested size: 100.37537pt x 88.16216pt.
 
-<darktable_unsharp.jpg, id=61, 282.3348pt x 185.9748pt>
+<darktable_unsharp.jpg, id=64, 282.3348pt x 185.9748pt>
 File: darktable_unsharp.jpg Graphic file (type jpg)
 
 <use darktable_unsharp.jpg>
-Package pdftex.def Info: darktable_unsharp.jpg used on input line 729.
+Package pdftex.def Info: darktable_unsharp.jpg used on input line 728.
 (pdftex.def)             Requested size: 100.37537pt x 66.11658pt.
 
-<rawflash_colour_adjustment.png, id=62, 1402.23875pt x 963.6pt>
+<rawflash_colour_adjustment.png, id=65, 1402.23875pt x 963.6pt>
 File: rawflash_colour_adjustment.png Graphic file (type png)
 
 <use rawflash_colour_adjustment.png>
-Package pdftex.def Info: rawflash_colour_adjustment.png used on input line 755.
+Package pdftex.def Info: rawflash_colour_adjustment.png used on input line 754.
 
 (pdftex.def)             Requested size: 100.37537pt x 68.97333pt.
 
-<rawtherapee_colour_adjustment.jpg, id=63, 1030.0884pt x 683.1924pt>
+<rawtherapee_colour_adjustment.jpg, id=66, 1030.0884pt x 683.1924pt>
 File: rawtherapee_colour_adjustment.jpg Graphic file (type jpg)
 
 <use rawtherapee_colour_adjustment.jpg>
 Package pdftex.def Info: rawtherapee_colour_adjustment.jpg used on input line 7
-59.
+58.
 (pdftex.def)             Requested size: 100.37537pt x 66.57188pt.
 
-<darktable_colour_adjustment.jpg, id=64, 1031.5338pt x 685.1196pt>
+<darktable_colour_adjustment.jpg, id=67, 1031.5338pt x 685.1196pt>
 File: darktable_colour_adjustment.jpg Graphic file (type jpg)
 
 <use darktable_colour_adjustment.jpg>
-Package pdftex.def Info: darktable_colour_adjustment.jpg used on input line 763
+Package pdftex.def Info: darktable_colour_adjustment.jpg used on input line 762
 .
 (pdftex.def)             Requested size: 100.37537pt x 66.66559pt.
- [11 <./rawflash_hat_sharp.png> <./rawtherapee_unsharp_max.jpg> <./darktable_un
+ [12 <./rawflash_hat_sharp.png> <./rawtherapee_unsharp_max.jpg> <./darktable_un
 sharp.jpg> <./rawflash_colour_adjustment.png> <./rawtherapee_colour_adjustment.
 jpg> <./darktable_colour_adjustment.jpg>]
-[12] (./projectpaper.bbl
+[13] (./projectpaper.bbl
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Package microtype Info: Loading generic settings for font family
-(microtype)             `pcr' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-Underfull \hbox (badness 1024) in paragraph at lines 4--7
-[]\OT1/ptm/m/n/10/-25ls About dark-table.  URL: $\OT1/pcr/m/n/10/-25ls https : 
-/ / www . darktable . org / about/$\OT1/ptm/m/n/10/-25ls , Apr. 2018.  Ac-cesse
-d:
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 9--14
-[]\OT1/ptm/m/n/10/-25ls Camera raw.  URL: $\OT1/pcr/m/n/10/-25ls https : / / he
-lpx . adobe . com / camera-[]raw / using /
+[]\OT1/ptm/m/n/10 Camera raw.  URL: $\OT1/pcr/m/n/10 https : / / helpx . adobe 
+. com / camera-[]raw / using /
  []
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 40--45
-[]\OT1/ptm/m/sc/10/-25ls Farazdagi, V.  \OT1/ptm/m/n/10/-25ls Rest and long-run
-ning jobs.  URL: $\OT1/pcr/m/n/10/-25ls https : / / farazdagi . com / 2014 /
+Underfull \hbox (badness 2020) in paragraph at lines 16--21
+[]\OT1/ptm/m/n/10 Adobe dig-i-tal neg-a-tive con-verter.  URL: $\OT1/pcr/m/n/10
+ https : / / helpx . adobe . com / photoshop /
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--106
-[]\OT1/ptm/m/n/10/-25ls Web sock-ets.  URL: $\OT1/pcr/m/n/10/-25ls https : / / 
-developer . mozilla . org / en-[]US / docs / Web / API /
+[14]
+Underfull \hbox (badness 1371) in paragraph at lines 99--104
+[]\OT1/ptm/m/n/10 Web sock-ets.  URL: $\OT1/pcr/m/n/10 https : / / developer . 
+mozilla . org / en-[]US / docs / Web / API /
  []
 
-[13]) [14] (./projectpaper.aux) ) 
+) [15] (./projectpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 4638 strings out of 493013
- 74986 string characters out of 6135681
- 167843 words of memory out of 5000000
- 7787 multiletter control sequences out of 15000+600000
- 39401 words of font info for 268 fonts, out of 8000000 for 9000
+ 2305 strings out of 493013
+ 33634 string characters out of 6135681
+ 95802 words of memory out of 5000000
+ 5809 multiletter control sequences out of 15000+600000
+ 15997 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,7n,78p,384b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips
-/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
-mr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on projectpaper.pdf (14 pages, 31514229 bytes).
+ 39i,7n,25p,325b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/bas
+e/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on projectpaper.pdf (15 pages, 31500330 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 34375 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,42 +1,42 @@
 This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: projectpaper.aux
-The style file: acm.bst
+The style file: plain.bst
 Database file #1: projectpaper.bib
 You've used 21 entries,
-            2253 wiz_defined-function locations,
-            654 strings with 7046 characters,
-and the built_in function-call counts, 4816 in all, are:
-= -- 466
-> -- 145
-< -- 0
+            2118 wiz_defined-function locations,
+            623 strings with 7151 characters,
+and the built_in function-call counts, 4766 in all, are:
+= -- 465
+> -- 149
+< -- 1
 + -- 67
 - -- 44
-* -- 283
-:= -- 756
-add.period$ -- 69
+* -- 247
+:= -- 758
+add.period$ -- 68
 call.type$ -- 21
-change.case$ -- 90
+change.case$ -- 89
 chr.to.int$ -- 0
 cite$ -- 21
-duplicate$ -- 198
-empty$ -- 484
+duplicate$ -- 187
+empty$ -- 476
 format.name$ -- 44
-if$ -- 1054
+if$ -- 1051
 int.to.chr$ -- 0
 int.to.str$ -- 21
 missing$ -- 10
-newline$ -- 114
+newline$ -- 113
 num.names$ -- 28
-pop$ -- 133
+pop$ -- 141
 preamble$ -- 1
 purify$ -- 71
 quote$ -- 0
-skip$ -- 133
+skip$ -- 142
 stack$ -- 0
 substring$ -- 163
-swap$ -- 40
-text.length$ -- 0
+swap$ -- 27
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 78

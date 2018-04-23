@@ -2,131 +2,129 @@
 
 \bibitem{DarkTableAbout}
 About darktable.
-\newblock URL: \url{https://www.darktable.org/about/}, Apr. 2018.
+\newblock URL: \url{https://www.darktable.org/about/}, apr 2018.
 \newblock Accessed: 20-04-2018.
 
 \bibitem{AdobeCameraRAW}
 Camera raw.
 \newblock URL:
-  \url{https://helpx.adobe.com/camera-raw/using/supported-cameras.html}, May
+  \url{https://helpx.adobe.com/camera-raw/using/supported-cameras.html}, may
   2017.
 \newblock Accessed: 19-04-2018.
 
 \bibitem{AdobeDNGConverter}
 Adobe digital negative converter.
 \newblock URL:
-  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html}, Oct.
+  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html}, oct
   2017.
 \newblock Accessed: 19-04-2018.
 
 \bibitem{DNGSpec}
-{\sc Adobe Systems}.
-\newblock {\em Digital Negative (DNG) Specification}, June 2012.
+Adobe Systems.
+\newblock {\em Digital Negative (DNG) Specification}, jun 2012.
 \newblock Version 1.4.0.0.
 
 \bibitem{DCRAWSource}
-{\sc Coffin, D.}
+Dave Coffin.
 \newblock Decoding raw digital photos in linux.
 \newblock URL: \url{https://www.cybercom.net/~dcoffin/dcraw/}, May 2017.
 \newblock Accessed: 20-04-2018.
 
 \bibitem{JDCRAW}
-{\sc Collins, R.}
+Ryan Collins.
 \newblock Jdcraw: A dcraw wrapper for java.
 \newblock URL: \url{https://github.com/OhmGeek/JDCraw}, June 2017.
 \newblock Accessed: 19-03-2018.
 
 \bibitem{RESTandLongRunningJobs}
-{\sc Farazdagi, V.}
+Victor Farazdagi.
 \newblock Rest and long-running jobs.
 \newblock URL: \url{https://farazdagi.com/2014/rest-and-long-running-jobs/},
   Oct 2014.
 \newblock Accessed: 19-04-2018.
 
 \bibitem{Unsharp}
-{\sc Fisher, R.~B., Perkins, S., Walker, A., and Wolfart, E.}
+Robert~B Fisher, Simon Perkins, Ashley Walker, and Erik Wolfart.
 \newblock {\em Hypermedia Image Processing Reference}.
 \newblock John Wiley and Sons LTD, 2000.
 
 \bibitem{UnderstandingRAWCapture}
-{\sc Fraser, B.}
-\newblock White paper: Understanding digital raw capture.
-\newblock Tech. rep., Adobe Systems Incorporated, 345 Park Avenue, San Jose,
-  CA, United States, September 2004.
+Bruce Fraser.
+\newblock White paper: Understanding digital raw capture, September 2004.
 \newblock Accessed 10th April 2018.
 
 \bibitem{DigitalImageProcessingTextbook}
-{\sc Gonzalez, R.~C., and Woods, R.~E.}
-\newblock {\em Digital Image Processing}, 2~ed.
-\newblock Prentice Hall, 2009.
+Rafael~C. Gonzalez and Richard~E. Woods.
+\newblock {\em Digital Image Processing}.
+\newblock Prentice Hall, 2 edition, 2009.
 
 \bibitem{NRandFiltering}
-{\sc Hambal, A., Pei, Z., and Ishabailu, F.~L.}
+Abdalla Hambal, Zhijun Pei, and Faustini~Libent Ishabailu.
 \newblock Image noise reduction and filtering techniques.
-\newblock {\em International Journal of Science and Research 6}, 2 (Mar. 2017),
-  201--213.
+\newblock {\em International Journal of Science and Research}, 6(2):201--213,
+  mar 2017.
 
 \bibitem{WebsocketSpec}
-{\sc Internet Engineering Task Force}.
-\newblock {\em The WebSocket Protocol}, Dec. 2011.
+Internet Engineering Task Force.
+\newblock {\em The WebSocket Protocol}, December 2011.
 
 \bibitem{HSLImplementation}
-{\sc Jianzhao, J.}
+Jeff Jianzhao.
 \newblock Hslcolor.java.
 \newblock URL:
   \url{https://github.com/jeffjianzhao/DAViewer/blob/master/src/daviewer/HSLColor.java},
-  Jan. 2015.
+  January 2015.
 
 \bibitem{TwelveMonkeys}
-{\sc Kuhr, H.}
+Harald Kuhr.
 \newblock Twelvemonkeys imageio: Additional plug-ins and extensions for java's
   imageio.
-\newblock URL: \url{https://github.com/haraldk/TwelveMonkeys}, Apr. 2018.
+\newblock URL: \url{https://github.com/haraldk/TwelveMonkeys}, April 2018.
 \newblock Accessed: 19-04-2018.
 
 \bibitem{WebServiceImageProcessing}
-{\sc Liang, Y., Xiao, Y., and Huang, J.}
+Y.~Liang, Y.~Xiao, and J.~Huang.
 \newblock An efficient image processing method based on web services for mobile
   devices.
 \newblock In {\em 2009 2nd International Congress on Image and Signal
-  Processing\/} (Oct 2009), pp.~1--5.
+  Processing}, pages 1--5, Oct 2009.
 
 \bibitem{SocketIOBook}
-{\sc MacCaw, A.}
+Alex MacCaw.
 \newblock {\em JavaScript Web Applications: JQuery Developers' Guide to Moving
-  State to the Client}, 1~ed.
-\newblock O'Reilly, 2011.
+  State to the Client}.
+\newblock O'Reilly, 1 edition, 2011.
 
 \bibitem{WebSocketDeveloper}
 Web sockets.
 \newblock URL:
-  \url{https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API}, Mar.
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API}, March
   2018.
 \newblock Accessed: 20-04-2018.
 
 \bibitem{LinuxServerGrowth}
-{\sc Nagel, D.}
+David Nagel.
 \newblock Linux leads server growth.
-\newblock {\em The Journal\/} (May 2012).
+\newblock {\em The Journal}, may 2012.
 \newblock Accessed: 20-04-2018.
 
 \bibitem{RawTherapeeReadme}
 Raw therapee readme.
 \newblock URL:
-  \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}, Feb. 2018.
+  \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}, feb 2018.
 \newblock Accessed: 20-04-2018.
 
 \bibitem{LibrawSource}
-{\sc Tutubalin, A.}
+Alex Tutubalin.
 \newblock Libraw project goals and objectives.
-\newblock URL: \url{https://www.libraw.org/about}, Apr. 2008.
+\newblock URL: \url{https://www.libraw.org/about}, April 2008.
 \newblock Accessed: 20-04-2018.
 
 \bibitem{WhiteBalance}
-{\sc Viggiano, J. A.~S.}
+J~A~Stephen Viggiano.
 \newblock Comparison of the accuracy of different white balancing options as
   quantified by their color constancy.
-\newblock {\em SPIE: The International Society for Optical Engineering 6}, 2
-  (Mar. 2004), 201--213.
+\newblock {\em SPIE: The International Society for Optical Engineering},
+  6(2):201--213, mar 2004.
 
 \end{thebibliography}

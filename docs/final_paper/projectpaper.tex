@@ -2,19 +2,18 @@
 \usepackage{times}
 \usepackage{graphics}
 \usepackage{graphicx}
+\usepackage{natbib}
 \usepackage{durhampaper}
 \usepackage{subfigure}
-\usepackage{harvard}
-\usepackage[moderate]{savetrees}
+% \usepackage{harvard}
+% \usepackage[moderate]{savetrees}
 \usepackage{url}
-\citationmode{abbr}
-\bibliographystyle{acm}
 
 \title{RAWFlash: A cloud based RAW image editor}
 \author{} % leave; your name goes into \student{}
 \student{Ryan Collins}
 \supervisor{Dr Tom Friedetzky}
-\degree{[MEng Computer Science]}
+\degree{MEng Computer Science}
 
 \date{\today}
 
@@ -186,7 +185,7 @@ The project objectives can be expressed as Minimum, Intermediate and Advanced Ob
 Research into a Cloud-based solution for image processing isn't new. \cite{WebServiceImageProcessing} outlined a prototype
 system for editing standard images through web services. However, for greater image quality, RAW files are typically used
 over standard images, and with these files come larger file sizes, no compression, and various extra steps in the image processing
-pipeline, such as demosaicing. In order to do this, while the basic architecture in \citename{WebServiceImageProcessing}'s work is sound,
+pipeline, such as demosaicing. In order to do this, while the basic architecture in \citeauthor{WebServiceImageProcessing}'s work is sound,
 it isn't designed to be used through a web browser, so the User interface layer will need to be modified, and our services implementation layer
 will also need to be heavily changed to deal with RAW images, their editing, and the output image.
 
@@ -451,7 +450,7 @@ and periodic noise.
     The white balance control here can be adjusted further to tint the entire image.
 
     In order to do this, we can simply scale the components of the internal camera RGB model, which can be done
-    by adjusting the coefficients of these channels, which create a final colour image. In \cite{WhiteBalance}, \citename{WhiteBalance}
+    by adjusting the coefficients of these channels, which create a final colour image. In \cite{WhiteBalance}, \citeauthor{WhiteBalance}
     found that less distortion of colours was produced when using the camera RGB representation rather than monitor based
     RGB, as we are using the RAW format, we can store the camera representation, therefore producing less distorted colours
     as a result.
@@ -859,6 +858,8 @@ Overall, the project showed that a Cloud-based approach of editing RAW images do
 While the current implementation has some performance issues, these can be easily rectified, and the approach of editing RAW images as a service is very much possible.
 Using this approach directly in a browser would also work, although the delays in rendering the image on the server side make RAW editing slightly more work when compared with
 using native editors, using the standard RAW workflow.
+
+\bibliographystyle{plain}
 \bibliography{projectpaper}
 
 
