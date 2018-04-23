@@ -350,8 +350,10 @@ many more processors could easily be added, perhaps using class loading in the f
 More detail about the Adams Processor, which is the name for all the custom image processing implementation can be found in Part \ref{AdamsProcessor}.
 \begin{figure}\label{renderserverdiagram}
     \includegraphics[width=\linewidth]{renderserverdiagram}
-    \caption{The structure of the render server. The local cache is simply stored on the server local filesystem,
-    while the RabbitMQ Consumer takes requests from the message queue and processes them, returning the result.}
+    \caption{The structure of the render server. The local cache is simply stored on the server local filesystem.
+    RabbitMQ is a message queue - every single render job is added to the message queue, and the render servers take a job from the message queue
+    to process. There are two queues, one to store jobs to process, others to store the results of jobs. When a job is finished, the result is added to the second
+    queue, and this is then passed to the user.}
 \end{figure}
 
 \subsection{Adams Processor}\label{AdamsProcessor}
@@ -366,7 +368,7 @@ mapping the colours to a different tone curve.
 
 The function $f$ is used as a transformation from the image, to the gamma correction image. $f$ is defined as:
 
-$$f(\gamma, v) = 255 \cdot (\frac{v}{255})^{\gamma}$$
+$$f(\gamma, v) = 255 \cdot \left( \frac{v}{255}\right)^{\gamma} $$
 
 In the above definition, v is the brightness value of one cell of the image, where $0 <= v <= 255$.
 
@@ -443,7 +445,7 @@ and periodic noise.
     primarily used).
 
     One problem encounted in implementing this was lack of HSL support built into Java. Instead, an implementation of an HSLColour converter, was used,
-    as document in \cite{HSLImplementation}
+    as documented in \cite{HSLImplementation}
 \subsubsection{White Balance Adjustment}
     % Based on gains
     % control RGB components.
@@ -459,7 +461,7 @@ and periodic noise.
     colour tint to it. As a result, the image that is captured will have colours appearing incorrectly (whites will appear 
     orange in some cases, or other shades). This effect can be removed in editing, but carrying out White Balance adjustment, also
     known as colour adjustment.
-    
+
     In order to do this, we can simply scale the components of the internal camera RGB model, which can be done
     by adjusting the coefficients of these channels, which create a final colour image. In \cite{WhiteBalance}, \citeauthor{WhiteBalance}
     found that less distortion of colours was produced when using the camera RGB representation rather than monitor based
@@ -618,9 +620,31 @@ expected outcomes. For example, removing all blue and green channels should yiel
 \subsubsection{Exposure Checks}
 The boundary conditions here to check is with a zero exposure (yielding a black picture), a normal exposure (1.0), and a very high exposure.
 The normal exposure should yield a normal image, while a very high exposure should yield a white image (or an image that's mostly white, with a few
-bright spots).
+bright spots). When testing, zero yielded an inverted colour, but with a small value near zero yielded the appropriate result.
 
 % \textbf{TODO test exposure}
+
+\begin{figure}\label{colourbalancetest}
+    \centering
+    \subfigure
+    {
+        \includegraphics[width=75px]{brightnesspoint0001}
+    }
+    \subfigure
+    {
+        \includegraphics[width=75px]{brightnessnormal}
+    }
+    \subfigure
+    {
+        \includegraphics[width=75px]{brightness5000}
+    }
+    \caption{
+        Test of Colour Balance 
+        (a) Exposure Level Small: 0.0001
+        (b) Exposure normal: 1.0
+        (c) Exposure level high: 5000
+    }
+ \end{figure}
 
 \subsubsection{Colour Balance Checks}
 Colour balance is controlled with red, green and blue gains. If we set only one of these gains to 1.0, and the other two to zero, we should

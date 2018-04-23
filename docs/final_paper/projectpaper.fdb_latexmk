@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex projectpaper"] 1524508381 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1524508386
+["bibtex projectpaper"] 1524512808 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1524512816
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "projectpaper.aux" 1524508386 10618 06a578992c9c8fc221a7fc3a314e8ce5 ""
+  "projectpaper.aux" 1524512816 11085 7db46da2851264f85e0ac8c3b6eb4ef8 ""
   "projectpaper.bcf" 0 -1 0 ""
   "projectpaper.bib" 1524484729 7962 3a19110a916fea3e1747caa2332ba6ca ""
   (generated)
-  "projectpaper.bbl"
   "projectpaper.blg"
-["pdflatex"] 1524508381 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1524508386
+  "projectpaper.bbl"
+["pdflatex"] 1524512808 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1524512816
   "/etc/texmf/web2c/texmf.cnf" 1511989721 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1524508376 57816 f40ea99810e7e35b642bcd260ee25516 ""
+  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1524512790 58663 74555d27ba497ff52cdaaaef2681a6cb ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -22,6 +22,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm" 1136768653 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm" 1136768653 2288 f478fc8fed18759effb59f3dad7f3084 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm" 1136768653 4640 532ca3305aad10cc01d769f3f91f1029 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -71,6 +72,9 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1511989919 3871397 38459f329ebb72905e84ad19e3a69582 ""
   "architecture.png" 1524483632 48064 3032b25db937c96bab3a561d33b8d455 ""
   "blueonly.png" 1524407478 1043688 b4d9190af4797a5e1e55889683e30f04 ""
+  "brightness5000.png" 1524512611 411023 058b13c1ae020ded6d074b56d821e8dd ""
+  "brightnessnormal.png" 1524512632 17006162 d019b322f39e65dc72415c9ee8544bcd ""
+  "brightnesspoint0001.png" 1524512648 2329 8f72b423af584c07ec86c9210d777a73 ""
   "colourtest_greenonly.png" 1524407442 1006625 ce5c7e71bc43942a25987c3fa5714605 ""
   "colourtest_no_adjustment.png" 1524407344 2421987 1cef545361ac63f5bf6f3a0d411c6d1d ""
   "colourtest_redonly.png" 1524407400 1119123 de9ecbf0332c8babeec9a0e80cc2fd90 ""
@@ -80,9 +84,9 @@
   "gammacorrection_normal.png" 1524407622 2421987 1cef545361ac63f5bf6f3a0d411c6d1d ""
   "gammacorrectionhigh.png" 1524427255 2059776 a1d9fa6d761982b65f42256cbeb67b52 ""
   "gammacorrectionlow.png" 1524427240 2605224 85871924011115afc53b681ec125b637 ""
-  "projectpaper.aux" 1524508386 10618 06a578992c9c8fc221a7fc3a314e8ce5 ""
-  "projectpaper.bbl" 1524508381 5276 0d885bceb56a737d0aa222ab207cb33f "bibtex projectpaper"
-  "projectpaper.tex" 1524508376 57816 f40ea99810e7e35b642bcd260ee25516 ""
+  "projectpaper.aux" 1524512816 11085 7db46da2851264f85e0ac8c3b6eb4ef8 ""
+  "projectpaper.bbl" 1524512808 5276 0d885bceb56a737d0aa222ab207cb33f "bibtex projectpaper"
+  "projectpaper.tex" 1524512790 58663 74555d27ba497ff52cdaaaef2681a6cb ""
   "rawflash_colour_adjustment.png" 1524473134 2201825 a3b9d31dc193a17c2bfc21f6ea7f2497 ""
   "rawflash_hat_sharp.png" 1524474768 2620628 49a9e4d3072a81fb7bbdb84417e6f85c ""
   "rawtherapee_colour_adjustment.jpg" 1524472639 3392587 158e6d8966ba5561b2fefbc732f95241 ""
@@ -90,5 +94,5 @@
   "renderserverdiagram.png" 1524149671 119889 1ce86f77edad80358c6dce0abfe84874 ""
   (generated)
   "projectpaper.log"
-  "projectpaper.pdf"
   "projectpaper.aux"
+  "projectpaper.pdf"
