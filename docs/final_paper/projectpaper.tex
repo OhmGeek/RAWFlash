@@ -553,7 +553,11 @@ Our solution to this problem is to use Docker. Each component in the system shal
 it is sandboxed to ensure that systems don't interfere with one another, and each container is networked together. Rather than manually setting up the networking,
 one can use Docker Compose to automatically deal with the links between different containers, to ensure that private links between containers are set up, but these links
 can't be accessed from outside the system. This method is preferable, as then one cannot access the message queue/other sensitive components directly. That way, only by sending
-the proper request, will the system respond with an output.
+the proper request, will the system respond with an output. 
+
+With a microservice architecture, and some element of load balancing is recommended, along with some method of deploying services together so that dependencies
+are met. These lessons learned from \cite{Docker}, were implemented by implementing our message queue backed render server, to load balance requests,
+and to use Docker Compose as \citeauthor{Docker}'s work also did.
 
 % \textbf{TODO: INSERT IMAGE OF ARCHITECTURE HERE}
 

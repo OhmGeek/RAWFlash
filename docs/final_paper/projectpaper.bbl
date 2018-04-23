@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -139,5 +139,13 @@ Stephen Viggiano.
   quantified by their color constancy.
 \newblock \emph{SPIE: The International Society for Optical Engineering},
   6\penalty0 (2):\penalty0 201--213, mar 2004.
+
+\bibitem[Balalaie et~al.(2016)Balalaie, Heydarnoori, and Jamshidi]{Docker}
+A.~Balalaie, A.~Heydarnoori, and P.~Jamshidi.
+\newblock Microservices architecture enables devops: Migration to a
+  cloud-native architecture.
+\newblock \emph{IEEE Software}, 33\penalty0 (3):\penalty0 42--52, May 2016.
+\newblock ISSN 0740-7459.
+\newblock \doi{10.1109/MS.2016.64}.
 
 \end{thebibliography}
