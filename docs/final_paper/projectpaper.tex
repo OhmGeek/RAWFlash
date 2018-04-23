@@ -560,7 +560,7 @@ the proper request, will the system respond with an output.
 \begin{figure}
 \centering
 \includegraphics[width=200px]{architecture}
-\caption{The architectural structure of the system. (1) File download. of the Client Side User Interface. (2) Static Files served through the web server.
+\caption{The architectural structure of the system. (1) File download of the client-side user interface. (2) Static files served through the web server.
 (3, 4, 5) These were part of a system to allow users to upload and manage their collection of images. This was not implemented due to time constraints, and it was not directly related to the overall goal. (6) Socket.io communication
 between the client and the render service, to generate previews and output images. (7) RAW Images are fetched from the web server.  (8) Test images can be served through the web server too.}
 \end{figure}
@@ -570,22 +570,26 @@ between the client and the render service, to generate previews and output image
 % and in some cases we are using floating point to do image adjustments. This causes some error, and therefore
 % we won't necessarily get exactly the same image out.
 
-For one to compare the output of the system with other RAW editors is not necessarily as easy as bitwise ANDing the files, and finding the percentage
+For one to compare the output of the system with other RAW editors is not necessarily as easy as carrying out a bitwise-and  of the files, and finding the percentage
 differences. While this might work if all systems use the same algorithms to do the same tasks, due to the proprietary nature of RAW image editing,
 different implementations of demosaicing exist, yielding slightly different images, along with potential different ways of adopting equalization,
-gamma correction and various other colour adjustments (for example, we use RGB gain to adjust the colours, while LightRoom instead uses Chromacity).
-It'll be difficult to use the same settings for every single system. Instead, it might be better to edit a variety of different images, and compare them
-by eye, to determine whether the algorithm itself is working correctly, and using base cases to test the output of a system by eye.
+gamma correction and various other colour adjustments (for example, RGB gain was used to adjust the colours, while Lightroom instead uses chromacity).
+It'll be difficult to use the same settings for every single system. Instead, a better solution would be to use a test image, and compare the adjustments
+by eye between different applications, and use base cases or other expected behaviour to test the output of the system.
 
-Base cases include:
+\subsubsection{Base cases include:}
+\paragraph{Gamma Correction}
+Setting $\gamma < 1.0$ will yield an image that appears whiter than expected. Setting $\gamma = 1$ should yield the input image.
+Setting $\gamma > 1.0$ will yield an image that is darker in tone. 
 
-Using a gamma of zero will yield a completely white image. Using a gamma of 1 will yield the input image, for gamma correction.
+% Using a gamma of zero will yield a completely white image. Using a gamma of 1 will yield the input image, for gamma correction.
+\paragraph{Colour Balance}
 Setting red gain to 1, and all others to zero will yield an image with only the red channel. Doing the same for green and blue should reveal the same.
 This will ensure the algorithm is working correctly.
 
+\paragraph{Exposure}
 Exposure zero should yield a completely black image. Using a very high exposure should yield a completely, or nearly white image.
 
-We can test undo and redo trivially.
 \section{Results}
 
 % this section presents the results of the solutions.  It should include information on experimental settings.  The results should demonstrate the claimed benefits/disadvantages of the proposed solutions.
