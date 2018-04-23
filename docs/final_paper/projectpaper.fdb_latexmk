@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex projectpaper"] 1524472277 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1524472331
+["bibtex projectpaper"] 1524473292 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1524473297
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/acm.bst" 1292289607 21064 c61a48664f3c347ce7f73c1a6a530506 ""
-  "projectpaper.aux" 1524472331 8751 d0f1bd83fb592836e12c9219c6dee05b ""
+  "projectpaper.aux" 1524473297 8967 3511b73f60a58400d3d41342e9324446 ""
   "projectpaper.bcf" 0 -1 0 ""
   "projectpaper.bib" 1524328266 7218 dde58eee67fdf08549ff071ad60b841a ""
   (generated)
   "projectpaper.bbl"
   "projectpaper.blg"
-["pdflatex"] 1524472326 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1524472331
+["pdflatex"] 1524473292 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1524473297
   "/etc/texmf/web2c/texmf.cnf" 1511989721 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1524472326 54343 afde3b26ef76095d2ab77924c96be8c5 ""
+  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1524473286 54844 3365b691bea106e20891a6d228e5afa1 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -96,15 +96,18 @@
   "colourtest_greenonly.png" 1524407442 1006625 ce5c7e71bc43942a25987c3fa5714605 ""
   "colourtest_no_adjustment.png" 1524407344 2421987 1cef545361ac63f5bf6f3a0d411c6d1d ""
   "colourtest_redonly.png" 1524407400 1119123 de9ecbf0332c8babeec9a0e80cc2fd90 ""
+  "darktable_colour_adjustment.jpg" 1524472775 5730843 b303922976ed426301f1a51c6702f1c2 ""
   "durhampaper.sty" 1519721450 2085 caaf607c8d907699ff88d6892b669ae5 ""
   "gammacorrection_normal.png" 1524407622 2421987 1cef545361ac63f5bf6f3a0d411c6d1d ""
   "gammacorrectionhigh.png" 1524427255 2059776 a1d9fa6d761982b65f42256cbeb67b52 ""
   "gammacorrectionlow.png" 1524427240 2605224 85871924011115afc53b681ec125b637 ""
-  "projectpaper.aux" 1524472331 8751 d0f1bd83fb592836e12c9219c6dee05b ""
-  "projectpaper.bbl" 1524472277 4052 3141b5eabf2e46c4797ae63d80595720 "bibtex projectpaper"
-  "projectpaper.tex" 1524472326 54343 afde3b26ef76095d2ab77924c96be8c5 ""
+  "projectpaper.aux" 1524473297 8967 3511b73f60a58400d3d41342e9324446 ""
+  "projectpaper.bbl" 1524473292 4052 3141b5eabf2e46c4797ae63d80595720 "bibtex projectpaper"
+  "projectpaper.tex" 1524473286 54844 3365b691bea106e20891a6d228e5afa1 ""
+  "rawflash_colour_adjustment.png" 1524473134 2201825 a3b9d31dc193a17c2bfc21f6ea7f2497 ""
+  "rawtherapee_colour_adjustment.jpg" 1524472639 3392587 158e6d8966ba5561b2fefbc732f95241 ""
   "renderserverdiagram.png" 1524149671 119889 1ce86f77edad80358c6dce0abfe84874 ""
   (generated)
-  "projectpaper.aux"
   "projectpaper.log"
+  "projectpaper.aux"
   "projectpaper.pdf"

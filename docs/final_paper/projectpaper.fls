@@ -157,6 +157,15 @@ INPUT ./gammacorrection_normal.png
 INPUT gammacorrectionhigh.png
 INPUT ./gammacorrectionhigh.png
 INPUT ./gammacorrectionhigh.png
+INPUT rawflash_colour_adjustment.png
+INPUT ./rawflash_colour_adjustment.png
+INPUT ./rawflash_colour_adjustment.png
+INPUT rawtherapee_colour_adjustment.jpg
+INPUT ./rawtherapee_colour_adjustment.jpg
+INPUT ./rawtherapee_colour_adjustment.jpg
+INPUT darktable_colour_adjustment.jpg
+INPUT ./darktable_colour_adjustment.jpg
+INPUT ./darktable_colour_adjustment.jpg
 INPUT projectpaper.bbl
 INPUT projectpaper.bbl
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd

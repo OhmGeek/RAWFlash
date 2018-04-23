@@ -739,7 +739,27 @@ Between all three systems that are being tested, the parameters that need to be 
 but they all represent the same transform).
 
 % \textbf{TODO insert image comparison here}
-
+\begin{figure}\label{colouradjustmentcomparison}
+    \centering
+    \subfigure
+    {
+        \includegraphics[width=100px]{rawflash_colour_adjustment}
+    }
+    \subfigure
+    {
+        \includegraphics[width=100px]{rawtherapee_colour_adjustment}
+    }
+    \subfigure
+    {
+        \includegraphics[width=100px]{darktable_colour_adjustment}
+    }
+    \caption{
+        Test of Gamma Correction output. 
+        (a) RAWFlash, our system
+        (b) RawTherapee
+        (c) DarkTable
+    }
+ \end{figure}
 In comparison to the other systems, they all perform in the same way. There is some slight difference in colour between them, as different colourspaces
 are being used in different applications, and as such, colours are sometimes represented slightly differently. Compared to the original image however, our
 system is certainly functioning.
