@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex projectpaper"] 1524428145 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1524428254
+["bibtex projectpaper"] 1524472277 "projectpaper.aux" "projectpaper.bbl" "projectpaper" 1524472331
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/acm.bst" 1292289607 21064 c61a48664f3c347ce7f73c1a6a530506 ""
-  "projectpaper.aux" 1524428254 8688 3d3c4a3162f60ac398b61cd3e1a78e80 ""
+  "projectpaper.aux" 1524472331 8751 d0f1bd83fb592836e12c9219c6dee05b ""
   "projectpaper.bcf" 0 -1 0 ""
   "projectpaper.bib" 1524328266 7218 dde58eee67fdf08549ff071ad60b841a ""
   (generated)
-  "projectpaper.blg"
   "projectpaper.bbl"
-["pdflatex"] 1524428249 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1524428254
+  "projectpaper.blg"
+["pdflatex"] 1524472326 "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" "projectpaper.pdf" "projectpaper" 1524472331
   "/etc/texmf/web2c/texmf.cnf" 1511989721 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1524428249 54151 2733bcde3aae3be66e5d8bfb88c71839 ""
+  "/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex" 1524472326 54343 afde3b26ef76095d2ab77924c96be8c5 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -100,11 +100,11 @@
   "gammacorrection_normal.png" 1524407622 2421987 1cef545361ac63f5bf6f3a0d411c6d1d ""
   "gammacorrectionhigh.png" 1524427255 2059776 a1d9fa6d761982b65f42256cbeb67b52 ""
   "gammacorrectionlow.png" 1524427240 2605224 85871924011115afc53b681ec125b637 ""
-  "projectpaper.aux" 1524428254 8688 3d3c4a3162f60ac398b61cd3e1a78e80 ""
-  "projectpaper.bbl" 1524428145 4052 3141b5eabf2e46c4797ae63d80595720 "bibtex projectpaper"
-  "projectpaper.tex" 1524428249 54151 2733bcde3aae3be66e5d8bfb88c71839 ""
+  "projectpaper.aux" 1524472331 8751 d0f1bd83fb592836e12c9219c6dee05b ""
+  "projectpaper.bbl" 1524472277 4052 3141b5eabf2e46c4797ae63d80595720 "bibtex projectpaper"
+  "projectpaper.tex" 1524472326 54343 afde3b26ef76095d2ab77924c96be8c5 ""
   "renderserverdiagram.png" 1524149671 119889 1ce86f77edad80358c6dce0abfe84874 ""
   (generated)
-  "projectpaper.log"
   "projectpaper.aux"
+  "projectpaper.log"
   "projectpaper.pdf"

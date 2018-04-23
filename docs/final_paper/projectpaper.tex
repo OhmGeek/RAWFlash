@@ -99,9 +99,9 @@ allows one to build up a full colour image. The process of creating a full colou
 
 There are several different steps to decoding RAW images, in addition to demosaicing which was explained above. These are:
 
-% \paragraph{Colour Balance}
-% \textbf{TODO COMPLETE}
-
+\paragraph{Colour Balance}
+These individual red, green and blue components of the image can be adjusted, perhaps to correct for incorrect sensor capture.
+This is done by setting multipliers on each individual component, to build up the final image.
 \paragraph{Gamma Correction}
 Cameras typically represent colour changes linearly, with a gamma of 1.0. 
 % \textbf{TODO FIND SOURCE OTHER THAN CURRENt}.
@@ -226,7 +226,7 @@ can be used by a wide range of hardware and software vendors" by Adobe in the sp
     RawTherapee is an open source native RAW image editor, which relies on a patched version of dcraw to parse RAW file formats.
     Their implementation is cross platform, and released under the GNU GPLv3 license. As a native editor, the user interface is provided
     locally through the QT framework. The use of dcraw is quite interesting, as it follows the open source license of RawTherapee. \cite{RawTherapeeReadme}
-    It also provides non-destructive image editing, which is what we would like to achieve.
+    It also provides non-destructive image editing, which is what  would like to achieve.
     \paragraph{Darktable}
     Darktable is another open source RAW editor. It is also cross platform, running on Linux, Mac, Windows, BSD and Solaris. While some components
     of dcraw are present in the application (namely the denoising performed for RAW being ported), the application is based on the rawspeed library.
