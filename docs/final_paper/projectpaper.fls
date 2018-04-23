@@ -157,6 +157,15 @@ INPUT ./gammacorrection_normal.png
 INPUT gammacorrectionhigh.png
 INPUT ./gammacorrectionhigh.png
 INPUT ./gammacorrectionhigh.png
+INPUT rawflash_hat_sharp.png
+INPUT ./rawflash_hat_sharp.png
+INPUT ./rawflash_hat_sharp.png
+INPUT rawtherapee_unsharp_max.jpg
+INPUT ./rawtherapee_unsharp_max.jpg
+INPUT ./rawtherapee_unsharp_max.jpg
+INPUT darktable_unsharp.jpg
+INPUT ./darktable_unsharp.jpg
+INPUT ./darktable_unsharp.jpg
 INPUT rawflash_colour_adjustment.png
 INPUT ./rawflash_colour_adjustment.png
 INPUT ./rawflash_colour_adjustment.png

@@ -710,28 +710,36 @@ The outcome was then stored, and these images were compared for each gamma value
 
 \subsubsection{Test 3: Sharpening}
 While these are defined by different terms between software programs, we can still test the overall outcome.
-In order to do this, settings were adjusted to provide a close as possible representation, just for the
-sharpening settings. The settings used are shown in Table \ref{SharpeningSettings}. 
+Rather than deciding the quality of sharpening by how pronounced the edge is, it's instead done by comparing a portion
+of the image (the brim of the hat), sharpened between different applications. The results can be seen in Figure \ref{unsharpcomparison}.
 
-\begin{table}\label{SharpeningSettings}
+\begin{figure}\label{unsharpcomparison}
     \centering
-    \begin{tabular}{| c | c | c | c |}
-        \hline
-        Application & Radius & Threshold & Amount\\
-        RawTherapee & 0 & 0 & 0\\
-        DarkTable & 0 & 0 & 0\\
-        RAWFlash & 0 & 0 & 0\\
-        \hline
-    \end{tabular}
-    \caption{The settings used to compare between different software programs. As different values mean different things
-    between each system, it's hard to compare the values like for like.}
-\end{table}
+    \subfigure
+    {
+        \includegraphics[width=100px]{rawflash_hat_sharp}
+    }
+    \subfigure
+    {
+        \includegraphics[width=100px]{rawtherapee_unsharp_max}
+    }
+    \subfigure
+    {
+        \includegraphics[width=100px]{darktable_unsharp}
+    }
+    \caption{
+        Test of unsharp sharpening. The brim of the hat is used as the edge to compare. 
+        (a) RAWFlash, our system
+        (b) RawTherapee
+        (c) DarkTable
+    }
+ \end{figure}
 
-% \textbf{TODO: insert image comparison here}
+
 In terms of quality, while the other two systems do perform slightly better, our system does fairly decent job of sharpening
 the image and enhancing most of the common images. There are a few colour differences between the systems, mostly due to internal
 colour processing, but overall each one of the systems enhance the brim of the hat, making the line sharper and appear less blurry. 
-
+Our system enhanced the edge enough so that it could be seen, but not so much as to make it too pronounced.
 
 \subsubsection{Test 4: Colour Adjustment}
 Colour adjustment is done by using the colour channels, and adjusting the different levels of red, green and blue that exist within the image.
