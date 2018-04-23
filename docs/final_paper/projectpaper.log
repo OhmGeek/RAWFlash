@@ -1,9 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  23 APR 2018 11:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  23 APR 2018 12:46
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**projectpaper.tex
-(./projectpaper.tex
+**/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex
+(/home/ryan/Documents/Programming/RAWFlash/docs/final_paper/projectpaper.tex
 LaTeX2e <2017/01/01> patch level 3
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -203,103 +204,111 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 363.
  [6] [7 <./renderserverdiagram.png>] [8] [9]
-<colourtest_no_adjustment.png, id=42, 1402.23875pt x 912.40875pt>
+<architecture.png, id=42, 623.63326pt x 528.62663pt>
+File: architecture.png Graphic file (type png)
+ <use architecture.png>
+Package pdftex.def Info: architecture.png used on input line 562.
+(pdftex.def)             Requested size: 200.75073pt x 170.16418pt.
+
+[10 <./architecture.png (PNG copy)>]
+<colourtest_no_adjustment.png, id=46, 1402.23875pt x 912.40875pt>
 File: colourtest_no_adjustment.png Graphic file (type png)
 
 <use colourtest_no_adjustment.png>
-Package pdftex.def Info: colourtest_no_adjustment.png used on input line 606.
+Package pdftex.def Info: colourtest_no_adjustment.png used on input line 614.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
-<colourtest_redonly.png, id=43, 1402.23875pt x 912.40875pt>
+<colourtest_redonly.png, id=47, 1402.23875pt x 912.40875pt>
 File: colourtest_redonly.png Graphic file (type png)
 
 <use colourtest_redonly.png>
-Package pdftex.def Info: colourtest_redonly.png used on input line 610.
+Package pdftex.def Info: colourtest_redonly.png used on input line 618.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
-<colourtest_greenonly.png, id=44, 1402.23875pt x 912.40875pt>
+<colourtest_greenonly.png, id=48, 1402.23875pt x 912.40875pt>
 File: colourtest_greenonly.png Graphic file (type png)
 
 <use colourtest_greenonly.png>
-Package pdftex.def Info: colourtest_greenonly.png used on input line 614.
+Package pdftex.def Info: colourtest_greenonly.png used on input line 622.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
-<blueonly.png, id=45, 1402.23875pt x 912.40875pt>
+<blueonly.png, id=49, 1402.23875pt x 912.40875pt>
 File: blueonly.png Graphic file (type png)
  <use blueonly.png>
-Package pdftex.def Info: blueonly.png used on input line 618.
+Package pdftex.def Info: blueonly.png used on input line 626.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
- [10]
-<gammacorrectionlow.png, id=49, 1402.23875pt x 912.40875pt>
+
+<gammacorrectionlow.png, id=50, 1402.23875pt x 912.40875pt>
 File: gammacorrectionlow.png Graphic file (type png)
 
 <use gammacorrectionlow.png>
-Package pdftex.def Info: gammacorrectionlow.png used on input line 647.
+Package pdftex.def Info: gammacorrectionlow.png used on input line 655.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
 
-<gammacorrection_normal.png, id=50, 1402.23875pt x 912.40875pt>
+<gammacorrection_normal.png, id=51, 1402.23875pt x 912.40875pt>
 File: gammacorrection_normal.png Graphic file (type png)
 
 <use gammacorrection_normal.png>
-Package pdftex.def Info: gammacorrection_normal.png used on input line 651.
+Package pdftex.def Info: gammacorrection_normal.png used on input line 659.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
 
-<gammacorrectionhigh.png, id=51, 1402.23875pt x 912.40875pt>
+<gammacorrectionhigh.png, id=52, 1402.23875pt x 912.40875pt>
 File: gammacorrectionhigh.png Graphic file (type png)
 
 <use gammacorrectionhigh.png>
-Package pdftex.def Info: gammacorrectionhigh.png used on input line 655.
+Package pdftex.def Info: gammacorrectionhigh.png used on input line 663.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
  [11 <./colourtest_no_adjustment.png> <./colourtest_redonly.png> <./colourtest_
-greenonly.png> <./blueonly.png> <./gammacorrectionlow.png> <./gammacorrection_n
-ormal.png> <./gammacorrectionhigh.png>]
-<rawflash_hat_sharp.png, id=62, 1402.23875pt x 963.6pt>
+greenonly.png> <./blueonly.png>]
+<rawflash_hat_sharp.png, id=60, 1402.23875pt x 963.6pt>
 File: rawflash_hat_sharp.png Graphic file (type png)
 
 <use rawflash_hat_sharp.png>
-Package pdftex.def Info: rawflash_hat_sharp.png used on input line 720.
+Package pdftex.def Info: rawflash_hat_sharp.png used on input line 728.
 (pdftex.def)             Requested size: 100.37537pt x 68.97333pt.
 
-<rawtherapee_unsharp_max.jpg, id=63, 253.4268pt x 222.5916pt>
+<rawtherapee_unsharp_max.jpg, id=61, 253.4268pt x 222.5916pt>
 File: rawtherapee_unsharp_max.jpg Graphic file (type jpg)
 
 <use rawtherapee_unsharp_max.jpg>
-Package pdftex.def Info: rawtherapee_unsharp_max.jpg used on input line 724.
+Package pdftex.def Info: rawtherapee_unsharp_max.jpg used on input line 732.
 (pdftex.def)             Requested size: 100.37537pt x 88.16216pt.
 
-<darktable_unsharp.jpg, id=64, 282.3348pt x 185.9748pt>
+<darktable_unsharp.jpg, id=62, 282.3348pt x 185.9748pt>
 File: darktable_unsharp.jpg Graphic file (type jpg)
 
 <use darktable_unsharp.jpg>
-Package pdftex.def Info: darktable_unsharp.jpg used on input line 728.
+Package pdftex.def Info: darktable_unsharp.jpg used on input line 736.
 (pdftex.def)             Requested size: 100.37537pt x 66.11658pt.
-
-<rawflash_colour_adjustment.png, id=65, 1402.23875pt x 963.6pt>
+ [12 <./gammacorrectionlow.png> <./gammacorrection_normal.png> <./gammacorrecti
+onhigh.png>]
+<rawflash_colour_adjustment.png, id=69, 1402.23875pt x 963.6pt>
 File: rawflash_colour_adjustment.png Graphic file (type png)
 
 <use rawflash_colour_adjustment.png>
-Package pdftex.def Info: rawflash_colour_adjustment.png used on input line 754.
+Package pdftex.def Info: rawflash_colour_adjustment.png used on input line 762.
 
 (pdftex.def)             Requested size: 100.37537pt x 68.97333pt.
 
-<rawtherapee_colour_adjustment.jpg, id=66, 1030.0884pt x 683.1924pt>
+<rawtherapee_colour_adjustment.jpg, id=70, 1030.0884pt x 683.1924pt>
 File: rawtherapee_colour_adjustment.jpg Graphic file (type jpg)
 
 <use rawtherapee_colour_adjustment.jpg>
 Package pdftex.def Info: rawtherapee_colour_adjustment.jpg used on input line 7
-58.
+66.
 (pdftex.def)             Requested size: 100.37537pt x 66.57188pt.
 
-<darktable_colour_adjustment.jpg, id=67, 1031.5338pt x 685.1196pt>
+<darktable_colour_adjustment.jpg, id=71, 1031.5338pt x 685.1196pt>
 File: darktable_colour_adjustment.jpg Graphic file (type jpg)
 
 <use darktable_colour_adjustment.jpg>
-Package pdftex.def Info: darktable_colour_adjustment.jpg used on input line 762
+Package pdftex.def Info: darktable_colour_adjustment.jpg used on input line 770
 .
 (pdftex.def)             Requested size: 100.37537pt x 66.66559pt.
- [12 <./rawflash_hat_sharp.png> <./rawtherapee_unsharp_max.jpg> <./darktable_un
-sharp.jpg>] [13 <./rawflash_colour_adjustment.png> <./rawtherapee_colour_adjust
-ment.jpg> <./darktable_colour_adjustment.jpg>] (./projectpaper.bbl [14]
+ [13 <./rawflash_hat_sharp.png> <./rawtherapee_unsharp_max.jpg> <./darktable_un
+sharp.jpg> <./rawflash_colour_adjustment.png> <./rawtherapee_colour_adjustment.
+jpg> <./darktable_colour_adjustment.jpg>]
+[14] (./projectpaper.bbl
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
@@ -310,32 +319,28 @@ Underfull \hbox (badness 1406) in paragraph at lines 87--92
 r/m/n/10 https : / / farazdagi . com / 2014 /
  []
 
-) [15] (./projectpaper.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[15]) [16] (./projectpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 2306 strings out of 493013
- 33637 string characters out of 6135681
+ 2312 strings out of 493013
+ 33911 string characters out of 6135681
  96181 words of memory out of 5000000
- 5810 multiletter control sequences out of 15000+600000
+ 5814 multiletter control sequences out of 15000+600000
  15997 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,7n,25p,325b,293s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on projectpaper.pdf (15 pages, 31499778 bytes).
+ 39i,7n,25p,743b,293s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips
+/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
+mr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on projectpaper.pdf (16 pages, 31548988 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -556,6 +556,14 @@ can't be accessed from outside the system. This method is preferable, as then on
 the proper request, will the system respond with an output.
 
 % \textbf{TODO: INSERT IMAGE OF ARCHITECTURE HERE}
+
+\begin{figure}
+\centering
+\includegraphics[width=200px]{architecture}
+\caption{The architectural structure of the system. (1) File download. of the Client Side User Interface. (2) Static Files served through the web server.
+(3, 4, 5) These were part of a system to allow users to upload and manage their collection of images. This was not implemented due to time constraints, and it was not directly related to the overall goal. (6) Socket.io communication
+between the client and the render service, to generate previews and output images. (7) RAW Images are fetched from the web server.  (8) Test images can be served through the web server too.}
+\end{figure}
 % \textbf{TODO: DOCKER SOURCE }
 \subsection{Unit Testing Issues with Image Processing}
 % Can't just expect a given output, because each algorithm may change the image in a different way,
@@ -820,7 +828,7 @@ As a basis for the Adams Processor image processing, the Java built-in Image lib
 by using ImageIO to load an image into a BufferedImage object, and then applying various BufferedImage operations on
 the image.
 
-Java has a built in library which automatically implements Convolution, resizing, and various other routines. While
+Java has a built in library which automatically implements convolution, resizing, and various other routines. While
 this is useful, several problems were encounted when using this routines. 
 
 \paragraph{High Memory Usage/Memory Leaks}
@@ -848,7 +856,7 @@ yielding one directly. The naive way by passing Bufferedimage as a pointer didn'
 While multithreading itself isn't always wanted on image processing (with web servers, each request is assigned a process, and therefore if each process generated several threads it could
 cause problems), for our architecture, multithreaded processing is suitable and encouraged, as there would be a performance increase.
 
-In the future, building a custom Image datastructure would be ideal, as this would allow for multithreaded processing of images.
+In the future, building a custom image data structure would be ideal, as this would allow for multithreaded processing of images.
 
 \subsection{Comparisons to Objectives}
 Overall, all but the Haze Removal objectives were met, all to different degrees. Haze Removal involved many blur operations, which are very slow in our current framework, and therefore the
@@ -861,6 +869,5 @@ using native editors, using the standard RAW workflow.
 
 \bibliographystyle{unsrtnat}
 \bibliography{projectpaper}
-
 
 \end{document}
