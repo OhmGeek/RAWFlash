@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.2.12)  13 APR 2018 15:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  24 APR 2018 11:52
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/ryan/Documents/Programming/RAWFlash/docs/poster/poster.tex
-(/home/ryan/Documents/Programming/RAWFlash/docs/poster/poster.tex
+**poster.tex
+(./poster.tex
 LaTeX2e <2017/01/01> patch level 3
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -688,9 +687,29 @@ Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemeseri
-f.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamerposter/beamerposter.sty
-Package: beamerposter 2015/04/21 v.1.12 latex-beamer poster extension
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip57
+\subfigcapskip=\skip58
+\subfigcaptopadj=\dimen189
+\subfigbottomskip=\skip59
+\subfigcapmargin=\dimen190
+\subfiglabelskip=\skip60
+\c@subfigure=\count155
+\c@lofdepth=\count156
+\c@subtable=\count157
+\c@lotdepth=\count158
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip61
+\subfig@bottom=\skip62
+)
+(/usr/share/texlive/texmf-dist/tex/latex/savetrees/savetrees.sty
+Package: savetrees 2016/04/13 v2.4 Pack as much text as possible onto each page
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
@@ -700,9 +719,93 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks45
 \XKV@tempa@toks=\toks46
 )
-\XKV@depth=\count155
+\XKV@depth=\count159
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
+\everypar=\toks47
+)
+(/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box53
+\beforetitleunit=\skip63
+\aftertitleunit=\skip64
+\ttl@plus=\dimen191
+\ttl@minus=\dimen192
+\ttl@toksa=\toks48
+\titlewidth=\dimen193
+\titlewidthlast=\dimen194
+\titlewidthfirst=\dimen195
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+! Undefined control sequence.
+<argument> \paragraph 
+                      
+l.1290 \ttl@extract\paragraph
+                             
+? 
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+! Undefined control sequence.
+<argument> \subparagraph 
+                         
+l.1291 \ttl@extract\subparagraph
+                                
+? 
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count160
+\calc@Bcount=\count161
+\calc@Adimen=\dimen196
+\calc@Bdimen=\dimen197
+\calc@Askip=\skip65
+\calc@Bskip=\skip66
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count162
+\calc@Cskip=\skip67
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2016/05/14 v2.6a Micro-typographical refinements (RS)
+\MT@toks=\toks49
+\MT@count=\count163
+LaTeX Info: Redefining \textls on input line 774.
+\MT@outer@kern=\dimen198
+LaTeX Info: Redefining \textmicrotypecontext on input line 1310.
+\MT@listname@count=\count164
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2016/05/14 v2.6a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 916.
+LaTeX Info: Redefining \lslig on input line 916.
+\MT@outer@space=\skip68
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2016/05/14 v2.6a microtype main configuration file (RS)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemeseri
+f.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamerposter/beamerposter.sty
+Package: beamerposter 2015/04/21 v.1.12 latex-beamer poster extension
+
 (/usr/share/texlive/texmf-dist/tex/latex/type1cm/type1cm.sty
 Package: type1cm 2002/09/05 v0.04 BlueSky/Y&Y Type1 CM font definitions (DPC, p
 atched RF)
@@ -713,19 +816,19 @@ Package: fp 1995/04/02
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
 (/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count156
+\actioncount=\count165
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count157
-\FP@xia=\count158
-\FP@xib=\count159
-\FP@xfa=\count160
-\FP@xfb=\count161
-\FP@rega=\count162
-\FP@regb=\count163
-\FP@regs=\count164
-\FP@times=\count165
+\FP@xs=\count166
+\FP@xia=\count167
+\FP@xib=\count168
+\FP@xfa=\count169
+\FP@xfb=\count170
+\FP@rega=\count171
+\FP@regb=\count172
+\FP@regs=\count173
+\FP@times=\count174
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
 Package: fp-addons 1995/03/15
@@ -744,7 +847,7 @@ Package: fp-pas 1994/08/29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count166
+\FPseed=\count175
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
 Package: fp-eqn 1995/04/03
@@ -789,7 +892,7 @@ FP debug: upn: calculating "round(0.494974746000000000:2)"
 FP debug: upn: result      "0.49"
 FP debug: upn: +++ result of upn-expression is "(0.49)"
 )
-\tmp=\dimen189
+\tmp=\dimen199
 Package beamerposter Info: paperwidth=845.04675pt, paperheight=1194.44656pt on 
 input line 172.
 Package beamerposter Info: textwidth=816.594pt, textwidth=1165.9938pt on input 
@@ -1285,20 +1388,20 @@ FP debug: upn: +++ result of upn-expression is "(0.98)"
 )) (./poster.aux)
 \openout1 = `poster.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1336,17 +1439,17 @@ LaTeX Font Info:    ... okay on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count167
-\scratchdimen=\dimen190
-\scratchbox=\box53
-\nofMPsegments=\count168
-\nofMParguments=\count169
-\everyMPshowfont=\toks47
-\MPscratchCnt=\count170
-\MPscratchDim=\dimen191
-\MPnumerator=\count171
-\makeMPintoPDFobject=\count172
-\everyMPtoPDFconversion=\toks48
+\scratchcounter=\count176
+\scratchdimen=\dimen256
+\scratchbox=\box54
+\nofMPsegments=\count177
+\nofMParguments=\count178
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count179
+\MPscratchDim=\dimen257
+\MPnumerator=\count180
+\makeMPintoPDFobject=\count181
+\everyMPtoPDFconversion=\toks51
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1365,8 +1468,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 33.
+\AtBeginShipoutBox=\box55
+Package hyperref Info: Link coloring OFF on input line 34.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1374,11 +1477,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count173
+\c@section@level=\count182
 )
-LaTeX Info: Redefining \ref on input line 33.
-LaTeX Info: Redefining \pageref on input line 33.
-LaTeX Info: Redefining \nameref on input line 33.
+LaTeX Info: Redefining \ref on input line 34.
+LaTeX Info: Redefining \pageref on input line 34.
+LaTeX Info: Redefining \nameref on input line 34.
 
 (./poster.out) (./poster.out)
 \@outlinefile=\write5
@@ -1409,33 +1512,135 @@ Dictionary: translator-numbers-dictionary, Language: English
 orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 33.
+LaTeX Info: Redefining \includegraphics on input line 34.
+LaTeX Info: Redefining \microtypecontext on input line 34.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 0, shrink: 50, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: Tracking enabled.
+Package microtype Info: Using tracking set `all'.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmss' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
  (./poster.nav)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
 <logo.png, id=13, 788.86267pt x 344.04591pt>
 File: logo.png Graphic file (type png)
  <use logo.png>
-Package pdftex.def Info: logo.png used on input line 33.
+Package pdftex.def Info: logo.png used on input line 34.
 (pdftex.def)             Requested size: 147.88252pt x 64.49269pt.
-LaTeX Font Info:    Calculating math sizes for size <7.06> on input line 133.
+LaTeX Font Info:    Calculating math sizes for size <7.06> on input line 214.
 
-<DesignSystemandGA.png, id=14, 597.73312pt x 845.40843pt>
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+<brightnesspoint0001.png, id=14, 1032.0156pt x 685.1196pt>
+File: brightnesspoint0001.png Graphic file (type png)
+
+<use brightnesspoint0001.png>
+Package pdftex.def Info: brightnesspoint0001.png used on input line 214.
+(pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
+
+<brightnessnormal.png, id=15, 1032.0156pt x 685.1196pt>
+File: brightnessnormal.png Graphic file (type png)
+
+<use brightnessnormal.png>
+Package pdftex.def Info: brightnessnormal.png used on input line 214.
+(pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
+
+<brightness5000.png, id=16, 1032.0156pt x 685.1196pt>
+File: brightness5000.png Graphic file (type png)
+ <use brightness5000.png>
+Package pdftex.def Info: brightness5000.png used on input line 214.
+(pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
+
+<colourtest_no_adjustment.png, id=17, 1402.23875pt x 912.40875pt>
+File: colourtest_no_adjustment.png Graphic file (type png)
+
+<use colourtest_no_adjustment.png>
+Package pdftex.def Info: colourtest_no_adjustment.png used on input line 214.
+(pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
+
+<colourtest_redonly.png, id=19, 1402.23875pt x 912.40875pt>
+File: colourtest_redonly.png Graphic file (type png)
+
+<use colourtest_redonly.png>
+Package pdftex.def Info: colourtest_redonly.png used on input line 214.
+(pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
+
+<colourtest_greenonly.png, id=20, 1402.23875pt x 912.40875pt>
+File: colourtest_greenonly.png Graphic file (type png)
+
+<use colourtest_greenonly.png>
+Package pdftex.def Info: colourtest_greenonly.png used on input line 214.
+(pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
+
+<blueonly.png, id=21, 1402.23875pt x 912.40875pt>
+File: blueonly.png Graphic file (type png)
+ <use blueonly.png>
+Package pdftex.def Info: blueonly.png used on input line 214.
+(pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
+
+<gammacorrectionlow.png, id=22, 1402.23875pt x 912.40875pt>
+File: gammacorrectionlow.png Graphic file (type png)
+
+<use gammacorrectionlow.png>
+Package pdftex.def Info: gammacorrectionlow.png used on input line 214.
+(pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
+
+<gammacorrection_normal.png, id=23, 1402.23875pt x 912.40875pt>
+File: gammacorrection_normal.png Graphic file (type png)
+
+<use gammacorrection_normal.png>
+Package pdftex.def Info: gammacorrection_normal.png used on input line 214.
+(pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
+
+<gammacorrectionhigh.png, id=24, 1402.23875pt x 912.40875pt>
+File: gammacorrectionhigh.png Graphic file (type png)
+
+<use gammacorrectionhigh.png>
+Package pdftex.def Info: gammacorrectionhigh.png used on input line 214.
+(pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
+LaTeX Font Info:    Calculating math sizes for size <10.16> on input line 214.
+
+<DesignSystemandGA.png, id=25, 597.73312pt x 845.40843pt>
 File: DesignSystemandGA.png Graphic file (type png)
 
 <use DesignSystemandGA.png>
-Package pdftex.def Info: DesignSystemandGA.png used on input line 133.
+Package pdftex.def Info: DesignSystemandGA.png used on input line 214.
 (pdftex.def)             Requested size: 378.30443pt x 535.0611pt.
 
-Overfull \hbox (8.12662pt too wide) in paragraph at lines 133--133
+Overfull \hbox (8.12662pt too wide) in paragraph at lines 214--214
  [][]  
  []
 
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png used on input line 133.
+Package pdftex.def Info: logo.png used on input line 214.
 (pdftex.def)             Requested size: 147.88252pt x 64.49269pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./logo.png> <./DesignSystemandGA.png>]
+ <./logo.png> <./brightnesspoint0001.png> <./brightnessnormal.png> <./brightnes
+s5000.png> <./colourtest_no_adjustment.png> <./colourtest_redonly.png> <./colou
+rtest_greenonly.png> <./blueonly.png> <./gammacorrectionlow.png> <./gammacorrec
+tion_normal.png> <./gammacorrectionhigh.png> <./DesignSystemandGA.png>]
 \tf@nav=\write6
 \openout6 = `poster.nav'.
 
@@ -1445,30 +1650,54 @@ Package pdftex.def Info: logo.png used on input line 133.
 \tf@snm=\write8
 \openout8 = `poster.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 215.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 215.
  (./poster.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 215.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 215.
 Package rerunfilecheck Info: File `poster.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 18270 strings out of 493013
- 339331 string characters out of 6135682
- 468774 words of memory out of 5000000
- 21352 multiletter control sequences out of 15000+600000
- 11807 words of font info for 46 fonts, out of 8000000 for 9000
+ 20870 strings out of 493013
+ 387598 string characters out of 6135681
+ 623015 words of memory out of 5000000
+ 23841 multiletter control sequences out of 15000+600000
+ 29963 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,20n,68p,826b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on poster.pdf (1 page, 119933 bytes).
+ 56i,20n,68p,772b,1080s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on poster.pdf (1 page, 45431292 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 77 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
+ 6 named destinations out of 1000 (max. 500000)
+ 26727 words of extra memory for PDF output out of 29859 (max. 10000000)
+
+ font info for 120 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 56i,20n,68p,826b,1080s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on poster.pdf (1 page, 45431292 bytes).
+PDF statistics:
+ 77 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
+ 6 named destinations out of 1000 (max. 500000)
+ 26727 words of extra memory for PDF output out of 29859 (max. 10000000)
 

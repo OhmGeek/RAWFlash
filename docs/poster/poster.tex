@@ -12,7 +12,8 @@
 \usepackage[english]{babel} 
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath,amsthm, amssymb, latexsym}
-
+\usepackage{subfigure}
+\usepackage{savetrees}
   \usefonttheme[onlymath]{serif}
   \boldmath
   \usepackage[orientation=portrait,size=a3,scale=1.4,debug]{beamerposter}                       
@@ -80,7 +81,85 @@
           \end{itemize}
         \end{block}
        
+        \begin{block}{Test of Exposure Adjustment}
+          \begin{figure}\label{exposuretest}
+            \centering
+            \subfigure
+            {
+                \includegraphics[width=75px]{brightnesspoint0001}
+            }
+            \subfigure
+            {
+                \includegraphics[width=75px]{brightnessnormal}
+            }
+            \subfigure
+            {
+                \includegraphics[width=75px]{brightness5000}
+            }
+            \caption{
+                Test of Exposure Adjustment 
+                (a) Exposure Level Small: 0.0001
+                (b) Exposure normal: 1.0
+                (c) Exposure level high: 5000
+            }
+         \end{figure}
 
+        \end{block}
+
+        \begin{block}{Test of Colour Adjustment}
+          \begin{figure}\label{colourbalancetest}
+            \centering
+            \subfigure
+            {
+                \includegraphics[width=75px]{colourtest_no_adjustment}
+            }
+            \subfigure
+            {
+                \includegraphics[width=75px]{colourtest_redonly}
+            }
+            \subfigure
+            {
+                \includegraphics[width=75px]{colourtest_greenonly}
+            }
+            \subfigure
+            {
+                \includegraphics[width=75px]{blueonly}
+            }
+            \caption{
+                Test of Colour Balance 
+                (a) No Adjustment
+                (b) Red only (green and blue zero)
+                (c) Green only (red and blue zero)
+                (d) Blue only (red and green zero)
+            }
+         \end{figure}
+         To test the functionality of colour adjustment, we can compare the output of only one channel.
+         If the outcome is only the specified channel, then the colour balance component of the system works.
+        \end{block}
+
+        \begin{block}{Test of Gamma Correction}
+          \begin{figure}\label{gammatest}
+            \centering
+            \subfigure
+            {
+                \includegraphics[width=100px]{gammacorrectionlow}
+            }
+            \subfigure
+            {
+                \includegraphics[width=100px]{gammacorrection_normal}
+            }
+            \subfigure
+            {
+                \includegraphics[width=100px]{gammacorrectionhigh}
+            }
+            \caption{
+                Test of Gamma Correction output. 
+                (a) $\gamma = 0.3$
+                (b) $\gamma = 1.0$
+                (c) $\gamma = 1.7$
+            }
+         \end{figure}
+        \end{block}
 
 
       \end{column}
@@ -110,6 +189,8 @@
           alternatively obtained from a package manager). 
 
         \end{block}
+
+        
 
       \end{column}
     \end{columns}
