@@ -42,8 +42,8 @@ service, and interfacing with this service through a GUI.
 % desktop.
 
 \paragraph{Method}
-The render server was implemented using Java, with a variety of plugins to allow for RAW image parsing \cite{JDCRAW}
-and TIFF reading \cite{TwelveMonkeys}. An input to the Java render server is received by fetching jobs from a message queue,
+The render server was implemented using Java, with a variety of plugins to allow for RAW image parsing (\cite{JDCRAW})
+and TIFF reading (\cite{TwelveMonkeys}). An input to the Java render server is received by fetching jobs from a message queue,
 carrying out the specified rendering instructions, and sending the result via a message queue (and client ID), to the
 client that sent the job.
 
@@ -57,7 +57,7 @@ to interface with the system, but also a modular approach, as this isn't require
 
 \paragraph{Results}
 
-Utilising a sample RAW image, output from various different RAW editors was analyzed and compared to our system,
+Utilizing a sample RAW image, output from various different RAW editors was analyzed and compared to our system,
 to determine the image quality of our system, when editing. The functionality of our system was also tested using
 boundary conditions and test cases, to ensure the system was functioning correctly. Furthermore, statistics on
 the processing times of different RAW editors were analyzed, to analyze the performance of our system for standard
@@ -95,19 +95,19 @@ raw camera sensor data. The methods used to store this information is quite ofte
 RAW image formats more challenging.
 
 When an image is captured, the camera sensor uses charge buildup to represent the amount of light that is incident on the sensor
-(using a phenomenon known as the photoelectric effect). Colour data itself isn't stored at all in the RAW image. Colour is achieved
+(using a phenomenon known as the photoelectric effect). Color data itself isn't stored at all in the RAW image. Color is achieved
 by putting a filter over the sensor, such that each individual part of the sensor captures only red, green or blue light, which then
 allows one to build up a full-color image. The process of creating a full-color image from the camera sensor is called demosaicing. 
 \cite{UnderstandingRAWCapture}
 
 There are several different steps to decoding RAW images, in addition to demosaicing which was explained above. These are:
 
-\paragraph{Colour Balance}
+\paragraph{Color Balance}
 The individual red, green and blue components of the image can be adjusted, perhaps to correct for incorrect sensor capture.
 This is done by setting multipliers on each individual component, to build up the final image.
 
 \paragraph{Gamma Correction}
-Cameras typically represent colour changes linearly, with a gamma of 1.0. 
+Cameras typically represent Color changes linearly, with a gamma of 1.0. 
 By adjusting gamma, the tonal response of the image can be adjusted, to help produce a desired appearance.
 % TODO: EXPLAIN THIS FURTHER
 \paragraph{Sharpening/Noise Reduction}
@@ -155,7 +155,7 @@ Providing the office machine can run a web browser, then it is suitable.
 When editing certain types of websites (e.g. news) where there may not be time to take a RAW image, edit it natively on a machine
 which may not be local, a Cloud-based RAW editing system could be integrated into the content management system (CMS), allowing the user
 to upload the RAW image, carry out basic edits from within the CMS, and publish their news story. While processing power might be harder to
-come by when travelling (e.g. with only a mobile phone, or low power and lightweight laptop), fast internet access is more prevalent due to
+come by when traveling (e.g. with only a mobile phone, or low power and lightweight laptop), fast internet access is more prevalent due to
 4G mobile networks. As such, uploading a RAW image might be preferable to carrying around a heavier and more powerful laptop computer.
 
 \subsubsection{RAW Editing as a Service for Developers}
@@ -251,12 +251,12 @@ Pentax.
     It also provides non-destructive image editing, which is what  would like to achieve.
     \paragraph{Darktable}
     Darktable is another open source RAW editor. It is also cross platform, running on Linux, Mac, Windows, BSD and Solaris. While some components
-    of dcraw are present in the application (namely the denoising performed for RAW being ported), the application is based on the rawspeed library.
+    of dcraw are present in the application (namely the de-noising performed for RAW being ported), the application is based on the rawspeed library.
     Darktable switched from using dcraw and libraw to using their own RAW library called Rawspeed. Their library loads RAW images for later
     processing on floating point values, to improve quality.  \cite{DarkTableAbout}
 
     \paragraph{dcraw}
-    DCRAW is the tool used by RawTherapee to process RAW images, and alsos previously used by Darktable. Unlike the above options, it is a single portable
+    DCRAW is the tool used by RawTherapee to process RAW images, and also previously used by Darktable. Unlike the above options, it is a single portable
     executable that's controllable through the command line. It is portable, using on C standard libraries, and therefore doesn't require any extra build steps
     to use dependencies. The creator doesn't release dcraw as a library directly, as command line applications cannot use global variables, so an executable is
     more ideal. The recommendation by the creator is to run it as a separate process, to make it modular. Other users have also used the C file
@@ -285,7 +285,7 @@ As dcraw is just an executable, a wrapper around the command line executable can
 Therefore, a simple library for interfacing with dcraw was created for Java, and open sourced. \cite{JDCRAW}. This way, rather than manually
 specifying the arguments for the executable, the images can simply be edited by supplying instruction operations (in the form of Java Objects).
 The output of the library will be a TIFF file, rather than the default PPM file. This is done as TIFF is a file that can be directly read by
-Java (with the use of external tools). To read TIFF, the TwelveMonkeys extension \cite{TwelveMonkeys} was utilised, to read and write TIFF, meaning
+Java (with the use of external tools). To read TIFF, the TwelveMonkeys extension \cite{TwelveMonkeys} was utilized, to read and write TIFF, meaning
 the uncompressed TIFF can be read from dcraw, and then processed further using custom image processing commands. 
 \subsection{Client-Server Communication Protocol}
 % SocketIO
@@ -321,13 +321,13 @@ for this application.
 
 However, Web Socket does have downsides. As a fairly new technology, it's not universally supported, and only modern browsers
 support the protocol, and potentially some firewalls might block ports required, and some hosting providers might not support 
-it either. Therefore, while websocket is ideal, compatibility might be a problem. As shown in \cite{WebSocketDeveloper},
+it either. Therefore, while web-socket is ideal, compatibility might be a problem. As shown in \cite{WebSocketDeveloper},
 Internet Explorer, Opera, and Safari don't have much support aside from early versions of the specification (RFC 6455). Other browsers
 do have increased support, such as Firefox and Chrome. Depending on the browser, support will vary.
 
 \paragraph{Socket.IO}
-Socket.io itself isn't really a protocol, but an implementation of both REST and Websocket, designed for event driven
-applications. Where websocket is supported, it is used, but where websocket isn't supported, the system falls back to
+Socket.io itself isn't really a protocol, but an implementation of both REST and Web-socket, designed for event driven
+applications. Where web-socket is supported, it is used, but where web-socket isn't supported, the system falls back to
 REST to transmit and receive data through polling. Implementation wise, the system is built in an event driven way,
 with message handlers being written, and the framework deals with the edge cases with compatibility. \cite{SocketIOBook}
 
@@ -340,7 +340,7 @@ closed their browser window), the system will reconnect when the server comes ba
 needed is provided within the request), then this will help improve the reliability of our system, not requiring users to repeatedly restart their session
 if some error occurs in the dispatcher. 
 
-Unlike REST, and much like websocket, we have the added complexity of identifying users, so that data is sent back to the correct user. This can easily be done
+Unlike REST, and much like web-socket, we have the added complexity of identifying users, so that data is sent back to the correct user. This can easily be done
 by finding a client unique ID, and sending a message to the connection with that ID. This is an additional piece of information that needs to be included in the request
 between the dispatcher and the render server (to ensure that when the response is received, the response itself is forwarded to the correct person).
 
@@ -372,7 +372,7 @@ many more processors could easily be added, perhaps using class loading in the f
 More detail about the Adams Processor, which is the name for all the custom image processing implementation can be found in Part \ref{AdamsProcessor}.
 \begin{figure}
     \includegraphics[width=\linewidth]{renderserverdiagram}
-    \caption{The structure of the render server. The local cache is simply stored on the server local filesystem.
+    \caption{The structure of the render server. The local cache is simply stored on the server local file system.
     RabbitMQ is a message queue - every single render job is added to the message queue, and the render servers take a job from the message queue
     to process. There are two queues, one to store jobs to process, others to store the results of jobs. When a job is finished, the result is added to the second
     queue, and this is then passed to the user.}
@@ -387,7 +387,7 @@ is the name given to the main routines powering our application. This deals with
 % formula
 % lookup table
 The process of gamma correction involves taking the RAW image, which by default has a linear tone curve (gamma of 1.0), and
-mapping the colours to a different tone curve.
+mapping the colors to a different tone curve.
 
 The function $f$ is used as a transformation from the image, to the gamma correction image. $f$ is defined as:
 
@@ -410,7 +410,7 @@ potentially have the same input values).
 % Details
 % Java Implementation Problems
 Within an image, noise can be introduced by various means, including excessive ISO settings. Therefore are several different
-types of noise, including Amplifier Noise, Salt-and-pepper noise, Shot noise, Quantization noise, on-isotropic noise, speckle noise
+types of noise, including Amplifier Noise, Salt-and-pepper noise, Shot noise, Quantisation noise, on-isotropic noise, speckle noise
 and periodic noise. 
 \cite{NRandFiltering}
 
@@ -424,7 +424,7 @@ and periodic noise.
     This can be removed by applying a Gaussian Blur. \cite{DigitalImageProcessingTextbook}
 
 \paragraph{Salt-and-Pepper Noise}
-    This noise is random noise, where random pixels might differ greatly from their neighbours. This noise can be caused
+    This noise is random noise, where random pixels might differ greatly from their neighbors. This noise can be caused
     by dead pixels on the camera sensor. \cite{NRandFiltering}
     
 % \paragraph{Additive Noise}
@@ -452,11 +452,11 @@ and periodic noise.
     
     \cite{Unsharp}
 
-    When using the RGB colour space, with Unsharp on each individual channel, the colours can appear warped, so using the HSL colour space instead
-    can reduce this, and also reduce the computation. The HSL Colour Space is a way of storing images, storing the Hue, Saturation, and Luminance
-    for each pixel. The hue represents the colour, the saturation represents how prominant the colour is (the purity), and the luminance controls 
-    the perceived lightness of the colour. This conversion is beneficial because only the luminance channel needs to be modified, rather than all three channels.
-    However, one key problem is that the process can yield values of luminance (L) that exceed the $0 \le L \le 100$ range in the colour space.
+    When using the RGB Color space, with Unsharp on each individual channel, the colors can appear warped, so using the HSL Color space instead
+    can reduce this, and also reduce the computation. The HSL Color Space is a way of storing images, storing the Hue, Saturation, and Luminance
+    for each pixel. The hue represents the Color, the saturation represents how prominent the Color is (the purity), and the luminance controls 
+    the perceived lightness of the color. This conversion is beneficial because only the luminance channel needs to be modified, rather than all three channels.
+    However, one key problem is that the process can yield values of luminance (L) that exceed the $0 \le L \le 100$ range in the color space.
     Furthermore, if this step isn't carried out, clipping can occur, which yields an overall loss of image data, something that isn't desired in a RAW editor.
 
     This problem can be solved by normalizing the image, by a process called contrast stretching. The max and minimum luminance values are found across the
@@ -468,14 +468,14 @@ and periodic noise.
     Gaussian over a fixed kernel. The Mean blur filter remains as before (though this feature is disabled through the web interface, as Gaussian is
     primarily used).
 
-    One problem encounted in implementing this was lack of HSL support built into Java. Instead, an implementation of an HSLColour converter, was used,
+    One problem encountered in implementing this was lack of HSL support built into Java. Instead, an implementation of an HSL colour converter, was used,
     as documented in \cite{HSLImplementation}
 \subsubsection{White Balance Adjustment}
     % Based on gains
     % control RGB components.
     % each one has multipliers
-    Each colour image is made up of a variety of individual images, which are placed together
-    to produce the colour images. These are the Red, Green and Blue masks.
+    Each color image is made up of a variety of individual images, which are placed together
+    to produce the color images. These are the Red, Green and Blue masks.
 
     When one adjusts colours, our aim is to mix these three images together with a variety of different
     amounts, so that the overall image produced blends them together to create white (rather than an orange).
@@ -511,7 +511,7 @@ The solution to this is to use a Universally Unique Identifier (UUID).
 % Source https://docs.oracle.com/javase/7/docs/api/java/util/UUID.html
 
 Our method uses the RAW file URL as the basis for the UUID generation, generating a Type 3 UUID based on the full path specified.
-When downloading a file, the system first generates this UUID filename, and checks the local filesystem. If the file is present, then it
+When downloading a file, the system first generates this UUID filename, and checks the local file system. If the file is present, then it
 is already cached, and therefore the cached version is used. If the file isn't present, then it isn't cached, and a file is downloaded, and 
 written to a filename based on the UUID (in this case, the format will be UUID followed by the extension). Type 3 UUID generation is based on
 the MD5 hashing algorithm, by generating a 128 bit UUID. The hexadecimal representation (ignoring the dashes), is used as the replacement filename.
@@ -563,19 +563,25 @@ There are also a few edge cases. If someone presses the undo button when there a
 as there is nothing to undo. The same is true for the redo button.
 
 
-\subsection{Storing User Images}
+\subsection{Storage of RAW Images}
 % While editing individual images is ok, editing a selection of
 % images would be more functional, allowing us to select server uploaded
 % images, edit them, and export them.
-While one can edit individual images by simply supplying them to the editor, they need to be accessed somehow,
-preferably through supplying some URL, where the RAW image can be downloaded, and then used to edit an image.
-The system shall be built to be as customizable as possible, by downloading images from a supplied URL in the request,
-and this RAW image is downloaded (or cached to the render server), wherever the file itself is hosted. This way, we can
-either supply a system for uploading/storing images, or the user can choose to use an image store elsewhere such as Amazon
-S3, OpenStack Swift, or other storage backend. Our system simply uses the Django file system, which stores the file in an
-uploads folder on disk.
 
+The web service was constructed in a manner that allows RAW images to be fetched from any valid URL.
+Instead of limiting the user to using a particular storage backend such as Openstack Swift, or Google Drive,
+any location accessable by a URL can be used. 
 
+Initially, a Django-based system was partially implemented to allow the user to upload an image, and choose it to
+be edited, but this was abandoned as it wasn't entirely relevant to the overall goal of the project.
+
+% While one can edit individual images by simply supplying them to the editor, they need to be accessed somehow,
+% preferably through supplying some URL, where the RAW image can be downloaded, and then used to edit an image.
+% The system shall be built to be as customizable as possible, by downloading images from a supplied URL in the request,
+% and this RAW image is downloaded (or cached to the render server), wherever the file itself is hosted. This way, we can
+% either supply a system for uploading/storing images, or the user can choose to use an image store elsewhere such as Amazon
+% S3, OpenStack Swift, or other storage back-end. Our system simply uses the Django file system, which stores the file in an
+% uploads folder on disk.
 
 \subsection{Managing a big system}
 % Docker/DockerCOmpose for managing a massive distributed system.
@@ -588,12 +594,12 @@ and message queue. However, if a component of the system stops working, that'll 
 across several different machines.
 
 Our solution to this problem is to use Docker. Each component in the system shall be given its own individual container (essentially a virtual machine), where
-it is sandboxed to ensure that systems don't interfere with one another, and each container is networked together. Rather than manually setting up the networking,
+it is sand-boxed to ensure that systems don't interfere with one another, and each container is networked together. Rather than manually setting up the networking,
 one can use Docker Compose to automatically deal with the links between different containers, to ensure that private links between containers are set up, but these links
 can't be accessed from outside the system. This method is preferable, as then one cannot access the message queue/other sensitive components directly. That way, only by sending
 the proper request, will the system respond with an output. 
 
-With a microservice architecture, and some element of load balancing is recommended, along with some method of deploying services together so that dependencies
+With a micro-service architecture, and some element of load balancing is recommended, along with some method of deploying services together so that dependencies
 are met. These lessons learned from \cite{Docker}, were implemented by implementing our message queue backed render server, to load balance requests,
 and to use Docker Compose as \citeauthor{Docker}'s work also did.
 
@@ -618,7 +624,7 @@ differences. While this might work if all systems use the same algorithms to do 
 different implementations of demosaicing exist, yielding slightly different images, along with potential different ways of adopting equalization,
 gamma correction and various other colour adjustments (for example, RGB gain was used to adjust the colours, while Lightroom instead uses chromacity).
 It'll be difficult to use the same settings for every single system. Instead, a better solution would be to use a test image, and compare the adjustments
-by eye between different applications, and use base cases or other expected behaviour to test the output of the system.
+by eye between different applications, and use base cases or other expected behavior to test the output of the system.
 
 \subsubsection{Base cases include:}
 \paragraph{Gamma Correction}
@@ -640,13 +646,17 @@ The section aims to show that our solution works, and provides results to determ
 
 % This section should be between 2 to 3 pages in length.
 \subsection{Functionality Testing}
-The functionality of the system can be tested by carrying out boundary checks. Certain parameters for different features should yield 
-expected outcomes. For example, removing all blue and green channels should yield an image that's only red (with varying brightness in the red channel).
+The functionality of the system was tested using a mixture of boundary checks, and eye based tests. Parameter values were specified with the expected
+outcome, and the output of the system was tested against this.
 
 \subsubsection{Exposure Checks}
-The boundary conditions here to check is with a zero exposure (yielding a black picture), a normal exposure (1.0), and a very high exposure.
-The normal exposure should yield a normal image, while a very high exposure should yield a white image (or an image that's mostly white, with a few
-bright spots). When testing, zero yielded an inverted colour, but with a small value near zero yielded the appropriate result.
+Various different exposures were checked. With an exposure close to zero, a black picture should be yielded. With an exposure of $1.0$,
+the image should appear at a normal brightness. With a very high exposure, the image yielded should be almost white, with some slightly darker patches 
+(which should have some tint).
+
+When testing, an exposure value of zero yielded an inverted colour. However, an exposure of 0.0001 was used, and this gave the expected outcome.
+
+The overall outcome of these checks can be seen in Figure \ref{exposuretest}.
 
 % \textbf{TODO test exposure}
 
@@ -712,12 +722,37 @@ functionality of the implementation.
 
 Reducing the unsharp amount to zero should cause the output image to be the same as the input image.
 
+The output is shown in Figure \ref{unsharpoutputcomparison}. As one can see, the unsharp output makes the hat edge sharper. This means that the routines are working correctly.
+\begin{figure}
+    \centering
+    \subfigure
+    {
+        \includegraphics[width=100px]{hat_blurry}
+    }
+    \subfigure
+    {
+        \includegraphics[width=100px]{rawflash_unsharp_test}
+    }
 
+    \caption{
+        Test of Unsharp output. 
+        (a) Without Unsharp applied
+        (b) With Unsharp applied
+    }
+    \label{unsharpoutputcomparison}
+ \end{figure}
 % \textbf{TODO test Unsharp}
 \subsubsection{Gamma Correction}
-Enter various gamma values in the range $0 < \gamma \leq 2$, and compare them. This should yield a noticeable difference in tone. With a gamma less than 1,
-the tone will have more white colours, while with a gamma greater than 1, the one difference will be darker (with more darker colours than white). The
-outcome of this test can be seen in Figure \ref{gammatest}. The implementation yields this expected outcome.
+
+Different gamma factor values were entered into the system, in accordance with the expected cases. Gamma factor is defined as $\gamma$.
+
+For $\gamma < 1$, the output image should appear with a whiter tone.
+
+For $\gamma > 1$, the output image was expected to appear with a darker tone.
+
+For $\gamma = 1$, the output image was expected to be the same as the input image.
+
+The outcome of this test can be seen in Figure \ref{gammatest}. The implementation yields this expected outcome.
 
 \begin{figure}
    \centering
@@ -746,19 +781,23 @@ outcome of this test can be seen in Figure \ref{gammatest}. The implementation y
 % % \textbf{TEST Gaussian Blur}
 % \subsubsection{Mean Blur}
 
-\subsubsection{Histogram Equalization}
-While the exposure is set, the exposure can also be automatically adjusted using Histogram Equalization. As this happens after the exposure (and all other processing)
-we can test this by setting a fairly low exposure (not 0, but probably in the range of 0.5), and then applying Histogram Equalization. The expected outcome is a brightness
-that's comparable to the image with normal (1) exposure.
+% \subsubsection{Histogram Equalization}
+% While the exposure is set, the exposure can also be automatically adjusted using Histogram Equalization. As this happens after the exposure (and all other processing)
+% we can test this by setting a fairly low exposure (not 0, but probably in the range of 0.5), and then applying Histogram Equalization. The expected outcome is a brightness
+% that's comparable to the image with normal (1) exposure.
 
 % \textbf{TEST HISTOGRAM EQ}
 
 \subsection{Comparison With Other Editors}
+In order to evaluate the performance of the system, two methods were used: comparing the overall output of the image,
+and measuring the responsiveness in seconds. For all of these tests, a set of different image manipulations were carried out
+on various different RAW editors, along with our system. These were all executed on the same hardware, with the same operating system.
+
 In order to evaluate the performance of the system, both in the output image, along with the overall system performance,
 responsiveness (measured in delay in rendering an image), a set of different image manipulations were carried out on various
 different RAW editors and our system. These were all run on exactly the same hardware, with the same Operating System.
 
-The system specification can be seen in Table \ref{SystemSpecs}.
+The system specification used can be seen in Table \ref{SystemSpecs}.
 
 \begin{table}
     \centering
@@ -767,7 +806,7 @@ The system specification can be seen in Table \ref{SystemSpecs}.
         Processor & Intel i7-7700k, 4.2GHz\\
         RAM & 16GB at 3000\\
         HDD & 1TB Seagate Barracuda, spinning at 7200RPM\\
-        Operating System & Microsoft Windows 10 with Ubuntu subsystem\\
+        Operating System & Debian 9\\
         \hline
     \end{tabular}
     \caption{The specification of the test system.}
@@ -790,8 +829,8 @@ increasing the exposure level, and leaving the exposure level at 1.0
 
 \subsubsection{Test 2: Sharpening}
 While these are defined by different terms between software programs, we can still test the overall outcome.
-Rather than deciding the quality of sharpening by how pronounced the edge is, it's instead done by comparing a portion
-of the image (the brim of the hat), sharpened between different applications. The results can be seen in Figure \ref{unsharpcomparison}.
+Rather than deciding the quality of sharpening by how pronounced the edge is, it was instead done by comparing a portion
+of the image (the brim of the hat), sharpened between different applications. The results are shown in Figure \ref{unsharpcomparison}.
 
 \begin{figure}\label{unsharpcomparison}
     \centering
@@ -816,15 +855,14 @@ of the image (the brim of the hat), sharpened between different applications. Th
     \label{unsharpcomparison}
  \end{figure}
 
-
-In terms of quality, while the other two systems do perform slightly better, our system does fairly decent job of sharpening
-the image and enhancing most of the common images. There are a few colour differences between the systems, mostly due to internal
-colour processing, but overall each one of the systems enhance the brim of the hat, making the line sharper and appear less blurry. 
-Our system enhanced the edge enough so that it could be seen, but not so much as to make it too pronounced.
+ In temrs of quality, while RawTherapee and Darktable perform slightly better, RAWFlash does sharpen the image, though leaving some
+ noise. Each system however did enhance the brim of the hat, sharpening the line and making it less blurry. Our system enhanced the
+  edge enough so that it could be seen, but not so much as to make it too pronounced.
 
 \subsubsection{Test 3: Colour Adjustment}
-Colour adjustment is done by using the colour channels, and adjusting the different levels of red, green and blue that exist within the image.
-Between all three systems that are being tested, the parameters that need to be set remain fairly constant (some use percentages, while others use decimals,
+
+Colour adjustment was carried out using the colour channels, and adjusting the different levels of red, green and blue that existed within an image.
+Between all three systems that were tested, the parameter values remained fairly constant (some use percentages, while others use decimals,
 but they all represent the same transform).
 
 % \textbf{TODO insert image comparison here}
@@ -850,14 +888,14 @@ but they all represent the same transform).
     }
     \label{colouradjustmentcomparison}
  \end{figure}
-In comparison to the other systems, they all perform in the same way. There is some slight difference in colour between them, as different colourspaces
-are being used in different applications, and as such, colours are sometimes represented slightly differently. Compared to the original image however, our
-system is certainly functioning.
+Each system appeared to act in a similar fashion. Some difference in colour was found, but this is likely due to the different way applications 
+process colour spaces.
 
 \subsubsection{Test 4: Render Time}
-One crucial test is to compare the time it takes to render an image. For the portable image editing workflow, this is key as editing typically involves
-refining settings constantly throughout the editing process. For the use as a standalone image editor, this time should be fairly low, but for a RAW
-image rendering service, this can be higher, as often RAW images can be edited in batch. The results can be seen in Table \ref{RenderTimeTable}.
+Render time was an important metric to measure and compare. Settings are often refined over time, and therefore quick render times for preview speed up the 
+workflow. The time was measured between sending an image to render, and the rendered image appearing on the screen.
+The results can be seen in Table \ref{RenderTimeTable}. Our system performed poorly compared with native editors, perhaps due to the lack of multithreading,
+coupled with the network latency.
 
 \begin{table}
     \centering
@@ -877,12 +915,13 @@ image rendering service, this can be higher, as often RAW images can be edited i
 \section{Evaluation}
 This section evaluates how well our system works, how well it solves the problem of RAW image processing as a service,
 and how it can be applied.
-% This section should between 1 to 2 pages in length.
 
 \subsection{Application as a RAW Image Editor}
-The system works well at producing images, taking the RAW images and adjusting exposure, colour, and adding sharpening, and exporting the final image.
-The overall images produced are as expected, and the processing that is carried out on them is what is expected from the algorithms implemented.
+The system worked well at producing images, taking the RAW images and adjusting exposure, colour, and adding sharpening, and exporting the final image.
+The overall images produced were as expected.
 
+However, the delay in producing the desired result (as shown in Table \ref{RenderTimeTable}) could mean that the editing process is slower
+than other editors on the market. Therefore, for RAW image editing for standard consumers, this probably isn't as viable as a native RAW editor.
 
 \subsection{Application to Web Content Management Systems}
 % Process of editing and uploading images
@@ -894,33 +933,41 @@ of rendering RAW images, it functions well. With the CMS workflow, of uploading 
 process them in batch our system would work better, as this batch processing will often be done in the background, producing
 the output that can then be stored, ready for use.
 
+While this wouldn't be used in every case, for news websites this could be a potentially good tool, allowing RAW images to quickly be uploaded 
+and edited anywhere, without a heavy amount of equipment. 
+
 \subsection{Performance Issues and Improvements}
 % Improvement by use of multithreading for image processing
 % Java's build in Image Manipulation has a number of undocumented bugs.
 % Using GPU might improve performance furhter.
 
 \subsubsection{Problems with testing}
-While testing, it was found that the existing native applications all have very different ways of controlling parameters,
-all favouring sliders over textboxes. As a result, entering exactly the same settings on each editor to compare them became
-quite difficult, or in some cases impossible. Gamma Correction control was very difficult to test, as our system allows one to 
-enter a gamma factor, but on other systems the tone curve is controlled by user interface widgets. As such, we are unable to
-directly compare the systems.
+While testing, it was found that the existing native applications differ in how parameters for different functions are specified.
+Therefore, specifying exactly the same parameters between different editors, to yield a direct comparison, is not possible.
+
+In particular, Gamma Correction control wasn't able to be accurately compared with the other two editors, as both RawTherapee and
+Darktable require the gamma curve to be specified through a user interface widget, not allowing a gamma factor to be entered. 
+Therefore, for gamma correction, we were unable to compare all three systems.
 
 \subsubsection{Problems with the Java Image library}
-As a basis for the Adams Processor image processing, the Java built-in Image library was utilised,
-by using ImageIO to load an image into a BufferedImage object, and then applying various BufferedImage operations on
-the image.
+As a basis for the Adams Processor image processing, the Java Image library was utilised.
+ImageIO was also used to load an image into a BufferedImage object, and various BufferedImage operations 
+were then carried out on the image, in accordance with the instructions specified by the user.
 
-Java has a built in library which automatically implements convolution, resizing, and various other routines. While
-this is useful, several problems were encounted when using this routines. 
-
+In order to speed up the implementation, the built-in Java routines for convolution, and other common image
+adjustments were planned to be used. However, there were many problems overall with Java's Image implementation.
+These are:
 \paragraph{High Memory Usage/Memory Leaks}
-When processing images, high memory usage was often encountered, at once point using 6GB of RAM for processing 
-one RAW image taken from a Nikon D7100. After the image had finished being processed, this memory appeared not to
-have been deallocated, which led to high memory usage for our entire system. In Java, Garbage Collection should automatically
-deallocate this, but for some reason it didn't function. As a fix, garbage collection was called manually after the response had been sent,
+When processing images, high memory usage was often encountered. For example, while processing an image from
+a Nikon D7100, 6GB of RAM was used to process the image alone (not including any other components of the system).
+
+When researching into this further, it was found that instances were not automatically being deallocated,
+causing the memory leak. As a fix, garbage collection was called manually after the response had been sent,
 which improved performance. Furthermore, smaller RAW images (from the D700, rather than the D7100) were used, as the test system was unable to cope
-with both acting as the render server, and also the client side (via a web browser).
+with both acting as the render server, web server, and the client.
+
+In order to fix this, a new Image representation is needed, that is able to deallocate memory properly, to help avoid the un-necessary bloat of
+BufferedImage.
 
 \paragraph{Non-functioning Operations}
 While implementing Gamma Correction, the plan was to utilize Java's \emph{LUTOp}, to create a lookup table (LUT) that is based on the gamma value,
@@ -931,10 +978,18 @@ documentation and examples didn't assist with this, as examples that were suppos
 Eventually, this implementation approach was abandoned, and replaced with a custom approach of iterating through the image and applying the LUT
 manually. While slower (not relying on Java's faster implementation of yielding RGB values), it solved the problem and only appeared marginally slower.
 
+Ideally, another image library could have been used, or a custom image library would require implementing these, but give more control in how they are implemented
+(e.g. allow multithreading).
+\paragraph{Lack of precision in Convolution}
+Java's built-in convolution operator requires a kernel to be specified as a single precision floating point array. While this is fine for some
+uses, when using large kernel sizes with Gaussian Blur, a difficulty arises in representing the Gaussian coefficients within this precision. Therefore,
+a custom implementation was instead implemented, by creating a new \emph{AccurateKernel} class which used double precision floating point numbers, and
+tieing into Java's existing convolution operations.
+
 \paragraph{Lack of support for multithreading}
-Initially, the plan was to apply multithreading to Convolution operations, but this didn't end up getting implemented due to the overhead of BufferedImage.
-As BufferedImage allows for multiple representations of images, it does not allow access directly to a primitive datastructure storing the image, or some way of
-yielding one directly. The naive way by passing Bufferedimage as a pointer didn't work either, as the overhead caused the system to run much slower than without parallellization.
+Initially, the plan was to apply multithreading to convolution operations, but this didn't end up getting implemented due to the overhead of BufferedImage.
+As BufferedImage allows for multiple representations of images, it does not allow access directly to a primitive data structure storing the image, or some way of
+yielding one directly. The naive way by passing a BufferedImage object as a pointer didn't work either, as the overhead caused the system to run much slower than without parallellization.
 
 While multithreading itself isn't always wanted on image processing (with web servers, each request is assigned a process, and therefore if each process generated several threads it could
 cause problems), for our architecture, multithreaded processing is suitable and encouraged, as there would be a performance increase.
@@ -944,14 +999,16 @@ render the image, reducing the preview time down from $7.3$ seconds to a figure 
 
 \subsection{Comparisons to Objectives}
 
-Overall, all but the Haze Removal objectives were met, all to different degrees. Haze Removal involved many blur operations, which are very slow in our current framework, and therefore the
+Overall, all but the Haze Removal objectives were met. Haze Removal involved many blur operations, which are very slow in our current framework, and therefore the
 time taken to render an image with haze removal would be far too expensive. 
+
+The output of the sharpening process was clear, but could have been improved further to yield sharper images.
 
 \section{Conclusions}
 Overall, the project showed that a Cloud-based approach of editing RAW images does work, and can work well for rendering RAW images in the current architecture.
 While the current implementation has some performance issues, these can be easily rectified, and the approach of editing RAW images as a service is very much possible.
 Using this approach directly in a browser would also work, although the delays in rendering the image on the server side make RAW editing slightly more work when compared with
-using native editors, using the standard RAW workflow.
+using native editors when using the standard RAW workflow.
 \bibliographystyle{unsrtnat}
 \bibliography{projectpaper}
 
