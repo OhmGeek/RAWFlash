@@ -10,7 +10,7 @@
 \citation{UnderstandingRAWCapture}
 \citation{UnderstandingRAWCapture}
 \@writefile{toc}{\contentsline {subsection}{\numberline {A}RAW Files Explained}{2}}
-\@writefile{toc}{\contentsline {paragraph}{Colour Balance}{2}}
+\@writefile{toc}{\contentsline {paragraph}{Color Balance}{2}}
 \@writefile{toc}{\contentsline {paragraph}{Gamma Correction}{2}}
 \@writefile{toc}{\contentsline {paragraph}{Sharpening/Noise Reduction}{2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.1}Comparison to JPEG}{2}}
@@ -55,7 +55,7 @@
 \@writefile{toc}{\contentsline {paragraph}{Web Socket}{6}}
 \@writefile{toc}{\contentsline {paragraph}{Socket.IO}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {C}Rendering Server Structure}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The structure of the render server. The local cache is simply stored on the server local filesystem. RabbitMQ is a message queue - every single render job is added to the message queue, and the render servers take a job from the message queue to process. There are two queues, one to store jobs to process, others to store the results of jobs. When a job is finished, the result is added to the second queue, and this is then passed to the user.}}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The structure of the render server. The local cache is simply stored on the server local file system. RabbitMQ is a message queue - every single render job is added to the message queue, and the render servers take a job from the message queue to process. There are two queues, one to store jobs to process, others to store the results of jobs. When a job is finished, the result is added to the second queue, and this is then passed to the user.}}{7}}
 \newlabel{renderserverdiagram}{{1}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {D}Adams Processor}{7}}
 \newlabel{AdamsProcessor}{{D}{7}}
@@ -79,30 +79,30 @@
 \citation{Docker}
 \citation{Docker}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {F.1}Undo/Redo Functionality}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {G}Storing User Images}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {G}Storage of RAW Images}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {H}Managing a big system}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {I}Unit Testing Issues with Image Processing}{10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The architectural structure of the system. (1) File download of the client-side user interface. (2) Static files served through the web server. (3, 4, 5) These were part of a system to allow users to upload and manage their collection of images. This was not implemented due to time constraints, and it was not directly related to the overall goal. (6) Socket.io communication between the client and the render service, to generate previews and output images. (7) RAW Images are fetched from the web server. (8) Test images can be served through the web server too.}}{11}}
 \newlabel{architecturediagram}{{2}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {I}Unit Testing Issues with Image Processing}{11}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {I.1}Base cases include:}{11}}
 \@writefile{toc}{\contentsline {paragraph}{Gamma Correction}{11}}
 \@writefile{toc}{\contentsline {paragraph}{Colour Balance}{11}}
 \@writefile{toc}{\contentsline {paragraph}{Exposure}{11}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Results}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Functionality Testing}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Test of Exposure Adjustment (a) Exposure Level Small: 0.0001 (b) Exposure normal: 1.0 (c) Exposure level high: 5000 }}{12}}
 \newlabel{exposuretest}{{3}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Test of Colour Balance (a) No Adjustment (b) Red only (green and blue zero) (c) Green only (red and blue zero) (d) Blue only (red and green zero) }}{12}}
 \newlabel{colourbalancetest}{{4}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A}Functionality Testing}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.1}Exposure Checks}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.2}Colour Balance Checks}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3}Unsharp}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.4}Gamma Correction}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.5}Histogram Equalization}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Test of Gamma Correction output. (a) $\gamma = 0.3$ (b) $\gamma = 1.0$ (c) $\gamma = 1.7$ }}{13}}
 \newlabel{gammatest}{{5}{13}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The specification of the test system.}}{13}}
 \newlabel{SystemSpecs}{{1}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.5}Histogram Equalization}{13}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {B}Comparison With Other Editors}{13}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {B.1}Test 1: Exposure Adjustment}{13}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2}Test 2: Sharpening}{13}}
@@ -117,13 +117,14 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {B.4}Test 4: Render Time}{14}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Evaluation}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {A}Application as a RAW Image Editor}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B}Application to Web Content Management Systems}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Application to Web Content Management Systems}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {C}Performance Issues and Improvements}{15}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {C.1}Problems with testing}{15}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {C.2}Problems with the Java Image library}{15}}
 \@writefile{toc}{\contentsline {paragraph}{High Memory Usage/Memory Leaks}{15}}
 \@writefile{toc}{\contentsline {paragraph}{Non-functioning Operations}{15}}
 \@writefile{toc}{\contentsline {paragraph}{Lack of support for multithreading}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D}Comparisons to Objectives}{15}}
 \bibstyle{unsrtnat}
 \bibdata{projectpaper}
 \bibcite{JDCRAW}{{1}{2017}{{Collins}}{{}}}
@@ -141,12 +142,11 @@
 \bibcite{RESTandLongRunningJobs}{{13}{2014}{{Farazdagi}}{{}}}
 \bibcite{WebsocketSpec}{{14}{2011}{{Int}}{{}}}
 \bibcite{WebSocketDeveloper}{{15}{}{{Mozilla Web Socket Developer}}{{}}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D}Comparisons to Objectives}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusions}{16}}
 \bibcite{SocketIOBook}{{16}{2011}{{MacCaw}}{{}}}
 \bibcite{NRandFiltering}{{17}{2017}{{Hambal et~al.}}{{Hambal, Pei, and Ishabailu}}}
 \bibcite{DigitalImageProcessingTextbook}{{18}{2009}{{Gonzalez and Woods}}{{}}}
 \bibcite{Unsharp}{{19}{2000}{{Fisher et~al.}}{{Fisher, Perkins, Walker, and Wolfart}}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusions}{16}}
 \bibcite{HSLImplementation}{{20}{2015}{{Jianzhao}}{{}}}
 \bibcite{WhiteBalance}{{21}{2004}{{Viggiano}}{{}}}
 \bibcite{Docker}{{22}{2016}{{Balalaie et~al.}}{{Balalaie, Heydarnoori, and Jamshidi}}}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  24 APR 2018 14:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  24 APR 2018 19:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -210,7 +210,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 <architecture.png, id=43, 623.63326pt x 528.62663pt>
 File: architecture.png Graphic file (type png)
  <use architecture.png>
-Package pdftex.def Info: architecture.png used on input line 604.
+Package pdftex.def Info: architecture.png used on input line 610.
 (pdftex.def)             Requested size: 200.75073pt x 170.16418pt.
 
 [10] [11 <./architecture.png (PNG copy)>]
@@ -218,68 +218,68 @@ Package pdftex.def Info: architecture.png used on input line 604.
 File: brightnesspoint0001.png Graphic file (type png)
 
 <use brightnesspoint0001.png>
-Package pdftex.def Info: brightnesspoint0001.png used on input line 658.
+Package pdftex.def Info: brightnesspoint0001.png used on input line 664.
 (pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
 
 <brightnessnormal.png, id=51, 1032.0156pt x 685.1196pt>
 File: brightnessnormal.png Graphic file (type png)
 
 <use brightnessnormal.png>
-Package pdftex.def Info: brightnessnormal.png used on input line 662.
+Package pdftex.def Info: brightnessnormal.png used on input line 668.
 (pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
 
 <brightness5000.png, id=52, 1032.0156pt x 685.1196pt>
 File: brightness5000.png Graphic file (type png)
  <use brightness5000.png>
-Package pdftex.def Info: brightness5000.png used on input line 666.
+Package pdftex.def Info: brightness5000.png used on input line 672.
 (pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
 
 <colourtest_no_adjustment.png, id=53, 1402.23875pt x 912.40875pt>
 File: colourtest_no_adjustment.png Graphic file (type png)
 
 <use colourtest_no_adjustment.png>
-Package pdftex.def Info: colourtest_no_adjustment.png used on input line 685.
+Package pdftex.def Info: colourtest_no_adjustment.png used on input line 691.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <colourtest_redonly.png, id=54, 1402.23875pt x 912.40875pt>
 File: colourtest_redonly.png Graphic file (type png)
 
 <use colourtest_redonly.png>
-Package pdftex.def Info: colourtest_redonly.png used on input line 689.
+Package pdftex.def Info: colourtest_redonly.png used on input line 695.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <colourtest_greenonly.png, id=55, 1402.23875pt x 912.40875pt>
 File: colourtest_greenonly.png Graphic file (type png)
 
 <use colourtest_greenonly.png>
-Package pdftex.def Info: colourtest_greenonly.png used on input line 693.
+Package pdftex.def Info: colourtest_greenonly.png used on input line 699.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <blueonly.png, id=56, 1402.23875pt x 912.40875pt>
 File: blueonly.png Graphic file (type png)
  <use blueonly.png>
-Package pdftex.def Info: blueonly.png used on input line 697.
+Package pdftex.def Info: blueonly.png used on input line 703.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <gammacorrectionlow.png, id=57, 1402.23875pt x 912.40875pt>
 File: gammacorrectionlow.png Graphic file (type png)
 
 <use gammacorrectionlow.png>
-Package pdftex.def Info: gammacorrectionlow.png used on input line 727.
+Package pdftex.def Info: gammacorrectionlow.png used on input line 733.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
 
 <gammacorrection_normal.png, id=58, 1402.23875pt x 912.40875pt>
 File: gammacorrection_normal.png Graphic file (type png)
 
 <use gammacorrection_normal.png>
-Package pdftex.def Info: gammacorrection_normal.png used on input line 731.
+Package pdftex.def Info: gammacorrection_normal.png used on input line 737.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
 
 <gammacorrectionhigh.png, id=59, 1402.23875pt x 912.40875pt>
 File: gammacorrectionhigh.png Graphic file (type png)
 
 <use gammacorrectionhigh.png>
-Package pdftex.def Info: gammacorrectionhigh.png used on input line 735.
+Package pdftex.def Info: gammacorrectionhigh.png used on input line 741.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
  [12 <./brightnesspoint0001.png> <./brightnessnormal.png> <./brightness5000.png
 > <./colourtest_no_adjustment.png> <./colourtest_redonly.png> <./colourtest_gre
@@ -288,21 +288,21 @@ enonly.png> <./blueonly.png>]
 File: rawflash_hat_sharp.png Graphic file (type png)
 
 <use rawflash_hat_sharp.png>
-Package pdftex.def Info: rawflash_hat_sharp.png used on input line 801.
+Package pdftex.def Info: rawflash_hat_sharp.png used on input line 807.
 (pdftex.def)             Requested size: 100.37537pt x 68.97333pt.
 
 <rawtherapee_unsharp_max.jpg, id=69, 253.4268pt x 222.5916pt>
 File: rawtherapee_unsharp_max.jpg Graphic file (type jpg)
 
 <use rawtherapee_unsharp_max.jpg>
-Package pdftex.def Info: rawtherapee_unsharp_max.jpg used on input line 805.
+Package pdftex.def Info: rawtherapee_unsharp_max.jpg used on input line 811.
 (pdftex.def)             Requested size: 100.37537pt x 88.16216pt.
 
 <darktable_unsharp.jpg, id=70, 282.3348pt x 185.9748pt>
 File: darktable_unsharp.jpg Graphic file (type jpg)
 
 <use darktable_unsharp.jpg>
-Package pdftex.def Info: darktable_unsharp.jpg used on input line 809.
+Package pdftex.def Info: darktable_unsharp.jpg used on input line 815.
 (pdftex.def)             Requested size: 100.37537pt x 66.11658pt.
  [13 <./gammacorrectionlow.png> <./gammacorrection_normal.png> <./gammacorrecti
 onhigh.png> <./rawflash_hat_sharp.png> <./rawtherapee_unsharp_max.jpg> <./darkt
@@ -311,7 +311,7 @@ able_unsharp.jpg>]
 File: rawflash_colour_adjustment.png Graphic file (type png)
 
 <use rawflash_colour_adjustment.png>
-Package pdftex.def Info: rawflash_colour_adjustment.png used on input line 836.
+Package pdftex.def Info: rawflash_colour_adjustment.png used on input line 842.
 
 (pdftex.def)             Requested size: 100.37537pt x 68.97333pt.
 
@@ -320,14 +320,14 @@ File: rawtherapee_colour_adjustment.jpg Graphic file (type jpg)
 
 <use rawtherapee_colour_adjustment.jpg>
 Package pdftex.def Info: rawtherapee_colour_adjustment.jpg used on input line 8
-40.
+46.
 (pdftex.def)             Requested size: 100.37537pt x 66.57188pt.
 
 <darktable_colour_adjustment.jpg, id=81, 1031.5338pt x 685.1196pt>
 File: darktable_colour_adjustment.jpg Graphic file (type jpg)
 
 <use darktable_colour_adjustment.jpg>
-Package pdftex.def Info: darktable_colour_adjustment.jpg used on input line 844
+Package pdftex.def Info: darktable_colour_adjustment.jpg used on input line 850
 .
 (pdftex.def)             Requested size: 100.37537pt x 66.66559pt.
  [14 <./rawflash_colour_adjustment.png> <./rawtherapee_colour_adjustment.jpg> <
@@ -351,7 +351,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  2332 strings out of 493013
  34350 string characters out of 6135681
- 96300 words of memory out of 5000000
+ 97300 words of memory out of 5000000
  5831 multiletter control sequences out of 15000+600000
  15997 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -366,7 +366,7 @@ rier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/times/utmri8a.pfb>
-Output written on projectpaper.pdf (17 pages, 62133960 bytes).
+Output written on projectpaper.pdf (17 pages, 62133691 bytes).
 PDF statistics:
  130 PDF objects out of 1000 (max. 8388607)
  71 compressed objects within 1 object stream
