@@ -719,7 +719,25 @@ functionality of the implementation.
 
 Reducing the unsharp amount to zero should cause the output image to be the same as the input image.
 
+The output is shown in Figure \ref{unsharpoutputcomparison}. As one can see, the unsharp output makes the hat edge sharper. This means that the routines are working correctly.
+\begin{figure}
+    \centering
+    \subfigure
+    {
+        \includegraphics[width=100px]{hat_blurry}
+    }
+    \subfigure
+    {
+        \includegraphics[width=100px]{rawflash_unsharp_test}
+    }
 
+    \caption{
+        Test of Unsharp output. 
+        (a) Without Unsharp applied
+        (b) With Unsharp applied
+    }
+    \label{unsharpoutputcomparison}
+ \end{figure}
 % \textbf{TODO test Unsharp}
 \subsubsection{Gamma Correction}
 Enter various gamma values in the range $0 < \gamma \leq 2$, and compare them. This should yield a noticeable difference in tone. With a gamma less than 1,

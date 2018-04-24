@@ -118,6 +118,12 @@ INPUT ./colourtest_greenonly.png
 INPUT blueonly.png
 INPUT ./blueonly.png
 INPUT ./blueonly.png
+INPUT hat_blurry.png
+INPUT ./hat_blurry.png
+INPUT ./hat_blurry.png
+INPUT rawflash_unsharp_test.png
+INPUT ./rawflash_unsharp_test.png
+INPUT ./rawflash_unsharp_test.png
 INPUT gammacorrectionlow.png
 INPUT ./gammacorrectionlow.png
 INPUT ./gammacorrectionlow.png
