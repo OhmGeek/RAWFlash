@@ -652,7 +652,8 @@ expected outcomes. For example, removing all blue and green channels should yiel
 \subsubsection{Exposure Checks}
 The boundary conditions here to check is with a zero exposure (yielding a black picture), a normal exposure (1.0), and a very high exposure.
 The normal exposure should yield a normal image, while a very high exposure should yield a white image (or an image that's mostly white, with a few
-bright spots). When testing, zero yielded an inverted colour, but with a small value near zero yielded the appropriate result.
+bright spots). When testing, zero yielded an inverted colour, but with a small value near zero yielded the appropriate result. The outcome of these
+checks can be seen in \ref{exposuretest}.
 
 % \textbf{TODO test exposure}
 
@@ -752,10 +753,10 @@ outcome of this test can be seen in Figure \ref{gammatest}. The implementation y
 % % \textbf{TEST Gaussian Blur}
 % \subsubsection{Mean Blur}
 
-\subsubsection{Histogram Equalization}
-While the exposure is set, the exposure can also be automatically adjusted using Histogram Equalization. As this happens after the exposure (and all other processing)
-we can test this by setting a fairly low exposure (not 0, but probably in the range of 0.5), and then applying Histogram Equalization. The expected outcome is a brightness
-that's comparable to the image with normal (1) exposure.
+% \subsubsection{Histogram Equalization}
+% While the exposure is set, the exposure can also be automatically adjusted using Histogram Equalization. As this happens after the exposure (and all other processing)
+% we can test this by setting a fairly low exposure (not 0, but probably in the range of 0.5), and then applying Histogram Equalization. The expected outcome is a brightness
+% that's comparable to the image with normal (1) exposure.
 
 % \textbf{TEST HISTOGRAM EQ}
 
