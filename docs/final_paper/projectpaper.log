@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  24 APR 2018 11:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  24 APR 2018 11:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -90,11 +90,7 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (./projectpaper.aux
-
-LaTeX Warning: Label `colourbalancetest' multiply defined.
-
-)
+) (./projectpaper.aux)
 \openout1 = `projectpaper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
@@ -110,7 +106,8 @@ LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 20.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -181,195 +178,226 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 24.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
+
+
+Package natbib Warning: Citation `JDCRAW' on page 1 undefined on input line 45.
+
+
+
+Package natbib Warning: Citation `TwelveMonkeys' on page 1 undefined on input l
+ine 46.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 81.
-
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package natbib Warning: Citation `UnderstandingRAWCapture' on page 2 undefined 
+on input line 101.
+
+
+Package natbib Warning: Citation `UnderstandingRAWCapture' on page 2 undefined 
+on input line 133.
+
+[2]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 189.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 189.
- [3] [4] [5] [6]
-<renderserverdiagram.png, id=26, 845.40843pt x 597.73312pt>
+ [3]
+
+Package natbib Warning: Citation `WebServiceImageProcessing' on page 4 undefine
+d on input line 210.
+
+
+Package natbib Warning: Citation `WebServiceImageProcessing' on page 4 undefine
+d on input line 213.
+
+
+Package natbib Warning: Citation `DNGSpec' on page 4 undefined on input line 22
+6.
+
+
+Package natbib Warning: Citation `AdobeCameraRAW' on page 4 undefined on input 
+line 237.
+
+
+Package natbib Warning: Citation `AdobeDNGConverter' on page 4 undefined on inp
+ut line 241.
+
+
+Package natbib Warning: Citation `LinuxServerGrowth' on page 4 undefined on inp
+ut line 243.
+
+
+Package natbib Warning: Citation `RawTherapeeReadme' on page 4 undefined on inp
+ut line 250.
+
+
+Package natbib Warning: Citation `DarkTableAbout' on page 4 undefined on input 
+line 256.
+
+
+Package natbib Warning: Citation `DCRAWSource' on page 4 undefined on input lin
+e 263.
+
+[4]
+
+Package natbib Warning: Citation `LibrawSource' on page 5 undefined on input li
+ne 267.
+
+
+Package natbib Warning: Citation `JDCRAW' on page 5 undefined on input line 285
+.
+
+
+Package natbib Warning: Citation `TwelveMonkeys' on page 5 undefined on input l
+ine 288.
+
+
+Package natbib Warning: Citation `RESTandLongRunningJobs' on page 5 undefined o
+n input line 309.
+
+
+Package natbib Warning: Citation `WebsocketSpec' on page 5 undefined on input l
+ine 317.
+
+[5]
+
+Package natbib Warning: Citation `WebSocketDeveloper' on page 6 undefined on in
+put line 324.
+
+
+Package natbib Warning: Citation `SocketIOBook' on page 6 undefined on input li
+ne 332.
+
+
+LaTeX Warning: Reference `renderserverdiagram' on page 6 undefined on input lin
+e 355.
+
+
+LaTeX Warning: Reference `LocalImageCaching' on page 6 undefined on input line 
+358.
+
+
+LaTeX Warning: Reference `AdamsProcessor' on page 6 undefined on input line 372
+.
+
+<renderserverdiagram.png, id=23, 845.40843pt x 597.73312pt>
 File: renderserverdiagram.png Graphic file (type png)
 
 <use renderserverdiagram.png>
-Package pdftex.def Info: renderserverdiagram.png used on input line 377.
+Package pdftex.def Info: renderserverdiagram.png used on input line 374.
 (pdftex.def)             Requested size: 416.13188pt x 294.21428pt.
+ [6] [7 <./renderserverdiagram.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 394.
+(Font)              <7> on input line 391.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 394.
- [7 <./renderserverdiagram.png>] [8] [9]
-<architecture.png, id=43, 623.63326pt x 528.62663pt>
+(Font)              <5> on input line 391.
+
+
+Package natbib Warning: Citation `NRandFiltering' on page 8 undefined on input 
+line 414.
+
+
+Package natbib Warning: Citation `NRandFiltering' on page 8 undefined on input 
+line 422.
+
+
+Package natbib Warning: Citation `DigitalImageProcessingTextbook' on page 8 und
+efined on input line 423.
+
+
+Package natbib Warning: Citation `NRandFiltering' on page 8 undefined on input 
+line 427.
+
+
+Package natbib Warning: Citation `Unsharp' on page 8 undefined on input line 45
+2.
+
+[8]
+
+Package natbib Warning: Citation `HSLImplementation' on page 9 undefined on inp
+ut line 471.
+
+
+Package natbib Warning: Citation `WhiteBalance' on page 9 undefined on input li
+ne 489.
+
+
+Package natbib Warning: Citation `WhiteBalance' on page 9 undefined on input li
+ne 489.
+
+[9] [10]
+
+Package natbib Warning: Citation `Docker' on page 11 undefined on input line 59
+5.
+
+
+Package natbib Warning: Citation `Docker' on page 11 undefined on input line 59
+6.
+
+<architecture.png, id=46, 623.63326pt x 528.62663pt>
 File: architecture.png Graphic file (type png)
  <use architecture.png>
-Package pdftex.def Info: architecture.png used on input line 605.
+Package pdftex.def Info: architecture.png used on input line 602.
 (pdftex.def)             Requested size: 200.75073pt x 170.16418pt.
 
-[10] [11 <./architecture.png (PNG copy)>]
+[11 <./architecture.png (PNG copy)>]
 <brightnesspoint0001.png, id=50, 1032.0156pt x 685.1196pt>
 File: brightnesspoint0001.png Graphic file (type png)
 
 <use brightnesspoint0001.png>
-Package pdftex.def Info: brightnesspoint0001.png used on input line 658.
+Package pdftex.def Info: brightnesspoint0001.png used on input line 655.
 (pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
 
 <brightnessnormal.png, id=51, 1032.0156pt x 685.1196pt>
 File: brightnessnormal.png Graphic file (type png)
 
 <use brightnessnormal.png>
-Package pdftex.def Info: brightnessnormal.png used on input line 662.
+Package pdftex.def Info: brightnessnormal.png used on input line 659.
 (pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
 
 <brightness5000.png, id=52, 1032.0156pt x 685.1196pt>
 File: brightness5000.png Graphic file (type png)
  <use brightness5000.png>
-Package pdftex.def Info: brightness5000.png used on input line 666.
+Package pdftex.def Info: brightness5000.png used on input line 663.
 (pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
+
+
+LaTeX Warning: Reference `colourbalancetest' on page 12 undefined on input line
+ 675.
 
 <colourtest_no_adjustment.png, id=53, 1402.23875pt x 912.40875pt>
 File: colourtest_no_adjustment.png Graphic file (type png)
 
 <use colourtest_no_adjustment.png>
-Package pdftex.def Info: colourtest_no_adjustment.png used on input line 684.
+Package pdftex.def Info: colourtest_no_adjustment.png used on input line 681.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <colourtest_redonly.png, id=54, 1402.23875pt x 912.40875pt>
 File: colourtest_redonly.png Graphic file (type png)
 
 <use colourtest_redonly.png>
-Package pdftex.def Info: colourtest_redonly.png used on input line 688.
+Package pdftex.def Info: colourtest_redonly.png used on input line 685.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <colourtest_greenonly.png, id=55, 1402.23875pt x 912.40875pt>
 File: colourtest_greenonly.png Graphic file (type png)
 
 <use colourtest_greenonly.png>
-Package pdftex.def Info: colourtest_greenonly.png used on input line 692.
+Package pdftex.def Info: colourtest_greenonly.png used on input line 689.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <blueonly.png, id=56, 1402.23875pt x 912.40875pt>
 File: blueonly.png Graphic file (type png)
  <use blueonly.png>
-Package pdftex.def Info: blueonly.png used on input line 696.
+Package pdftex.def Info: blueonly.png used on input line 693.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
-
-<gammacorrectionlow.png, id=57, 1402.23875pt x 912.40875pt>
-File: gammacorrectionlow.png Graphic file (type png)
-
-<use gammacorrectionlow.png>
-Package pdftex.def Info: gammacorrectionlow.png used on input line 725.
-(pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
-
-<gammacorrection_normal.png, id=58, 1402.23875pt x 912.40875pt>
-File: gammacorrection_normal.png Graphic file (type png)
-
-<use gammacorrection_normal.png>
-Package pdftex.def Info: gammacorrection_normal.png used on input line 729.
-(pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
-
-<gammacorrectionhigh.png, id=59, 1402.23875pt x 912.40875pt>
-File: gammacorrectionhigh.png Graphic file (type png)
-
-<use gammacorrectionhigh.png>
-Package pdftex.def Info: gammacorrectionhigh.png used on input line 733.
-(pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
- [12 <./brightnesspoint0001.png> <./brightnessnormal.png> <./brightness5000.png
-> <./colourtest_no_adjustment.png> <./colourtest_redonly.png> <./colourtest_gre
-enonly.png> <./blueonly.png>]
-<rawflash_hat_sharp.png, id=68, 1402.23875pt x 963.6pt>
-File: rawflash_hat_sharp.png Graphic file (type png)
-
-<use rawflash_hat_sharp.png>
-Package pdftex.def Info: rawflash_hat_sharp.png used on input line 797.
-(pdftex.def)             Requested size: 100.37537pt x 68.97333pt.
-
-<rawtherapee_unsharp_max.jpg, id=69, 253.4268pt x 222.5916pt>
-File: rawtherapee_unsharp_max.jpg Graphic file (type jpg)
-
-<use rawtherapee_unsharp_max.jpg>
-Package pdftex.def Info: rawtherapee_unsharp_max.jpg used on input line 801.
-(pdftex.def)             Requested size: 100.37537pt x 88.16216pt.
-
-<darktable_unsharp.jpg, id=70, 282.3348pt x 185.9748pt>
-File: darktable_unsharp.jpg Graphic file (type jpg)
-
-<use darktable_unsharp.jpg>
-Package pdftex.def Info: darktable_unsharp.jpg used on input line 805.
-(pdftex.def)             Requested size: 100.37537pt x 66.11658pt.
- [13 <./gammacorrectionlow.png> <./gammacorrection_normal.png> <./gammacorrecti
-onhigh.png> <./rawflash_hat_sharp.png> <./rawtherapee_unsharp_max.jpg> <./darkt
-able_unsharp.jpg>]
-<rawflash_colour_adjustment.png, id=79, 1402.23875pt x 963.6pt>
-File: rawflash_colour_adjustment.png Graphic file (type png)
-
-<use rawflash_colour_adjustment.png>
-Package pdftex.def Info: rawflash_colour_adjustment.png used on input line 831.
-
-(pdftex.def)             Requested size: 100.37537pt x 68.97333pt.
-
-<rawtherapee_colour_adjustment.jpg, id=80, 1030.0884pt x 683.1924pt>
-File: rawtherapee_colour_adjustment.jpg Graphic file (type jpg)
-
-<use rawtherapee_colour_adjustment.jpg>
-Package pdftex.def Info: rawtherapee_colour_adjustment.jpg used on input line 8
-35.
-(pdftex.def)             Requested size: 100.37537pt x 66.57188pt.
-
-<darktable_colour_adjustment.jpg, id=81, 1031.5338pt x 685.1196pt>
-File: darktable_colour_adjustment.jpg Graphic file (type jpg)
-
-<use darktable_colour_adjustment.jpg>
-Package pdftex.def Info: darktable_colour_adjustment.jpg used on input line 839
-.
-(pdftex.def)             Requested size: 100.37537pt x 66.66559pt.
- [14 <./rawflash_colour_adjustment.png> <./rawtherapee_colour_adjustment.jpg> <
-./darktable_colour_adjustment.jpg>]
-[15] (./projectpaper.bbl
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 11.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Underfull \hbox (badness 1406) in paragraph at lines 88--93
-[]\OT1/ptm/m/n/10 Victor Farazdagi.  Rest and long-running jobs.  URL: $\OT1/pc
-r/m/n/10 https : / / farazdagi . com / 2014 /
- []
-
-[16]) [17] (./projectpaper.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
-Here is how much of TeX's memory you used:
- 2330 strings out of 493013
- 34315 string characters out of 6135681
- 96290 words of memory out of 5000000
- 5829 multiletter control sequences out of 15000+600000
- 15997 words of font info for 31 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 39i,7n,25p,742b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cou
-rier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/urw/times/utmri8a.pfb>
-Output written on projectpaper.pdf (17 pages, 62135094 bytes).
-PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ [12 <./brightnesspoint0001.png> <./brightnessnormal.png>
+!pdfTeX error: pdflatex: fflush() failed (Broken pipe)
+ ==> Fatal error occurred, no output PDF file produced!

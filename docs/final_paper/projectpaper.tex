@@ -219,15 +219,12 @@ This section outlines the various changes needed, from the changes needed to par
 \subsection{RAW files, and parsing}
 % DNG standard
 % 
-
-
 As explained in the introduction, there are many different types of proprietary RAW file formats, such as Canon's CRW and CR2, and Nikon's NEF among others.
 Each of these formats stores similar information, but in a different way.
 
 Adobe created and made public their standard RAW file format called DNG. It is defined as "a non-proprietary file format for storing camera raw files that
 can be used by a wide range of hardware and software vendors" by Adobe in the specification. \cite{DNGSpec} Some cameras use DNG as default, for example
 Pentax.
-
 
 \subsection{Existing Solutions}
 % Lightroom, proprietary
@@ -650,7 +647,7 @@ bright spots). When testing, zero yielded an inverted colour, but with a small v
 
 % \textbf{TODO test exposure}
 
-\begin{figure}\label{colourbalancetest}
+\begin{figure}\label{exposuretest}
     \centering
     \subfigure
     {
@@ -665,7 +662,7 @@ bright spots). When testing, zero yielded an inverted colour, but with a small v
         \includegraphics[width=75px]{brightness5000}
     }
     \caption{
-        Test of Colour Balance 
+        Test of Exposure Adjustment 
         (a) Exposure Level Small: 0.0001
         (b) Exposure normal: 1.0
         (c) Exposure level high: 5000
@@ -704,12 +701,12 @@ The results of this check can be found in Figure \ref{colourbalancetest}. These 
  \end{figure}
 
 \subsubsection{Unsharp}
-Enter a fairly high Unsharp radius (the sigma of the Gaussian), and amount. This should then yield an image with very pronounced edges (if not, just the edges).
+Enter a fairly high Unsharp radius (the sigma of the Gaussian), and amount. This should then yield an image with enchanced edges in comparison to the normal image without unsharp masking. As a reference
+point, a specific part of the image should be used to compare the sharpness, to determine the
+functionality of the implementation.
 
-Reducing this to zero should remove the pronounced edges entirely (as with an amount 0, the unsharp process shouldn't affect the image at all).
+Reducing the unsharp amount to zero should cause the output image to be the same as the input image.
 
-Then test with a fairly small radius and amount (with the amount being in the range of $0 < amount < 0.7$), which should yield a fairly normal image only with sharper
-edges.
 
 % \textbf{TODO test Unsharp}
 \subsubsection{Gamma Correction}
@@ -917,9 +914,9 @@ which improved performance. Furthermore, smaller RAW images (from the D700, rath
 with both acting as the render server, and also the client side (via a web browser).
 
 \paragraph{Non-functioning Operations}
-While implementing Gamma Correction, the plan was to utilize Java's \emph{LUTOp}, to create a lookup table (based on the gamma value),
+While implementing Gamma Correction, the plan was to utilize Java's \emph{LUTOp}, to create a lookup table (LUT) that is based on the gamma value,
 and apply it to the image. When implementing this however, the image itself would not output any applied lookup, as the original image would be output.
-The LUT generated the correct LUT, and this was passed to the correct routine, but for some reason it was never applied to the image. Looking through
+The LUT method generated the correct lookup table relation, and this was passed to the correct routine, but for some reason it was never applied to the image. Looking through
 documentation and examples didn't assist with this, as examples that were supposed to work didn't.
 
 Eventually, this implementation approach was abandoned, and replaced with a custom approach of iterating through the image and applying the LUT
@@ -933,17 +930,19 @@ yielding one directly. The naive way by passing Bufferedimage as a pointer didn'
 While multithreading itself isn't always wanted on image processing (with web servers, each request is assigned a process, and therefore if each process generated several threads it could
 cause problems), for our architecture, multithreaded processing is suitable and encouraged, as there would be a performance increase.
 
-In the future, building a custom image data structure would be ideal, as this would allow for multithreaded processing of images.
+In the future, building a custom image data structure would be ideal, as this would allow for multithreaded processing of images. This would also massively improve the time taken to
+render the image, reducing the preview time down from $7.3$ seconds to a figure more in line with RawTherapee or Darktable.
 
 \subsection{Comparisons to Objectives}
+
 Overall, all but the Haze Removal objectives were met, all to different degrees. Haze Removal involved many blur operations, which are very slow in our current framework, and therefore the
 time taken to render an image with haze removal would be far too expensive. 
+
 \section{Conclusions}
 Overall, the project showed that a Cloud-based approach of editing RAW images does work, and can work well for rendering RAW images in the current architecture.
 While the current implementation has some performance issues, these can be easily rectified, and the approach of editing RAW images as a service is very much possible.
 Using this approach directly in a browser would also work, although the delays in rendering the image on the server side make RAW editing slightly more work when compared with
 using native editors, using the standard RAW workflow.
-
 \bibliographystyle{unsrtnat}
 \bibliography{projectpaper}
 
