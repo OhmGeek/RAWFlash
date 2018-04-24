@@ -370,12 +370,13 @@ specified instructions and passing them to all the possible processors (currentl
 many more processors could easily be added, perhaps using class loading in the future).
 
 More detail about the Adams Processor, which is the name for all the custom image processing implementation can be found in Part \ref{AdamsProcessor}.
-\begin{figure}\label{renderserverdiagram}
+\begin{figure}
     \includegraphics[width=\linewidth]{renderserverdiagram}
     \caption{The structure of the render server. The local cache is simply stored on the server local filesystem.
     RabbitMQ is a message queue - every single render job is added to the message queue, and the render servers take a job from the message queue
     to process. There are two queues, one to store jobs to process, others to store the results of jobs. When a job is finished, the result is added to the second
     queue, and this is then passed to the user.}
+    \label{renderserverdiagram}
 \end{figure}
 
 \subsection{Adams Processor}\label{AdamsProcessor}
@@ -579,6 +580,7 @@ uploads folder on disk.
 \subsection{Managing a big system}
 % Docker/DockerCOmpose for managing a massive distributed system.
 % Docker automatic restart on error 
+The architecture of our system is shown in Figure \ref{architecturediagram}.
 As our system design calls for a large number of individual components, managing all of these together can be quite complex.
 
 One option is to write a script that deals with the setup of each individual component: web server, web services, render dispatcher, render servers (however many we need),
@@ -603,6 +605,7 @@ and to use Docker Compose as \citeauthor{Docker}'s work also did.
 \caption{The architectural structure of the system. (1) File download of the client-side user interface. (2) Static files served through the web server.
 (3, 4, 5) These were part of a system to allow users to upload and manage their collection of images. This was not implemented due to time constraints, and it was not directly related to the overall goal. (6) Socket.io communication
 between the client and the render service, to generate previews and output images. (7) RAW Images are fetched from the web server.  (8) Test images can be served through the web server too.}
+\label{architecturediagram}
 \end{figure}
 % \textbf{TODO: DOCKER SOURCE }
 \subsection{Unit Testing Issues with Image Processing}
@@ -647,7 +650,7 @@ bright spots). When testing, zero yielded an inverted colour, but with a small v
 
 % \textbf{TODO test exposure}
 
-\begin{figure}\label{exposuretest}
+\begin{figure}
     \centering
     \subfigure
     {
@@ -667,13 +670,14 @@ bright spots). When testing, zero yielded an inverted colour, but with a small v
         (b) Exposure normal: 1.0
         (c) Exposure level high: 5000
     }
+    \label{exposuretest}
  \end{figure}
 
 \subsubsection{Colour Balance Checks}
 Colour balance is controlled with red, green and blue gains. If we set only one of these gains to 1.0, and the other two to zero, we should
 have a version of the image, but only with the specified colour, present: rather like a grayscale image but in one specific colour rather than black to white.
 The results of this check can be found in Figure \ref{colourbalancetest}. These results show that the colour balance algorithms are working correctly.
-\begin{figure}\label{colourbalancetest}
+\begin{figure}
     \centering
     \subfigure
     {
@@ -698,6 +702,7 @@ The results of this check can be found in Figure \ref{colourbalancetest}. These 
         (c) Green only (red and blue zero)
         (d) Blue only (red and green zero)
     }
+    \label{colourbalancetest}
  \end{figure}
 
 \subsubsection{Unsharp}
@@ -714,7 +719,7 @@ Enter various gamma values in the range $0 < \gamma \leq 2$, and compare them. T
 the tone will have more white colours, while with a gamma greater than 1, the one difference will be darker (with more darker colours than white). The
 outcome of this test can be seen in Figure \ref{gammatest}. The implementation yields this expected outcome.
 
-\begin{figure}\label{gammatest}
+\begin{figure}
    \centering
    \subfigure
    {
@@ -734,6 +739,7 @@ outcome of this test can be seen in Figure \ref{gammatest}. The implementation y
        (b) $\gamma = 1.0$
        (c) $\gamma = 1.7$
    }
+   \label{gammatest}
 \end{figure}
 % \subsubsection{Gaussian Blur}
 % Test this by setting a high sigma value, with kernel size of 3. The expected outcome is an image that appears noticeably blurred.
@@ -752,9 +758,9 @@ In order to evaluate the performance of the system, both in the output image, al
 responsiveness (measured in delay in rendering an image), a set of different image manipulations were carried out on various
 different RAW editors and our system. These were all run on exactly the same hardware, with the same Operating System.
 
-The system specification can be seen in Figure \ref{SystemSpecs}.
+The system specification can be seen in Table \ref{SystemSpecs}.
 
-\begin{figure}\label{SystemSpecs}
+\begin{table}
     \centering
     \begin{tabular}{| c | c |}
         \hline
@@ -765,7 +771,8 @@ The system specification can be seen in Figure \ref{SystemSpecs}.
         \hline
     \end{tabular}
     \caption{The specification of the test system.}
-\end{figure}
+    \label{SystemSpecs}
+\end{table}
 
 Adobe Lightroom, RawTherapee, and Darktable were used to compare the performance of our system. For the comparison results,
 a RAW sample was obtained from the D700 camera.
@@ -806,6 +813,7 @@ of the image (the brim of the hat), sharpened between different applications. Th
         (b) RawTherapee
         (c) DarkTable
     }
+    \label{unsharpcomparison}
  \end{figure}
 
 
@@ -820,7 +828,7 @@ Between all three systems that are being tested, the parameters that need to be 
 but they all represent the same transform).
 
 % \textbf{TODO insert image comparison here}
-\begin{figure}\label{colouradjustmentcomparison}
+\begin{figure}
     \centering
     \subfigure
     {
@@ -840,6 +848,7 @@ but they all represent the same transform).
         (b) RawTherapee
         (c) DarkTable
     }
+    \label{colouradjustmentcomparison}
  \end{figure}
 In comparison to the other systems, they all perform in the same way. There is some slight difference in colour between them, as different colourspaces
 are being used in different applications, and as such, colours are sometimes represented slightly differently. Compared to the original image however, our
