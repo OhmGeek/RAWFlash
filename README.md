@@ -1,6 +1,21 @@
 # RAWFlash
 A cloud based RAW photo editor.
 
+## How To Build:
+Running this application is easy.
+
+First, ensure you have Docker, and Docker Compose installed (Docker Compose v3).
+
+Then, run the following commands:
+
+```bash
+sudo docker-compose build
+sudo docker-compose up
+```
+This will build the individual components and then activate the system.
+
+Please note that Docker uses Google's DNS settings by default, and therefore if this isn't accessible,
+the DNS settings for Docker should be changed.
 
 ## Structure:
 ### docs folder
