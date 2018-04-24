@@ -5,6 +5,19 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Collins(2017)]{JDCRAW}
+Ryan Collins.
+\newblock Jdcraw: A dcraw wrapper for java.
+\newblock URL: \url{https://github.com/OhmGeek/JDCraw}, June 2017.
+\newblock Accessed: 19-03-2018.
+
+\bibitem[Kuhr(2018)]{TwelveMonkeys}
+Harald Kuhr.
+\newblock Twelvemonkeys imageio: Additional plug-ins and extensions for java's
+  imageio.
+\newblock URL: \url{https://github.com/haraldk/TwelveMonkeys}, April 2018.
+\newblock Accessed: 19-04-2018.
+
 \bibitem[Fraser(2004)]{UnderstandingRAWCapture}
 Bruce Fraser.
 \newblock White paper: Understanding digital raw capture, September 2004.
@@ -20,14 +33,14 @@ Y.~Liang, Y.~Xiao, and J.~Huang.
 
 \bibitem[Ado(2012)]{DNGSpec}
 \emph{Digital Negative (DNG) Specification}.
-\newblock Adobe Systems, jun 2012.
+\newblock Adobe Systems, June 2012.
 \newblock Version 1.4.0.0.
 
 \bibitem[Adobe Camera RAW()]{AdobeCameraRAW}
 Adobe Camera RAW.
 \newblock Camera raw.
 \newblock URL:
-  \url{https://helpx.adobe.com/camera-raw/using/supported-cameras.html}, may
+  \url{https://helpx.adobe.com/camera-raw/using/supported-cameras.html}, May
   2017.
 \newblock Accessed: 19-04-2018.
 
@@ -35,27 +48,28 @@ Adobe Camera RAW.
 Adobe DNG Converter.
 \newblock Adobe digital negative converter.
 \newblock URL:
-  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html}, oct
-  2017.
+  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html},
+  October 2017.
 \newblock Accessed: 19-04-2018.
 
 \bibitem[Nagel(2012)]{LinuxServerGrowth}
 David Nagel.
 \newblock Linux leads server growth.
-\newblock \emph{The Journal}, may 2012.
+\newblock \emph{The Journal}, May 2012.
 \newblock Accessed: 20-04-2018.
 
 \bibitem[Raw Therapee README.md()]{RawTherapeeReadme}
 Raw Therapee README.md.
 \newblock Raw therapee readme.
 \newblock URL:
-  \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}, feb 2018.
+  \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}, February
+  2018.
 \newblock Accessed: 20-04-2018.
 
 \bibitem[About Darktable()]{DarkTableAbout}
 About Darktable.
 \newblock About darktable.
-\newblock URL: \url{https://www.darktable.org/about/}, apr 2018.
+\newblock URL: \url{https://www.darktable.org/about/}, April 2018.
 \newblock Accessed: 20-04-2018.
 
 \bibitem[Coffin(2017)]{DCRAWSource}
@@ -70,24 +84,11 @@ Alex Tutubalin.
 \newblock URL: \url{https://www.libraw.org/about}, April 2008.
 \newblock Accessed: 20-04-2018.
 
-\bibitem[Collins(2017)]{JDCRAW}
-Ryan Collins.
-\newblock Jdcraw: A dcraw wrapper for java.
-\newblock URL: \url{https://github.com/OhmGeek/JDCraw}, June 2017.
-\newblock Accessed: 19-03-2018.
-
-\bibitem[Kuhr(2018)]{TwelveMonkeys}
-Harald Kuhr.
-\newblock Twelvemonkeys imageio: Additional plug-ins and extensions for java's
-  imageio.
-\newblock URL: \url{https://github.com/haraldk/TwelveMonkeys}, April 2018.
-\newblock Accessed: 19-04-2018.
-
 \bibitem[Farazdagi(2014)]{RESTandLongRunningJobs}
 Victor Farazdagi.
 \newblock Rest and long-running jobs.
 \newblock URL: \url{https://farazdagi.com/2014/rest-and-long-running-jobs/},
-  Oct 2014.
+  October 2014.
 \newblock Accessed: 19-04-2018.
 
 \bibitem[Int(2011)]{WebsocketSpec}
@@ -113,7 +114,7 @@ Alex MacCaw.
 Abdalla Hambal, Zhijun Pei, and Faustini~Libent Ishabailu.
 \newblock Image noise reduction and filtering techniques.
 \newblock \emph{International Journal of Science and Research}, 6\penalty0
-  (2):\penalty0 201--213, mar 2017.
+  (2):\penalty0 201--213, March 2017.
 
 \bibitem[Gonzalez and Woods(2009)]{DigitalImageProcessingTextbook}
 Rafael~C. Gonzalez and Richard~E. Woods.
@@ -138,7 +139,7 @@ Stephen Viggiano.
 \newblock Comparison of the accuracy of different white balancing options as
   quantified by their color constancy.
 \newblock \emph{SPIE: The International Society for Optical Engineering},
-  6\penalty0 (2):\penalty0 201--213, mar 2004.
+  6\penalty0 (2):\penalty0 201--213, March 2004.
 
 \bibitem[Balalaie et~al.(2016)Balalaie, Heydarnoori, and Jamshidi]{Docker}
 A.~Balalaie, A.~Heydarnoori, and P.~Jamshidi.

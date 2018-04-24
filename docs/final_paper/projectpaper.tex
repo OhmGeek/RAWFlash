@@ -26,36 +26,41 @@
 
 % The abstract must be a Structured Abstract with the headings {\bf Context/Background}, {\bf Aims}, {\bf Method}, {\bf Results}, and {\bf Conclusions}.  This section should not be longer than half of a page, and having no more than one or two sentences under each heading is advised.
 \paragraph{Context/Background}
-RAW images are used by photographers to improve the quality of their images, specifically when editing. With JPEG files, the loss of 
-data from compression leads to poorer quality edits, while using RAW results in a higher dynamic range. The editing of these files is 
-traditionally done on a high-spec machine, capable of processing images with large resolutions. In the field, this can be difficult. 
-When used for websites, the standard process involves editing a RAW file locally and exporting it, uploading the exported image to a 
-Content Management System (CMS). Here, the CMS will then edit the file again, resizing the image to ensure it displays properly on the
-browser. 
+RAW images are used by photographers to improve the quality of their images, specifically when editing. With JPEG files, the loss of data from compression leads to poorer quality edits, while using RAW results in a higher dynamic range. The editing of these files is traditionally done on a high-spec machine, capable of processing images with large resolutions. In the field, this can be difficult,
+as these machines tend to be heavy and require power. Furthermore, for amateur photographers, or large scale publications,
+a thin-client approach to photo editing would require lower specification machines for the office, instead relying on larger render
+servers. This could, therefore, minimize costs. Furthermore, by creating a system for RAW editing as a service,
+this system could be utilized within other software, to allow developers to focus on their system, rather than implementing their own method for editing RAW images.
 
 
 \paragraph{Aims}
 The aim of this project was to test the feasibility of a Cloud-based RAW image editor, both by providing a RAW rendering
-service, and interfacing with this service through a GUI. 
+service, and interfacing with this service through a GUI.
 
 % The main aim of this project is to test the feasibility of a Cloud-based RAW image editor, allowing image adjustments such as exposure 
 % adjustment, colour adjustment, and overall improvements to the quality of the image, all within a cloud application rather than on the 
 % desktop.
 
 \paragraph{Method}
-The render server was implemented, taking a JSON object, and processing images according to a defined JSON object.
-A client side GUI was also implemented to interface with the RAW rendering service.
+The render server was implemented using Java, with a variety of plugins to allow for RAW image parsing \cite{JDCRAW}
+and TIFF reading \cite{TwelveMonkeys}. An input to the Java render server is received by fetching jobs from a message queue,
+carrying out the specified rendering instructions, and sending the result via a message queue (and client ID), to the
+client that sent the job.
 
+A render dispatcher was also implemented, using Node.js with Socket.io, to take the user-requested operations, store the user
+information in the request (such as their client ID), and send the request to the render server message queue. Additional
+routines were also written to receive the rendered result, and forward this to the user who requested the job.
 
-% A render server back-end will first be implemented as an API, taking in an input as a JSON object, and then processing the image, and 
-% then a JavaScript client shall be created to interface with this API.
+In order to interface with our render dispatcher, a web editor was created using HTML, CSS, and JavaScript, to build up the
+RAW rendering instructions, using a user interface rather than through editing a JSON file. This provides an easier way
+to interface with the system, but also a modular approach, as this isn't required to be used.
 
 \paragraph{Results}
 
-Utilising a sample RAW image, output from various different RAW editors was analysed and compared to our system,
-to determine the image quality of our system, when editing. Functionality of our system was also tested using
+Utilising a sample RAW image, output from various different RAW editors was analyzed and compared to our system,
+to determine the image quality of our system, when editing. The functionality of our system was also tested using
 boundary conditions and test cases, to ensure the system was functioning correctly. Furthermore, statistics on
-the processing times of different RAW editors were analysed, to analyse the performance of our system for standard
+the processing times of different RAW editors were analyzed, to analyze the performance of our system for standard
 human-based RAW image editing.
 
 % By using exactly the same RAW image, for a different set of RAW operations, the output from several different RAW editors was taken,
@@ -74,69 +79,89 @@ but more difficult to achieve.
 \end{abstract}
 
 \begin{keywords}
-RAW image editing, dcraw, cloud image editing, docker, image processing
+RAW image editing, dcraw, cloud image editing, docker, image processing, distributed systems
 \end{keywords}
 
 \section{Introduction}
 % What is the project about?
 
 The project itself concerns itself with editing RAW files through a system deployable to the cloud
-so that it can both be used by people editing photos, as well as by extension by other systems. While RAW
-editing isn't new, the creation of a system to edit RAW files would give users more control in content management,
-and produce better quality images.
+so that it can both be used by people editing photos, and developers looking to work with RAW image formats
+within their own software.
 
 \subsection{RAW Files Explained}
-RAW isn't a file format in itself, but rather an umbrella term many different (mostly proprietary) formats that store the
+RAW isn't a file format in itself, but rather an umbrella term defining many different (mostly proprietary) formats that store the
 raw camera sensor data. The methods used to store this information is quite often different, making the process of reading
-RAW image formats more difficult.
+RAW image formats more challenging.
 
 When an image is captured, the camera sensor uses charge buildup to represent the amount of light that is incident on the sensor
 (using a phenomenon known as the photoelectric effect). Colour data itself isn't stored at all in the RAW image. Colour is achieved
 by putting a filter over the sensor, such that each individual part of the sensor captures only red, green or blue light, which then
-allows one to build up a full colour image. The process of creating a full colour image from the camera sensor is called demosaicing. 
+allows one to build up a full-color image. The process of creating a full-color image from the camera sensor is called demosaicing. 
 \cite{UnderstandingRAWCapture}
 
 There are several different steps to decoding RAW images, in addition to demosaicing which was explained above. These are:
 
 \paragraph{Colour Balance}
-These individual red, green and blue components of the image can be adjusted, perhaps to correct for incorrect sensor capture.
+The individual red, green and blue components of the image can be adjusted, perhaps to correct for incorrect sensor capture.
 This is done by setting multipliers on each individual component, to build up the final image.
+
 \paragraph{Gamma Correction}
 Cameras typically represent colour changes linearly, with a gamma of 1.0. 
-% \textbf{TODO FIND SOURCE OTHER THAN CURRENt}.
 By adjusting gamma, the tonal response of the image can be adjusted, to help produce a desired appearance.
+% TODO: EXPLAIN THIS FURTHER
 \paragraph{Sharpening/Noise Reduction}
-Sometimes, noise can creep into the image, particularly if the image itself is shot with large ISO levels (ISO is a sensitivity setting that can be
-set when taking a photo, to allow the camera sensor to be more sensitive to light. This can be corrected
-during the editing process. 
+Image noise is the random fluctuation in image brightness in digital camera images, but more loosely can be defined as anything that somewhat distorts
+the original captured image (the target).
+
+Sometimes, image noise can creep into the image, particularly if the image itself is shot with large ISO levels (ISO is a sensitivity setting that can be
+set when taking a photo, to allow the camera sensor to be more sensitive to light. This can be corrected during the editing process. 
 
 Also, sometimes edges might need to be enhanced to bring out the detail in the image. This can again be used for stylistic purposes, but this is ultimately the
 decision of the image editor. 
  
 \subsubsection{Comparison to JPEG}
 JPEG, a common format in the consumer photography market, often has smaller files due to JPEG compression.
-While this can be good to minimize the amount of memory used, the lossy compression is problematic as adjusting tone
-and colour information as JPEG heavily compresses colours (so minor adjustments in colour will appear as the same colour in JPEG).
+While this can be good to minimize the amount of memory used, the lossy compression is problematic as adjusting the tone
+and color information as JPEG heavily compresses colors (so minor adjustments in color will appear as the same color in JPEG).
 When shooting an image with JPEG, the camera uses a built-in RAW processor to automatically process the RAW data, perhaps using some settings
-that can be adjusted in the camera, and compresses the image down into a JPEG format.
+that can be adjusted in the camera and compresses the image down into a JPEG format.
 
 On the other hand, RAW allows one to have far more control over the final image, by adjusting various settings with a far greater freedom and by using the camera's
-built in processing.
+built-in processing.
 
 \cite{UnderstandingRAWCapture}
 
 \subsection{Applications of RAW Image Editing}
-\subsubsection{Content Management}
-When using Content Management Systems (CMS) with websites, some element of image processing is usually carried out.
+% \subsubsection{Content Management}
+% When using Content Management Systems (CMS) with websites, some element of image processing is usually carried out.
 
-When working with better quality RAW images, usually these RAW files are edited locally, exported in some format, and then
-uploaded to the Content Management System. From here, this exported image is then processed and various images are produced,
-typically with different sizes and sometimes different focal points (with the image cropped around certain objects/locations).
+% When working with better quality RAW images, usually these RAW files are edited locally, exported in some format, and then
+% uploaded to the Content Management System. From here, this exported image is then processed and various images are produced,
+% typically with different sizes and sometimes different focal points (with the image cropped around certain objects/locations).
 
-However, a RAW based image editor would allow one to make this process more concise by uploading the RAW file, editing it from within
-the Content Management System, and using the RAW file and defined operations (along with the size instructions supplied from the various
-templates/webpages) to produce individual images for each page on the website. This removes the need for purchasing expensive RAW editing software,
-allowing the user to focus on creating excellent content, rather than spending time producing outstanding images with potentially complex software.
+% However, a RAW based image editor would allow one to make this process more concise by uploading the RAW file, editing it from within
+% the Content Management System, and using the RAW file and defined operations (along with the size instructions supplied from the various
+% templates/webpages) to produce individual images for each page on the website. This removes the need for purchasing expensive RAW editing software,
+% allowing the user to focus on creating excellent content, rather than spending time producing outstanding images with potentially complex software.
+\subsubsection{Image Production/Publishing}
+In industries where a large amount of RAW image editing is required, a thin-client based approach to RAW image editing might be desirable.
+Instead of equipping the office with a large number of high specification machines, one could instead use lower specification machines,
+along with a Cloud-based RAW editing system, along with some servers that can conduct the RAW image rendering. This would reduce overall costs,
+as office machines won't need to be replaced as often to keep up with the requirements of native editors, as this can be done on the server. 
+Providing the office machine can run a web browser, then it is suitable.
+
+\subsubsection{Content Management Systems for News Websites}
+When editing certain types of websites (e.g. news) where there may not be time to take a RAW image, edit it natively on a machine
+which may not be local, a Cloud-based RAW editing system could be integrated into the content management system (CMS), allowing the user
+to upload the RAW image, carry out basic edits from within the CMS, and publish their news story. While processing power might be harder to
+come by when travelling (e.g. with only a mobile phone, or low power and lightweight laptop), fast internet access is more prevalent due to
+4G mobile networks. As such, uploading a RAW image might be preferable to carrying around a heavier and more powerful laptop computer.
+
+\subsubsection{RAW Editing as a Service for Developers}
+Currently, there doesn't exist an easy method of integrating RAW image editing into a bespoke system. As a developer, one would need to implement
+a RAW processor, or integrate an existing command line application into the pipeline. By creating a RAW editor as a Service, the developer can focus
+on the more important parts of their application, without needing to spent a large amount of time implementing their own solution to parsing RAW files.
 
 \subsection{Problems with Current Implementations}
 Most current implementations exist as native applications, designed specifically for one or several different platforms.
@@ -370,7 +395,10 @@ The function $f$ is used as a transformation from the image, to the gamma correc
 
 $$f(\gamma, v) = 255 \cdot \left( \frac{v}{255}\right)^{\gamma} $$
 
-In the above definition, v is the brightness value of one cell of the image, where $0 <= v <= 255$.
+In the above definition, $v$ is the brightness value of one cell of the image, where $0 <= v <= 255$. First, we transform the
+brightness of the individual channel (red, green or blue) to a floating point number, by dividing it by the maximum value for
+the channel, which is $255$. Raising this to the power of the gamma factor applies the transform, and then multiplying it by $255$ converts the
+target floating point representation back to the representation of a standard image (to be stored in a byte per channel).
 
 On the implementation level, the best approach is to use a Lookup Table, with an input of the RAW image components (in our case, Red, Green and Blue),
 and an output of the adjusted component values in accordance with the gamma correction function. The benefit of using a lookup table, rather than calculating
@@ -391,8 +419,6 @@ and periodic noise.
 
 % Mean filter suited for random noise like Gaussian or Uniform noise. page 233
 % Median Filter: less blurring, more detail. Good for bipolar and unipolar impulse noise. page 234
-
-
 
 \paragraph{Amplifier Noise}
     This noise typically occurs with different sensitivities for different channels (e.g. red, green and blue detectors have
@@ -712,10 +738,10 @@ outcome of this test can be seen in Figure \ref{gammatest}. The implementation y
        (c) $\gamma = 1.7$
    }
 \end{figure}
-\subsubsection{Gaussian Blur}
-Test this by setting a high sigma value, with kernel size of 3. The expected outcome is an image that appears noticeably blurred.
-% \textbf{TEST Gaussian Blur}
-\subsubsection{Mean Blur}
+% \subsubsection{Gaussian Blur}
+% Test this by setting a high sigma value, with kernel size of 3. The expected outcome is an image that appears noticeably blurred.
+% % \textbf{TEST Gaussian Blur}
+% \subsubsection{Mean Blur}
 
 \subsubsection{Histogram Equalization}
 While the exposure is set, the exposure can also be automatically adjusted using Histogram Equalization. As this happens after the exposure (and all other processing)
@@ -752,14 +778,13 @@ a RAW sample was obtained from the D700 camera.
 In order to compare exposure, various different exposures were used. Some by decreasing the exposure level, others by
 increasing the exposure level, and leaving the exposure level at 1.0
 
-% \textbf{TODO test exposure}
-\subsubsection{Test 2: Gamma Correction}
-In order to test the Gamma Correction, several different gamma values were used on various different editors.
-The outcome was then stored, and these images were compared for each gamma value used.
+% % \textbf{TODO test exposure}
+% \subsubsection{Test 2: Gamma Correction}
+% While the initial plan was to compare different gamma values, both Lightroom and RawTherapee do not allow for gamma factors to be
+% manually entered, but instead require them to be controlled via a light adjustment on the user interface. As such, there isn't really
+% a way of comparing the gamma correction output between the several systems
 
-% \textbf{TODO get gamma outcomes, and compare.}
-
-\subsubsection{Test 3: Sharpening}
+\subsubsection{Test 2: Sharpening}
 While these are defined by different terms between software programs, we can still test the overall outcome.
 Rather than deciding the quality of sharpening by how pronounced the edge is, it's instead done by comparing a portion
 of the image (the brim of the hat), sharpened between different applications. The results can be seen in Figure \ref{unsharpcomparison}.
@@ -792,7 +817,7 @@ the image and enhancing most of the common images. There are a few colour differ
 colour processing, but overall each one of the systems enhance the brim of the hat, making the line sharper and appear less blurry. 
 Our system enhanced the edge enough so that it could be seen, but not so much as to make it too pronounced.
 
-\subsubsection{Test 4: Colour Adjustment}
+\subsubsection{Test 3: Colour Adjustment}
 Colour adjustment is done by using the colour channels, and adjusting the different levels of red, green and blue that exist within the image.
 Between all three systems that are being tested, the parameters that need to be set remain fairly constant (some use percentages, while others use decimals,
 but they all represent the same transform).
@@ -823,7 +848,7 @@ In comparison to the other systems, they all perform in the same way. There is s
 are being used in different applications, and as such, colours are sometimes represented slightly differently. Compared to the original image however, our
 system is certainly functioning.
 
-\subsubsection{Test 5: Render Time}
+\subsubsection{Test 4: Render Time}
 One crucial test is to compare the time it takes to render an image. For the portable image editing workflow, this is key as editing typically involves
 refining settings constantly throughout the editing process. For the use as a standalone image editor, this time should be fairly low, but for a RAW
 image rendering service, this can be higher, as often RAW images can be edited in batch. The results can be seen in Table \ref{RenderTimeTable}.
@@ -867,6 +892,14 @@ the output that can then be stored, ready for use.
 % Improvement by use of multithreading for image processing
 % Java's build in Image Manipulation has a number of undocumented bugs.
 % Using GPU might improve performance furhter.
+
+\subsubsection{Problems with testing}
+While testing, it was found that the existing native applications all have very different ways of controlling parameters,
+all favouring sliders over textboxes. As a result, entering exactly the same settings on each editor to compare them became
+quite difficult, or in some cases impossible. Gamma Correction control was very difficult to test, as our system allows one to 
+enter a gamma factor, but on other systems the tone curve is controlled by user interface widgets. As such, we are unable to
+directly compare the systems.
+
 \subsubsection{Problems with the Java Image library}
 As a basis for the Adams Processor image processing, the Java built-in Image library was utilised,
 by using ImageIO to load an image into a BufferedImage object, and then applying various BufferedImage operations on
@@ -884,7 +917,7 @@ which improved performance. Furthermore, smaller RAW images (from the D700, rath
 with both acting as the render server, and also the client side (via a web browser).
 
 \paragraph{Non-functioning Operations}
-While implementing Gamma Correction, the plan was to utilize Java's LUTOp, to create a lookup table (based on the gamma value),
+While implementing Gamma Correction, the plan was to utilize Java's \emph{LUTOp}, to create a lookup table (based on the gamma value),
 and apply it to the image. When implementing this however, the image itself would not output any applied lookup, as the original image would be output.
 The LUT generated the correct LUT, and this was passed to the correct routine, but for some reason it was never applied to the image. Looking through
 documentation and examples didn't assist with this, as examples that were supposed to work didn't.
