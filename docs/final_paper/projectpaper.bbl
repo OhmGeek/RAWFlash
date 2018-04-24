@@ -1,152 +1,170 @@
 \begin{thebibliography}{22}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+% this bibliography was produced with the style dinat.bst v2.5
+\makeatletter
+\newcommand{\dinatlabel}[1]%
+{\ifNAT@numbers\else\NAT@biblabelnum{#1}\hspace{2\labelsep}\fi}
+\makeatother
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax\def\url#1{\texttt{#1}}\fi
 
-\bibitem[Collins(2017)]{JDCRAW}
-Ryan Collins.
-\newblock Jdcraw: A dcraw wrapper for java.
-\newblock URL: \url{https://github.com/OhmGeek/JDCraw}, June 2017.
-\newblock Accessed: 19-03-2018.
+\bibitem[About Darktable(2018)]{DarkTableAbout}
+\dinatlabel{About Darktable 2018} Darktable (Veranst.):
+\newblock \emph{About Darktable}.
+\newblock URL: \url{https://www.darktable.org/about/}.
+\newblock April 2018. --
+\newblock Accessed: 20-04-2018
 
-\bibitem[Kuhr(2018)]{TwelveMonkeys}
-Harald Kuhr.
-\newblock Twelvemonkeys imageio: Additional plug-ins and extensions for java's
-  imageio.
-\newblock URL: \url{https://github.com/haraldk/TwelveMonkeys}, April 2018.
-\newblock Accessed: 19-04-2018.
-
-\bibitem[Fraser(2004)]{UnderstandingRAWCapture}
-Bruce Fraser.
-\newblock White paper: Understanding digital raw capture, September 2004.
-\newblock Accessed 10th April 2018.
-
-\bibitem[Liang et~al.(2009)Liang, Xiao, and Huang]{WebServiceImageProcessing}
-Y.~Liang, Y.~Xiao, and J.~Huang.
-\newblock An efficient image processing method based on web services for mobile
-  devices.
-\newblock In \emph{2009 2nd International Congress on Image and Signal
-  Processing}, pages 1--5, Oct 2009.
-\newblock \doi{10.1109/CISP.2009.5302450}.
-
-\bibitem[Ado(2012)]{DNGSpec}
-\emph{Digital Negative (DNG) Specification}.
-\newblock Adobe Systems, June 2012.
-\newblock Version 1.4.0.0.
-
-\bibitem[Adobe Camera RAW()]{AdobeCameraRAW}
-Adobe Camera RAW.
-\newblock Camera raw.
+\bibitem[Adobe Camera RAW(2017)]{AdobeCameraRAW}
+\dinatlabel{Adobe Camera RAW 2017} Adobe Systems Incorporated (Veranst.):
+\newblock \emph{Camera RAW}.
 \newblock URL:
-  \url{https://helpx.adobe.com/camera-raw/using/supported-cameras.html}, May
-  2017.
-\newblock Accessed: 19-04-2018.
+  \url{https://helpx.adobe.com/camera-raw/using/supported-cameras.html}.
+\newblock May 2017. --
+\newblock Accessed: 19-04-2018
 
-\bibitem[Adobe DNG Converter()]{AdobeDNGConverter}
-Adobe DNG Converter.
-\newblock Adobe digital negative converter.
+\bibitem[Adobe DNG Converter(2017)]{AdobeDNGConverter}
+\dinatlabel{Adobe DNG Converter 2017} Adobe Systems Incorporated (Veranst.):
+\newblock \emph{Adobe Digital Negative Converter}.
 \newblock URL:
-  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html},
-  October 2017.
-\newblock Accessed: 19-04-2018.
+  \url{https://helpx.adobe.com/photoshop/using/adobe-dng-converter.html}.
+\newblock October 2017. --
+\newblock Accessed: 19-04-2018
 
-\bibitem[Nagel(2012)]{LinuxServerGrowth}
-David Nagel.
-\newblock Linux leads server growth.
-\newblock \emph{The Journal}, May 2012.
-\newblock Accessed: 20-04-2018.
+\bibitem[Adobe Systems(2012)DNGSpec]{DNGSpec}
+\dinatlabel{Adobe Systems 2012} Adobe Systems (Veranst.):
+\newblock \emph{Digital Negative (DNG) Specification}.
+\newblock June 2012. --
+\newblock Version 1.4.0.0
 
-\bibitem[Raw Therapee README.md()]{RawTherapeeReadme}
-Raw Therapee README.md.
-\newblock Raw therapee readme.
-\newblock URL:
-  \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}, February
-  2018.
-\newblock Accessed: 20-04-2018.
-
-\bibitem[About Darktable()]{DarkTableAbout}
-About Darktable.
-\newblock About darktable.
-\newblock URL: \url{https://www.darktable.org/about/}, April 2018.
-\newblock Accessed: 20-04-2018.
+\bibitem[Balalaie u.\,a.(2016)Balalaie, Heydarnoori und Jamshidi]{Docker}
+\dinatlabel{Balalaie u.\,a. 2016} \textsc{Balalaie}, A.~; \textsc{Heydarnoori},
+  A.~; \textsc{Jamshidi}, P.:
+\newblock Microservices Architecture Enables DevOps: Migration to a
+  Cloud-Native Architecture.
+\newblock In: \emph{IEEE Software}
+\newblock 33 (2016), May, Nr.~3, S.~42--52. --
+\newblock ISSN 0740-7459
 
 \bibitem[Coffin(2017)]{DCRAWSource}
-Dave Coffin.
-\newblock Decoding raw digital photos in linux.
-\newblock URL: \url{https://www.cybercom.net/~dcoffin/dcraw/}, May 2017.
-\newblock Accessed: 20-04-2018.
+\dinatlabel{Coffin 2017} \textsc{Coffin}, Dave:
+\newblock \emph{Decoding raw digital photos in Linux}.
+\newblock URL: \url{https://www.cybercom.net/~dcoffin/dcraw/}.
+\newblock May 2017. --
+\newblock Accessed: 20-04-2018
 
-\bibitem[Tutubalin(2008)]{LibrawSource}
-Alex Tutubalin.
-\newblock Libraw project goals and objectives.
-\newblock URL: \url{https://www.libraw.org/about}, April 2008.
-\newblock Accessed: 20-04-2018.
+\bibitem[Collins(2017)]{JDCRAW}
+\dinatlabel{Collins 2017} \textsc{Collins}, Ryan:
+\newblock \emph{JDCRAW: A DCRAW Wrapper for Java}.
+\newblock URL: \url{https://github.com/OhmGeek/JDCraw}.
+\newblock June 2017. --
+\newblock Accessed: 19-03-2018
 
 \bibitem[Farazdagi(2014)]{RESTandLongRunningJobs}
-Victor Farazdagi.
-\newblock Rest and long-running jobs.
-\newblock URL: \url{https://farazdagi.com/2014/rest-and-long-running-jobs/},
-  October 2014.
-\newblock Accessed: 19-04-2018.
+\dinatlabel{Farazdagi 2014} \textsc{Farazdagi}, Victor:
+\newblock \emph{REST and long-running jobs}.
+\newblock URL: \url{https://farazdagi.com/2014/rest-and-long-running-jobs/}.
+\newblock October 2014. --
+\newblock Accessed: 19-04-2018
 
-\bibitem[Int(2011)]{WebsocketSpec}
-\emph{The WebSocket Protocol}.
-\newblock Internet Engineering Task Force, December 2011.
-
-\bibitem[Mozilla Web Socket Developer()]{WebSocketDeveloper}
-Mozilla Web Socket Developer.
-\newblock Web sockets.
-\newblock URL:
-  \url{https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API}, March
-  2018.
-\newblock Accessed: 20-04-2018.
-
-\bibitem[MacCaw(2011)]{SocketIOBook}
-Alex MacCaw.
-\newblock \emph{JavaScript Web Applications: JQuery Developers' Guide to Moving
-  State to the Client}.
-\newblock O'Reilly, 1 edition, 2011.
-\newblock ISBN 9781449303518.
-
-\bibitem[Hambal et~al.(2017)Hambal, Pei, and Ishabailu]{NRandFiltering}
-Abdalla Hambal, Zhijun Pei, and Faustini~Libent Ishabailu.
-\newblock Image noise reduction and filtering techniques.
-\newblock \emph{International Journal of Science and Research}, 6\penalty0
-  (2):\penalty0 201--213, March 2017.
-
-\bibitem[Gonzalez and Woods(2009)]{DigitalImageProcessingTextbook}
-Rafael~C. Gonzalez and Richard~E. Woods.
-\newblock \emph{Digital Image Processing}.
-\newblock Prentice Hall, 2 edition, 2009.
-\newblock ISBN 9781259081439.
-
-\bibitem[Fisher et~al.(2000)Fisher, Perkins, Walker, and Wolfart]{Unsharp}
-Robert~B Fisher, Simon Perkins, Ashley Walker, and Erik Wolfart.
+\bibitem[Fisher u.\,a.(2000)Fisher, Perkins, Walker und Wolfart]{Unsharp}
+\dinatlabel{Fisher u.\,a. 2000} \textsc{Fisher}, Robert~B.~; \textsc{Perkins},
+  Simon~; \textsc{Walker}, Ashley~; \textsc{Wolfart}, Erik:
 \newblock \emph{Hypermedia Image Processing Reference}.
-\newblock John Wiley and Sons LTD, 2000.
+\newblock John Wiley and Sons LTD, 2000
+
+\bibitem[Fraser(2004)]{UnderstandingRAWCapture}
+\dinatlabel{Fraser 2004} \textsc{Fraser}, Bruce:
+\newblock \emph{White paper: Understanding Digital RAW Capture}.
+\newblock September 2004. --
+\newblock Accessed 10th April 2018
+
+\bibitem[Gonzalez und Woods(2009)]{DigitalImageProcessingTextbook}
+\dinatlabel{Gonzalez und Woods 2009} \textsc{Gonzalez}, Rafael~C.~;
+  \textsc{Woods}, Richard~E.:
+\newblock \emph{Digital Image Processing}.
+\newblock 2.
+\newblock Prentice Hall, 2009. --
+\newblock ISBN 9781259081439
+
+\bibitem[Hambal u.\,a.(2017)Hambal, Pei und Ishabailu]{NRandFiltering}
+\dinatlabel{Hambal u.\,a. 2017} \textsc{Hambal}, Abdalla~; \textsc{Pei},
+  Zhijun~; \textsc{Ishabailu}, Faustini~L.:
+\newblock Image Noise Reduction and Filtering Techniques.
+\newblock In: \emph{International Journal of Science and Research}
+\newblock 6 (2017), March, Nr.~2, S.~201--213
+
+\bibitem[Internet Engineering Task Force(2011)WebsocketSpec]{WebsocketSpec}
+\dinatlabel{Internet Engineering Task Force 2011} Internet Engineering Task
+  Force (Veranst.):
+\newblock \emph{The WebSocket Protocol}.
+\newblock December 2011
 
 \bibitem[Jianzhao(2015)]{HSLImplementation}
-Jeff Jianzhao.
-\newblock Hslcolor.java.
+\dinatlabel{Jianzhao 2015} \textsc{Jianzhao}, Jeff:
+\newblock \emph{HSLColor.java}.
 \newblock URL:
-  \url{https://github.com/jeffjianzhao/DAViewer/blob/master/src/daviewer/HSLColor.java},
-  January 2015.
+  \url{https://github.com/jeffjianzhao/DAViewer/blob/master/src/daviewer/HSLColor.java}.
+\newblock January 2015
+
+\bibitem[Kuhr(2018)]{TwelveMonkeys}
+\dinatlabel{Kuhr 2018} \textsc{Kuhr}, Harald:
+\newblock \emph{TwelveMonkeys ImageIO: Additional plug-ins and extensions for
+  Java's ImageIO}.
+\newblock URL: \url{https://github.com/haraldk/TwelveMonkeys}.
+\newblock April 2018. --
+\newblock Accessed: 19-04-2018
+
+\bibitem[Liang u.\,a.(2009)Liang, Xiao und Huang]{WebServiceImageProcessing}
+\dinatlabel{Liang u.\,a. 2009} \textsc{Liang}, Y.~; \textsc{Xiao}, Y.~;
+  \textsc{Huang}, J.:
+\newblock An Efficient Image Processing Method Based on Web Services for Mobile
+  Devices.
+\newblock In: \emph{2009 2nd International Congress on Image and Signal
+  Processing}, Oct 2009, S.~1--5
+
+\bibitem[MacCaw(2011)]{SocketIOBook}
+\dinatlabel{MacCaw 2011} \textsc{MacCaw}, Alex:
+\newblock \emph{JavaScript Web Applications: JQuery Developers' Guide to Moving
+  State to the Client}.
+\newblock 1.
+\newblock O'Reilly, 2011. --
+\newblock ISBN 9781449303518
+
+\bibitem[Mozilla Web Socket Developer(2018)]{WebSocketDeveloper}
+\dinatlabel{Mozilla Web Socket Developer 2018} Mozilla (Veranst.):
+\newblock \emph{Web Sockets}.
+\newblock URL:
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API}.
+\newblock March 2018. --
+\newblock Accessed: 20-04-2018
+
+\bibitem[Nagel(2012)]{LinuxServerGrowth}
+\dinatlabel{Nagel 2012} \textsc{Nagel}, David:
+\newblock Linux Leads Server Growth.
+\newblock In: \emph{The Journal}
+\newblock (2012), May. --
+\newblock Accessed: 20-04-2018
+
+\bibitem[Raw Therapee README.md(2018)]{RawTherapeeReadme}
+\dinatlabel{Raw Therapee README.md 2018} RawTherapee Team (Veranst.):
+\newblock \emph{Raw Therapee Readme}.
+\newblock URL:
+  \url{https://github.com/Beep6581/RawTherapee/blob/dev/README.md}.
+\newblock February 2018. --
+\newblock Accessed: 20-04-2018
+
+\bibitem[Tutubalin(2008)]{LibrawSource}
+\dinatlabel{Tutubalin 2008} \textsc{Tutubalin}, Alex:
+\newblock \emph{LibRaw Project Goals and Objectives}.
+\newblock URL: \url{https://www.libraw.org/about}.
+\newblock April 2008. --
+\newblock Accessed: 20-04-2018
 
 \bibitem[Viggiano(2004)]{WhiteBalance}
-Stephen Viggiano.
+\dinatlabel{Viggiano 2004} \textsc{Viggiano}, Stephen:
 \newblock Comparison of the accuracy of different white balancing options as
   quantified by their color constancy.
-\newblock \emph{SPIE: The International Society for Optical Engineering},
-  6\penalty0 (2):\penalty0 201--213, March 2004.
-
-\bibitem[Balalaie et~al.(2016)Balalaie, Heydarnoori, and Jamshidi]{Docker}
-A.~Balalaie, A.~Heydarnoori, and P.~Jamshidi.
-\newblock Microservices architecture enables devops: Migration to a
-  cloud-native architecture.
-\newblock \emph{IEEE Software}, 33\penalty0 (3):\penalty0 42--52, May 2016.
-\newblock ISSN 0740-7459.
-\newblock \doi{10.1109/MS.2016.64}.
+\newblock In: \emph{SPIE: The International Society for Optical Engineering}
+\newblock 6 (2004), March, Nr.~2, S.~201--213
 
 \end{thebibliography}
