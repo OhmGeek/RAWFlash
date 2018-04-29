@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  24 APR 2018 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.29)  25 APR 2018 00:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1539,7 +1539,7 @@ File: logo.png Graphic file (type png)
  <use logo.png>
 Package pdftex.def Info: logo.png used on input line 34.
 (pdftex.def)             Requested size: 147.88252pt x 64.49269pt.
-LaTeX Font Info:    Calculating math sizes for size <7.06> on input line 214.
+LaTeX Font Info:    Calculating math sizes for size <7.06> on input line 221.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
@@ -1555,92 +1555,98 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 File: brightnesspoint0001.png Graphic file (type png)
 
 <use brightnesspoint0001.png>
-Package pdftex.def Info: brightnesspoint0001.png used on input line 214.
+Package pdftex.def Info: brightnesspoint0001.png used on input line 221.
 (pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
 
 <brightnessnormal.png, id=15, 1032.0156pt x 685.1196pt>
 File: brightnessnormal.png Graphic file (type png)
 
 <use brightnessnormal.png>
-Package pdftex.def Info: brightnessnormal.png used on input line 214.
+Package pdftex.def Info: brightnessnormal.png used on input line 221.
 (pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
 
 <brightness5000.png, id=16, 1032.0156pt x 685.1196pt>
 File: brightness5000.png Graphic file (type png)
  <use brightness5000.png>
-Package pdftex.def Info: brightness5000.png used on input line 214.
+Package pdftex.def Info: brightness5000.png used on input line 221.
 (pdftex.def)             Requested size: 75.28152pt x 49.97044pt.
 
 <colourtest_no_adjustment.png, id=17, 1402.23875pt x 912.40875pt>
 File: colourtest_no_adjustment.png Graphic file (type png)
 
 <use colourtest_no_adjustment.png>
-Package pdftex.def Info: colourtest_no_adjustment.png used on input line 214.
+Package pdftex.def Info: colourtest_no_adjustment.png used on input line 221.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <colourtest_redonly.png, id=19, 1402.23875pt x 912.40875pt>
 File: colourtest_redonly.png Graphic file (type png)
 
 <use colourtest_redonly.png>
-Package pdftex.def Info: colourtest_redonly.png used on input line 214.
+Package pdftex.def Info: colourtest_redonly.png used on input line 221.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <colourtest_greenonly.png, id=20, 1402.23875pt x 912.40875pt>
 File: colourtest_greenonly.png Graphic file (type png)
 
 <use colourtest_greenonly.png>
-Package pdftex.def Info: colourtest_greenonly.png used on input line 214.
+Package pdftex.def Info: colourtest_greenonly.png used on input line 221.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <blueonly.png, id=21, 1402.23875pt x 912.40875pt>
 File: blueonly.png Graphic file (type png)
  <use blueonly.png>
-Package pdftex.def Info: blueonly.png used on input line 214.
+Package pdftex.def Info: blueonly.png used on input line 221.
 (pdftex.def)             Requested size: 75.28152pt x 48.97836pt.
 
 <gammacorrectionlow.png, id=22, 1402.23875pt x 912.40875pt>
 File: gammacorrectionlow.png Graphic file (type png)
 
 <use gammacorrectionlow.png>
-Package pdftex.def Info: gammacorrectionlow.png used on input line 214.
+Package pdftex.def Info: gammacorrectionlow.png used on input line 221.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
 
 <gammacorrection_normal.png, id=23, 1402.23875pt x 912.40875pt>
 File: gammacorrection_normal.png Graphic file (type png)
 
 <use gammacorrection_normal.png>
-Package pdftex.def Info: gammacorrection_normal.png used on input line 214.
+Package pdftex.def Info: gammacorrection_normal.png used on input line 221.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
 
 <gammacorrectionhigh.png, id=24, 1402.23875pt x 912.40875pt>
 File: gammacorrectionhigh.png Graphic file (type png)
 
 <use gammacorrectionhigh.png>
-Package pdftex.def Info: gammacorrectionhigh.png used on input line 214.
+Package pdftex.def Info: gammacorrectionhigh.png used on input line 221.
 (pdftex.def)             Requested size: 100.37537pt x 65.30913pt.
-LaTeX Font Info:    Calculating math sizes for size <10.16> on input line 214.
+LaTeX Font Info:    Calculating math sizes for size <10.16> on input line 221.
 
-<DesignSystemandGA.png, id=25, 597.73312pt x 845.40843pt>
-File: DesignSystemandGA.png Graphic file (type png)
+<architecture.png, id=25, 623.63326pt x 528.62663pt>
+File: architecture.png Graphic file (type png)
+ <use architecture.png>
+Package pdftex.def Info: architecture.png used on input line 221.
+(pdftex.def)             Requested size: 250.93842pt x 212.70523pt.
 
-<use DesignSystemandGA.png>
-Package pdftex.def Info: DesignSystemandGA.png used on input line 214.
-(pdftex.def)             Requested size: 378.30443pt x 535.0611pt.
+<renderserverdiagram.png, id=26, 845.40843pt x 597.73312pt>
+File: renderserverdiagram.png Graphic file (type png)
 
-Overfull \hbox (8.12662pt too wide) in paragraph at lines 214--214
- [][]  
+<use renderserverdiagram.png>
+Package pdftex.def Info: renderserverdiagram.png used on input line 221.
+(pdftex.def)             Requested size: 250.93842pt x 177.4151pt.
+
+Overfull \vbox (1.69466pt too high) detected at line 221
  []
 
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png used on input line 214.
+Package pdftex.def Info: logo.png used on input line 221.
 (pdftex.def)             Requested size: 147.88252pt x 64.49269pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
  <./logo.png> <./brightnesspoint0001.png> <./brightnessnormal.png> <./brightnes
 s5000.png> <./colourtest_no_adjustment.png> <./colourtest_redonly.png> <./colou
 rtest_greenonly.png> <./blueonly.png> <./gammacorrectionlow.png> <./gammacorrec
-tion_normal.png> <./gammacorrectionhigh.png> <./DesignSystemandGA.png>]
+tion_normal.png> <./gammacorrectionhigh.png> <./architecture.png (PNG copy)> <.
+/renderserverdiagram.png>]
 \tf@nav=\write6
 \openout6 = `poster.nav'.
 
@@ -1650,23 +1656,19 @@ tion_normal.png> <./gammacorrectionhigh.png> <./DesignSystemandGA.png>]
 \tf@snm=\write8
 \openout8 = `poster.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 215.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 215.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 222.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 222.
  (./poster.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 215.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 215.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 222.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 222.
 Package rerunfilecheck Info: File `poster.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 20870 strings out of 493013
- 387598 string characters out of 6135681
- 623015 words of memory out of 5000000
- 23841 multiletter control sequences out of 15000+600000
+ 20875 strings out of 493013
+ 387707 string characters out of 6135681
+ 666375 words of memory out of 5000000
+ 23845 multiletter control sequences out of 15000+600000
  29963 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,20n,68p,772b,1080s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1677,27 +1679,10 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on poster.pdf (1 page, 45431292 bytes).
+Output written on poster.pdf (1 page, 45488719 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
+ 78 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
  6 named destinations out of 1000 (max. 500000)
- 26727 words of extra memory for PDF output out of 29859 (max. 10000000)
-
- font info for 120 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 56i,20n,68p,826b,1080s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on poster.pdf (1 page, 45431292 bytes).
-PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 26727 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 26732 words of extra memory for PDF output out of 29859 (max. 10000000)
 

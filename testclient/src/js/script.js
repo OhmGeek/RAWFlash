@@ -46,15 +46,20 @@ $(function() {
 });
 
 function exportImage(data) {
-    // First, we populate the href with base64 data
-    $('#export-button').attr('href', data['export-base64']);
-    // Then set filename
-    let filename = "download" + "." + data['export-format'];
-    $('#export-button').attr('download', filename);
-    // Then open modal
-    document.getElementById('id01').style.display = 'block'
-    console.log("EXPORT")
-    window.open(data['export-base64']);
+    let outputFilename = "output." + data['export-format'];
+    let mimeType = "image/" + data['export-format'];
+    download(data['export-base64'], outputFilename, mimeType);
+
+
+    // // First, we populate the href with base64 data
+    // $('#export-button').attr('href', data['export-base64']);
+    // // Then set filename
+    // let filename = "download" + "." + data['export-format'];
+    // $('#export-button').attr('download', filename);
+    // // Then open modal
+    // document.getElementById('id01').style.display = 'block'
+    // console.log("EXPORT")
+    // window.open(data['export-base64']);
 }
 
 function updateImageSettings() {

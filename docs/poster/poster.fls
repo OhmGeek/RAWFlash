@@ -462,9 +462,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasyb10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasyb10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasyb10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasyb10.tfm
-INPUT DesignSystemandGA.png
-INPUT ./DesignSystemandGA.png
-INPUT ./DesignSystemandGA.png
+INPUT architecture.png
+INPUT ./architecture.png
+INPUT ./architecture.png
+INPUT renderserverdiagram.png
+INPUT ./renderserverdiagram.png
+INPUT ./renderserverdiagram.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT logo.png

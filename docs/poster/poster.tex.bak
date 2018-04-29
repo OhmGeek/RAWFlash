@@ -192,7 +192,7 @@
         \begin{block}{Evaluation}
           Cloud-based RAW image editing is useful for some applications, especially in providing an API to other applications that wish
           to work with RAW images. However, in a real-time setting, the current implementation isn't ideal due to network overheads,
-          coupled with lack of multi-threading. Improvements can be made by creating a custom Image representation, which can allow multi-threading and prevent various memory leaks that occur in the current system.
+          coupled with lack of multithreading. Improvements can be made by creating a custom Image representation, which can allow multithreading and prevent various memory leaks that occur in the current system.
         \end{block}
         
         \begin{block}{Conclusion}
