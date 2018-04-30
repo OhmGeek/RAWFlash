@@ -39,7 +39,9 @@ $(function() {
 
 
         // Now deal with the export
-        exportImage(data);
+        if(data['export-format']) {
+            exportImage(data);
+        }
     });
 
     $('#renderButton').on('click', updateImageSettings);
