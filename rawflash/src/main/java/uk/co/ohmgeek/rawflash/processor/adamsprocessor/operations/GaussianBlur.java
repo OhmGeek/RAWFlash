@@ -20,7 +20,9 @@ public class GaussianBlur implements IOperation {
     }
 
     public BufferedImage process(BufferedImage input) {
-
+        if(kernelSize < 3 || kernelSize % 2 == 0) {
+            return input; //Do Nothing
+        }
         System.out.println(input);
         RenderingHints hints = new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_SPEED);
 

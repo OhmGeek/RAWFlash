@@ -17,9 +17,11 @@ public class CustomWhiteBalance implements IOperation {
     private double blueGain;
 
     public CustomWhiteBalance(double redGain, double greenGain, double blueGain) {
-        this.redGain = redGain;
-        this.greenGain = greenGain;
-        this.blueGain = blueGain;
+        double sum = redGain + greenGain + blueGain;
+        System.out.println(sum);
+        this.redGain = (3 * redGain) / sum;
+        this.greenGain =(3 * greenGain) / sum;
+        this.blueGain = (3 * blueGain) / sum;
     }
 
     public BufferedImage process(BufferedImage input) {
@@ -30,7 +32,7 @@ public class CustomWhiteBalance implements IOperation {
             for(int y = 0; y < input.getHeight(); y++) {
                 int pixel = input.getRGB(x, y);
                 Color c = new Color(pixel);
-                
+
                 int alpha_mask = c.getAlpha();
                 int red = c.getRed();
                 int green = c.getGreen();
@@ -40,6 +42,10 @@ public class CustomWhiteBalance implements IOperation {
                 red = (int) (red * redGain);
                 green = (int) (green * greenGain);
                 blue = (int) (blue * blueGain);
+
+                red = red > 255 ? 255 : red;
+                green = green > 255 ? 255 : green;
+                blue = blue > 255 ? 255 : blue;
 
                 input.setRGB(x, y, new Color(red, green, blue, alpha_mask).getRGB());
             }
